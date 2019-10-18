@@ -17,10 +17,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     alunos.cpp \
-    cidades.cpp \
     curso.cpp \
     disciplinas.cpp \
-    estados.cpp \
     main.cpp \
     mainwindow.cpp \
     pessoas.cpp \
@@ -29,10 +27,8 @@ SOURCES += \
 
 HEADERS += \
     alunos.h \
-    cidades.h \
     curso.h \
     disciplinas.h \
-    estados.h \
     mainwindow.h \
     pessoas.h \
     professores.h \
