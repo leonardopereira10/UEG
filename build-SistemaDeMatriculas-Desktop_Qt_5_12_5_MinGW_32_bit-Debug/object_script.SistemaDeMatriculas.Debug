@@ -1,0 +1,11 @@
+debug/alunos.o
+debug/cidades.o
+debug/curso.o
+debug/disciplinas.o
+debug/estados.o
+debug/main.o
+debug/mainwindow.o
+debug/pessoas.o
+debug/professores.o
+debug/servicodematricula.o
+debug/moc_mainwindow.o
