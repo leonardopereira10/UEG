@@ -8,7 +8,6 @@ class Pessoas
 protected:
     QString CPF, nome, endereco, setor, celular, email;
     Pessoas();
-    Pessoas(QString CPF);
 };
 
 #endif // PESSOAS_H
