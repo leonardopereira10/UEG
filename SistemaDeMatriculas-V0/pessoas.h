@@ -6,7 +6,7 @@
 class Pessoas
 {
 protected:
-    QString CPF, nome, endereco, setor, celular, email;
+	QString CPF, nome, endereco, setor, cidade, estado, celular, email;
     Pessoas();
 };
 
