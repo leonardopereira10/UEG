@@ -8,7 +8,7 @@ class Alunos : Pessoas
 public:
     Alunos();
 
-protected:
+private:
 	int matricula;
 	int ano;
 };
