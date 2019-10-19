@@ -5,19 +5,19 @@
 
 class Cpf
 {
-public:
-	void setCpf(const QString &value);
+  public:
+    void setCpf(const QString &value);
 
-	bool validCpf();
+    bool validCpf();
 
-protected:
-	int* cpfToInt();
-	bool knownValid(const int *);
-	bool validDigitOne(const int *);
-	bool validDigitTwo(const int *);
+  protected:
+    int *cpfToInt();
+    bool knownValid(const int *);
+    bool validDigitOne(const int *);
+    bool validDigitTwo(const int *);
 
-private:
-	QString cpf;
+  private:
+    QString cpf;
 };
 
 #endif // CPF_H

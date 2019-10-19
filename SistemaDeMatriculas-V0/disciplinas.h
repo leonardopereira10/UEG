@@ -8,12 +8,12 @@ using namespace std;
 
 class Disciplinas
 {
-private:
+  private:
     QString codDisciplina;
     QString nomeDisciplina;
     QString cargaHoraria;
 
-public:
+  public:
     Disciplinas();
 };
 

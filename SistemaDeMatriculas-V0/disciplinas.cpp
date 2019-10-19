@@ -1,6 +1,3 @@
 #include "disciplinas.h"
 
-Disciplinas::Disciplinas()
-{
-
-}
+Disciplinas::Disciplinas() {}

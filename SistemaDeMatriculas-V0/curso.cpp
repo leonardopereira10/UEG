@@ -1,6 +1,3 @@
 #include "curso.h"
 
-Curso::Curso()
-{
-
-}
+Curso::Curso() {}
