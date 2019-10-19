@@ -1,5 +1,5 @@
-#ifndef SERVICODEMATRICULA_H
-#define SERVICODEMATRICULA_H
+#ifndef TURMA_H
+#define TURMA_H
 
 #include "alunos.h"
 #include "disciplinas.h"
@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class ServicoDeMatricula
+class Turma
 {
   private:
     list<Alunos> listaDeAlunos;
@@ -17,9 +17,9 @@ class ServicoDeMatricula
     Disciplinas disciplina;
 
   public:
-    ServicoDeMatricula(QString IDTurma, Professores professor,
-                       Disciplinas disciplina, int tamanhoTurma);
+    Turma(QString IDTurma, Professores professor,
+          Disciplinas disciplina, int tamanhoTurma);
     void AdicionaAlunoNaTurma(Alunos aluno);
 };
 
-#endif // SERVICODEMATRICULA_H
+#endif // Turma_H

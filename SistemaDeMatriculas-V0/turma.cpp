@@ -1,11 +1,11 @@
 #include <list>
-#include "servicodematricula.h"
+#include "turma.h"
 #include "alunos.h"
 
 using namespace std;
 
-ServicoDeMatricula::ServicoDeMatricula(QString IDTurma, Professores professor,
-                                       Disciplinas disciplina, int tamanhoTurma)
+Turma::Turma(QString IDTurma, Professores professor,
+             Disciplinas disciplina, int tamanhoTurma)
 {
   this->IDTurma = IDTurma;
   this->professor = professor;
@@ -13,7 +13,7 @@ ServicoDeMatricula::ServicoDeMatricula(QString IDTurma, Professores professor,
   this->listaDeAlunos.resize(tamanhoTurma);
 }
 
-void ServicoDeMatricula::AdicionaAlunoNaTurma(Alunos aluno)
+void Turma::AdicionaAlunoNaTurma(Alunos aluno)
 {
   this->listaDeAlunos.push_front(aluno);
   this->listaDeAlunos.sort(aluno.getNome());

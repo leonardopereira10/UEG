@@ -24,7 +24,7 @@ SOURCES += \
     mainwindow.cpp \
     pessoas.cpp \
     professores.cpp \
-    servicodematricula.cpp
+    turma.cpp
 
 HEADERS += \
     alunos.h \
@@ -34,7 +34,7 @@ HEADERS += \
     mainwindow.h \
     pessoas.h \
     professores.h \
-    servicodematricula.h
+    turma.h
 
 FORMS += \
     mainwindow.ui
