@@ -5,10 +5,21 @@
 
 
 
-class Professores : Pessoas
+class Professores : protected Pessoas
 {
 public:
-    Professores();
+    Professores(
+                QString CPF,
+                QString nome,
+                QString endereco,
+                QString setor,
+                QString cidade,
+                QString estado,
+                QString celular,
+                QString email
+            );
+private:
+
 };
 
 #endif // PROFESSORES_H

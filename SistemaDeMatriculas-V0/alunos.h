@@ -3,10 +3,19 @@
 
 #include "pessoas.h"
 
-class Alunos : Pessoas
+class Alunos : protected Pessoas
 {
 public:
-    Alunos();
+    Alunos(
+            QString CPF,
+            QString nome,
+            QString endereco,
+            QString setor,
+            QString cidade,
+            QString estado,
+            QString celular,
+            QString email
+        );
 
 private:
 	int matricula;
