@@ -2,7 +2,6 @@
 #define DISCIPLINAS_H
 
 #include <QString>
-#include <initializer_list>
 
 using namespace std;
 

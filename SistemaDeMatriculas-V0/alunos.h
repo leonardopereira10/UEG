@@ -6,18 +6,14 @@
 class Alunos : protected Pessoas
 {
   public:
-    Alunos(QString matricula, QString CPF, QString nome, QString endereco,
-           QString setor, QString cidade, QString estado, QString celular,
-           QString email, QString ano);
+    Alunos();
+    Alunos(QString a_matricula, QString a_CPF, QString a_nome, QString a_endereco,
+           QString a_setor, QString a_cidade, QString a_estado, QString a_celular,
+           QString a_email, int a_ano);
 
   private:
     QString matricula;
     int ano;
-  public:
-    QString getNome()
-    {
-      return nome;
-    }
 };
 
 #endif // ALUNOS_H

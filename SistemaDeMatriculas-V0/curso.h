@@ -2,7 +2,6 @@
 #define CURSO_H
 
 #include "disciplinas.h"
-#include <initializer_list>
 
 using namespace std;
 
