@@ -7,6 +7,7 @@ class Alunos : protected Pessoas
 {
 public:
     Alunos(
+            QString matricula,
             QString CPF,
             QString nome,
             QString endereco,
@@ -14,12 +15,13 @@ public:
             QString cidade,
             QString estado,
             QString celular,
-            QString email
+            QString email,
+            QString ano
         );
 
 private:
-	int matricula;
-	int ano;
+    QString matricula;
+    int ano;
 };
 
 #endif // ALUNOS_H

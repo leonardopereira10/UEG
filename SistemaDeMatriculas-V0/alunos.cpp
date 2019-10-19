@@ -1,6 +1,7 @@
 #include "alunos.h"
 
 Alunos::Alunos(
+                QString matricula,
                 QString CPF,
                 QString nome,
                 QString endereco,
@@ -8,8 +9,9 @@ Alunos::Alunos(
                 QString cidade,
                 QString estado,
                 QString celular,
-                QString email
-            ) : Pessoas(CPF, nome, endereco, setor, cidade, estado, celular, email)
+                QString email,
+                QString ano
+                ) : Pessoas(CPF, nome, endereco, setor, cidade, estado, celular, email)
 {
-
+    this->matricula = matricula;
 }
