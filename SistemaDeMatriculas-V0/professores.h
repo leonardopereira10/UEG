@@ -16,10 +16,13 @@ public:
                 QString cidade,
                 QString estado,
                 QString celular,
-                QString email
+                QString email,
+                QString graduacao,
+                QString titulo
             );
 private:
-
+    QString graduacao;
+    QString titulo;
 };
 
 #endif // PROFESSORES_H
