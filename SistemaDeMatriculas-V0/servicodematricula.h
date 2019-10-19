@@ -4,21 +4,21 @@
 #include "alunos.h"
 #include "disciplinas.h"
 #include "professores.h"
-#include <initializer_list>
+#include <list>
 
 using namespace std;
 
 class ServicoDeMatricula
 {
   private:
-    initializer_list<Alunos> listaDeAlunos;
+    list<Alunos> listaDeAlunos;
     Professores professor;
     QString IDTurma;
     Disciplinas disciplina;
 
   public:
     ServicoDeMatricula(QString IDTurma, Professores professor,
-                       Disciplinas disciplina);
+                       Disciplinas disciplina, int tamanhoTurma);
     void AdicionaAlunoNaTurma(Alunos aluno);
 };
 

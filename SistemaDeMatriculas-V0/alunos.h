@@ -13,6 +13,11 @@ class Alunos : protected Pessoas
   private:
     QString matricula;
     int ano;
+  public:
+    QString getNome()
+    {
+      return nome;
+    }
 };
 
 #endif // ALUNOS_H
