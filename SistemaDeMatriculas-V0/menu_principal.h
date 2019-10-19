@@ -15,6 +15,9 @@ public:
     explicit Menu_principal(QWidget *parent = nullptr);
     ~Menu_principal();
 
+private slots:
+    void on_btn_Cadastrar_clicked();
+
 private:
     Ui::Menu_principal *ui;
 };

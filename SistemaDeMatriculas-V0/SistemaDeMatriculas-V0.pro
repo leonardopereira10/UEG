@@ -22,6 +22,7 @@ SOURCES += \
     disciplinas.cpp \
     main.cpp \
     menu_principal.cpp \
+    opcao_cadastrar.cpp \
     pessoas.cpp \
     professores.cpp \
     turma.cpp
@@ -32,16 +33,21 @@ HEADERS += \
     curso.h \
     disciplinas.h \
     menu_principal.h \
+    opcao_cadastrar.h \
     pessoas.h \
     professores.h \
     turma.h \
 
 FORMS += \
-    menu_principal.ui
+    menu_principal.ui \
+    opcao_cadastrar.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES +=
+DISTFILES += \
+    ../../Downloads/Cadastrar.png \
+    ../../Downloads/pesquisar.png \
+    ../../Downloads/remover.png
