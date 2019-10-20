@@ -21,14 +21,24 @@ SOURCES += \
     main.cpp \
     menu_principal.cpp \
     opcao_cadastrar.cpp \
+<<<<<<< HEAD
+    pessoas.cpp \
+    curso.cpp
+=======
 	pessoa.cpp \
+>>>>>>> 81d1c0ff2421662794263d16db5fcb99c2fcb9cd
 
 HEADERS += \
 	aluno.h \
     cpf.h \
     menu_principal.h \
     opcao_cadastrar.h \
+<<<<<<< HEAD
+    pessoas.h \
+    curso.h
+=======
 	pessoa.h \
+>>>>>>> 81d1c0ff2421662794263d16db5fcb99c2fcb9cd
 
 
 FORMS += \
