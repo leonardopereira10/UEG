@@ -40,12 +40,12 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    ../../Downloads/Cadastrar.png \
-    ../../Downloads/Curso.png \
-    ../../Downloads/Disciplinas.png \
-    ../../Downloads/Professores.png \
-    ../../Downloads/pesquisar.png \
-    ../../Downloads/remover.png \
+    ../Imagens/Cadastrar.png \
+    ../Imagens/Curso.png \
+    ../Imagens/Disciplinas.png \
+    ../Imagens/Professores.png \
+    ../Imagens/pesquisar.png \
+    ../Imagens/remover.png \
     ../Imagens/Aluno.png \
     ../Imagens/Confirmação.png \
     ../Imagens/Erro.png
