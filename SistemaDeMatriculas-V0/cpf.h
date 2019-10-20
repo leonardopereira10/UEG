@@ -31,8 +31,6 @@ protected:
 private slots:
 	void on_btn_ok_clicked();
 
-	void on_btn_cancelar_clicked();
-
 private:
     QString cpf;
     Ui::Cpf *ui;

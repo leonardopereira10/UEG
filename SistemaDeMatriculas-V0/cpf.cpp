@@ -7,7 +7,7 @@ Cpf::Cpf(QWidget *parent) :
     ui(new Ui::Cpf)
 {
     ui->setupUi(this);
-    QPixmap erro ("/Users/danyelliasmanso/UEG/Imagens/Erro.png");
+	QPixmap erro (":/imagens/Erro.png");
     ui->validador->setPixmap(erro);
 }
 
@@ -111,28 +111,22 @@ bool Cpf::validCpf()
 }
 
 
-
+// BUG: Janela fecha ao pressionar enter
+// TODO: Retirar imagem de erro que aparece antes de pressionar Ok
 void Cpf::on_btn_ok_clicked()
 {
-    QPixmap erro ("/Users/danyelliasmanso/UEG/Imagens/Erro.png");
-    QPixmap valido ("/Users/danyelliasmanso/UEG/Imagens/Confirmação.png");
-    ui->validador->setPixmap(erro);
+	QPixmap erro (":/imagens/Erro.png");
+	QPixmap valido (":/imagens/Confirmação.png");
+
     setCpf(ui->campo_cpf->text());
-    knownValid(cpfToInt());
-    validDigitOne(cpfToInt());
-    validDigitTwo(cpfToInt());
-    validCpf();
-    if(!validCpf()){
-        ui->validador->setPixmap(erro);
+
+	if(validCpf()){
+		ui->validador->setPixmap(valido);
     }
     else{
-        ui->validador->setPixmap(valido);
+		ui->validador->setPixmap(erro);
     }
 }
 
-
-
-void Cpf::on_btn_cancelar_clicked()
-{
-    this->close();
-}
+// NOTE: Removido método de "Cancelar" (fechar janela)
+// Função de fechar adicionada ao botão por meio de signais

@@ -28,7 +28,7 @@ class Ui_Cpf
 {
 public:
     QLabel *validador;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QGridLayout *gridLayout;
     QHBoxLayout *horizontalLayout;
     QLabel *cpf;
@@ -46,15 +46,15 @@ public:
         validador->setGeometry(QRect(260, 14, 21, 20));
         validador->setPixmap(QPixmap(QString::fromUtf8("../Imagens/Erro.png")));
         validador->setScaledContents(true);
-        widget = new QWidget(Cpf);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(20, 10, 234, 66));
-        gridLayout = new QGridLayout(widget);
+        layoutWidget = new QWidget(Cpf);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(20, 10, 234, 68));
+        gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        cpf = new QLabel(widget);
+        cpf = new QLabel(layoutWidget);
         cpf->setObjectName(QStringLiteral("cpf"));
         QFont font;
         font.setFamily(QStringLiteral("Helvetica"));
@@ -65,7 +65,7 @@ public:
 
         horizontalLayout->addWidget(cpf);
 
-        campo_cpf = new QLineEdit(widget);
+        campo_cpf = new QLineEdit(layoutWidget);
         campo_cpf->setObjectName(QStringLiteral("campo_cpf"));
 
         horizontalLayout->addWidget(campo_cpf);
@@ -73,18 +73,19 @@ public:
 
         gridLayout->addLayout(horizontalLayout, 0, 0, 1, 2);
 
-        btn_cancelar = new QPushButton(widget);
+        btn_cancelar = new QPushButton(layoutWidget);
         btn_cancelar->setObjectName(QStringLiteral("btn_cancelar"));
 
         gridLayout->addWidget(btn_cancelar, 1, 0, 1, 1);
 
-        btn_ok = new QPushButton(widget);
+        btn_ok = new QPushButton(layoutWidget);
         btn_ok->setObjectName(QStringLiteral("btn_ok"));
 
         gridLayout->addWidget(btn_ok, 1, 1, 1, 1);
 
 
         retranslateUi(Cpf);
+        QObject::connect(btn_cancelar, SIGNAL(clicked()), Cpf, SLOT(close()));
 
         QMetaObject::connectSlotsByName(Cpf);
     } // setupUi
