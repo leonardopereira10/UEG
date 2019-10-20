@@ -8,6 +8,7 @@ Menu_principal::Menu_principal(QWidget *parent) :
 {
     ui->setupUi(this);
 
+<<<<<<< HEAD
     QPixmap logo_cadastrar (":/imagens/Cadastrar.png");
     ui->logo_cadastrar->setPixmap(logo_cadastrar);
 
@@ -15,6 +16,15 @@ Menu_principal::Menu_principal(QWidget *parent) :
     ui->logo_consultar->setPixmap(logo_consultar);
 
     QPixmap logo_remover (":/imagens/remover.png");
+=======
+	QPixmap logo_cadastrar (":/imagens/Cadastrar.png");
+    ui->logo_cadastrar->setPixmap(logo_cadastrar);
+
+	QPixmap logo_consultar (":/imagens/pesquisar.png");
+    ui->logo_consultar->setPixmap(logo_consultar);
+
+	QPixmap logo_remover (":/imagens/remover.png");
+>>>>>>> ecfa489f5a930f840e0eb228647ed0e2ba1e4dc6
     ui->logo_remover->setPixmap(logo_remover);
 
 }

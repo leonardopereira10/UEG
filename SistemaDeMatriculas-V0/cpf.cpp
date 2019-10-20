@@ -7,7 +7,11 @@ Cpf::Cpf(QWidget *parent) :
     ui(new Ui::Cpf)
 {
     ui->setupUi(this);
+<<<<<<< HEAD
     QPixmap erro (":/imagens/Erro.png");
+=======
+	QPixmap erro (":/imagens/Erro.png");
+>>>>>>> ecfa489f5a930f840e0eb228647ed0e2ba1e4dc6
     ui->validador->setPixmap(erro);
 }
 
@@ -111,19 +115,29 @@ bool Cpf::validCpf()
 }
 
 
-
 void Cpf::on_btn_ok_clicked()
 {
+<<<<<<< HEAD
     QPixmap erro (":/imagens/Erro.png");
     QPixmap valido (":/imagens/Confirmacao.png");
     ui->validador->setPixmap(erro);
     setCpf(ui->campo_cpf->text());
+=======
+	QPixmap erro (":/imagens/Erro.png");
+	QPixmap valido (":/imagens/Confirmação.png");
+    ui->validador->setPixmap(erro);
+    setCpf(ui->campo_cpf->text());
+    knownValid(cpfToInt());
+    validDigitOne(cpfToInt());
+    validDigitTwo(cpfToInt());
+>>>>>>> ecfa489f5a930f840e0eb228647ed0e2ba1e4dc6
     if(!validCpf()){
         ui->validador->setPixmap(erro);
     }
     else{
         ui->validador->setPixmap(valido);
     }
+<<<<<<< HEAD
 
 }
 
@@ -136,4 +150,6 @@ void Cpf::on_btn_cancelar_clicked()
 void Cpf::on_campo_cpf_returnPressed()
 {
     ui->btn_ok->click();
+=======
+>>>>>>> ecfa489f5a930f840e0eb228647ed0e2ba1e4dc6
 }
