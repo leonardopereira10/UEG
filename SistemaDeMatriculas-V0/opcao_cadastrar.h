@@ -1,22 +1,22 @@
 #ifndef OPCAO_CADASTRAR_H
 #define OPCAO_CADASTRAR_H
 
-#include <QMainWindow>
+#include <QDialog>
 
 namespace Ui {
-class Opcao_Cadastrar;
+class opcao_cadastrar;
 }
 
-class Opcao_Cadastrar : public QMainWindow
+class opcao_cadastrar : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit Opcao_Cadastrar(QWidget *parent = nullptr);
-    ~Opcao_Cadastrar();
+    explicit opcao_cadastrar(QWidget *parent = nullptr);
+    ~opcao_cadastrar();
 
 private:
-    Ui::Opcao_Cadastrar *ui;
+    Ui::opcao_cadastrar *ui;
 };
 
 #endif // OPCAO_CADASTRAR_H
