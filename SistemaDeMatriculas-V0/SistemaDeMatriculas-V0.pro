@@ -16,7 +16,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    cpf.cpp \
     main.cpp \
     menu_principal.cpp \
     opcao_cadastrar.cpp \
@@ -24,13 +23,13 @@ SOURCES += \
     professores.cpp
 
 HEADERS += \
-    cpf.h \
     menu_principal.h \
     opcao_cadastrar.h \
     pessoas.h \
     professores.h \
 
 FORMS += \
+    cpf.ui \
     menu_principal.ui \
     opcao_cadastrar.ui
 
