@@ -16,25 +16,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    alunos.cpp \
     cpf.cpp \
-    curso.cpp \
-    disciplinas.cpp \
     main.cpp \
     menu_principal.cpp \
     pessoas.cpp \
-    professores.cpp \
-    turma.cpp
+    professores.cpp
 
 HEADERS += \
-    alunos.h \
     cpf.h \
-    curso.h \
-    disciplinas.h \
     menu_principal.h \
     pessoas.h \
     professores.h \
-    turma.h \
 
 FORMS += \
     menu_principal.ui
