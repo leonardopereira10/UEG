@@ -35,6 +35,8 @@ private slots:
 
     void on_campo_cpf_returnPressed();
 
+    void on_campo_cpf_textEdited(const QString &arg1);
+
 private:
 	QString cpf;
 	Ui::Cpf *ui;

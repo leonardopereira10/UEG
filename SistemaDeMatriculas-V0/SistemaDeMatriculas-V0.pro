@@ -20,15 +20,13 @@ SOURCES += \
     main.cpp \
     menu_principal.cpp \
     opcao_cadastrar.cpp \
-    pessoas.cpp \
-    professores.cpp
+    pessoa.cpp \
 
 HEADERS += \
     cpf.h \
     menu_principal.h \
     opcao_cadastrar.h \
-    pessoas.h \
-    professores.h \
+    pessoa.h \
 
 FORMS += \
     cpf.ui \
@@ -40,7 +38,7 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES +=
+DISTFILES += \
 
 RESOURCES += \
     Imagens/imagens.qrc
