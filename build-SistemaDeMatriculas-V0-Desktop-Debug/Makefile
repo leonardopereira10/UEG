@@ -52,7 +52,7 @@ SOURCES       = ../SistemaDeMatriculas-V0/cpf.cpp \
 		../SistemaDeMatriculas-V0/main.cpp \
 		../SistemaDeMatriculas-V0/menu_principal.cpp \
 		../SistemaDeMatriculas-V0/opcao_cadastrar.cpp \
-		../SistemaDeMatriculas-V0/curso.cpp qrc_imagens.cpp \
+		../SistemaDeMatriculas-V0/pessoa.cpp qrc_imagens.cpp \
 		moc_cpf.cpp \
 		moc_menu_principal.cpp \
 		moc_opcao_cadastrar.cpp
@@ -60,7 +60,7 @@ OBJECTS       = cpf.o \
 		main.o \
 		menu_principal.o \
 		opcao_cadastrar.o \
-		curso.o \
+		pessoa.o \
 		qrc_imagens.o \
 		moc_cpf.o \
 		moc_menu_principal.o \
@@ -111,7 +111,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
-		../SistemaDeMatriculas-V0/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -133,11 +132,11 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro ../SistemaDeMatriculas-V0/cpf.h \
 		../SistemaDeMatriculas-V0/menu_principal.h \
 		../SistemaDeMatriculas-V0/opcao_cadastrar.h \
-		../SistemaDeMatriculas-V0/curso.h ../SistemaDeMatriculas-V0/cpf.cpp \
+		../SistemaDeMatriculas-V0/pessoa.h ../SistemaDeMatriculas-V0/cpf.cpp \
 		../SistemaDeMatriculas-V0/main.cpp \
 		../SistemaDeMatriculas-V0/menu_principal.cpp \
 		../SistemaDeMatriculas-V0/opcao_cadastrar.cpp \
-		../SistemaDeMatriculas-V0/curso.cpp
+		../SistemaDeMatriculas-V0/pessoa.cpp
 QMAKE_TARGET  = SistemaDeMatriculas-V0
 DESTDIR       = 
 TARGET        = SistemaDeMatriculas-V0
@@ -195,7 +194,6 @@ Makefile: ../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro /usr/lib/x86_64-l
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -267,7 +265,6 @@ Makefile: ../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro /usr/lib/x86_64-l
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -307,8 +304,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/Imagens/imagens.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/cpf.h ../SistemaDeMatriculas-V0/menu_principal.h ../SistemaDeMatriculas-V0/opcao_cadastrar.h ../SistemaDeMatriculas-V0/curso.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/cpf.cpp ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/menu_principal.cpp ../SistemaDeMatriculas-V0/opcao_cadastrar.cpp ../SistemaDeMatriculas-V0/curso.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/cpf.h ../SistemaDeMatriculas-V0/menu_principal.h ../SistemaDeMatriculas-V0/opcao_cadastrar.h ../SistemaDeMatriculas-V0/pessoa.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/cpf.cpp ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/menu_principal.cpp ../SistemaDeMatriculas-V0/opcao_cadastrar.cpp ../SistemaDeMatriculas-V0/pessoa.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/cpf.ui ../SistemaDeMatriculas-V0/menu_principal.ui ../SistemaDeMatriculas-V0/opcao_cadastrar.ui $(DISTDIR)/
 
 
@@ -418,8 +415,9 @@ opcao_cadastrar.o: ../SistemaDeMatriculas-V0/opcao_cadastrar.cpp ../SistemaDeMat
 		ui_opcao_cadastrar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o opcao_cadastrar.o ../SistemaDeMatriculas-V0/opcao_cadastrar.cpp
 
-curso.o: ../SistemaDeMatriculas-V0/curso.cpp ../SistemaDeMatriculas-V0/curso.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o curso.o ../SistemaDeMatriculas-V0/curso.cpp
+pessoa.o: ../SistemaDeMatriculas-V0/pessoa.cpp ../SistemaDeMatriculas-V0/pessoa.h \
+		../SistemaDeMatriculas-V0/cpf.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pessoa.o ../SistemaDeMatriculas-V0/pessoa.cpp
 
 qrc_imagens.o: qrc_imagens.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_imagens.o qrc_imagens.cpp

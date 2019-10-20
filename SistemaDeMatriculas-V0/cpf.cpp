@@ -116,7 +116,7 @@ bool Cpf::validCpf()
 void Cpf::on_btn_ok_clicked()
 {
 	QPixmap erro (":/imagens/Erro.png");
-	QPixmap valido (":/imagens/Confirmação.png");
+	QPixmap valido (":/imagens/Confirmacao.png");
 
 	setCpf(ui->campo_cpf->text());
 
@@ -126,6 +126,11 @@ void Cpf::on_btn_ok_clicked()
 	else{
 		ui->validador->setPixmap(erro);
 	}
+}
+
+void Cpf::on_campo_cpf_returnPressed()
+{
+	ui->btn_ok->click();
 }
 
 // NOTE: Removido método de "Cancelar" (fechar janela)

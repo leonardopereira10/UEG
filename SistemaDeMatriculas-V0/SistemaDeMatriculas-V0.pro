@@ -20,14 +20,12 @@ SOURCES += \
     main.cpp \
     menu_principal.cpp \
     opcao_cadastrar.cpp \
-    curso.cpp
 	pessoa.cpp \
 
 HEADERS += \
     cpf.h \
     menu_principal.h \
     opcao_cadastrar.h \
-    curso.h
 	pessoa.h \
 
 FORMS += \
