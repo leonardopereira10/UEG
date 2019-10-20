@@ -24,10 +24,11 @@ Menu_principal::~Menu_principal()
     delete ui;
 }
 
+// NOTE: Não criar novas instâncias de menu
 void Menu_principal::on_btn_Cadastrar_clicked()
 {
-    this->close();
+	this->hide();
     opcao_cadastrar tela_cadastro;
     tela_cadastro.exec();
-
+	this->show();
 }

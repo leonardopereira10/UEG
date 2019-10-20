@@ -97,6 +97,7 @@ public:
 
 
         retranslateUi(opcao_cadastrar);
+        QObject::connect(btn_voltar, SIGNAL(clicked()), opcao_cadastrar, SLOT(close()));
 
         QMetaObject::connectSlotsByName(opcao_cadastrar);
     } // setupUi

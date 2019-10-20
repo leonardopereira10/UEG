@@ -7,8 +7,6 @@ Cpf::Cpf(QWidget *parent) :
     ui(new Ui::Cpf)
 {
     ui->setupUi(this);
-	QPixmap erro (":/imagens/Erro.png");
-    ui->validador->setPixmap(erro);
 }
 
 Cpf::~Cpf()
@@ -128,5 +126,5 @@ void Cpf::on_btn_ok_clicked()
     }
 }
 
-// NOTE: Removido método de "Cancelar" (fechar janela)
+// NOTE: Removido método de "Cancelar" (fechar janela) de CPF
 // Função de fechar adicionada ao botão por meio de signais

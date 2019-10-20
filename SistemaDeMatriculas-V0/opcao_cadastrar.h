@@ -18,8 +18,6 @@ public:
     ~opcao_cadastrar();
 
 private slots:
-    void on_btn_voltar_clicked();
-
     void on_btn_aluno_clicked();
 
     void on_btn_professor_clicked();

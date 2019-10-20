@@ -27,16 +27,13 @@ opcao_cadastrar::~opcao_cadastrar()
     delete ui;
 }
 
-void opcao_cadastrar::on_btn_voltar_clicked()
-{
-    this->close();
-    Menu_principal* menu = new Menu_principal;
-    menu->show();
-}
+// NOTE: Removido método voltar de opção_cadastrar (usando sgnais agora)
 
 void opcao_cadastrar::on_btn_aluno_clicked()
 {
-
+	this->blockSignals(true);
+	Cpf janelacpf;
+	janelacpf.exec();
 }
 
 void opcao_cadastrar::on_btn_professor_clicked()
