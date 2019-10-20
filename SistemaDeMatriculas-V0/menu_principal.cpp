@@ -16,6 +16,7 @@ Menu_principal::Menu_principal(QWidget *parent) :
 
     QPixmap logo_remover ("/Users/danyelliasmanso/Downloads/remover.png");
     ui->logo_remover->setPixmap(logo_remover);
+
 }
 
 Menu_principal::~Menu_principal()
@@ -26,4 +27,7 @@ Menu_principal::~Menu_principal()
 void Menu_principal::on_btn_Cadastrar_clicked()
 {
     this->close();
+    opcao_cadastrar tela_cadastro;
+    tela_cadastro.exec();
+
 }

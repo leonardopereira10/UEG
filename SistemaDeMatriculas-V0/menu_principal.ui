@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>460</width>
-    <height>188</height>
+    <width>463</width>
+    <height>181</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -65,7 +65,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="btn_consultar">
     <property name="geometry">
      <rect>
       <x>170</x>
@@ -111,7 +111,7 @@
     </property>
    </widget>
    <zorder>btn_Cadastrar</zorder>
-   <zorder>pushButton</zorder>
+   <zorder>btn_consultar</zorder>
    <zorder>pushButton_2</zorder>
    <zorder>logo_cadastrar</zorder>
    <zorder>logo_consultar</zorder>
@@ -122,7 +122,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>460</width>
+     <width>463</width>
      <height>22</height>
     </rect>
    </property>

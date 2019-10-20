@@ -16,27 +16,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    alunos.cpp \
     cpf.cpp \
-    curso.cpp \
-    disciplinas.cpp \
     main.cpp \
     menu_principal.cpp \
     opcao_cadastrar.cpp \
     pessoas.cpp \
-    professores.cpp \
-    turma.cpp
 
 HEADERS += \
-    alunos.h \
     cpf.h \
-    curso.h \
-    disciplinas.h \
     menu_principal.h \
     opcao_cadastrar.h \
     pessoas.h \
-    professores.h \
-    turma.h \
+
 
 FORMS += \
     menu_principal.ui \
@@ -49,5 +40,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     ../../Downloads/Cadastrar.png \
+    ../../Downloads/Curso.png \
+    ../../Downloads/Disciplinas.png \
+    ../../Downloads/Professores.png \
     ../../Downloads/pesquisar.png \
-    ../../Downloads/remover.png
+    ../../Downloads/remover.png \
+    ../Imagens/Aluno.png

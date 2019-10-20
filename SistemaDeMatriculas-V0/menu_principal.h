@@ -2,6 +2,7 @@
 #define MENU_PRINCIPAL_H
 
 #include <QMainWindow>
+#include "opcao_cadastrar.h"
 
 namespace Ui {
 class Menu_principal;
