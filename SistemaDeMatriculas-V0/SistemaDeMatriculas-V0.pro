@@ -30,6 +30,7 @@ HEADERS += \
 
 
 FORMS += \
+    cpf.ui \
     menu_principal.ui \
     opcao_cadastrar.ui
 
@@ -45,4 +46,6 @@ DISTFILES += \
     ../../Downloads/Professores.png \
     ../../Downloads/pesquisar.png \
     ../../Downloads/remover.png \
-    ../Imagens/Aluno.png
+    ../Imagens/Aluno.png \
+    ../Imagens/Confirmação.png \
+    ../Imagens/Erro.png

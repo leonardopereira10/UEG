@@ -41,7 +41,9 @@ void opcao_cadastrar::on_btn_aluno_clicked()
 
 void opcao_cadastrar::on_btn_professor_clicked()
 {
-
+    this->blockSignals(true);
+    Cpf janelacpf;
+    janelacpf.exec();
 }
 
 void opcao_cadastrar::on_btn_curso_clicked()

@@ -26,12 +26,12 @@
     <string>Voltar</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>30</y>
-     <width>401</width>
+     <y>26</y>
+     <width>391</width>
      <height>121</height>
     </rect>
    </property>
@@ -40,9 +40,6 @@
      <widget class="QLabel" name="logo_aluno">
       <property name="text">
        <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap>../Imagens/Aluno.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -54,9 +51,6 @@
       <property name="text">
        <string/>
       </property>
-      <property name="pixmap">
-       <pixmap>../Imagens/Professores.png</pixmap>
-      </property>
       <property name="scaledContents">
        <bool>true</bool>
       </property>
@@ -67,9 +61,6 @@
       <property name="text">
        <string/>
       </property>
-      <property name="pixmap">
-       <pixmap>../Imagens/Curso.png</pixmap>
-      </property>
       <property name="scaledContents">
        <bool>true</bool>
       </property>
@@ -79,9 +70,6 @@
      <widget class="QLabel" name="logo_disciplina">
       <property name="text">
        <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap>../Imagens/Disciplinas.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>

@@ -23,7 +23,7 @@ class Ui_opcao_cadastrar
 {
 public:
     QPushButton *btn_voltar;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QGridLayout *gridLayout;
     QLabel *logo_aluno;
     QLabel *logo_professor;
@@ -42,56 +42,52 @@ public:
         btn_voltar = new QPushButton(opcao_cadastrar);
         btn_voltar->setObjectName(QString::fromUtf8("btn_voltar"));
         btn_voltar->setGeometry(QRect(176, 170, 120, 32));
-        widget = new QWidget(opcao_cadastrar);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(30, 30, 401, 121));
-        gridLayout = new QGridLayout(widget);
+        layoutWidget = new QWidget(opcao_cadastrar);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(30, 26, 391, 121));
+        gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        logo_aluno = new QLabel(widget);
+        logo_aluno = new QLabel(layoutWidget);
         logo_aluno->setObjectName(QString::fromUtf8("logo_aluno"));
-        logo_aluno->setPixmap(QPixmap(QString::fromUtf8("../Imagens/Aluno.png")));
         logo_aluno->setScaledContents(true);
 
         gridLayout->addWidget(logo_aluno, 0, 0, 1, 1);
 
-        logo_professor = new QLabel(widget);
+        logo_professor = new QLabel(layoutWidget);
         logo_professor->setObjectName(QString::fromUtf8("logo_professor"));
-        logo_professor->setPixmap(QPixmap(QString::fromUtf8("../Imagens/Professores.png")));
         logo_professor->setScaledContents(true);
 
         gridLayout->addWidget(logo_professor, 0, 1, 1, 1);
 
-        logo_curso = new QLabel(widget);
+        logo_curso = new QLabel(layoutWidget);
         logo_curso->setObjectName(QString::fromUtf8("logo_curso"));
-        logo_curso->setPixmap(QPixmap(QString::fromUtf8("../Imagens/Curso.png")));
         logo_curso->setScaledContents(true);
 
         gridLayout->addWidget(logo_curso, 0, 2, 1, 1);
 
-        logo_disciplina = new QLabel(widget);
+        logo_disciplina = new QLabel(layoutWidget);
         logo_disciplina->setObjectName(QString::fromUtf8("logo_disciplina"));
-        logo_disciplina->setPixmap(QPixmap(QString::fromUtf8("../Imagens/Disciplinas.png")));
         logo_disciplina->setScaledContents(true);
 
         gridLayout->addWidget(logo_disciplina, 0, 3, 1, 1);
 
-        btn_aluno = new QPushButton(widget);
+        btn_aluno = new QPushButton(layoutWidget);
         btn_aluno->setObjectName(QString::fromUtf8("btn_aluno"));
 
         gridLayout->addWidget(btn_aluno, 1, 0, 1, 1);
 
-        btn_professor = new QPushButton(widget);
+        btn_professor = new QPushButton(layoutWidget);
         btn_professor->setObjectName(QString::fromUtf8("btn_professor"));
 
         gridLayout->addWidget(btn_professor, 1, 1, 1, 1);
 
-        btn_curso = new QPushButton(widget);
+        btn_curso = new QPushButton(layoutWidget);
         btn_curso->setObjectName(QString::fromUtf8("btn_curso"));
 
         gridLayout->addWidget(btn_curso, 1, 2, 1, 1);
 
-        btn_disciplina = new QPushButton(widget);
+        btn_disciplina = new QPushButton(layoutWidget);
         btn_disciplina->setObjectName(QString::fromUtf8("btn_disciplina"));
 
         gridLayout->addWidget(btn_disciplina, 1, 3, 1, 1);

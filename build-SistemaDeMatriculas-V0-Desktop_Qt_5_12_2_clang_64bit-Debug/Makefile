@@ -56,13 +56,15 @@ SOURCES       = ../SistemaDeMatriculas-V0/cpf.cpp \
 		../SistemaDeMatriculas-V0/main.cpp \
 		../SistemaDeMatriculas-V0/menu_principal.cpp \
 		../SistemaDeMatriculas-V0/opcao_cadastrar.cpp \
-		../SistemaDeMatriculas-V0/pessoas.cpp moc_menu_principal.cpp \
+		../SistemaDeMatriculas-V0/pessoas.cpp moc_cpf.cpp \
+		moc_menu_principal.cpp \
 		moc_opcao_cadastrar.cpp
 OBJECTS       = cpf.o \
 		main.o \
 		menu_principal.o \
 		opcao_cadastrar.o \
 		pessoas.o \
+		moc_cpf.o \
 		moc_menu_principal.o \
 		moc_opcao_cadastrar.o
 DIST          = ../../Downloads/Cadastrar.png \
@@ -72,6 +74,8 @@ DIST          = ../../Downloads/Cadastrar.png \
 		../../Downloads/pesquisar.png \
 		../../Downloads/remover.png \
 		../Imagens/Aluno.png \
+		../Imagens/Confirmação.png \
+		../Imagens/Erro.png \
 		../../Qt/5.12.2/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.12.2/clang_64/mkspecs/qdevice.pri \
 		../../Qt/5.12.2/clang_64/mkspecs/features/device_config.prf \
@@ -271,7 +275,7 @@ include /Users/danyelliasmanso/Qt/5.12.2/clang_64/mkspecs/features/mac/sdk.mk
 first: all
 ####### Build rules
 
-SistemaDeMatriculas-V0.app/Contents/MacOS/SistemaDeMatriculas-V0: ui_menu_principal.h ui_opcao_cadastrar.h $(OBJECTS)  
+SistemaDeMatriculas-V0.app/Contents/MacOS/SistemaDeMatriculas-V0: ui_cpf.h ui_menu_principal.h ui_opcao_cadastrar.h $(OBJECTS)  
 	@test -d SistemaDeMatriculas-V0.app/Contents/MacOS/ || mkdir -p SistemaDeMatriculas-V0.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -664,7 +668,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents ../../Qt/5.12.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/cpf.h ../SistemaDeMatriculas-V0/menu_principal.h ../SistemaDeMatriculas-V0/opcao_cadastrar.h ../SistemaDeMatriculas-V0/pessoas.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/cpf.cpp ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/menu_principal.cpp ../SistemaDeMatriculas-V0/opcao_cadastrar.cpp ../SistemaDeMatriculas-V0/pessoas.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/menu_principal.ui ../SistemaDeMatriculas-V0/opcao_cadastrar.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/cpf.ui ../SistemaDeMatriculas-V0/menu_principal.ui ../SistemaDeMatriculas-V0/opcao_cadastrar.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -699,9 +703,22 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../Qt/5.12.2/clang_64/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.12 -Wall -W -dM -E -o moc_predefs.h ../../Qt/5.12.2/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_menu_principal.cpp moc_opcao_cadastrar.cpp
+compiler_moc_header_make_all: moc_cpf.cpp moc_menu_principal.cpp moc_opcao_cadastrar.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_menu_principal.cpp moc_opcao_cadastrar.cpp
+	-$(DEL_FILE) moc_cpf.cpp moc_menu_principal.cpp moc_opcao_cadastrar.cpp
+moc_cpf.cpp: ../SistemaDeMatriculas-V0/cpf.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		moc_predefs.h \
+		../../Qt/5.12.2/clang_64/bin/moc
+	/Users/danyelliasmanso/Qt/5.12.2/clang_64/bin/moc $(DEFINES) --include /Users/danyelliasmanso/UEG/build-SistemaDeMatriculas-V0-Desktop_Qt_5_12_2_clang_64bit-Debug/moc_predefs.h -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/mkspecs/macx-clang -I/Users/danyelliasmanso/UEG/SistemaDeMatriculas-V0 -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtGui.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtSql.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib ../SistemaDeMatriculas-V0/cpf.h -o moc_cpf.cpp
+
 moc_menu_principal.cpp: ../SistemaDeMatriculas-V0/menu_principal.h \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -709,6 +726,13 @@ moc_menu_principal.cpp: ../SistemaDeMatriculas-V0/menu_principal.h \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
 		../SistemaDeMatriculas-V0/menu_principal.h \
+		../SistemaDeMatriculas-V0/cpf.h \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		moc_predefs.h \
 		../../Qt/5.12.2/clang_64/bin/moc
 	/Users/danyelliasmanso/Qt/5.12.2/clang_64/bin/moc $(DEFINES) --include /Users/danyelliasmanso/UEG/build-SistemaDeMatriculas-V0-Desktop_Qt_5_12_2_clang_64bit-Debug/moc_predefs.h -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/mkspecs/macx-clang -I/Users/danyelliasmanso/UEG/SistemaDeMatriculas-V0 -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtGui.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtSql.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib ../SistemaDeMatriculas-V0/menu_principal.h -o moc_menu_principal.cpp
@@ -720,6 +744,13 @@ moc_opcao_cadastrar.cpp: ../SistemaDeMatriculas-V0/opcao_cadastrar.h \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../SistemaDeMatriculas-V0/opcao_cadastrar.h \
+		../SistemaDeMatriculas-V0/cpf.h \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		moc_predefs.h \
 		../../Qt/5.12.2/clang_64/bin/moc
 	/Users/danyelliasmanso/Qt/5.12.2/clang_64/bin/moc $(DEFINES) --include /Users/danyelliasmanso/UEG/build-SistemaDeMatriculas-V0-Desktop_Qt_5_12_2_clang_64bit-Debug/moc_predefs.h -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/mkspecs/macx-clang -I/Users/danyelliasmanso/UEG/SistemaDeMatriculas-V0 -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtGui.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtSql.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib ../SistemaDeMatriculas-V0/opcao_cadastrar.h -o moc_opcao_cadastrar.cpp
@@ -728,9 +759,13 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_menu_principal.h ui_opcao_cadastrar.h
+compiler_uic_make_all: ui_cpf.h ui_menu_principal.h ui_opcao_cadastrar.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_menu_principal.h ui_opcao_cadastrar.h
+	-$(DEL_FILE) ui_cpf.h ui_menu_principal.h ui_opcao_cadastrar.h
+ui_cpf.h: ../SistemaDeMatriculas-V0/cpf.ui \
+		../../Qt/5.12.2/clang_64/bin/uic
+	/Users/danyelliasmanso/Qt/5.12.2/clang_64/bin/uic ../SistemaDeMatriculas-V0/cpf.ui -o ui_cpf.h
+
 ui_menu_principal.h: ../SistemaDeMatriculas-V0/menu_principal.ui \
 		../../Qt/5.12.2/clang_64/bin/uic
 	/Users/danyelliasmanso/Qt/5.12.2/clang_64/bin/uic ../SistemaDeMatriculas-V0/menu_principal.ui -o ui_menu_principal.h
@@ -752,8 +787,15 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 ####### Compile
 
 cpf.o: ../SistemaDeMatriculas-V0/cpf.cpp ../SistemaDeMatriculas-V0/cpf.h \
-		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
-		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		ui_cpf.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cpf.o ../SistemaDeMatriculas-V0/cpf.cpp
 
 main.o: ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/menu_principal.h \
@@ -762,6 +804,13 @@ main.o: ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/menu_princi
 		../SistemaDeMatriculas-V0/opcao_cadastrar.h \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../SistemaDeMatriculas-V0/cpf.h \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../SistemaDeMatriculas-V0/main.cpp
@@ -772,9 +821,14 @@ menu_principal.o: ../SistemaDeMatriculas-V0/menu_principal.cpp ../SistemaDeMatri
 		../SistemaDeMatriculas-V0/opcao_cadastrar.h \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
-		ui_menu_principal.h \
+		../SistemaDeMatriculas-V0/cpf.h \
 		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
-		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		ui_menu_principal.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o menu_principal.o ../SistemaDeMatriculas-V0/menu_principal.cpp
 
 opcao_cadastrar.o: ../SistemaDeMatriculas-V0/opcao_cadastrar.cpp ../SistemaDeMatriculas-V0/opcao_cadastrar.h \
@@ -783,9 +837,14 @@ opcao_cadastrar.o: ../SistemaDeMatriculas-V0/opcao_cadastrar.cpp ../SistemaDeMat
 		../SistemaDeMatriculas-V0/menu_principal.h \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		ui_opcao_cadastrar.h \
+		../SistemaDeMatriculas-V0/cpf.h \
 		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
-		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		ui_opcao_cadastrar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o opcao_cadastrar.o ../SistemaDeMatriculas-V0/opcao_cadastrar.cpp
 
 pessoas.o: ../SistemaDeMatriculas-V0/pessoas.cpp ../SistemaDeMatriculas-V0/pessoas.h \
@@ -812,6 +871,9 @@ pessoas.o: ../SistemaDeMatriculas-V0/pessoas.cpp ../SistemaDeMatriculas-V0/pesso
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QFileInfo \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qfileinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pessoas.o ../SistemaDeMatriculas-V0/pessoas.cpp
+
+moc_cpf.o: moc_cpf.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_cpf.o moc_cpf.cpp
 
 moc_menu_principal.o: moc_menu_principal.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_menu_principal.o moc_menu_principal.cpp

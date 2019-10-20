@@ -1,8 +1,29 @@
-﻿#include "cpf.h"
+#include "cpf.h"
+#include "ui_cpf.h"
+
+Cpf::Cpf(QWidget *parent) :
+
+    QDialog(parent),
+    ui(new Ui::Cpf)
+{
+    ui->setupUi(this);
+    QPixmap erro ("/Users/danyelliasmanso/UEG/Imagens/Erro.png");
+    ui->validador->setPixmap(erro);
+}
+
+Cpf::~Cpf()
+{
+    delete ui;
+}
+
+QString Cpf::getCpf() const
+{
+    return cpf;
+}
 
 void Cpf::setCpf(const QString &value)
 {
-  cpf = value;
+    cpf = value;
 }
 
 int *Cpf::cpfToInt()
@@ -76,7 +97,7 @@ bool Cpf::validDigitTwo(const int *vetCpf)
 
 bool Cpf::validCpf()
 {
-  if (cpf.length() < 14) // Considera-se a pontuação
+  if (cpf.length() < 14) // Considera-se a pontuaçaoo
     return false;
   else
   {
@@ -87,4 +108,31 @@ bool Cpf::validCpf()
         return true;
     return false;
   }
+}
+
+
+
+void Cpf::on_btn_ok_clicked()
+{
+    QPixmap erro ("/Users/danyelliasmanso/UEG/Imagens/Erro.png");
+    QPixmap valido ("/Users/danyelliasmanso/UEG/Imagens/Confirmação.png");
+    ui->validador->setPixmap(erro);
+    setCpf(ui->campo_cpf->text());
+    knownValid(cpfToInt());
+    validDigitOne(cpfToInt());
+    validDigitTwo(cpfToInt());
+    validCpf();
+    if(!validCpf()){
+        ui->validador->setPixmap(erro);
+    }
+    else{
+        ui->validador->setPixmap(valido);
+    }
+}
+
+
+
+void Cpf::on_btn_cancelar_clicked()
+{
+    this->close();
 }

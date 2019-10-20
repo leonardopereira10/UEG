@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <menu_principal.h>
+#include "cpf.h"
 
 namespace Ui {
 class opcao_cadastrar;
