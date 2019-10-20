@@ -3,7 +3,7 @@
 
 #include "pessoa.h"
 
-class Aluno : protected Pessoa
+class Aluno : Pessoa
 {
 public:
 	Aluno();
