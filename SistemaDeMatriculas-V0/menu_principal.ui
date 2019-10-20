@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>452</width>
-    <height>200</height>
+    <width>463</width>
+    <height>181</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>SMC - Sistema de Controle de Matrícula</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="logo_cadastrar">
@@ -27,7 +27,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../Downloads/kisspng-computer-icons-form-5ada07b2751db6.7275354715242382584797.png</pixmap>
+     <pixmap>../../Downloads/Cadastrar.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -59,13 +59,13 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../Downloads/64e14fe0195557e3f18ea3becba3169b-lupa-de-pesquisa-by-vexels.png</pixmap>
+     <pixmap>../../Downloads/pesquisar.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="btn_consultar">
     <property name="geometry">
      <rect>
       <x>170</x>
@@ -78,7 +78,7 @@
      <string>Consultar</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="logo_remover">
     <property name="geometry">
      <rect>
       <x>338</x>
@@ -91,7 +91,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../Downloads/1486564399-close_81512.png</pixmap>
+     <pixmap>../Imagens/remover.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -110,13 +110,19 @@
      <string>Remover</string>
     </property>
    </widget>
+   <zorder>btn_Cadastrar</zorder>
+   <zorder>btn_consultar</zorder>
+   <zorder>pushButton_2</zorder>
+   <zorder>logo_cadastrar</zorder>
+   <zorder>logo_consultar</zorder>
+   <zorder>logo_remover</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>452</width>
+     <width>463</width>
      <height>22</height>
     </rect>
    </property>
