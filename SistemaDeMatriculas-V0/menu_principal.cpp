@@ -8,13 +8,13 @@ Menu_principal::Menu_principal(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QPixmap logo_cadastrar ("/Users/danyelliasmanso/Downloads/Cadastrar.png");
+    QPixmap logo_cadastrar (":/imagens/Cadastrar.png");
     ui->logo_cadastrar->setPixmap(logo_cadastrar);
 
-    QPixmap logo_consultar ("/Users/danyelliasmanso/Downloads/pesquisar.png");
+    QPixmap logo_consultar (":/imagens/pesquisar.png");
     ui->logo_consultar->setPixmap(logo_consultar);
 
-    QPixmap logo_remover ("/Users/danyelliasmanso/Downloads/remover.png");
+    QPixmap logo_remover (":/imagens/remover.png");
     ui->logo_remover->setPixmap(logo_remover);
 
 }

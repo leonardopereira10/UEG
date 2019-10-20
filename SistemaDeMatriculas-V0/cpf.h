@@ -33,6 +33,8 @@ private slots:
 
 	void on_btn_cancelar_clicked();
 
+    void on_campo_cpf_returnPressed();
+
 private:
     QString cpf;
     Ui::Cpf *ui;

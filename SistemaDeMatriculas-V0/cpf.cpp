@@ -7,7 +7,7 @@ Cpf::Cpf(QWidget *parent) :
     ui(new Ui::Cpf)
 {
     ui->setupUi(this);
-    QPixmap erro ("/Users/danyelliasmanso/UEG/Imagens/Erro.png");
+    QPixmap erro (":/imagens/Erro.png");
     ui->validador->setPixmap(erro);
 }
 
@@ -114,25 +114,26 @@ bool Cpf::validCpf()
 
 void Cpf::on_btn_ok_clicked()
 {
-    QPixmap erro ("/Users/danyelliasmanso/UEG/Imagens/Erro.png");
-    QPixmap valido ("/Users/danyelliasmanso/UEG/Imagens/Confirmação.png");
+    QPixmap erro (":/imagens/Erro.png");
+    QPixmap valido (":/imagens/Confirmacao.png");
     ui->validador->setPixmap(erro);
     setCpf(ui->campo_cpf->text());
-    knownValid(cpfToInt());
-    validDigitOne(cpfToInt());
-    validDigitTwo(cpfToInt());
-    validCpf();
     if(!validCpf()){
         ui->validador->setPixmap(erro);
     }
     else{
         ui->validador->setPixmap(valido);
     }
-}
 
+}
 
 
 void Cpf::on_btn_cancelar_clicked()
 {
     this->close();
+}
+
+void Cpf::on_campo_cpf_returnPressed()
+{
+    ui->btn_ok->click();
 }

@@ -8,16 +8,16 @@ opcao_cadastrar::opcao_cadastrar(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QPixmap logo_aluno ("/Users/danyelliasmanso/UEG/Imagens/Aluno.png");
+    QPixmap logo_aluno (":/imagens/Aluno.png");
     ui->logo_aluno->setPixmap(logo_aluno);
 
-    QPixmap logo_professor ("/Users/danyelliasmanso/Downloads/Professores.png");
+    QPixmap logo_professor (":/imagens/Professores.png");
     ui->logo_professor->setPixmap(logo_professor);
 
-    QPixmap logo_curso ("/Users/danyelliasmanso/Downloads/Curso.png");
+    QPixmap logo_curso (":/imagens/Curso.png");
     ui->logo_curso->setPixmap(logo_curso);
 
-    QPixmap logo_disciplina ("/Users/danyelliasmanso/Downloads/Disciplinas.png");
+    QPixmap logo_disciplina (":/imagens/Disciplinas.png");
     ui->logo_disciplina->setPixmap(logo_disciplina);
 
 }
