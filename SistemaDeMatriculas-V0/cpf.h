@@ -7,7 +7,7 @@
 #include <QtDebug>
 
 namespace Ui {
-class Cpf;
+	class Cpf;
 }
 
 class Cpf : public QDialog
@@ -23,15 +23,15 @@ public:
     void setCpf(const QString &value);
 
 protected:
-  int *cpfToInt();
-  bool knownValid(const int *);
-  bool validDigitOne(const int *);
-  bool validDigitTwo(const int *);
+	int *cpfToInt();
+	bool knownValid(const int *);
+	bool validDigitOne(const int *);
+	bool validDigitTwo(const int *);
 
 private slots:
-  void on_btn_ok_clicked();
+	void on_btn_ok_clicked();
 
-  void on_btn_cancelar_clicked();
+	void on_btn_cancelar_clicked();
 
 private:
     QString cpf;
