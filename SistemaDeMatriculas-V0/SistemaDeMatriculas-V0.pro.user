@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.10.1, 2019-10-19T18:27:10. -->
+<!-- Written by QtCreator 4.10.1, 2019-10-20T14:37:29. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -581,7 +581,7 @@
      <value type="int" key="type">0</value>
     </valuemap>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Run on iPhone de Danyellias</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Run SistemaDeMatriculas-V0 on iPhone de Danyellias</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Run  on iPhone de Danyellias</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.IosRunConfiguration:/Users/danyelliasmanso/UEG/SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>

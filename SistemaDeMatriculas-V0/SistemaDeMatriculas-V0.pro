@@ -19,17 +19,20 @@ SOURCES += \
     cpf.cpp \
     main.cpp \
     menu_principal.cpp \
+    opcao_cadastrar.cpp \
     pessoas.cpp \
     professores.cpp
 
 HEADERS += \
     cpf.h \
     menu_principal.h \
+    opcao_cadastrar.h \
     pessoas.h \
     professores.h \
 
 FORMS += \
-    menu_principal.ui
+    menu_principal.ui \
+    opcao_cadastrar.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
