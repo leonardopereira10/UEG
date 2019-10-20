@@ -17,4 +17,5 @@ plataforma Linux.
 
 
 **Regra**
+ 
   Dar pull antes de realizar qualquer alteração e commitar no menor espaço de tempo possivel enquanto altera os dados.
