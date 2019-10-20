@@ -17,6 +17,7 @@ class Cpf : public QDialog
 public:
     explicit Cpf(QWidget *parent = nullptr);
     ~Cpf();
+
     bool validCpf();
 
     QString getCpf() const;
@@ -30,8 +31,6 @@ protected:
 
 private slots:
 	void on_btn_ok_clicked();
-
-	void on_btn_cancelar_clicked();
 
 private:
     QString cpf;
