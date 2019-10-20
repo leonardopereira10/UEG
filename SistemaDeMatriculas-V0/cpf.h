@@ -12,15 +12,15 @@ namespace Ui {
 
 class Cpf : public QDialog
 {
-    Q_OBJECT
+	Q_OBJECT
 
 public:
-    explicit Cpf(QWidget *parent = nullptr);
-    ~Cpf();
-    bool validCpf();
+	explicit Cpf(QWidget *parent = nullptr);
+	~Cpf();
+	bool validCpf();
 
-    QString getCpf() const;
-    void setCpf(const QString &value);
+	QString getCpf() const;
+	void setCpf(const QString &value);
 
 protected:
 	int *cpfToInt();
@@ -32,8 +32,8 @@ private slots:
 	void on_btn_ok_clicked();
 
 private:
-    QString cpf;
-    Ui::Cpf *ui;
+	QString cpf;
+	Ui::Cpf *ui;
 };
 
 #endif // CPF_H

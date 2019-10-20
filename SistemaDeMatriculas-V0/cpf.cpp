@@ -3,27 +3,27 @@
 
 Cpf::Cpf(QWidget *parent) :
 
-    QDialog(parent),
-    ui(new Ui::Cpf)
+	QDialog(parent),
+	ui(new Ui::Cpf)
 {
-    ui->setupUi(this);
+	ui->setupUi(this);
 	QPixmap erro (":/imagens/Erro.png");
-    ui->validador->setPixmap(erro);
+	ui->validador->setPixmap(erro);
 }
 
 Cpf::~Cpf()
 {
-    delete ui;
+	delete ui;
 }
 
 QString Cpf::getCpf() const
 {
-    return cpf;
+	return cpf;
 }
 
 void Cpf::setCpf(const QString &value)
 {
-    cpf = value;
+	cpf = value;
 }
 
 int *Cpf::cpfToInt()
@@ -37,8 +37,8 @@ int *Cpf::cpfToInt()
   // Converter para int
   for (int i = 0; i < 11; i++)
   {
-    tmpCpf[i] = cpf.at(i);
-    vetCpf[i] = tmpCpf[i].toInt();
+	tmpCpf[i] = cpf.at(i);
+	vetCpf[i] = tmpCpf[i].toInt();
   }
   return vetCpf;
 }
@@ -48,10 +48,10 @@ bool Cpf::knownValid(const int *vetCpf)
   // Cpfs inválidos conhecidos (222.222.222-22)
   for (int i = 0, f = 0; i < 11; i++)
   {
-    if (vetCpf[i] == vetCpf[i + 1])
-      f++;
-    if (f == 10)
-      return false;
+	if (vetCpf[i] == vetCpf[i + 1])
+	  f++;
+	if (f == 10)
+	  return false;
   }
   return true;
 }
@@ -64,15 +64,15 @@ bool Cpf::validDigitOne(const int *vetCpf)
   // Soma do primeiro dígito
   for (int i = 0, f = 10; i < 9; i++)
   {
-    sumDigitOne += (vetCpf[i] * f);
-    f--;
+	sumDigitOne += (vetCpf[i] * f);
+	f--;
   }
   restDigitOne = ((sumDigitOne * 10) % 11);
   if (restDigitOne == 10)
-    restDigitOne = 0; // Se for igual a 10 considera 0
+	restDigitOne = 0; // Se for igual a 10 considera 0
 
   if (restDigitOne == vetCpf[9])
-    return true;
+	return true;
   return false;
 }
 
@@ -83,30 +83,30 @@ bool Cpf::validDigitTwo(const int *vetCpf)
   int restDigitTwo = 0;
   for (int i = 0, f = 11; i < 10; i++)
   {
-    sumDigitTwo += (vetCpf[i] * f);
-    f--;
+	sumDigitTwo += (vetCpf[i] * f);
+	f--;
   }
   restDigitTwo = ((sumDigitTwo * 10) % 11);
   if (restDigitTwo == 10)
-    restDigitTwo = 0; // Se for igual a 10 considera 0
+	restDigitTwo = 0; // Se for igual a 10 considera 0
 
   if (restDigitTwo == vetCpf[10])
-    return true;
+	return true;
   return false;
 }
 
 bool Cpf::validCpf()
 {
   if (cpf.length() < 14) // Considera-se a pontuaçaoo
-    return false;
+	return false;
   else
   {
-    int *vetCpf = cpfToInt();
+	int *vetCpf = cpfToInt();
 
-    if (knownValid(vetCpf))
-      if (validDigitOne(vetCpf) && validDigitTwo(vetCpf))
-        return true;
-    return false;
+	if (knownValid(vetCpf))
+	  if (validDigitOne(vetCpf) && validDigitTwo(vetCpf))
+		return true;
+	return false;
   }
 }
 
@@ -118,14 +118,14 @@ void Cpf::on_btn_ok_clicked()
 	QPixmap erro (":/imagens/Erro.png");
 	QPixmap valido (":/imagens/Confirmação.png");
 
-    setCpf(ui->campo_cpf->text());
+	setCpf(ui->campo_cpf->text());
 
 	if(validCpf()){
 		ui->validador->setPixmap(valido);
-    }
-    else{
+	}
+	else{
 		ui->validador->setPixmap(erro);
-    }
+	}
 }
 
 // NOTE: Removido método de "Cancelar" (fechar janela)

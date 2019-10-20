@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/imagens">
-        <file>Confirmação.png</file>
+        <file>Confirmacao.png</file>
         <file>Erro.png</file>
         <file>Aluno.png</file>
         <file>Cadastrar.png</file>
