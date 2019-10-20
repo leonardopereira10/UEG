@@ -20,11 +20,19 @@ SOURCES += \
     main.cpp \
     menu_principal.cpp \
     opcao_cadastrar.cpp \
+<<<<<<< HEAD
+=======
+	pessoa.cpp \
+>>>>>>> 68395f08f00d96beee578e7208edef7e85d216d9
 
 HEADERS += \
     cpf.h \
     menu_principal.h \
     opcao_cadastrar.h \
+<<<<<<< HEAD
+=======
+	pessoa.h \
+>>>>>>> 68395f08f00d96beee578e7208edef7e85d216d9
 
 FORMS += \
     cpf.ui \
