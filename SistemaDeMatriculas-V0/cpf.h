@@ -17,7 +17,6 @@ class Cpf : public QDialog
 public:
     explicit Cpf(QWidget *parent = nullptr);
     ~Cpf();
-
     bool validCpf();
 
     QString getCpf() const;

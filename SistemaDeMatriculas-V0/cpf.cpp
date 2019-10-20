@@ -111,19 +111,22 @@ bool Cpf::validCpf()
 }
 
 
+// BUG: Janela fecha ao pressionar enter
+// TODO: Retirar imagem de erro que aparece antes de pressionar Ok
 void Cpf::on_btn_ok_clicked()
 {
 	QPixmap erro (":/imagens/Erro.png");
 	QPixmap valido (":/imagens/Confirmação.png");
-    ui->validador->setPixmap(erro);
+
     setCpf(ui->campo_cpf->text());
-    knownValid(cpfToInt());
-    validDigitOne(cpfToInt());
-    validDigitTwo(cpfToInt());
-    if(!validCpf()){
-        ui->validador->setPixmap(erro);
+
+	if(validCpf()){
+		ui->validador->setPixmap(valido);
     }
     else{
-        ui->validador->setPixmap(valido);
+		ui->validador->setPixmap(erro);
     }
 }
+
+// NOTE: Removido método de "Cancelar" (fechar janela)
+// Função de fechar adicionada ao botão por meio de signais
