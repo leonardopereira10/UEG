@@ -31,13 +31,11 @@ protected:
 private slots:
 	void on_btn_ok_clicked();
 
-<<<<<<< HEAD
 	void on_btn_cancelar_clicked();
 
     void on_campo_cpf_returnPressed();
-=======
-	void on_campo_cpf_returnPressed();
->>>>>>> 68395f08f00d96beee578e7208edef7e85d216d9
+
+    void on_campo_cpf_textEdited(const QString &arg1);
 
 private:
 	QString cpf;

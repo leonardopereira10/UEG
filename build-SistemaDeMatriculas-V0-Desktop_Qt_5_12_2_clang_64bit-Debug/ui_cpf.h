@@ -72,6 +72,7 @@ public:
 
         btn_cancelar = new QPushButton(layoutWidget);
         btn_cancelar->setObjectName(QString::fromUtf8("btn_cancelar"));
+        btn_cancelar->setLayoutDirection(Qt::LeftToRight);
 
         gridLayout->addWidget(btn_cancelar, 1, 0, 1, 1);
 

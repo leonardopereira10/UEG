@@ -6,16 +6,10 @@ Cpf::Cpf(QWidget *parent) :
 	QDialog(parent),
 	ui(new Ui::Cpf)
 {
-<<<<<<< HEAD
     ui->setupUi(this);
-    QPixmap erro (":/imagens/Erro.png");
-    QPixmap valido (":/imagens/Confirmacao.png");
-    ui->validador->setPixmap(erro);
-=======
-	ui->setupUi(this);
-	QPixmap erro (":/imagens/Erro.png");
-	ui->validador->setPixmap(erro);
->>>>>>> 68395f08f00d96beee578e7208edef7e85d216d9
+    ui->campo_cpf->setFocus();
+    ui->btn_ok->setFocus();
+
 }
 
 Cpf::~Cpf()
@@ -119,48 +113,31 @@ bool Cpf::validCpf()
 
 
 // BUG: Janela fecha ao pressionar enter
-// TODO: Retirar imagem de erro que aparece antes de pressionar Ok
+// TODO: IMAGEM do erro retirada
 void Cpf::on_btn_ok_clicked()
 {
-	QPixmap erro (":/imagens/Erro.png");
-<<<<<<< HEAD
+    QPixmap erro (":/imagens/Erro.png");
     QPixmap valido (":/imagens/Confirmacao.png");
-    ui->validador->setPixmap(erro);
     setCpf(ui->campo_cpf->text());
     if(!validCpf()){
         ui->validador->setPixmap(erro);
+        ui->campo_cpf->setFocus();
+        ui->campo_cpf->selectAll();
     }
     else{
         ui->validador->setPixmap(valido);
     }
-
 }
 
 
 void Cpf::on_btn_cancelar_clicked()
 {
     this->close();
-=======
-	QPixmap valido (":/imagens/Confirmacao.png");
-
-	setCpf(ui->campo_cpf->text());
-
-	if(validCpf()){
-		ui->validador->setPixmap(valido);
-	}
-	else{
-		ui->validador->setPixmap(erro);
-	}
->>>>>>> 68395f08f00d96beee578e7208edef7e85d216d9
 }
 
 void Cpf::on_campo_cpf_returnPressed()
 {
-<<<<<<< HEAD
-    ui->btn_ok->click();
-=======
 	ui->btn_ok->click();
->>>>>>> 68395f08f00d96beee578e7208edef7e85d216d9
 }
 
 // NOTE: Removido método de "Cancelar" (fechar janela)

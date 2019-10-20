@@ -55,7 +55,8 @@ OBJECTS_DIR   = ./
 SOURCES       = ../SistemaDeMatriculas-V0/cpf.cpp \
 		../SistemaDeMatriculas-V0/main.cpp \
 		../SistemaDeMatriculas-V0/menu_principal.cpp \
-		../SistemaDeMatriculas-V0/opcao_cadastrar.cpp qrc_imagens.cpp \
+		../SistemaDeMatriculas-V0/opcao_cadastrar.cpp \
+		../SistemaDeMatriculas-V0/pessoa.cpp qrc_imagens.cpp \
 		moc_cpf.cpp \
 		moc_menu_principal.cpp \
 		moc_opcao_cadastrar.cpp
@@ -63,6 +64,7 @@ OBJECTS       = cpf.o \
 		main.o \
 		menu_principal.o \
 		opcao_cadastrar.o \
+		pessoa.o \
 		qrc_imagens.o \
 		moc_cpf.o \
 		moc_menu_principal.o \
@@ -242,10 +244,12 @@ DIST          = ../../Qt/5.12.2/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.12.2/clang_64/mkspecs/features/lex.prf \
 		../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro ../SistemaDeMatriculas-V0/cpf.h \
 		../SistemaDeMatriculas-V0/menu_principal.h \
-		../SistemaDeMatriculas-V0/opcao_cadastrar.h ../SistemaDeMatriculas-V0/cpf.cpp \
+		../SistemaDeMatriculas-V0/opcao_cadastrar.h \
+		../SistemaDeMatriculas-V0/pessoa.h ../SistemaDeMatriculas-V0/cpf.cpp \
 		../SistemaDeMatriculas-V0/main.cpp \
 		../SistemaDeMatriculas-V0/menu_principal.cpp \
-		../SistemaDeMatriculas-V0/opcao_cadastrar.cpp
+		../SistemaDeMatriculas-V0/opcao_cadastrar.cpp \
+		../SistemaDeMatriculas-V0/pessoa.cpp
 QMAKE_TARGET  = SistemaDeMatriculas-V0
 DESTDIR       = 
 TARGET        = SistemaDeMatriculas-V0.app/Contents/MacOS/SistemaDeMatriculas-V0
@@ -658,8 +662,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/Imagens/imagens.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../Qt/5.12.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/cpf.h ../SistemaDeMatriculas-V0/menu_principal.h ../SistemaDeMatriculas-V0/opcao_cadastrar.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/cpf.cpp ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/menu_principal.cpp ../SistemaDeMatriculas-V0/opcao_cadastrar.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/cpf.h ../SistemaDeMatriculas-V0/menu_principal.h ../SistemaDeMatriculas-V0/opcao_cadastrar.h ../SistemaDeMatriculas-V0/pessoa.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/cpf.cpp ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/menu_principal.cpp ../SistemaDeMatriculas-V0/opcao_cadastrar.cpp ../SistemaDeMatriculas-V0/pessoa.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/cpf.ui ../SistemaDeMatriculas-V0/menu_principal.ui ../SistemaDeMatriculas-V0/opcao_cadastrar.ui $(DISTDIR)/
 
 
@@ -852,6 +856,19 @@ opcao_cadastrar.o: ../SistemaDeMatriculas-V0/opcao_cadastrar.cpp ../SistemaDeMat
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		ui_opcao_cadastrar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o opcao_cadastrar.o ../SistemaDeMatriculas-V0/opcao_cadastrar.cpp
+
+pessoa.o: ../SistemaDeMatriculas-V0/pessoa.cpp ../SistemaDeMatriculas-V0/pessoa.h \
+		../SistemaDeMatriculas-V0/cpf.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QDebug
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pessoa.o ../SistemaDeMatriculas-V0/pessoa.cpp
 
 qrc_imagens.o: qrc_imagens.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_imagens.o qrc_imagens.cpp
