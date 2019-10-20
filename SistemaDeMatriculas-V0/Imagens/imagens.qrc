@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/imagens">
+        <file>Aluno.png</file>
+        <file>Cadastrar.png</file>
+        <file>Confirmacao.png</file>
+        <file>Curso.png</file>
+        <file>Disciplinas.png</file>
+        <file>Erro.png</file>
+        <file>imagens.qrc</file>
+        <file>pesquisar.png</file>
+        <file>Professores.png</file>
+        <file>remover.png</file>
+    </qresource>
+</RCC>
