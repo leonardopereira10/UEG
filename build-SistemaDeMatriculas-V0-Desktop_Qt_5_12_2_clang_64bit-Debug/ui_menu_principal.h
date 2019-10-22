@@ -27,9 +27,9 @@ public:
     QLabel *logo_cadastrar;
     QPushButton *btn_Cadastrar;
     QLabel *logo_consultar;
-    QPushButton *pushButton;
-    QLabel *label;
-    QPushButton *pushButton_2;
+    QPushButton *btn_consultar;
+    QLabel *logo_remover;
+    QPushButton *btn_remover;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -37,13 +37,13 @@ public:
     {
         if (Menu_principal->objectName().isEmpty())
             Menu_principal->setObjectName(QString::fromUtf8("Menu_principal"));
-        Menu_principal->resize(452, 200);
+        Menu_principal->resize(463, 181);
         centralwidget = new QWidget(Menu_principal);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         logo_cadastrar = new QLabel(centralwidget);
         logo_cadastrar->setObjectName(QString::fromUtf8("logo_cadastrar"));
         logo_cadastrar->setGeometry(QRect(50, 31, 67, 61));
-        logo_cadastrar->setPixmap(QPixmap(QString::fromUtf8("../../Downloads/kisspng-computer-icons-form-5ada07b2751db6.7275354715242382584797.png")));
+        logo_cadastrar->setPixmap(QPixmap(QString::fromUtf8("../../Downloads/Cadastrar.png")));
         logo_cadastrar->setScaledContents(true);
         btn_Cadastrar = new QPushButton(centralwidget);
         btn_Cadastrar->setObjectName(QString::fromUtf8("btn_Cadastrar"));
@@ -51,23 +51,29 @@ public:
         logo_consultar = new QLabel(centralwidget);
         logo_consultar->setObjectName(QString::fromUtf8("logo_consultar"));
         logo_consultar->setGeometry(QRect(190, 28, 71, 61));
-        logo_consultar->setPixmap(QPixmap(QString::fromUtf8("../../Downloads/64e14fe0195557e3f18ea3becba3169b-lupa-de-pesquisa-by-vexels.png")));
+        logo_consultar->setPixmap(QPixmap(QString::fromUtf8("../../Downloads/pesquisar.png")));
         logo_consultar->setScaledContents(true);
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(170, 100, 113, 32));
-        label = new QLabel(centralwidget);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(338, 28, 71, 61));
-        label->setPixmap(QPixmap(QString::fromUtf8("../../Downloads/1486564399-close_81512.png")));
-        label->setScaledContents(true);
-        pushButton_2 = new QPushButton(centralwidget);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(317, 99, 113, 32));
+        btn_consultar = new QPushButton(centralwidget);
+        btn_consultar->setObjectName(QString::fromUtf8("btn_consultar"));
+        btn_consultar->setGeometry(QRect(170, 100, 113, 32));
+        logo_remover = new QLabel(centralwidget);
+        logo_remover->setObjectName(QString::fromUtf8("logo_remover"));
+        logo_remover->setGeometry(QRect(338, 28, 71, 61));
+        logo_remover->setPixmap(QPixmap(QString::fromUtf8(":/imagens/remover.png")));
+        logo_remover->setScaledContents(true);
+        btn_remover = new QPushButton(centralwidget);
+        btn_remover->setObjectName(QString::fromUtf8("btn_remover"));
+        btn_remover->setGeometry(QRect(317, 99, 113, 32));
         Menu_principal->setCentralWidget(centralwidget);
+        btn_Cadastrar->raise();
+        btn_consultar->raise();
+        btn_remover->raise();
+        logo_cadastrar->raise();
+        logo_consultar->raise();
+        logo_remover->raise();
         menubar = new QMenuBar(Menu_principal);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 452, 22));
+        menubar->setGeometry(QRect(0, 0, 463, 22));
         Menu_principal->setMenuBar(menubar);
         statusbar = new QStatusBar(Menu_principal);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -80,13 +86,13 @@ public:
 
     void retranslateUi(QMainWindow *Menu_principal)
     {
-        Menu_principal->setWindowTitle(QApplication::translate("Menu_principal", "MainWindow", nullptr));
+        Menu_principal->setWindowTitle(QApplication::translate("Menu_principal", "SMC - Sistema de Controle de Matr\303\255cula", nullptr));
         logo_cadastrar->setText(QString());
         btn_Cadastrar->setText(QApplication::translate("Menu_principal", "Cadastrar", nullptr));
         logo_consultar->setText(QString());
-        pushButton->setText(QApplication::translate("Menu_principal", "Consultar", nullptr));
-        label->setText(QString());
-        pushButton_2->setText(QApplication::translate("Menu_principal", "Remover", nullptr));
+        btn_consultar->setText(QApplication::translate("Menu_principal", "Consultar", nullptr));
+        logo_remover->setText(QString());
+        btn_remover->setText(QApplication::translate("Menu_principal", "Remover", nullptr));
     } // retranslateUi
 
 };

@@ -78,6 +78,7 @@ public:
 
         btn_ok = new QPushButton(layoutWidget);
         btn_ok->setObjectName(QString::fromUtf8("btn_ok"));
+        btn_ok->setLayoutDirection(Qt::RightToLeft);
 
         gridLayout->addWidget(btn_ok, 1, 1, 1, 1);
 

@@ -2,7 +2,14 @@
 
 Pessoa::Pessoa()
 {
-
+    this->cpf = nullptr;
+    this->nome = nullptr;
+    this->endereco = nullptr;
+    this->setor = nullptr;
+    this->cidade = nullptr;
+    this->estado = nullptr;
+    this->celular = nullptr;
+    this->email = nullptr;
 }
 
 QString Pessoa::getCpf() const
@@ -63,4 +70,24 @@ QString Pessoa::getEmail() const
 void Pessoa::setEmail(const QString &value)
 {
 	email = value;
+}
+
+QString Pessoa::getCidade() const
+{
+    return cidade;
+}
+
+void Pessoa::setCidade(const QString &value)
+{
+    cidade = value;
+}
+
+QString Pessoa::getEstado() const
+{
+    return estado;
+}
+
+void Pessoa::setEstado(const QString &value)
+{
+    estado = value;
 }

@@ -8,8 +8,6 @@ Cpf::Cpf(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->campo_cpf->setFocus();
-    ui->btn_ok->setFocus();
-
 }
 
 Cpf::~Cpf()
@@ -126,6 +124,11 @@ void Cpf::on_btn_ok_clicked()
     }
     else{
         ui->validador->setPixmap(valido);
+        this->hide();
+        cad_professor tela_cad_professor;
+        tela_cad_professor.exec();
+
+
     }
 }
 
@@ -137,7 +140,7 @@ void Cpf::on_btn_cancelar_clicked()
 
 void Cpf::on_campo_cpf_returnPressed()
 {
-	ui->btn_ok->click();
+    ui->btn_ok->clicked();
 }
 
 // NOTE: Removido método de "Cancelar" (fechar janela)

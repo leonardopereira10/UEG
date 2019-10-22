@@ -5,6 +5,7 @@
 #include <QPixmap>
 #include <QMessageBox>
 #include <QtDebug>
+#include "cad_professor.h"
 
 namespace Ui {
 	class Cpf;
@@ -34,8 +35,6 @@ private slots:
 	void on_btn_cancelar_clicked();
 
     void on_campo_cpf_returnPressed();
-
-    void on_campo_cpf_textEdited(const QString &arg1);
 
 private:
 	QString cpf;

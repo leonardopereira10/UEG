@@ -5,11 +5,18 @@
 
 class Pessoa
 {
-protected:
-	Pessoa();
+public:
+    QString getEstado() const;
+    void setEstado(const QString &value);
 
-	QString getCpf() const;
-	void setCpf(const QString &value);
+    QString getCidade() const;
+    void setCidade(const QString &value);
+
+protected:
+    Pessoa();
+
+    QString getCpf() const;
+    void setCpf(const QString &value);
 
 	QString getNome() const;
 	void setNome(const QString &value);
@@ -26,9 +33,9 @@ protected:
 	QString getEmail() const;
 	void setEmail(const QString &value);
 
+    virtual ~Pessoa();
 	virtual void pessoaBase(QString cpf) = 0;
-	virtual void pessoaCompleta(QString nome, QString endereco, QString setor, QString celular, QString email) = 0;
-	virtual void pessoaCompleta(QString nome, QString endereco, QString setor, QString email) = 0;
+    virtual void pessoaCompleta(QString nome, QString endereco, QString estado, QString cidade, QString setor, QString celular, QString email) = 0;
 
 
 
@@ -36,6 +43,8 @@ private:
 	QString cpf;
 	QString nome;
 	QString endereco;
+    QString estado;
+    QString cidade;
 	QString setor;
 	QString celular;
 	QString email;

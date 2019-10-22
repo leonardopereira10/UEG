@@ -15,7 +15,7 @@ Menu_principal::Menu_principal(QWidget *parent) :
     ui->logo_consultar->setPixmap(logo_consultar);
 
     QPixmap logo_remover (":/imagens/remover.png");
-    ui->logo_remover->setPixmap(logo_remover);
+
 }
 
 Menu_principal::~Menu_principal()

@@ -91,13 +91,13 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../Imagens/remover.png</pixmap>
+     <pixmap resource="Imagens/imagens.qrc">:/imagens/remover.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="btn_remover">
     <property name="geometry">
      <rect>
       <x>317</x>
@@ -112,7 +112,7 @@
    </widget>
    <zorder>btn_Cadastrar</zorder>
    <zorder>btn_consultar</zorder>
-   <zorder>pushButton_2</zorder>
+   <zorder>btn_remover</zorder>
    <zorder>logo_cadastrar</zorder>
    <zorder>logo_consultar</zorder>
    <zorder>logo_remover</zorder>
@@ -129,6 +129,10 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="Imagens/imagens.qrc"/>
+  <include location="Imagens/imagens.qrc"/>
+  <include location="Imagens/imagens.qrc"/>
+ </resources>
  <connections/>
 </ui>
