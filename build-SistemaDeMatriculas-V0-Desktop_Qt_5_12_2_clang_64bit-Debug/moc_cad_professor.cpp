@@ -100,8 +100,6 @@ void *cad_professor::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_cad_professor.stringdata0))
         return static_cast<void*>(this);
-    if (!strcmp(_clname, "Pessoa"))
-        return static_cast< Pessoa*>(this);
     return QDialog::qt_metacast(_clname);
 }
 

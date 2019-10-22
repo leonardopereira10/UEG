@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <QtDebug>
 #include "cad_professor.h"
+#include <professor.h>
 
 namespace Ui {
 	class Cpf;
@@ -38,6 +39,7 @@ private slots:
 
 private:
 	QString cpf;
+    QString cpf_prof;
 	Ui::Cpf *ui;
 };
 

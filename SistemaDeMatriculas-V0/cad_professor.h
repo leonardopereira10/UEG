@@ -4,20 +4,19 @@
 #include <QDialog>
 #include <QPixmap>
 #include "cpf.h"
-#include "pessoa.h"
+#include <professor.h>
 
 namespace Ui {
 class cad_professor;
 }
 
-class cad_professor : public QDialog, protected Pessoa {
+class cad_professor : public QDialog{
     Q_OBJECT
 
 public:
     explicit cad_professor(QWidget *parent = nullptr);
     ~cad_professor();
-    cad_professor(QString cpf, QString nome, QString endereco, QString estado, QString cidade, QString setor, QString celular, QString email,
-                  QString graduacao, QString titulacao);
+
 
 
 private slots:
@@ -25,9 +24,10 @@ private slots:
 
     void on_campo_nome_returnPressed();
 
+    void on_btn_cadastrar_clicked();
+
 private:
     Ui::cad_professor *ui;
-    QString graduacao, titulacao;
 
 };
 

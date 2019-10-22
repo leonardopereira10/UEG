@@ -21,14 +21,16 @@ SOURCES += \
     main.cpp \
     menu_principal.cpp \
     opcao_cadastrar.cpp \
-    pessoa.cpp \
+    pessoa.cpp \ \
+    professor.cpp
 
 HEADERS += \
     cad_professor.h \
     cpf.h \
     menu_principal.h \
     opcao_cadastrar.h \
-    pessoa.h \
+    pessoa.h \ \
+    professor.h
 
 FORMS += \
     cad_professor.ui \

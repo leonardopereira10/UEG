@@ -127,8 +127,7 @@ void Cpf::on_btn_ok_clicked()
         this->hide();
         cad_professor tela_cad_professor;
         tela_cad_professor.exec();
-
-
+        cpf_prof = getCpf();
     }
 }
 

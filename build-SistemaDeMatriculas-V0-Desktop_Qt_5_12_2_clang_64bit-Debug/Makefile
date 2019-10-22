@@ -57,7 +57,9 @@ SOURCES       = ../SistemaDeMatriculas-V0/cad_professor.cpp \
 		../SistemaDeMatriculas-V0/main.cpp \
 		../SistemaDeMatriculas-V0/menu_principal.cpp \
 		../SistemaDeMatriculas-V0/opcao_cadastrar.cpp \
-		../SistemaDeMatriculas-V0/pessoa.cpp qrc_imagens.cpp \
+		../SistemaDeMatriculas-V0/pessoa.cpp \
+		/ \
+		../SistemaDeMatriculas-V0/professor.cpp qrc_imagens.cpp \
 		moc_cad_professor.cpp \
 		moc_cpf.cpp \
 		moc_menu_principal.cpp \
@@ -68,6 +70,8 @@ OBJECTS       = cad_professor.o \
 		menu_principal.o \
 		opcao_cadastrar.o \
 		pessoa.o \
+		.o \
+		professor.o \
 		qrc_imagens.o \
 		moc_cad_professor.o \
 		moc_cpf.o \
@@ -218,7 +222,6 @@ DIST          = ../../Qt/5.12.2/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.12.2/clang_64/mkspecs/features/qt_config.prf \
 		../../Qt/5.12.2/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../Qt/5.12.2/clang_64/mkspecs/features/spec_post.prf \
-		../SistemaDeMatriculas-V0/.qmake.stash \
 		../../Qt/5.12.2/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../Qt/5.12.2/clang_64/mkspecs/features/mac/sdk.prf \
 		../../Qt/5.12.2/clang_64/mkspecs/features/toolchain.prf \
@@ -250,12 +253,16 @@ DIST          = ../../Qt/5.12.2/clang_64/mkspecs/features/spec_pre.prf \
 		../SistemaDeMatriculas-V0/cpf.h \
 		../SistemaDeMatriculas-V0/menu_principal.h \
 		../SistemaDeMatriculas-V0/opcao_cadastrar.h \
-		../SistemaDeMatriculas-V0/pessoa.h ../SistemaDeMatriculas-V0/cad_professor.cpp \
+		../SistemaDeMatriculas-V0/pessoa.h \
+		/ \
+		../SistemaDeMatriculas-V0/professor.h ../SistemaDeMatriculas-V0/cad_professor.cpp \
 		../SistemaDeMatriculas-V0/cpf.cpp \
 		../SistemaDeMatriculas-V0/main.cpp \
 		../SistemaDeMatriculas-V0/menu_principal.cpp \
 		../SistemaDeMatriculas-V0/opcao_cadastrar.cpp \
-		../SistemaDeMatriculas-V0/pessoa.cpp
+		../SistemaDeMatriculas-V0/pessoa.cpp \
+		/ \
+		../SistemaDeMatriculas-V0/professor.cpp
 QMAKE_TARGET  = SistemaDeMatriculas-V0
 DESTDIR       = 
 TARGET        = SistemaDeMatriculas-V0.app/Contents/MacOS/SistemaDeMatriculas-V0
@@ -423,7 +430,6 @@ Makefile: ../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro ../../Qt/5.12.2/c
 		../../Qt/5.12.2/clang_64/mkspecs/features/qt_config.prf \
 		../../Qt/5.12.2/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../Qt/5.12.2/clang_64/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		../../Qt/5.12.2/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../Qt/5.12.2/clang_64/mkspecs/features/mac/sdk.prf \
 		../../Qt/5.12.2/clang_64/mkspecs/features/toolchain.prf \
@@ -603,7 +609,6 @@ Makefile: ../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro ../../Qt/5.12.2/c
 ../../Qt/5.12.2/clang_64/mkspecs/features/qt_config.prf:
 ../../Qt/5.12.2/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../Qt/5.12.2/clang_64/mkspecs/features/spec_post.prf:
-.qmake.stash:
 ../../Qt/5.12.2/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../Qt/5.12.2/clang_64/mkspecs/features/mac/sdk.prf:
 ../../Qt/5.12.2/clang_64/mkspecs/features/toolchain.prf:
@@ -668,8 +673,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/Imagens/imagens.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../Qt/5.12.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/cad_professor.h ../SistemaDeMatriculas-V0/cpf.h ../SistemaDeMatriculas-V0/menu_principal.h ../SistemaDeMatriculas-V0/opcao_cadastrar.h ../SistemaDeMatriculas-V0/pessoa.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/cad_professor.cpp ../SistemaDeMatriculas-V0/cpf.cpp ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/menu_principal.cpp ../SistemaDeMatriculas-V0/opcao_cadastrar.cpp ../SistemaDeMatriculas-V0/pessoa.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/cad_professor.h ../SistemaDeMatriculas-V0/cpf.h ../SistemaDeMatriculas-V0/menu_principal.h ../SistemaDeMatriculas-V0/opcao_cadastrar.h ../SistemaDeMatriculas-V0/pessoa.h / ../SistemaDeMatriculas-V0/professor.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/cad_professor.cpp ../SistemaDeMatriculas-V0/cpf.cpp ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/menu_principal.cpp ../SistemaDeMatriculas-V0/opcao_cadastrar.cpp ../SistemaDeMatriculas-V0/pessoa.cpp / ../SistemaDeMatriculas-V0/professor.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/cad_professor.ui ../SistemaDeMatriculas-V0/cpf.ui ../SistemaDeMatriculas-V0/menu_principal.ui ../SistemaDeMatriculas-V0/opcao_cadastrar.ui $(DISTDIR)/
 
 
@@ -680,7 +685,6 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r SistemaDeMatriculas-V0.app
-	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -734,8 +738,6 @@ moc_cad_professor.cpp: ../SistemaDeMatriculas-V0/cad_professor.h \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../SistemaDeMatriculas-V0/cad_professor.h \
-		../SistemaDeMatriculas-V0/pessoa.h \
-		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QDebug \
 		moc_predefs.h \
 		../../Qt/5.12.2/clang_64/bin/moc
 	/Users/danyelliasmanso/Qt/5.12.2/clang_64/bin/moc $(DEFINES) --include /Users/danyelliasmanso/UEG/build-SistemaDeMatriculas-V0-Desktop_Qt_5_12_2_clang_64bit-Debug/moc_predefs.h -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/mkspecs/macx-clang -I/Users/danyelliasmanso/UEG/SistemaDeMatriculas-V0 -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtGui.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtSql.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib ../SistemaDeMatriculas-V0/cad_professor.h -o moc_cad_professor.cpp
@@ -751,8 +753,6 @@ moc_cpf.cpp: ../SistemaDeMatriculas-V0/cpf.h \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../SistemaDeMatriculas-V0/cad_professor.h \
 		../SistemaDeMatriculas-V0/cpf.h \
-		../SistemaDeMatriculas-V0/pessoa.h \
-		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QDebug \
 		moc_predefs.h \
 		../../Qt/5.12.2/clang_64/bin/moc
 	/Users/danyelliasmanso/Qt/5.12.2/clang_64/bin/moc $(DEFINES) --include /Users/danyelliasmanso/UEG/build-SistemaDeMatriculas-V0-Desktop_Qt_5_12_2_clang_64bit-Debug/moc_predefs.h -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/mkspecs/macx-clang -I/Users/danyelliasmanso/UEG/SistemaDeMatriculas-V0 -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtGui.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtSql.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib ../SistemaDeMatriculas-V0/cpf.h -o moc_cpf.cpp
@@ -772,8 +772,6 @@ moc_menu_principal.cpp: ../SistemaDeMatriculas-V0/menu_principal.h \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../SistemaDeMatriculas-V0/cad_professor.h \
-		../SistemaDeMatriculas-V0/pessoa.h \
-		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QDebug \
 		moc_predefs.h \
 		../../Qt/5.12.2/clang_64/bin/moc
 	/Users/danyelliasmanso/Qt/5.12.2/clang_64/bin/moc $(DEFINES) --include /Users/danyelliasmanso/UEG/build-SistemaDeMatriculas-V0-Desktop_Qt_5_12_2_clang_64bit-Debug/moc_predefs.h -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/mkspecs/macx-clang -I/Users/danyelliasmanso/UEG/SistemaDeMatriculas-V0 -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtGui.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtSql.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib ../SistemaDeMatriculas-V0/menu_principal.h -o moc_menu_principal.cpp
@@ -793,8 +791,6 @@ moc_opcao_cadastrar.cpp: ../SistemaDeMatriculas-V0/opcao_cadastrar.h \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../SistemaDeMatriculas-V0/cad_professor.h \
-		../SistemaDeMatriculas-V0/pessoa.h \
-		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QDebug \
 		moc_predefs.h \
 		../../Qt/5.12.2/clang_64/bin/moc
 	/Users/danyelliasmanso/Qt/5.12.2/clang_64/bin/moc $(DEFINES) --include /Users/danyelliasmanso/UEG/build-SistemaDeMatriculas-V0-Desktop_Qt_5_12_2_clang_64bit-Debug/moc_predefs.h -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/mkspecs/macx-clang -I/Users/danyelliasmanso/UEG/SistemaDeMatriculas-V0 -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtGui.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtSql.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib ../SistemaDeMatriculas-V0/opcao_cadastrar.h -o moc_opcao_cadastrar.cpp
@@ -844,8 +840,6 @@ cad_professor.o: ../SistemaDeMatriculas-V0/cad_professor.cpp ../SistemaDeMatricu
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
-		../SistemaDeMatriculas-V0/pessoa.h \
-		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QDebug \
 		ui_cad_professor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cad_professor.o ../SistemaDeMatriculas-V0/cad_professor.cpp
 
@@ -859,8 +853,6 @@ cpf.o: ../SistemaDeMatriculas-V0/cpf.cpp ../SistemaDeMatriculas-V0/cpf.h \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../SistemaDeMatriculas-V0/cad_professor.h \
-		../SistemaDeMatriculas-V0/pessoa.h \
-		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QDebug \
 		ui_cpf.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cpf.o ../SistemaDeMatriculas-V0/cpf.cpp
 
@@ -878,8 +870,6 @@ main.o: ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/menu_princi
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../SistemaDeMatriculas-V0/cad_professor.h \
-		../SistemaDeMatriculas-V0/pessoa.h \
-		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../SistemaDeMatriculas-V0/main.cpp
@@ -898,8 +888,6 @@ menu_principal.o: ../SistemaDeMatriculas-V0/menu_principal.cpp ../SistemaDeMatri
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../SistemaDeMatriculas-V0/cad_professor.h \
-		../SistemaDeMatriculas-V0/pessoa.h \
-		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QDebug \
 		ui_menu_principal.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o menu_principal.o ../SistemaDeMatriculas-V0/menu_principal.cpp
 
@@ -917,8 +905,6 @@ opcao_cadastrar.o: ../SistemaDeMatriculas-V0/opcao_cadastrar.cpp ../SistemaDeMat
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../SistemaDeMatriculas-V0/cad_professor.h \
-		../SistemaDeMatriculas-V0/pessoa.h \
-		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QDebug \
 		ui_opcao_cadastrar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o opcao_cadastrar.o ../SistemaDeMatriculas-V0/opcao_cadastrar.cpp
 
@@ -935,6 +921,24 @@ pessoa.o: ../SistemaDeMatriculas-V0/pessoa.cpp ../SistemaDeMatriculas-V0/pessoa.
 		../SistemaDeMatriculas-V0/cad_professor.h \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pessoa.o ../SistemaDeMatriculas-V0/pessoa.cpp
+
+.o: / 
+	$(CC) -c $(CFLAGS) $(INCPATH) -o .o /
+
+professor.o: ../SistemaDeMatriculas-V0/professor.cpp ../SistemaDeMatriculas-V0/professor.h \
+		../SistemaDeMatriculas-V0/pessoa.h \
+		../SistemaDeMatriculas-V0/cpf.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../SistemaDeMatriculas-V0/cad_professor.h \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QDebug
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o professor.o ../SistemaDeMatriculas-V0/professor.cpp
 
 qrc_imagens.o: qrc_imagens.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_imagens.o qrc_imagens.cpp
