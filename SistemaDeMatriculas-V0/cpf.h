@@ -1,28 +1,15 @@
 #ifndef CPF_H
 #define CPF_H
 
-#include <QDialog>
-#include <QPixmap>
-#include <QMessageBox>
-#include <QtDebug>
-#include "cad_professor.h"
-#include <professor.h>
+#include <QString>
 
-namespace Ui {
-	class Cpf;
-}
-
-class Cpf : public QDialog
+class Cpf
 {
-	Q_OBJECT
-
 public:
-	explicit Cpf(QWidget *parent = nullptr);
-	~Cpf();
-	bool validCpf();
-
-	QString getCpf() const;
 	void setCpf(const QString &value);
+    bool validCpf();
+
+    QString getCpf() const;
 
 protected:
 	int *cpfToInt();
@@ -30,17 +17,8 @@ protected:
 	bool validDigitOne(const int *);
 	bool validDigitTwo(const int *);
 
-private slots:
-	void on_btn_ok_clicked();
-
-	void on_btn_cancelar_clicked();
-
-    void on_campo_cpf_returnPressed();
-
 private:
-	QString cpf;
-    QString cpf_prof;
-	Ui::Cpf *ui;
+    QString cpf;
 };
 
 #endif // CPF_H
