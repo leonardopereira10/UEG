@@ -5,4 +5,9 @@ Pessoa::Pessoa()
 
 }
 
+Pessoa::~Pessoa()
+{
+
+}
+
 

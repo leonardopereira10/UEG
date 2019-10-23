@@ -24,18 +24,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp \
-		aluno.cpp \
+		cadastro_professor.cpp \
 		cpf.cpp \
 		mainwindow.cpp \
-		pessoa.cpp
+		pessoa.cpp \
+		professor.cpp
 
 
 HEADERS	+= mainwindow.h \
-		aluno.h \
+		cadastro_professor.h \
 		cpf.h \
-		pessoa.h
+		pessoa.h \
+		professor.h
 
-FORMS += mainwindow.ui
+FORMS += mainwindow.ui \
+    cadastro_professor.ui
 
 RESOURCES += \
     Imagens/imagens.qrc

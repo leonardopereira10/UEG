@@ -15,7 +15,3 @@ MainWindow::~MainWindow()
 	delete janelaInicial;
 }
 
-void MainWindow::cadAluno()
-{
-
-}

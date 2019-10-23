@@ -4,7 +4,6 @@
         <file>remover.png</file>
         <file>Aluno.png</file>
         <file>Cadastrar.png</file>
-        <file>Confirmação.png</file>
         <file>Erro.png</file>
         <file>Professores.png</file>
         <file>Disciplinas.png</file>
@@ -16,5 +15,6 @@
         <file>manual.png</file>
         <file>backgound.png</file>
         <file>fullScreen.png</file>
+        <file>Confirmacao.png</file>
     </qresource>
 </RCC>
