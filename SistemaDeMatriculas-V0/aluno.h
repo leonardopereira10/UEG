@@ -3,12 +3,17 @@
 
 #include "pessoa.h"
 
-class Aluno : Pessoa
+class Aluno : protected Pessoa
 {
 public:
 	Aluno();
+	virtual ~Aluno();
+
 	Aluno(int matricula, int ano);
 
+	void pessoaBase(QString cpf);
+	void pessoaCompleta(QString nome, QString endereco, QString setor, QString celular, QString email);
+	void pessoaCompleta(QString nome, QString endereco, QString setor, QString email);
 
 private:
 	int matricula;
