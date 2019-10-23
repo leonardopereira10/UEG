@@ -7,6 +7,7 @@ class Pessoa
 {	
 protected:
 	Pessoa();
+	virtual ~Pessoa();
 
 	virtual QString getCpf() const = 0;
 	virtual void setCpf(const QString &value) = 0;

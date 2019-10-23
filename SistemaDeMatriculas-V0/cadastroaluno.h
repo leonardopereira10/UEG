@@ -12,8 +12,10 @@ class cadastroAluno : public QWidget
 	Q_OBJECT
 
 public:
-	explicit cadastroAluno(QWidget *parent = 0);
+	explicit cadastroAluno(QWidget *parent = nullptr);
 	~cadastroAluno();
+
+private slots:
 
 private:
 	Ui::cadastroAluno *janelaCadastro;

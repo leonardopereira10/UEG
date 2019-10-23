@@ -27,11 +27,16 @@ void MainWindow::on_actionCadastrarAluno_triggered()
 
 void MainWindow::loadSubWindow(QWidget *widget)
 {
-	auto window = janelaInicial->mdiArea->addSubWindow(widget);
+	QMdiSubWindow *window = new QMdiSubWindow;
+	window->setAttribute(Qt::WA_DeleteOnClose);
+
 	window->setWindowTitle(widget->windowTitle());
 	window->setWindowIcon(widget->windowIcon());
-	window->show();
 	window->setMinimumSize(438, 450);
+
+	window->setWidget(widget);
+	janelaInicial->mdiArea->addSubWindow(window);
+	window->show();
 }
 
 void MainWindow::on_actionSair_triggered()

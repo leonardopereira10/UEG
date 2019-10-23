@@ -14,13 +14,13 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
 #include <QtWidgets/QGridLayout>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QSplitter>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -30,79 +30,150 @@ class Ui_cadastroAluno
 public:
     QLabel *labelLogo;
     QLabel *labelValidCpd;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QGridLayout *gridLayout;
-    QHBoxLayout *horizontalLayout;
     QLabel *labelCpf;
     QLineEdit *campoCpf;
-    QHBoxLayout *horizontalLayout_2;
     QLabel *labelMatricula;
     QLineEdit *campoMatricula;
-    QSplitter *splitter;
     QLabel *labelAno;
     QDateEdit *dateEdit;
+    QWidget *layoutWidget1;
+    QGridLayout *gridLayout_2;
+    QLabel *labelNome;
+    QLineEdit *campoNome;
+    QLabel *labelEndereco;
+    QLineEdit *campoEndereco;
+    QLabel *labelSetor;
+    QLineEdit *campoSetor;
+    QLabel *labelCidade;
+    QComboBox *boxCidade;
+    QLabel *labelEstado;
+    QComboBox *boxEstado;
+    QPushButton *btnCadastrar;
 
     void setupUi(QWidget *cadastroAluno)
     {
         if (cadastroAluno->objectName().isEmpty())
             cadastroAluno->setObjectName(QStringLiteral("cadastroAluno"));
-        cadastroAluno->resize(442, 421);
+        cadastroAluno->resize(433, 421);
         labelLogo = new QLabel(cadastroAluno);
         labelLogo->setObjectName(QStringLiteral("labelLogo"));
-        labelLogo->setGeometry(QRect(0, 0, 81, 101));
+        labelLogo->setGeometry(QRect(300, 10, 81, 101));
         labelValidCpd = new QLabel(cadastroAluno);
         labelValidCpd->setObjectName(QStringLiteral("labelValidCpd"));
-        labelValidCpd->setGeometry(QRect(280, 10, 31, 31));
-        widget = new QWidget(cadastroAluno);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(90, 10, 186, 70));
-        gridLayout = new QGridLayout(widget);
+        labelValidCpd->setGeometry(QRect(240, 10, 31, 31));
+        layoutWidget = new QWidget(cadastroAluno);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(50, 10, 184, 111));
+        gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setVerticalSpacing(10);
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        labelCpf = new QLabel(widget);
+        labelCpf = new QLabel(layoutWidget);
         labelCpf->setObjectName(QStringLiteral("labelCpf"));
 
-        horizontalLayout->addWidget(labelCpf);
+        gridLayout->addWidget(labelCpf, 0, 0, 1, 1);
 
-        campoCpf = new QLineEdit(widget);
+        campoCpf = new QLineEdit(layoutWidget);
         campoCpf->setObjectName(QStringLiteral("campoCpf"));
 
-        horizontalLayout->addWidget(campoCpf);
+        gridLayout->addWidget(campoCpf, 0, 1, 1, 2);
 
-
-        gridLayout->addLayout(horizontalLayout, 0, 0, 1, 1);
-
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        labelMatricula = new QLabel(widget);
+        labelMatricula = new QLabel(layoutWidget);
         labelMatricula->setObjectName(QStringLiteral("labelMatricula"));
 
-        horizontalLayout_2->addWidget(labelMatricula);
+        gridLayout->addWidget(labelMatricula, 1, 0, 1, 2);
 
-        campoMatricula = new QLineEdit(widget);
+        campoMatricula = new QLineEdit(layoutWidget);
         campoMatricula->setObjectName(QStringLiteral("campoMatricula"));
         campoMatricula->setFocusPolicy(Qt::NoFocus);
         campoMatricula->setReadOnly(true);
+        campoMatricula->setClearButtonEnabled(false);
 
-        horizontalLayout_2->addWidget(campoMatricula);
+        gridLayout->addWidget(campoMatricula, 1, 2, 1, 1);
 
-
-        gridLayout->addLayout(horizontalLayout_2, 1, 0, 1, 1);
-
-        splitter = new QSplitter(cadastroAluno);
-        splitter->setObjectName(QStringLiteral("splitter"));
-        splitter->setGeometry(QRect(90, 80, 141, 27));
-        splitter->setOrientation(Qt::Horizontal);
-        labelAno = new QLabel(splitter);
+        labelAno = new QLabel(layoutWidget);
         labelAno->setObjectName(QStringLiteral("labelAno"));
-        splitter->addWidget(labelAno);
-        dateEdit = new QDateEdit(splitter);
+
+        gridLayout->addWidget(labelAno, 2, 0, 1, 1);
+
+        dateEdit = new QDateEdit(layoutWidget);
         dateEdit->setObjectName(QStringLiteral("dateEdit"));
         dateEdit->setMaximumDate(QDate(7999, 12, 31));
         dateEdit->setCalendarPopup(true);
-        splitter->addWidget(dateEdit);
+
+        gridLayout->addWidget(dateEdit, 2, 1, 1, 2);
+
+        layoutWidget1 = new QWidget(cadastroAluno);
+        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(20, 140, 381, 152));
+        gridLayout_2 = new QGridLayout(layoutWidget1);
+        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        gridLayout_2->setHorizontalSpacing(6);
+        gridLayout_2->setVerticalSpacing(10);
+        gridLayout_2->setContentsMargins(0, 0, 0, 0);
+        labelNome = new QLabel(layoutWidget1);
+        labelNome->setObjectName(QStringLiteral("labelNome"));
+
+        gridLayout_2->addWidget(labelNome, 0, 0, 1, 1);
+
+        campoNome = new QLineEdit(layoutWidget1);
+        campoNome->setObjectName(QStringLiteral("campoNome"));
+
+        gridLayout_2->addWidget(campoNome, 0, 1, 1, 4);
+
+        labelEndereco = new QLabel(layoutWidget1);
+        labelEndereco->setObjectName(QStringLiteral("labelEndereco"));
+
+        gridLayout_2->addWidget(labelEndereco, 1, 0, 1, 2);
+
+        campoEndereco = new QLineEdit(layoutWidget1);
+        campoEndereco->setObjectName(QStringLiteral("campoEndereco"));
+
+        gridLayout_2->addWidget(campoEndereco, 1, 2, 1, 3);
+
+        labelSetor = new QLabel(layoutWidget1);
+        labelSetor->setObjectName(QStringLiteral("labelSetor"));
+
+        gridLayout_2->addWidget(labelSetor, 2, 0, 1, 1);
+
+        campoSetor = new QLineEdit(layoutWidget1);
+        campoSetor->setObjectName(QStringLiteral("campoSetor"));
+
+        gridLayout_2->addWidget(campoSetor, 2, 1, 1, 4);
+
+        labelCidade = new QLabel(layoutWidget1);
+        labelCidade->setObjectName(QStringLiteral("labelCidade"));
+
+        gridLayout_2->addWidget(labelCidade, 3, 0, 1, 1);
+
+        boxCidade = new QComboBox(layoutWidget1);
+        boxCidade->setObjectName(QStringLiteral("boxCidade"));
+
+        gridLayout_2->addWidget(boxCidade, 3, 1, 1, 2);
+
+        labelEstado = new QLabel(layoutWidget1);
+        labelEstado->setObjectName(QStringLiteral("labelEstado"));
+
+        gridLayout_2->addWidget(labelEstado, 3, 3, 1, 1);
+
+        boxEstado = new QComboBox(layoutWidget1);
+        boxEstado->setObjectName(QStringLiteral("boxEstado"));
+
+        gridLayout_2->addWidget(boxEstado, 3, 4, 1, 1);
+
+        gridLayout_2->setColumnStretch(1, 10);
+        gridLayout_2->setColumnStretch(2, 150);
+        btnCadastrar = new QPushButton(cadastroAluno);
+        btnCadastrar->setObjectName(QStringLiteral("btnCadastrar"));
+        btnCadastrar->setGeometry(QRect(121, 331, 171, 29));
+        QWidget::setTabOrder(campoCpf, dateEdit);
+        QWidget::setTabOrder(dateEdit, campoNome);
+        QWidget::setTabOrder(campoNome, campoEndereco);
+        QWidget::setTabOrder(campoEndereco, campoSetor);
+        QWidget::setTabOrder(campoSetor, boxCidade);
+        QWidget::setTabOrder(boxCidade, boxEstado);
 
         retranslateUi(cadastroAluno);
 
@@ -136,6 +207,13 @@ public:
         campoMatricula->setPlaceholderText(QString());
         labelAno->setText(QApplication::translate("cadastroAluno", "<html><head/><body><p><span style=\" font-weight:600;\">Ano</span></p></body></html>", Q_NULLPTR));
         dateEdit->setDisplayFormat(QApplication::translate("cadastroAluno", "dd/MM/yyyy", Q_NULLPTR));
+        labelNome->setText(QApplication::translate("cadastroAluno", "<html><head/><body><p><span style=\" font-weight:600;\">Nome</span></p></body></html>", Q_NULLPTR));
+        labelEndereco->setText(QApplication::translate("cadastroAluno", "<html><head/><body><p><span style=\" font-weight:600;\">Endere\303\247o</span></p></body></html>", Q_NULLPTR));
+        campoEndereco->setText(QString());
+        labelSetor->setText(QApplication::translate("cadastroAluno", "<html><head/><body><p><span style=\" font-weight:600;\">Setor</span></p></body></html>", Q_NULLPTR));
+        labelCidade->setText(QApplication::translate("cadastroAluno", "<html><head/><body><p><span style=\" font-weight:600;\">Cidade</span></p></body></html>", Q_NULLPTR));
+        labelEstado->setText(QApplication::translate("cadastroAluno", "<html><head/><body><p><span style=\" font-weight:600;\">UF</span></p></body></html>", Q_NULLPTR));
+        btnCadastrar->setText(QApplication::translate("cadastroAluno", "Cadastrar", Q_NULLPTR));
     } // retranslateUi
 
 };

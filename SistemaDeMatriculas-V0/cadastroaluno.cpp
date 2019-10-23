@@ -6,8 +6,8 @@ cadastroAluno::cadastroAluno(QWidget *parent) :
 	janelaCadastro(new Ui::cadastroAluno)
 {
 	janelaCadastro->setupUi(this);
-	janelaCadastro->campoMatricula->hide();
-	janelaCadastro->labelMatricula->hide();
+//	janelaCadastro->campoMatricula->hide();
+//	janelaCadastro->labelMatricula->hide();
 
 	janelaCadastro->campoCpf->setInputMask("999.999.999-99");
 	janelaCadastro->campoCpf->setFocus();
@@ -18,3 +18,4 @@ cadastroAluno::~cadastroAluno()
 {
 	delete janelaCadastro;
 }
+
