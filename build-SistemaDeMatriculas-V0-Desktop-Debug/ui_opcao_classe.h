@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'opcao_cadastrar.ui'
+** Form generated from reading UI file 'opcao_classe.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.7.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_OPCAO_CADASTRAR_H
-#define UI_OPCAO_CADASTRAR_H
+#ifndef UI_OPCAO_CLASSE_H
+#define UI_OPCAO_CLASSE_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -22,7 +22,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_opcao_cadastrar
+class Ui_Opcao_classe
 {
 public:
     QPushButton *btn_voltar;
@@ -37,17 +37,17 @@ public:
     QPushButton *btn_curso;
     QPushButton *btn_disciplina;
 
-    void setupUi(QDialog *opcao_cadastrar)
+    void setupUi(QDialog *Opcao_classe)
     {
-        if (opcao_cadastrar->objectName().isEmpty())
-            opcao_cadastrar->setObjectName(QStringLiteral("opcao_cadastrar"));
-        opcao_cadastrar->resize(462, 204);
-        btn_voltar = new QPushButton(opcao_cadastrar);
+        if (Opcao_classe->objectName().isEmpty())
+            Opcao_classe->setObjectName(QStringLiteral("Opcao_classe"));
+        Opcao_classe->resize(462, 204);
+        btn_voltar = new QPushButton(Opcao_classe);
         btn_voltar->setObjectName(QStringLiteral("btn_voltar"));
-        btn_voltar->setGeometry(QRect(176, 170, 120, 32));
-        layoutWidget = new QWidget(opcao_cadastrar);
+        btn_voltar->setGeometry(QRect(176, 164, 120, 32));
+        layoutWidget = new QWidget(Opcao_classe);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(30, 26, 391, 121));
+        layoutWidget->setGeometry(QRect(30, 20, 391, 121));
         gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
@@ -96,32 +96,32 @@ public:
         gridLayout->addWidget(btn_disciplina, 1, 3, 1, 1);
 
 
-        retranslateUi(opcao_cadastrar);
-        QObject::connect(btn_voltar, SIGNAL(clicked()), opcao_cadastrar, SLOT(close()));
+        retranslateUi(Opcao_classe);
+        QObject::connect(btn_voltar, SIGNAL(clicked()), Opcao_classe, SLOT(close()));
 
-        QMetaObject::connectSlotsByName(opcao_cadastrar);
+        QMetaObject::connectSlotsByName(Opcao_classe);
     } // setupUi
 
-    void retranslateUi(QDialog *opcao_cadastrar)
+    void retranslateUi(QDialog *Opcao_classe)
     {
-        opcao_cadastrar->setWindowTitle(QApplication::translate("opcao_cadastrar", "Cadastro", Q_NULLPTR));
-        btn_voltar->setText(QApplication::translate("opcao_cadastrar", "Voltar", Q_NULLPTR));
+        Opcao_classe->setWindowTitle(QApplication::translate("Opcao_classe", "Cadastro", Q_NULLPTR));
+        btn_voltar->setText(QApplication::translate("Opcao_classe", "Voltar", Q_NULLPTR));
         logo_aluno->setText(QString());
         logo_professor->setText(QString());
         logo_curso->setText(QString());
         logo_disciplina->setText(QString());
-        btn_aluno->setText(QApplication::translate("opcao_cadastrar", "Aluno", Q_NULLPTR));
-        btn_professor->setText(QApplication::translate("opcao_cadastrar", "Professor", Q_NULLPTR));
-        btn_curso->setText(QApplication::translate("opcao_cadastrar", "Curso", Q_NULLPTR));
-        btn_disciplina->setText(QApplication::translate("opcao_cadastrar", "Disciplina", Q_NULLPTR));
+        btn_aluno->setText(QApplication::translate("Opcao_classe", "Aluno", Q_NULLPTR));
+        btn_professor->setText(QApplication::translate("Opcao_classe", "Professor", Q_NULLPTR));
+        btn_curso->setText(QApplication::translate("Opcao_classe", "Curso", Q_NULLPTR));
+        btn_disciplina->setText(QApplication::translate("Opcao_classe", "Disciplina", Q_NULLPTR));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class opcao_cadastrar: public Ui_opcao_cadastrar {};
+    class Opcao_classe: public Ui_Opcao_classe {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // UI_OPCAO_CADASTRAR_H
+#endif // UI_OPCAO_CLASSE_H

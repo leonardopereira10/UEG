@@ -1,16 +1,16 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'opcao_cadastrar.h'
+** Meta object code from reading C++ file 'opcao_classe.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.7.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../SistemaDeMatriculas-V0/opcao_cadastrar.h"
+#include "../SistemaDeMatriculas-V0/opcao_classe.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'opcao_cadastrar.h' doesn't include <QObject>."
+#error "The header file 'opcao_classe.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.7.1. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -18,32 +18,32 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-struct qt_meta_stringdata_opcao_cadastrar_t {
+struct qt_meta_stringdata_Opcao_classe_t {
     QByteArrayData data[6];
-    char stringdata0[110];
+    char stringdata0[107];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_opcao_cadastrar_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_Opcao_classe_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_opcao_cadastrar_t qt_meta_stringdata_opcao_cadastrar = {
+static const qt_meta_stringdata_Opcao_classe_t qt_meta_stringdata_Opcao_classe = {
     {
-QT_MOC_LITERAL(0, 0, 15), // "opcao_cadastrar"
-QT_MOC_LITERAL(1, 16, 20), // "on_btn_aluno_clicked"
-QT_MOC_LITERAL(2, 37, 0), // ""
-QT_MOC_LITERAL(3, 38, 24), // "on_btn_professor_clicked"
-QT_MOC_LITERAL(4, 63, 20), // "on_btn_curso_clicked"
-QT_MOC_LITERAL(5, 84, 25) // "on_btn_disciplina_clicked"
+QT_MOC_LITERAL(0, 0, 12), // "Opcao_classe"
+QT_MOC_LITERAL(1, 13, 20), // "on_btn_aluno_clicked"
+QT_MOC_LITERAL(2, 34, 0), // ""
+QT_MOC_LITERAL(3, 35, 24), // "on_btn_professor_clicked"
+QT_MOC_LITERAL(4, 60, 20), // "on_btn_curso_clicked"
+QT_MOC_LITERAL(5, 81, 25) // "on_btn_disciplina_clicked"
 
     },
-    "opcao_cadastrar\0on_btn_aluno_clicked\0"
-    "\0on_btn_professor_clicked\0"
-    "on_btn_curso_clicked\0on_btn_disciplina_clicked"
+    "Opcao_classe\0on_btn_aluno_clicked\0\0"
+    "on_btn_professor_clicked\0on_btn_curso_clicked\0"
+    "on_btn_disciplina_clicked"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_opcao_cadastrar[] = {
+static const uint qt_meta_data_Opcao_classe[] = {
 
  // content:
        7,       // revision
@@ -71,10 +71,10 @@ static const uint qt_meta_data_opcao_cadastrar[] = {
        0        // eod
 };
 
-void opcao_cadastrar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void Opcao_classe::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        opcao_cadastrar *_t = static_cast<opcao_cadastrar *>(_o);
+        Opcao_classe *_t = static_cast<Opcao_classe *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_btn_aluno_clicked(); break;
@@ -87,26 +87,26 @@ void opcao_cadastrar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
     Q_UNUSED(_a);
 }
 
-const QMetaObject opcao_cadastrar::staticMetaObject = {
-    { &QDialog::staticMetaObject, qt_meta_stringdata_opcao_cadastrar.data,
-      qt_meta_data_opcao_cadastrar,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
+const QMetaObject Opcao_classe::staticMetaObject = {
+    { &QDialog::staticMetaObject, qt_meta_stringdata_Opcao_classe.data,
+      qt_meta_data_Opcao_classe,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
-const QMetaObject *opcao_cadastrar::metaObject() const
+const QMetaObject *Opcao_classe::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *opcao_cadastrar::qt_metacast(const char *_clname)
+void *Opcao_classe::qt_metacast(const char *_clname)
 {
     if (!_clname) return Q_NULLPTR;
-    if (!strcmp(_clname, qt_meta_stringdata_opcao_cadastrar.stringdata0))
-        return static_cast<void*>(const_cast< opcao_cadastrar*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_Opcao_classe.stringdata0))
+        return static_cast<void*>(const_cast< Opcao_classe*>(this));
     return QDialog::qt_metacast(_clname);
 }
 
-int opcao_cadastrar::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int Opcao_classe::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)

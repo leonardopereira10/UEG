@@ -97,7 +97,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="btn_remover">
     <property name="geometry">
      <rect>
       <x>317</x>
@@ -112,7 +112,7 @@
    </widget>
    <zorder>btn_Cadastrar</zorder>
    <zorder>btn_consultar</zorder>
-   <zorder>pushButton_2</zorder>
+   <zorder>btn_remover</zorder>
    <zorder>logo_cadastrar</zorder>
    <zorder>logo_consultar</zorder>
    <zorder>logo_remover</zorder>
@@ -123,7 +123,7 @@
      <x>0</x>
      <y>0</y>
      <width>463</width>
-     <height>22</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>

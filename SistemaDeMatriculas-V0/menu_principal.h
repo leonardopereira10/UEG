@@ -2,10 +2,9 @@
 #define MENU_PRINCIPAL_H
 
 #include <QMainWindow>
-#include "opcao_cadastrar.h"
 
 namespace Ui {
-class Menu_principal;
+	class Menu_principal;
 }
 
 class Menu_principal : public QMainWindow
@@ -13,11 +12,15 @@ class Menu_principal : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit Menu_principal(QWidget *parent = nullptr);
+	explicit Menu_principal(QWidget *parent = 0);
     ~Menu_principal();
 
 private slots:
     void on_btn_Cadastrar_clicked();
+
+	void on_btn_consultar_clicked();
+
+	void on_btn_remover_clicked();
 
 private:
     Ui::Menu_principal *ui;

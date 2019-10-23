@@ -2,9 +2,8 @@
 #include "ui_cpf.h"
 
 Cpf::Cpf(QWidget *parent) :
-
     QDialog(parent),
-    ui(new Ui::Cpf)
+	ui(new Ui::Cpf)
 {
     ui->setupUi(this);
 }
@@ -108,9 +107,6 @@ bool Cpf::validCpf()
   }
 }
 
-
-// BUG: Janela fecha ao pressionar enter
-// TODO: Retirar imagem de erro que aparece antes de pressionar Ok
 void Cpf::on_btn_ok_clicked()
 {
 	QPixmap erro (":/imagens/Erro.png");
@@ -118,13 +114,15 @@ void Cpf::on_btn_ok_clicked()
 
     setCpf(ui->campo_cpf->text());
 
-	if(validCpf()){
+	if(validCpf()) {
 		ui->validador->setPixmap(valido);
+		this->done(1);
     }
     else{
+		qDebug() << "CPF inválido";
 		ui->validador->setPixmap(erro);
+		ui->campo_cpf->setFocus();
+		ui->campo_cpf->selectAll();
+		this->setResult(0);
     }
 }
-
-// NOTE: Removido método de "Cancelar" (fechar janela) de CPF
-// Função de fechar adicionada ao botão por meio de signais

@@ -15,6 +15,10 @@ public:
 	void pessoaCompleta(QString nome, QString endereco, QString setor, QString celular, QString email);
 	void pessoaCompleta(QString nome, QString endereco, QString setor, QString email);
 
+	QString cadAluno();
+	QString consultAluno();
+	void removeAluno();
+
 private:
 	int matricula;
 	int ano;

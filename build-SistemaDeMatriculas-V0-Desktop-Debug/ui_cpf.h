@@ -14,12 +14,12 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -28,33 +28,35 @@ class Ui_Cpf
 {
 public:
     QLabel *validador;
-    QWidget *layoutWidget;
-    QGridLayout *gridLayout;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QLabel *cpf;
     QLineEdit *campo_cpf;
-    QPushButton *btn_cancelar;
     QPushButton *btn_ok;
 
     void setupUi(QDialog *Cpf)
     {
         if (Cpf->objectName().isEmpty())
             Cpf->setObjectName(QStringLiteral("Cpf"));
+        Cpf->setWindowModality(Qt::NonModal);
         Cpf->resize(293, 91);
+        Cpf->setCursor(QCursor(Qt::ArrowCursor));
+        Cpf->setFocusPolicy(Qt::NoFocus);
         validador = new QLabel(Cpf);
         validador->setObjectName(QStringLiteral("validador"));
         validador->setGeometry(QRect(260, 14, 21, 20));
         validador->setPixmap(QPixmap(QString::fromUtf8("../Imagens/Erro.png")));
         validador->setScaledContents(true);
-        layoutWidget = new QWidget(Cpf);
-        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(20, 10, 234, 68));
-        gridLayout = new QGridLayout(layoutWidget);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        gridLayout->setContentsMargins(0, 0, 0, 0);
+        widget = new QWidget(Cpf);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(10, 11, 246, 68));
+        verticalLayout = new QVBoxLayout(widget);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        cpf = new QLabel(layoutWidget);
+        cpf = new QLabel(widget);
         cpf->setObjectName(QStringLiteral("cpf"));
         QFont font;
         font.setFamily(QStringLiteral("Helvetica"));
@@ -65,27 +67,21 @@ public:
 
         horizontalLayout->addWidget(cpf);
 
-        campo_cpf = new QLineEdit(layoutWidget);
+        campo_cpf = new QLineEdit(widget);
         campo_cpf->setObjectName(QStringLiteral("campo_cpf"));
 
         horizontalLayout->addWidget(campo_cpf);
 
 
-        gridLayout->addLayout(horizontalLayout, 0, 0, 1, 2);
+        verticalLayout->addLayout(horizontalLayout);
 
-        btn_cancelar = new QPushButton(layoutWidget);
-        btn_cancelar->setObjectName(QStringLiteral("btn_cancelar"));
-
-        gridLayout->addWidget(btn_cancelar, 1, 0, 1, 1);
-
-        btn_ok = new QPushButton(layoutWidget);
+        btn_ok = new QPushButton(widget);
         btn_ok->setObjectName(QStringLiteral("btn_ok"));
 
-        gridLayout->addWidget(btn_ok, 1, 1, 1, 1);
+        verticalLayout->addWidget(btn_ok);
 
 
         retranslateUi(Cpf);
-        QObject::connect(btn_cancelar, SIGNAL(clicked()), Cpf, SLOT(close()));
 
         QMetaObject::connectSlotsByName(Cpf);
     } // setupUi
@@ -96,7 +92,6 @@ public:
         validador->setText(QString());
         cpf->setText(QApplication::translate("Cpf", "Insira o CPF:", Q_NULLPTR));
         campo_cpf->setInputMask(QApplication::translate("Cpf", "###.###.###-##", Q_NULLPTR));
-        btn_cancelar->setText(QApplication::translate("Cpf", "Cancelar", Q_NULLPTR));
         btn_ok->setText(QApplication::translate("Cpf", "OK", Q_NULLPTR));
     } // retranslateUi
 

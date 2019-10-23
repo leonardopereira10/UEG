@@ -1,11 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Aluno</class>
- <widget name="Aluno" class="QDialog">
+ <class>cadAluno</class>
+ <widget class="QDialog" name="cadAluno">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>560</width>
     <height>300</height>
    </rect>
   </property>

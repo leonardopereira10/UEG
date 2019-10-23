@@ -52,21 +52,21 @@ SOURCES       = ../SistemaDeMatriculas-V0/aluno.cpp \
 		../SistemaDeMatriculas-V0/cpf.cpp \
 		../SistemaDeMatriculas-V0/main.cpp \
 		../SistemaDeMatriculas-V0/menu_principal.cpp \
-		../SistemaDeMatriculas-V0/opcao_cadastrar.cpp \
-		../SistemaDeMatriculas-V0/pessoa.cpp qrc_imagens.cpp \
+		../SistemaDeMatriculas-V0/pessoa.cpp \
+		../SistemaDeMatriculas-V0/opcao_classe.cpp qrc_imagens.cpp \
 		moc_cpf.cpp \
 		moc_menu_principal.cpp \
-		moc_opcao_cadastrar.cpp
+		moc_opcao_classe.cpp
 OBJECTS       = aluno.o \
 		cpf.o \
 		main.o \
 		menu_principal.o \
-		opcao_cadastrar.o \
 		pessoa.o \
+		opcao_classe.o \
 		qrc_imagens.o \
 		moc_cpf.o \
 		moc_menu_principal.o \
-		moc_opcao_cadastrar.o
+		moc_opcao_classe.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -113,7 +113,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
-		../SistemaDeMatriculas-V0/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -135,13 +134,13 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro ../SistemaDeMatriculas-V0/aluno.h \
 		../SistemaDeMatriculas-V0/cpf.h \
 		../SistemaDeMatriculas-V0/menu_principal.h \
-		../SistemaDeMatriculas-V0/opcao_cadastrar.h \
-		../SistemaDeMatriculas-V0/pessoa.h ../SistemaDeMatriculas-V0/aluno.cpp \
+		../SistemaDeMatriculas-V0/pessoa.h \
+		../SistemaDeMatriculas-V0/opcao_classe.h ../SistemaDeMatriculas-V0/aluno.cpp \
 		../SistemaDeMatriculas-V0/cpf.cpp \
 		../SistemaDeMatriculas-V0/main.cpp \
 		../SistemaDeMatriculas-V0/menu_principal.cpp \
-		../SistemaDeMatriculas-V0/opcao_cadastrar.cpp \
-		../SistemaDeMatriculas-V0/pessoa.cpp
+		../SistemaDeMatriculas-V0/pessoa.cpp \
+		../SistemaDeMatriculas-V0/opcao_classe.cpp
 QMAKE_TARGET  = SistemaDeMatriculas-V0
 DESTDIR       = 
 TARGET        = SistemaDeMatriculas-V0
@@ -150,7 +149,7 @@ TARGET        = SistemaDeMatriculas-V0
 first: all
 ####### Build rules
 
-$(TARGET): ui_cpf.h ui_menu_principal.h ui_opcao_cadastrar.h $(OBJECTS)  
+$(TARGET): ui_cpf.h ui_menu_principal.h ui_cadAluno.h ui_opcao_classe.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -199,7 +198,6 @@ Makefile: ../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro /usr/lib/x86_64-l
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -271,7 +269,6 @@ Makefile: ../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro /usr/lib/x86_64-l
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -311,9 +308,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/Imagens/imagens.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/aluno.h ../SistemaDeMatriculas-V0/cpf.h ../SistemaDeMatriculas-V0/menu_principal.h ../SistemaDeMatriculas-V0/opcao_cadastrar.h ../SistemaDeMatriculas-V0/pessoa.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/aluno.cpp ../SistemaDeMatriculas-V0/cpf.cpp ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/menu_principal.cpp ../SistemaDeMatriculas-V0/opcao_cadastrar.cpp ../SistemaDeMatriculas-V0/pessoa.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/cpf.ui ../SistemaDeMatriculas-V0/menu_principal.ui ../SistemaDeMatriculas-V0/opcao_cadastrar.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/aluno.h ../SistemaDeMatriculas-V0/cpf.h ../SistemaDeMatriculas-V0/menu_principal.h ../SistemaDeMatriculas-V0/pessoa.h ../SistemaDeMatriculas-V0/opcao_classe.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/aluno.cpp ../SistemaDeMatriculas-V0/cpf.cpp ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/menu_principal.cpp ../SistemaDeMatriculas-V0/pessoa.cpp ../SistemaDeMatriculas-V0/opcao_classe.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/cpf.ui ../SistemaDeMatriculas-V0/menu_principal.ui ../SistemaDeMatriculas-V0/cadAluno.ui ../SistemaDeMatriculas-V0/opcao_classe.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -352,32 +349,27 @@ qrc_imagens.cpp: ../SistemaDeMatriculas-V0/Imagens/imagens.qrc \
 		../SistemaDeMatriculas-V0/Imagens/pesquisar.png
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name imagens ../SistemaDeMatriculas-V0/Imagens/imagens.qrc -o qrc_imagens.cpp
 
-compiler_moc_header_make_all: moc_cpf.cpp moc_menu_principal.cpp moc_opcao_cadastrar.cpp
+compiler_moc_header_make_all: moc_cpf.cpp moc_menu_principal.cpp moc_opcao_classe.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_cpf.cpp moc_menu_principal.cpp moc_opcao_cadastrar.cpp
+	-$(DEL_FILE) moc_cpf.cpp moc_menu_principal.cpp moc_opcao_classe.cpp
 moc_cpf.cpp: ../SistemaDeMatriculas-V0/cpf.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lucas/UEG/SistemaDeMatriculas-V0 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../SistemaDeMatriculas-V0/cpf.h -o moc_cpf.cpp
 
-moc_menu_principal.cpp: ../SistemaDeMatriculas-V0/opcao_cadastrar.h \
-		../SistemaDeMatriculas-V0/menu_principal.h \
-		../SistemaDeMatriculas-V0/cpf.h \
-		../SistemaDeMatriculas-V0/menu_principal.h \
+moc_menu_principal.cpp: ../SistemaDeMatriculas-V0/menu_principal.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lucas/UEG/SistemaDeMatriculas-V0 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../SistemaDeMatriculas-V0/menu_principal.h -o moc_menu_principal.cpp
 
-moc_opcao_cadastrar.cpp: ../SistemaDeMatriculas-V0/menu_principal.h \
-		../SistemaDeMatriculas-V0/opcao_cadastrar.h \
-		../SistemaDeMatriculas-V0/cpf.h \
-		../SistemaDeMatriculas-V0/opcao_cadastrar.h \
+moc_opcao_classe.cpp: ../SistemaDeMatriculas-V0/cpf.h \
+		../SistemaDeMatriculas-V0/opcao_classe.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lucas/UEG/SistemaDeMatriculas-V0 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../SistemaDeMatriculas-V0/opcao_cadastrar.h -o moc_opcao_cadastrar.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lucas/UEG/SistemaDeMatriculas-V0 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../SistemaDeMatriculas-V0/opcao_classe.h -o moc_opcao_classe.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_cpf.h ui_menu_principal.h ui_opcao_cadastrar.h
+compiler_uic_make_all: ui_cpf.h ui_menu_principal.h ui_cadAluno.h ui_opcao_classe.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_cpf.h ui_menu_principal.h ui_opcao_cadastrar.h
+	-$(DEL_FILE) ui_cpf.h ui_menu_principal.h ui_cadAluno.h ui_opcao_classe.h
 ui_cpf.h: ../SistemaDeMatriculas-V0/cpf.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../SistemaDeMatriculas-V0/cpf.ui -o ui_cpf.h
@@ -386,9 +378,13 @@ ui_menu_principal.h: ../SistemaDeMatriculas-V0/menu_principal.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../SistemaDeMatriculas-V0/menu_principal.ui -o ui_menu_principal.h
 
-ui_opcao_cadastrar.h: ../SistemaDeMatriculas-V0/opcao_cadastrar.ui \
+ui_cadAluno.h: ../SistemaDeMatriculas-V0/cadAluno.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
-	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../SistemaDeMatriculas-V0/opcao_cadastrar.ui -o ui_opcao_cadastrar.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../SistemaDeMatriculas-V0/cadAluno.ui -o ui_cadAluno.h
+
+ui_opcao_classe.h: ../SistemaDeMatriculas-V0/opcao_classe.ui \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../SistemaDeMatriculas-V0/opcao_classe.ui -o ui_opcao_classe.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -406,29 +402,28 @@ aluno.o: ../SistemaDeMatriculas-V0/aluno.cpp ../SistemaDeMatriculas-V0/aluno.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o aluno.o ../SistemaDeMatriculas-V0/aluno.cpp
 
 cpf.o: ../SistemaDeMatriculas-V0/cpf.cpp ../SistemaDeMatriculas-V0/cpf.h \
+		../SistemaDeMatriculas-V0/aluno.h \
+		../SistemaDeMatriculas-V0/pessoa.h \
 		ui_cpf.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cpf.o ../SistemaDeMatriculas-V0/cpf.cpp
 
-main.o: ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/menu_principal.h \
-		../SistemaDeMatriculas-V0/opcao_cadastrar.h \
-		../SistemaDeMatriculas-V0/cpf.h
+main.o: ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/menu_principal.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../SistemaDeMatriculas-V0/main.cpp
 
 menu_principal.o: ../SistemaDeMatriculas-V0/menu_principal.cpp ../SistemaDeMatriculas-V0/menu_principal.h \
-		../SistemaDeMatriculas-V0/opcao_cadastrar.h \
-		../SistemaDeMatriculas-V0/cpf.h \
-		ui_menu_principal.h
+		ui_menu_principal.h \
+		../SistemaDeMatriculas-V0/opcao_classe.h \
+		../SistemaDeMatriculas-V0/cpf.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o menu_principal.o ../SistemaDeMatriculas-V0/menu_principal.cpp
-
-opcao_cadastrar.o: ../SistemaDeMatriculas-V0/opcao_cadastrar.cpp ../SistemaDeMatriculas-V0/opcao_cadastrar.h \
-		../SistemaDeMatriculas-V0/menu_principal.h \
-		../SistemaDeMatriculas-V0/cpf.h \
-		ui_opcao_cadastrar.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o opcao_cadastrar.o ../SistemaDeMatriculas-V0/opcao_cadastrar.cpp
 
 pessoa.o: ../SistemaDeMatriculas-V0/pessoa.cpp ../SistemaDeMatriculas-V0/pessoa.h \
 		../SistemaDeMatriculas-V0/cpf.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pessoa.o ../SistemaDeMatriculas-V0/pessoa.cpp
+
+opcao_classe.o: ../SistemaDeMatriculas-V0/opcao_classe.cpp ../SistemaDeMatriculas-V0/opcao_classe.h \
+		../SistemaDeMatriculas-V0/cpf.h \
+		ui_opcao_classe.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o opcao_classe.o ../SistemaDeMatriculas-V0/opcao_classe.cpp
 
 qrc_imagens.o: qrc_imagens.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_imagens.o qrc_imagens.cpp
@@ -439,8 +434,8 @@ moc_cpf.o: moc_cpf.cpp
 moc_menu_principal.o: moc_menu_principal.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_menu_principal.o moc_menu_principal.cpp
 
-moc_opcao_cadastrar.o: moc_opcao_cadastrar.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_opcao_cadastrar.o moc_opcao_cadastrar.cpp
+moc_opcao_classe.o: moc_opcao_classe.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_opcao_classe.o moc_opcao_classe.cpp
 
 ####### Install
 

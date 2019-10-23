@@ -32,7 +32,7 @@ public:
     QLabel *logo_consultar;
     QPushButton *btn_consultar;
     QLabel *logo_remover;
-    QPushButton *pushButton_2;
+    QPushButton *btn_remover;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -64,19 +64,19 @@ public:
         logo_remover->setGeometry(QRect(338, 28, 71, 61));
         logo_remover->setPixmap(QPixmap(QString::fromUtf8("../Imagens/remover.png")));
         logo_remover->setScaledContents(true);
-        pushButton_2 = new QPushButton(centralwidget);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(317, 99, 113, 32));
+        btn_remover = new QPushButton(centralwidget);
+        btn_remover->setObjectName(QStringLiteral("btn_remover"));
+        btn_remover->setGeometry(QRect(317, 99, 113, 32));
         Menu_principal->setCentralWidget(centralwidget);
         btn_Cadastrar->raise();
         btn_consultar->raise();
-        pushButton_2->raise();
+        btn_remover->raise();
         logo_cadastrar->raise();
         logo_consultar->raise();
         logo_remover->raise();
         menubar = new QMenuBar(Menu_principal);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 463, 22));
+        menubar->setGeometry(QRect(0, 0, 463, 23));
         Menu_principal->setMenuBar(menubar);
         statusbar = new QStatusBar(Menu_principal);
         statusbar->setObjectName(QStringLiteral("statusbar"));
@@ -95,7 +95,7 @@ public:
         logo_consultar->setText(QString());
         btn_consultar->setText(QApplication::translate("Menu_principal", "Consultar", Q_NULLPTR));
         logo_remover->setText(QString());
-        pushButton_2->setText(QApplication::translate("Menu_principal", "Remover", Q_NULLPTR));
+        btn_remover->setText(QApplication::translate("Menu_principal", "Remover", Q_NULLPTR));
     } // retranslateUi
 
 };

@@ -4,7 +4,7 @@
 #include <QDialog>
 #include <QPixmap>
 #include <QMessageBox>
-#include <QtDebug>
+#include <QDebug>
 
 namespace Ui {
 	class Cpf;
@@ -15,8 +15,9 @@ class Cpf : public QDialog
     Q_OBJECT
 
 public:
-    explicit Cpf(QWidget *parent = nullptr);
+	explicit Cpf(QWidget *parent = 0);
     ~Cpf();
+
     bool validCpf();
 
     QString getCpf() const;
