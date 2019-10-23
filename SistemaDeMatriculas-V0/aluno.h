@@ -1,4 +1,4 @@
-#ifndef ALUNO_H
+﻿#ifndef ALUNO_H
 #define ALUNO_H
 
 #include "pessoa.h"
@@ -9,15 +9,29 @@ public:
 	Aluno();
 	virtual ~Aluno();
 
-	Aluno(int matricula, int ano);
+	QString getCpf() const;
+	void setCpf(const QString &value);
 
-	void pessoaBase(QString cpf);
-	void pessoaCompleta(QString nome, QString endereco, QString setor, QString celular, QString email);
-	void pessoaCompleta(QString nome, QString endereco, QString setor, QString email);
+	QString getNome() const;
+	void setNome(const QString &value);
 
-	QString cadAluno();
-	QString consultAluno();
-	void removeAluno();
+	QString getLogradouro() const;
+	void setLogradouro(const QString &value);
+
+	QString getSetor() const;
+	void setSetor(const QString &value);
+
+	QString getCidade() const;
+	void setCidade(const QString &value);
+
+	QString getEstado() const;
+	void setEstado(const QString &value);
+
+	QString getCelular() const;
+	void setCelular(const QString &value);
+
+	QString getEmail() const;
+	void setEmail(const QString &value);
 
 private:
 	int matricula;
