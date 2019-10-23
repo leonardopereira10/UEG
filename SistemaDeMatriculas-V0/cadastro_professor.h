@@ -19,6 +19,7 @@ public:
 
 private:
     Ui::cadastro_professor *ui;
+
 };
 
 #endif // CADASTRO_PROFESSOR_H

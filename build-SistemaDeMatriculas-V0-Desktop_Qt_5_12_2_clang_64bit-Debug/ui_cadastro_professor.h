@@ -12,7 +12,6 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
-#include <QtWidgets/QFontComboBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -33,9 +32,9 @@ public:
     QLabel *label_6;
     QLineEdit *lineEdit_4;
     QLabel *label_7;
-    QFontComboBox *fontComboBox;
     QLabel *label_8;
     QComboBox *comboBox;
+    QComboBox *comboBox_2;
     QWidget *widget;
     QHBoxLayout *horizontalLayout;
     QLabel *label_2;
@@ -76,15 +75,15 @@ public:
         label_7 = new QLabel(cadastro_professor);
         label_7->setObjectName(QString::fromUtf8("label_7"));
         label_7->setGeometry(QRect(20, 300, 59, 16));
-        fontComboBox = new QFontComboBox(cadastro_professor);
-        fontComboBox->setObjectName(QString::fromUtf8("fontComboBox"));
-        fontComboBox->setGeometry(QRect(41, 294, 90, 32));
         label_8 = new QLabel(cadastro_professor);
         label_8->setObjectName(QString::fromUtf8("label_8"));
         label_8->setGeometry(QRect(180, 300, 59, 16));
         comboBox = new QComboBox(cadastro_professor);
         comboBox->setObjectName(QString::fromUtf8("comboBox"));
-        comboBox->setGeometry(QRect(230, 290, 91, 32));
+        comboBox->setGeometry(QRect(40, 293, 91, 32));
+        comboBox_2 = new QComboBox(cadastro_professor);
+        comboBox_2->setObjectName(QString::fromUtf8("comboBox_2"));
+        comboBox_2->setGeometry(QRect(226, 286, 220, 50));
         widget = new QWidget(cadastro_professor);
         widget->setObjectName(QString::fromUtf8("widget"));
         widget->setGeometry(QRect(240, 39, 168, 23));

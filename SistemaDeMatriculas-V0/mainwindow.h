@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QMdiSubWindow>
+#include "cadastro_professor.h"
 
 namespace Ui {
 class MainWindow;
@@ -18,8 +19,11 @@ public:
 
 private slots:
 
+    void on_actionCadastrarProf_triggered();
+
 private:
 	Ui::MainWindow *janelaInicial;
+    void loadSubWindow(QWidget *widget);
 };
 
 #endif // MAINWINDOW_H

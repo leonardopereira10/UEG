@@ -730,6 +730,18 @@ moc_mainwindow.cpp: ../SistemaDeMatriculas-V0/mainwindow.h \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMdiSubWindow \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
+		../SistemaDeMatriculas-V0/cadastro_professor.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../SistemaDeMatriculas-V0/professor.h \
+		../SistemaDeMatriculas-V0/pessoa.h \
+		../SistemaDeMatriculas-V0/cpf.h \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QString \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
 		moc_predefs.h \
 		../../Qt/5.12.2/clang_64/bin/moc
 	/Users/danyelliasmanso/Qt/5.12.2/clang_64/bin/moc $(DEFINES) --include /Users/danyelliasmanso/UEG/build-SistemaDeMatriculas-V0-Desktop_Qt_5_12_2_clang_64bit-Debug/moc_predefs.h -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/mkspecs/macx-clang -I/Users/danyelliasmanso/UEG/SistemaDeMatriculas-V0 -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtGui.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtSql.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib ../SistemaDeMatriculas-V0/mainwindow.h -o moc_mainwindow.cpp
@@ -782,6 +794,18 @@ main.o: ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/mainwindow.
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMdiSubWindow \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
+		../SistemaDeMatriculas-V0/cadastro_professor.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../SistemaDeMatriculas-V0/professor.h \
+		../SistemaDeMatriculas-V0/pessoa.h \
+		../SistemaDeMatriculas-V0/cpf.h \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QString \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../SistemaDeMatriculas-V0/main.cpp
@@ -811,10 +835,19 @@ mainwindow.o: ../SistemaDeMatriculas-V0/mainwindow.cpp ../SistemaDeMatriculas-V0
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMdiSubWindow \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
-		ui_mainwindow.h \
+		../SistemaDeMatriculas-V0/cadastro_professor.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../SistemaDeMatriculas-V0/professor.h \
+		../SistemaDeMatriculas-V0/pessoa.h \
 		../SistemaDeMatriculas-V0/cpf.h \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QString \
-		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qstring.h
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../SistemaDeMatriculas-V0/mainwindow.cpp
 
 pessoa.o: ../SistemaDeMatriculas-V0/pessoa.cpp ../SistemaDeMatriculas-V0/pessoa.h \

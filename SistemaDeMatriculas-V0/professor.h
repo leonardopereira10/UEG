@@ -7,6 +7,7 @@ class Professor : public Pessoa
 {
 public:
     Professor();
+    virtual ~Professor();
 private:
     QString graduacao, titulacao;
 };
