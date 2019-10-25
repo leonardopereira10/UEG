@@ -4,3 +4,9 @@ Professor::Professor()
 {
 
 }
+
+Professor::~Professor()
+{
+
+}
+

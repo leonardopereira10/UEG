@@ -3,7 +3,7 @@
 #include "pessoa.h"
 
 
-class Professor : public Pessoa
+class Professor : public Pessoa, public Cpf
 {
 public:
     Professor();

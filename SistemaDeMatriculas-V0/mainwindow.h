@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QMdiSubWindow>
 #include "cadastro_professor.h"
+#include <QtSql>
+#include <QMessageBox>
 
 namespace Ui {
 class MainWindow;
@@ -16,6 +18,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
 	~MainWindow();
+    QSqlDatabase banco_de_dados;
 
 private slots:
 

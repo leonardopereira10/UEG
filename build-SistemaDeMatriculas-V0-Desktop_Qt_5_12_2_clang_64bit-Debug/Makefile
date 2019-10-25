@@ -698,6 +698,7 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_imagens.cpp
 qrc_imagens.cpp: ../SistemaDeMatriculas-V0/Imagens/imagens.qrc \
 		../../Qt/5.12.2/clang_64/bin/rcc \
+		../SistemaDeMatriculas-V0/Imagens/SCM.db \
 		../SistemaDeMatriculas-V0/Imagens/Confirmacao.png \
 		../SistemaDeMatriculas-V0/Imagens/manual.png \
 		../SistemaDeMatriculas-V0/Imagens/sobre.png \
@@ -742,6 +743,25 @@ moc_mainwindow.cpp: ../SistemaDeMatriculas-V0/mainwindow.h \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
 		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../SistemaDeMatriculas-V0/mainwindow.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QtSql \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		moc_predefs.h \
 		../../Qt/5.12.2/clang_64/bin/moc
 	/Users/danyelliasmanso/Qt/5.12.2/clang_64/bin/moc $(DEFINES) --include /Users/danyelliasmanso/UEG/build-SistemaDeMatriculas-V0-Desktop_Qt_5_12_2_clang_64bit-Debug/moc_predefs.h -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/mkspecs/macx-clang -I/Users/danyelliasmanso/UEG/SistemaDeMatriculas-V0 -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtGui.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtSql.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib ../SistemaDeMatriculas-V0/mainwindow.h -o moc_mainwindow.cpp
@@ -758,6 +778,30 @@ moc_cadastro_professor.cpp: ../SistemaDeMatriculas-V0/cadastro_professor.h \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
 		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../SistemaDeMatriculas-V0/mainwindow.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMdiSubWindow \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
+		../SistemaDeMatriculas-V0/cadastro_professor.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QtSql \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		moc_predefs.h \
 		../../Qt/5.12.2/clang_64/bin/moc
 	/Users/danyelliasmanso/Qt/5.12.2/clang_64/bin/moc $(DEFINES) --include /Users/danyelliasmanso/UEG/build-SistemaDeMatriculas-V0-Desktop_Qt_5_12_2_clang_64bit-Debug/moc_predefs.h -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/mkspecs/macx-clang -I/Users/danyelliasmanso/UEG/SistemaDeMatriculas-V0 -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtGui.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtSql.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib ../SistemaDeMatriculas-V0/cadastro_professor.h -o moc_cadastro_professor.cpp
@@ -806,6 +850,24 @@ main.o: ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/mainwindow.
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
 		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QtSql \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../SistemaDeMatriculas-V0/main.cpp
@@ -822,6 +884,29 @@ cadastro_professor.o: ../SistemaDeMatriculas-V0/cadastro_professor.cpp ../Sistem
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
 		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../SistemaDeMatriculas-V0/mainwindow.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMdiSubWindow \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QtSql \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		ui_cadastro_professor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cadastro_professor.o ../SistemaDeMatriculas-V0/cadastro_professor.cpp
 
@@ -847,6 +932,24 @@ mainwindow.o: ../SistemaDeMatriculas-V0/mainwindow.cpp ../SistemaDeMatriculas-V0
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
 		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QtSql \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../SistemaDeMatriculas-V0/mainwindow.cpp
 
