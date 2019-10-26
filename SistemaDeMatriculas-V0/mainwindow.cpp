@@ -1,7 +1,6 @@
 #include <QMdiSubWindow>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "cadastroaluno.h"
 
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent),
@@ -20,10 +19,12 @@ MainWindow::~MainWindow()
 	delete janelaInicial;
 }
 
-void MainWindow::on_actionCadastrarAluno_triggered()
+// NOTE: metodo referente ao modulo aluno
+/*void MainWindow::on_actionCadastrarAluno_triggered()
 {
 	loadSubWindow(new cadastroAluno(this));
 }
+*/
 
 void MainWindow::loadSubWindow(QWidget *widget)
 {
@@ -32,7 +33,7 @@ void MainWindow::loadSubWindow(QWidget *widget)
 
 	window->setWindowTitle(widget->windowTitle());
 	window->setWindowIcon(widget->windowIcon());
-	window->setMinimumSize(438, 455);
+    window->setMinimumSize(438, 455); // TODO: corrigir tamanho das janelas
 
 	window->setWidget(widget);
 	janelaInicial->mdiArea->addSubWindow(window);
