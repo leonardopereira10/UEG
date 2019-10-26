@@ -6,6 +6,8 @@
 class Cpf
 {
 public:
+	Cpf(QString cpf);
+
 	void setCpf(const QString &value);
     bool validCpf();
 

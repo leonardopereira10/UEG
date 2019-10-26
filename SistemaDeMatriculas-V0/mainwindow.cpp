@@ -11,8 +11,8 @@ MainWindow::MainWindow(QWidget *parent) :
 	this->showMaximized();
 	setCentralWidget(janelaInicial->mdiArea);
 
-//	QPixmap bkg(":/imagens/backgound.png");
-//	janelaInicial->mdiArea->setBackground(bkg);
+	QPixmap bkg(":/imagens/Imagens/backgound.png");
+	janelaInicial->mdiArea->setBackground(bkg);
 }
 
 MainWindow::~MainWindow()
@@ -32,7 +32,7 @@ void MainWindow::loadSubWindow(QWidget *widget)
 
 	window->setWindowTitle(widget->windowTitle());
 	window->setWindowIcon(widget->windowIcon());
-	window->setMinimumSize(438, 450);
+	window->setMinimumSize(438, 455);
 
 	window->setWidget(widget);
 	janelaInicial->mdiArea->addSubWindow(window);

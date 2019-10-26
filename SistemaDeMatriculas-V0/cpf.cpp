@@ -5,6 +5,11 @@ QString Cpf::getCpf() const
     return cpf;
 }
 
+Cpf::Cpf(QString cpf)
+{
+	this->cpf = cpf;
+}
+
 void Cpf::setCpf(const QString &value)
 {
 	cpf = value;

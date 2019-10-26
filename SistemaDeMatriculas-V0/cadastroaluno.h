@@ -16,6 +16,16 @@ public:
 	~cadastroAluno();
 
 private slots:
+	void hideFields();
+	void showFields();
+	bool validCpf_cad(QString cpf);
+	bool validFields();
+
+	void on_campoCpf_textChanged();
+
+	void on_campoCpf_editingFinished();
+
+	void on_btnCadastrar_clicked();
 
 private:
 	Ui::cadastroAluno *janelaCadastro;

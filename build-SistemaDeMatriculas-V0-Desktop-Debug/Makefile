@@ -111,7 +111,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
-		../SistemaDeMatriculas-V0/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -197,7 +196,6 @@ Makefile: ../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro /usr/lib/x86_64-l
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -217,7 +215,7 @@ Makefile: ../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro /usr/lib/x86_64-l
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro \
-		../SistemaDeMatriculas-V0/Imagens/imagens.qrc \
+		../SistemaDeMatriculas-V0/imagens.qrc \
 		/usr/lib/x86_64-linux-gnu/libQt5Widgets.prl \
 		/usr/lib/x86_64-linux-gnu/libQt5Gui.prl \
 		/usr/lib/x86_64-linux-gnu/libQt5Sql.prl \
@@ -269,7 +267,6 @@ Makefile: ../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro /usr/lib/x86_64-l
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -289,7 +286,7 @@ Makefile: ../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro /usr/lib/x86_64-l
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf:
 ../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro:
-../SistemaDeMatriculas-V0/Imagens/imagens.qrc:
+../SistemaDeMatriculas-V0/imagens.qrc:
 /usr/lib/x86_64-linux-gnu/libQt5Widgets.prl:
 /usr/lib/x86_64-linux-gnu/libQt5Gui.prl:
 /usr/lib/x86_64-linux-gnu/libQt5Sql.prl:
@@ -308,7 +305,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/Imagens/imagens.qrc $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/imagens.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.h ../SistemaDeMatriculas-V0/aluno.h ../SistemaDeMatriculas-V0/cpf.h ../SistemaDeMatriculas-V0/pessoa.h ../SistemaDeMatriculas-V0/cadastroaluno.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/aluno.cpp ../SistemaDeMatriculas-V0/cpf.cpp ../SistemaDeMatriculas-V0/mainwindow.cpp ../SistemaDeMatriculas-V0/pessoa.cpp ../SistemaDeMatriculas-V0/cadastroaluno.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.ui ../SistemaDeMatriculas-V0/cadastroaluno.ui $(DISTDIR)/
@@ -338,24 +335,24 @@ benchmark: first
 compiler_rcc_make_all: qrc_imagens.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_imagens.cpp
-qrc_imagens.cpp: ../SistemaDeMatriculas-V0/Imagens/imagens.qrc \
+qrc_imagens.cpp: ../SistemaDeMatriculas-V0/imagens.qrc \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/rcc \
 		../SistemaDeMatriculas-V0/Imagens/manual.png \
 		../SistemaDeMatriculas-V0/Imagens/sobre.png \
 		../SistemaDeMatriculas-V0/Imagens/Professores.png \
 		../SistemaDeMatriculas-V0/Imagens/remover.png \
-		../SistemaDeMatriculas-V0/Imagens/Cadastrar.png \
-		../SistemaDeMatriculas-V0/Imagens/Exit.png \
-		../SistemaDeMatriculas-V0/Imagens/logo.png \
 		../SistemaDeMatriculas-V0/Imagens/BancoDeDados.png \
+		../SistemaDeMatriculas-V0/Imagens/Cadastrar.png \
+		../SistemaDeMatriculas-V0/Imagens/logo.png \
+		../SistemaDeMatriculas-V0/Imagens/Exit.png \
 		../SistemaDeMatriculas-V0/Imagens/Aluno.png \
 		../SistemaDeMatriculas-V0/Imagens/backgound.png \
 		../SistemaDeMatriculas-V0/Imagens/Disciplinas.png \
+		../SistemaDeMatriculas-V0/Imagens/fullScreen.png \
 		../SistemaDeMatriculas-V0/Imagens/Curso.png \
 		../SistemaDeMatriculas-V0/Imagens/Erro.png \
-		../SistemaDeMatriculas-V0/Imagens/fullScreen.png \
 		../SistemaDeMatriculas-V0/Imagens/pesquisar.png
-	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name imagens ../SistemaDeMatriculas-V0/Imagens/imagens.qrc -o qrc_imagens.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name imagens ../SistemaDeMatriculas-V0/imagens.qrc -o qrc_imagens.cpp
 
 compiler_moc_header_make_all: moc_mainwindow.cpp moc_cadastroaluno.cpp
 compiler_moc_header_clean:
@@ -412,7 +409,8 @@ pessoa.o: ../SistemaDeMatriculas-V0/pessoa.cpp ../SistemaDeMatriculas-V0/pessoa.
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pessoa.o ../SistemaDeMatriculas-V0/pessoa.cpp
 
 cadastroaluno.o: ../SistemaDeMatriculas-V0/cadastroaluno.cpp ../SistemaDeMatriculas-V0/cadastroaluno.h \
-		ui_cadastroaluno.h
+		ui_cadastroaluno.h \
+		../SistemaDeMatriculas-V0/cpf.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cadastroaluno.o ../SistemaDeMatriculas-V0/cadastroaluno.cpp
 
 qrc_imagens.o: qrc_imagens.cpp 
