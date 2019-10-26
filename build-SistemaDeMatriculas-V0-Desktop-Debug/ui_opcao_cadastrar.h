@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'opcao_cadastrar.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.1
+** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -97,6 +97,7 @@ public:
 
 
         retranslateUi(opcao_cadastrar);
+        QObject::connect(btn_voltar, SIGNAL(clicked()), opcao_cadastrar, SLOT(close()));
 
         QMetaObject::connectSlotsByName(opcao_cadastrar);
     } // setupUi

@@ -8,31 +8,27 @@ class Pessoa
 protected:
 	Pessoa();
 
-	QString getCpf() const;
-	void setCpf(const QString &value);
+	virtual QString getCpf() const = 0;
+	virtual void setCpf(const QString &value) = 0;
 
-	QString getNome() const;
-	void setNome(const QString &value);
+	virtual QString getNome() const = 0;
+	virtual void setNome(const QString &value) = 0;
 
-	QString getEndereco() const;
-	void setEndereco(const QString &value);
+	virtual QString getEndereco() const = 0;
+	virtual void setEndereco(const QString &value) = 0;
 
-	QString getSetor() const;
-	void setSetor(const QString &value);
+	virtual QString getSetor() const = 0;
+	virtual void setSetor(const QString &value) = 0;
 
-	QString getCelular() const;
-	void setCelular(const QString &value);
+	virtual QString getCelular() const = 0;
+	virtual void setCelular(const QString &value) = 0;
 
-	QString getEmail() const;
-	void setEmail(const QString &value);
+	virtual QString getEmail() const = 0;
+	virtual void setEmail(const QString &value) = 0;
 
-	virtual void pessoaBase(QString cpf) = 0;
 	virtual void pessoaCompleta(QString nome, QString endereco, QString setor, QString celular, QString email) = 0;
 	virtual void pessoaCompleta(QString nome, QString endereco, QString setor, QString email) = 0;
 
-
-
-private:
 	QString cpf;
 	QString nome;
 	QString endereco;
