@@ -4,9 +4,10 @@
 #include <QDebug>
 
 class Pessoa
-{
+{	
 protected:
 	Pessoa();
+	virtual ~Pessoa();
 
 	virtual QString getCpf() const = 0;
 	virtual void setCpf(const QString &value) = 0;
@@ -14,11 +15,17 @@ protected:
 	virtual QString getNome() const = 0;
 	virtual void setNome(const QString &value) = 0;
 
-	virtual QString getEndereco() const = 0;
-	virtual void setEndereco(const QString &value) = 0;
+	virtual QString getLogradouro() const = 0;
+	virtual void setLogradouro(const QString &value) = 0;
 
 	virtual QString getSetor() const = 0;
 	virtual void setSetor(const QString &value) = 0;
+
+	virtual QString getCidade() const = 0;
+	virtual void setCidade(const QString &value) = 0;
+
+	virtual QString getEstado() const = 0;
+	virtual void setEstado(const QString &value) = 0;
 
 	virtual QString getCelular() const = 0;
 	virtual void setCelular(const QString &value) = 0;
@@ -26,13 +33,12 @@ protected:
 	virtual QString getEmail() const = 0;
 	virtual void setEmail(const QString &value) = 0;
 
-	virtual void pessoaCompleta(QString nome, QString endereco, QString setor, QString celular, QString email) = 0;
-	virtual void pessoaCompleta(QString nome, QString endereco, QString setor, QString email) = 0;
-
 	QString cpf;
 	QString nome;
-	QString endereco;
+	QString logradouro;
 	QString setor;
+	QString cidade;
+	QString estado;
 	QString celular;
 	QString email;
 };
