@@ -1,13 +1,25 @@
 #include "curso.h"
 
-int Curso::getCodigo() const
+Curso::Curso()
 {
-    return codigo;
+
 }
 
-void Curso::setCodigo(int value)
+Curso::Curso(int idCurso, QString nome, float duracao)
 {
-    codigo = value;
+    this->idCurso=idCurso;
+    this->nome=nome;
+    this->duracao=duracao;
+}
+
+int Curso::getIdCurso() const
+{
+    return idCurso;
+}
+
+void Curso::setIdCurso(int value)
+{
+    idCurso = value;
 }
 
 QString Curso::getNome() const
@@ -28,49 +40,4 @@ float Curso::getDuracao() const
 void Curso::setDuracao(float value)
 {
     duracao = value;
-}
-
-Disciplina Curso::getDisciplina() const
-{
-    return disciplina;
-}
-
-void Curso::setDisciplina(const Disciplina &value)
-{
-    disciplina = value;
-}
-
-Aluno Curso::getAlunos() const
-{
-    return alunos;
-}
-
-void Curso::setAlunos(const Aluno &value)
-{
-    alunos = value;
-}
-
-Professor Curso::getProfessores() const
-{
-    return professores;
-}
-
-void Curso::setProfessores(const Professor &value)
-{
-    professores = value;
-}
-
-opcao_cadastrar Curso::getCadCurso() const
-{
-    return cadCurso;
-}
-
-void Curso::setCadCurso(const opcao_cadastrar &value)
-{
-    cadCurso = value;
-}
-
-Curso::Curso()
-{
-    
 }

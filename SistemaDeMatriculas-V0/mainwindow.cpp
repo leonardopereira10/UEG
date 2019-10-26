@@ -1,6 +1,7 @@
 #include <QMdiSubWindow>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "cadcurso.h"
 
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent),
@@ -26,6 +27,11 @@ MainWindow::~MainWindow()
 }
 */
 
+void MainWindow::on_actionCadastrarCurso_triggered()
+{
+    loadSubWindow(new cadCurso(this));
+}
+
 void MainWindow::loadSubWindow(QWidget *widget)
 {
 	QMdiSubWindow *window = new QMdiSubWindow;
@@ -44,5 +50,7 @@ void MainWindow::on_actionSair_triggered()
 {
 	close();
 }
+
+
 
 

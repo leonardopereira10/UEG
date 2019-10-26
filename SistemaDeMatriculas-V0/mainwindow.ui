@@ -14,8 +14,8 @@
    <string>Sistema de controle de matrículas - SCM</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>:/imagens/logo.png</normaloff>:/imagens/logo.png</iconset>
+   <iconset resource="imagens.qrc">
+    <normaloff>:/imagens/Imagens/logo.png</normaloff>:/imagens/Imagens/logo.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">

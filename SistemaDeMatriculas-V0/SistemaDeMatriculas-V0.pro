@@ -26,14 +26,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
 		cpf.cpp \
 		mainwindow.cpp \
-                pessoa.cpp
+                pessoa.cpp \
+    curso.cpp \
+    cadcurso.cpp
 
 
 HEADERS	+= mainwindow.h \
 		cpf.h \
-                pessoa.h
+                pessoa.h \
+    curso.h \
+    cadcurso.h
 
 FORMS += mainwindow.ui \
+    cadcurso.ui
 
 RESOURCES += \
     imagens.qrc
