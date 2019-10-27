@@ -14,8 +14,8 @@
    <string>Sistema de controle de matrículas - SCM</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="Imagens/imagens.qrc">
-    <normaloff>:/imagens/logo.png</normaloff>:/imagens/logo.png</iconset>
+   <iconset resource="recursos.qrc">
+    <normaloff>:/recursos/Imagens/logo.png</normaloff>:/recursos/Imagens/logo.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -42,8 +42,8 @@
       <string>Alunos</string>
      </property>
      <property name="icon">
-      <iconset resource="Imagens/imagens.qrc">
-       <normaloff>:/imagens/Aluno.png</normaloff>:/imagens/Aluno.png</iconset>
+      <iconset resource="recursos.qrc">
+       <normaloff>:/recursos/Imagens/Aluno.png</normaloff>:/recursos/Imagens/Aluno.png</iconset>
      </property>
      <addaction name="actionCadastrarAluno"/>
      <addaction name="actionConsultarAluno"/>
@@ -55,8 +55,8 @@
       <string>Professores</string>
      </property>
      <property name="icon">
-      <iconset resource="Imagens/imagens.qrc">
-       <normaloff>:/imagens/Professores.png</normaloff>:/imagens/Professores.png</iconset>
+      <iconset resource="recursos.qrc">
+       <normaloff>:/recursos/Imagens/Professores.png</normaloff>:/recursos/Imagens/Professores.png</iconset>
      </property>
      <addaction name="actionCadastrarProf"/>
      <addaction name="actionConsultarProf"/>
@@ -68,8 +68,8 @@
       <string>Cursos</string>
      </property>
      <property name="icon">
-      <iconset resource="Imagens/imagens.qrc">
-       <normaloff>:/imagens/Curso.png</normaloff>:/imagens/Curso.png</iconset>
+      <iconset resource="recursos.qrc">
+       <normaloff>:/recursos/Imagens/Curso.png</normaloff>:/recursos/Imagens/Curso.png</iconset>
      </property>
      <addaction name="actionCadastrarCurso"/>
      <addaction name="actionConsultarCurso"/>
@@ -81,8 +81,8 @@
       <string>Disciplinas</string>
      </property>
      <property name="icon">
-      <iconset resource="Imagens/imagens.qrc">
-       <normaloff>:/imagens/Disciplinas.png</normaloff>:/imagens/Disciplinas.png</iconset>
+      <iconset resource="recursos.qrc">
+       <normaloff>:/recursos/Imagens/Disciplinas.png</normaloff>:/recursos/Imagens/Disciplinas.png</iconset>
      </property>
      <addaction name="actionCadastrarDisc"/>
      <addaction name="actionConsultarDisc"/>
@@ -94,8 +94,8 @@
       <string>Matriculas</string>
      </property>
      <property name="icon">
-      <iconset resource="Imagens/imagens.qrc">
-       <normaloff>:/imagens/Cadastrar.png</normaloff>:/imagens/Cadastrar.png</iconset>
+      <iconset resource="recursos.qrc">
+       <normaloff>:/recursos/Imagens/Cadastrar.png</normaloff>:/recursos/Imagens/Cadastrar.png</iconset>
      </property>
      <addaction name="actionMatricular_aluno_em_disciplina"/>
      <addaction name="actionConsultar_matriculas_por_aluno"/>
@@ -275,8 +275,8 @@
   </action>
   <action name="actionSair">
    <property name="icon">
-    <iconset resource="Imagens/imagens.qrc">
-     <normaloff>:/imagens/Exit.png</normaloff>:/imagens/Exit.png</iconset>
+    <iconset resource="recursos.qrc">
+     <normaloff>:/recursos/Imagens/Exit.png</normaloff>:/recursos/Imagens/Exit.png</iconset>
    </property>
    <property name="text">
     <string>Sair</string>
@@ -290,8 +290,8 @@
   </action>
   <action name="actionManual">
    <property name="icon">
-    <iconset resource="Imagens/imagens.qrc">
-     <normaloff>:/imagens/manual.png</normaloff>:/imagens/manual.png</iconset>
+    <iconset resource="recursos.qrc">
+     <normaloff>:/recursos/Imagens/manual.png</normaloff>:/recursos/Imagens/manual.png</iconset>
    </property>
    <property name="text">
     <string>Manual</string>
@@ -302,8 +302,8 @@
   </action>
   <action name="actionSobre">
    <property name="icon">
-    <iconset resource="Imagens/imagens.qrc">
-     <normaloff>:/imagens/sobre.png</normaloff>:/imagens/sobre.png</iconset>
+    <iconset resource="recursos.qrc">
+     <normaloff>:/recursos/Imagens/sobre.png</normaloff>:/recursos/Imagens/sobre.png</iconset>
    </property>
    <property name="text">
     <string>Sobre</string>
@@ -311,8 +311,8 @@
   </action>
   <action name="actionSelecionar_base_de_dados">
    <property name="icon">
-    <iconset resource="Imagens/imagens.qrc">
-     <normaloff>:/imagens/BancoDeDados.png</normaloff>:/imagens/BancoDeDados.png</iconset>
+    <iconset resource="recursos.qrc">
+     <normaloff>:/recursos/Imagens/BancoDeDados.png</normaloff>:/recursos/Imagens/BancoDeDados.png</iconset>
    </property>
    <property name="text">
     <string>Selecionar base de dados</string>
@@ -337,7 +337,7 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="Imagens/imagens.qrc"/>
+  <include location="recursos.qrc"/>
  </resources>
  <connections/>
 </ui>

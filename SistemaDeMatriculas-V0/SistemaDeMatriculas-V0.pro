@@ -41,6 +41,6 @@ FORMS += mainwindow.ui \
     cadastroaluno.ui
 
 RESOURCES += \
-    imagens.qrc
+    recursos.qrc
 
 QMAKE_CXXFLAGS += -std=gnu++14

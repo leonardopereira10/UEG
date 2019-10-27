@@ -1,7 +1,6 @@
 #ifndef PESSOA_H
 #define PESSOA_H
 #include <cpf.h>
-#include <QDebug>
 
 class Pessoa
 {	
@@ -15,17 +14,17 @@ protected:
 	virtual QString getNome() const = 0;
 	virtual void setNome(const QString &value) = 0;
 
-	virtual QString getLogradouro() const = 0;
-	virtual void setLogradouro(const QString &value) = 0;
+	virtual QString getEndereco() const = 0;
+	virtual void setEndereco(const QString &value) = 0;
 
 	virtual QString getSetor() const = 0;
 	virtual void setSetor(const QString &value) = 0;
 
-	virtual QString getCidade() const = 0;
-	virtual void setCidade(const QString &value) = 0;
+	virtual int getCidade() const = 0;
+	virtual void setCidade(const int &value) = 0;
 
-	virtual QString getEstado() const = 0;
-	virtual void setEstado(const QString &value) = 0;
+	virtual int getEstado() const = 0;
+	virtual void setEstado(const int &value) = 0;
 
 	virtual QString getCelular() const = 0;
 	virtual void setCelular(const QString &value) = 0;
@@ -35,10 +34,10 @@ protected:
 
 	QString cpf;
 	QString nome;
-	QString logradouro;
+	QString endereco;
 	QString setor;
-	QString cidade;
-	QString estado;
+	int cidade;
+	int estado;
 	QString celular;
 	QString email;
 };

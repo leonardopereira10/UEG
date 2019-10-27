@@ -5,13 +5,38 @@ Aluno::Aluno()
 
 }
 
+void Aluno::alunoCompleto(QString cpf, QString nome, QString endereco, QString setor, int estado, int cidade, QString celular, QString email, QString ano, int curso)
+{
+	this->cpf = cpf;
+	this->nome = nome;
+	this->endereco = endereco;
+	this->setor = setor;
+	this->estado = estado;
+	this->cidade = cidade;
+	this->celular = celular;
+	this->email = email;
+	this->ano = ano;
+	this->curso = curso;
+}
+
+void Aluno::alunoBase(QString cpf, QString nome, QString endereco, QString setor, int estado, int cidade, QString email, QString ano, int curso)
+{
+	this->cpf = cpf;
+	this->nome = nome;
+	this->endereco = endereco;
+	this->setor = setor;
+	this->estado = estado;
+	this->cidade = cidade;
+	this->email = email;
+	this->ano = ano;
+	this->curso = curso;
+}
+
 Aluno::~Aluno()
 {
 
 }
 
-
-// Getter and setter CPF ---------------
 QString Aluno::getCpf() const
 {
 	return Pessoa::cpf;
@@ -21,8 +46,6 @@ void Aluno::setCpf(const QString &value)
 	Pessoa::cpf = value;
 }
 
-
-// Getter and setter NOME ---------------
 QString Aluno::getNome() const
 {
 	return Pessoa::nome;
@@ -32,19 +55,15 @@ void Aluno::setNome(const QString &value)
 	Pessoa::nome = value;
 }
 
-
-// Getter and setter LOGRADOURO ---------------
-QString Aluno::getLogradouro() const
+QString Aluno::getEndereco() const
 {
-	return Pessoa::logradouro;
+	return Pessoa::endereco;
 }
-void Aluno::setLogradouro(const QString &value)
+void Aluno::setEndereco(const QString &value)
 {
-	Pessoa::logradouro = value;
+	Pessoa::endereco = value;
 }
 
-
-// Getter and setter SETOR ---------------
 QString Aluno::getSetor() const
 {
 	return Pessoa::setor;
@@ -54,30 +73,24 @@ void Aluno::setSetor(const QString &value)
 	Pessoa::setor = value;
 }
 
-
-// Getter and setter CIDADE ---------------
-QString Aluno::getCidade() const
+int Aluno::getCidade() const
 {
 	return Pessoa::cidade;
 }
-void Aluno::setCidade(const QString &value)
+void Aluno::setCidade(const int &value)
 {
 	Pessoa::cidade = value;
 }
 
-
-// Getter and setter ESTADO ---------------
-QString Aluno::getEstado() const
+int Aluno::getEstado() const
 {
 	return Pessoa::estado;
 }
-void Aluno::setEstado(const QString &value)
+void Aluno::setEstado(const int &value)
 {
 	Pessoa::estado = value;
 }
 
-
-// Getter and setter CELULAR ---------------
 QString Aluno::getCelular() const
 {
 	return Pessoa::celular;
@@ -87,8 +100,6 @@ void Aluno::setCelular(const QString &value)
 	Pessoa::celular = value;
 }
 
-
-// Getter and setter EMAIL ---------------
 QString Aluno::getEmail() const
 {
 	return Pessoa::email;
@@ -96,4 +107,29 @@ QString Aluno::getEmail() const
 void Aluno::setEmail(const QString &value)
 {
 	Pessoa::email = value;
+}
+
+int Aluno::getMatricula() const
+{
+	return matricula;
+}
+
+QString Aluno::getAno() const
+{
+	return ano;
+}
+
+void Aluno::setAno(QString value)
+{
+	ano = value;
+}
+
+int Aluno::getCurso() const
+{
+	return curso;
+}
+
+void Aluno::setCurso(const int &value)
+{
+	curso = value;
 }

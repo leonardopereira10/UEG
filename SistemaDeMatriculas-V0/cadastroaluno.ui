@@ -7,11 +7,15 @@
     <x>0</x>
     <y>0</y>
     <width>433</width>
-    <height>430</height>
+    <height>466</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Cadastro de aluno</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/imagens/Imagens/logo.png</normaloff>:/imagens/Imagens/logo.png</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -30,7 +34,7 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Noto Sans UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/imagens/Imagens/Aluno.png&quot; height=&quot;90&quot; width=&quot;90&quot; /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/recursos/Imagens/Aluno.png&quot; heigth=&quot;90&quot; width=&quot;90&quot; /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="labelValidCpf">
@@ -140,7 +144,7 @@ p, li { white-space: pre-wrap; }
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>380</y>
+     <y>410</y>
      <width>171</width>
      <height>29</height>
     </rect>
@@ -205,7 +209,7 @@ p, li { white-space: pre-wrap; }
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>350</y>
+     <y>380</y>
      <width>221</width>
      <height>20</height>
     </rect>
@@ -218,7 +222,7 @@ p, li { white-space: pre-wrap; }
    <property name="geometry">
     <rect>
      <x>404</x>
-     <y>300</y>
+     <y>295</y>
      <width>31</width>
      <height>31</height>
     </rect>
@@ -231,7 +235,7 @@ p, li { white-space: pre-wrap; }
    <property name="geometry">
     <rect>
      <x>404</x>
-     <y>260</y>
+     <y>258</y>
      <width>31</width>
      <height>31</height>
     </rect>
@@ -240,37 +244,36 @@ p, li { white-space: pre-wrap; }
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QLabel" name="labelValidCurso">
+   <property name="geometry">
+    <rect>
+     <x>404</x>
+     <y>330</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>142</y>
      <width>381</width>
-     <height>191</height>
+     <height>222</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout_2" columnstretch="0,0,0,1,1,0,10,0">
+   <layout class="QGridLayout" name="gridLayout_2" columnstretch="0,0,0,1,0,0,10,1">
     <property name="verticalSpacing">
      <number>10</number>
     </property>
-    <item row="0" column="0" colspan="2">
-     <widget class="QLabel" name="labelNome">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Nome*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="2" colspan="6">
      <widget class="QLineEdit" name="campoNome">
       <property name="maxLength">
        <number>30</number>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0" colspan="3">
-     <widget class="QLabel" name="labelEndereco">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Endereço*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>
@@ -281,6 +284,55 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="maxLength">
        <number>30</number>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2" colspan="3">
+     <widget class="QLineEdit" name="campoCelular">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="2">
+     <widget class="QLabel" name="labelNome">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Nome*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="3">
+     <widget class="QLabel" name="labelEndereco">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Endereço*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="5">
+     <widget class="QLabel" name="labelEmail">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;E-mail*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="labelEstado">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;UF*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0" colspan="2">
+     <widget class="QLabel" name="labelCelular">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Celular&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="4">
+     <widget class="QLabel" name="labelCidade">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Cidade*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>
@@ -298,17 +350,13 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
     </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="labelEstado">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;UF*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
     <item row="3" column="1" colspan="3">
      <widget class="QComboBox" name="boxEstado">
       <property name="currentText">
-       <string>Select</string>
+       <string/>
+      </property>
+      <property name="currentIndex">
+       <number>-1</number>
       </property>
       <item>
        <property name="text">
@@ -317,25 +365,16 @@ p, li { white-space: pre-wrap; }
       </item>
      </widget>
     </item>
-    <item row="4" column="0" colspan="2">
-     <widget class="QLabel" name="labelCelular">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Celular&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <item row="3" column="5" colspan="3">
+     <widget class="QComboBox" name="boxCidade">
+      <property name="currentIndex">
+       <number>-1</number>
       </property>
-     </widget>
-    </item>
-    <item row="4" column="2" colspan="3">
-     <widget class="QLineEdit" name="campoCelular">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="5">
-     <widget class="QLabel" name="labelEmail">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;E-mail*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
+      <item>
+       <property name="text">
+        <string>Select</string>
+       </property>
+      </item>
      </widget>
     </item>
     <item row="4" column="6" colspan="2">
@@ -345,15 +384,15 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
     </item>
-    <item row="3" column="4">
-     <widget class="QLabel" name="labelCidade">
+    <item row="5" column="0">
+     <widget class="QLabel" name="labelCurso">
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Cidade*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Curso*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>
-    <item row="3" column="5" colspan="3">
-     <widget class="QComboBox" name="boxCidade">
+    <item row="5" column="1" colspan="7">
+     <widget class="QComboBox" name="boxCurso">
       <property name="currentIndex">
        <number>0</number>
       </property>
@@ -377,6 +416,7 @@ p, li { white-space: pre-wrap; }
   <tabstop>boxCidade</tabstop>
   <tabstop>campoCelular</tabstop>
   <tabstop>campoEmail</tabstop>
+  <tabstop>boxCurso</tabstop>
   <tabstop>btnCadastrar</tabstop>
  </tabstops>
  <resources/>
