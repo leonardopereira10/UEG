@@ -50,7 +50,7 @@ public:
 	void setCurso(const int &value);
 
 private:
-	int matricula;
+	int matricula; // NOTE: Matricula não está sendo setada/usada
 	QString ano;
 	int curso;
 };

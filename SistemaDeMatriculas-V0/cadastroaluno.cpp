@@ -32,7 +32,7 @@ cadastroAluno::cadastroAluno(QWidget *parent) :
 	}
 	else {
 		qDebug() << "cadastroAluno(): " << db.lastError();
-		janelaCadastro->labelValidFields->setText("EROO: Driver QSQLITE não disponível");
+		janelaCadastro->labelValidFields->setText("ERRO: Driver QSQLITE não disponível");
 	}
 }
 
@@ -351,6 +351,7 @@ void cadastroAluno::on_btnCadastrar_clicked()
 	}
 }
 
+// TODO: Deixar parâmetro como ponteiro
 bool cadastroAluno::commit_on_bd(Aluno aluno)
 {
 	query->clear();
