@@ -19,7 +19,7 @@ public:
     ~cadCurso();
 
 private slots:
-    bool validarCampos();
+    bool validarCampos();   //metodo para validar os valores digitados
 
     void on_campoNome_returnPressed();
 
@@ -27,12 +27,12 @@ private slots:
 
     void on_btnCadastrar_clicked();
 
-    bool enviarBd(Curso *curso);
+    bool enviarBd(Curso *curso);  //metodo para enviar banco de dados
 
 private:
     Ui::cadCurso *janelaCadastro;
-    QSqlDatabase db;
-    QSqlQuery *query;
+    QSqlDatabase db;             //objeto do bd
+    QSqlQuery *query;            //objeto para comando a ser executado no banco de dados
 };
 
 #endif // CADCURSO_H

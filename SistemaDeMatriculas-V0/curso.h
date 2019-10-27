@@ -6,21 +6,21 @@
 class Curso
 {
 private:
-    int idCurso;
+    int idCurso;   //Declaração de variaveis
     QString nome;
     double duracao;
 
-public:
+public:           //Criação de métodos
     Curso();
-    Curso(QString nome, double duracao);
+    Curso(QString nome, double duracao);  //construtor da classe
 
-    int getIdCurso() const;
+    int getIdCurso() const;      //get e set id curso
     void setIdCurso(int value);
 
-    QString getNome() const;
+    QString getNome() const;    //get e set nome
     void setNome(const QString &value);
 
-    double getDuracao() const;
+    double getDuracao() const;    //get e set duração
     void setDuracao(double value);
 };
 

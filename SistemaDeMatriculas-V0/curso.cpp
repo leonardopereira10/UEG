@@ -5,7 +5,7 @@ Curso::Curso()
 
 }
 
-Curso::Curso(QString nome, double duracao)
+Curso::Curso(QString nome, double duracao)  //Inicialização do objeto
 {
     this->idCurso=idCurso;
     this->nome=nome;
