@@ -22,7 +22,7 @@ cadastroAluno::cadastroAluno(QWidget *parent) :
 	janelaCadastro->campoNome->setValidator(new QRegExpValidator(QRegExp("^[a-zA-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑáàâãéèêíïóôõöúçñ ]+"), this));
 	janelaCadastro->campoEndereco->setValidator(new QRegExpValidator(QRegExp("^[1-9a-zA-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑáàâãéèêíïóôõöúçñ ]+"), this));
 	janelaCadastro->campoSetor->setValidator(new QRegExpValidator(QRegExp("^[1-9a-zA-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑáàâãéèêíïóôõöúçñ ]+"), this));
-	janelaCadastro->campoCelular->setValidator(new QRegExpValidator(QRegExp("^[1-9]+"), this));
+	janelaCadastro->campoCelular->setValidator(new QRegExpValidator(QRegExp("^[0-9]+"), this));
 	janelaCadastro->campoEmail->setValidator(new QRegExpValidator(QRegExp("^[1-9a-zA-Z@_ ]+"), this));
 
 
