@@ -162,12 +162,12 @@ bool cadastroAluno::validCpf_cad(QString cpfValue)
 			hideFields();
 			qDebug() << "validCpf_cad(): Cpf já existe na base de dados";
 			QMessageBox::warning(this, "CPF", "Já existe um aluno cadastrado com este CPF");
+			janelaCadastro->campoCpf->selectAll();
 			return false;
 		}
 		else {
 			janelaCadastro->labelValidCpf->setPixmap(valid);
 			showFields();
-			janelaCadastro->dateEdit->setFocus();
 			return true;
 		}
 	}
@@ -253,11 +253,6 @@ void cadastroAluno::fillBoxEstados()
 	}
 }
 
-void cadastroAluno::on_boxEstado_currentIndexChanged()
-{
-	fillBoxCidades();
-}
-
 void cadastroAluno::fillBoxCidades()
 {
 	QSqlQueryModel *modelCidades = new QSqlQueryModel();
@@ -290,11 +285,6 @@ int cadastroAluno::getCodCidade()
 
 	query->first();
 	return query->value(0).toInt();
-}
-
-void cadastroAluno::on_campoCpf_textChanged()
-{
-	validCpf_cad(janelaCadastro->campoCpf->text());
 }
 
 void cadastroAluno::on_btnCadastrar_clicked()
@@ -348,6 +338,8 @@ void cadastroAluno::on_btnCadastrar_clicked()
 			}
 		}
 		else {
+			janelaCadastro->campoCpf->setFocus();
+			janelaCadastro->campoCpf->selectAll();
 			return;
 		}
 	}
@@ -386,4 +378,63 @@ bool cadastroAluno::commit_on_bd(Aluno *aluno)
 		query->bindValue(":curso", aluno->getCurso());
 	}
 	return query->exec();
+}
+
+void cadastroAluno::on_campoCpf_textChanged()
+{
+	if(validCpf_cad(janelaCadastro->campoCpf->text())) {
+		janelaCadastro->dateEdit->setFocus();
+		janelaCadastro->dateEdit->selectAll();
+	}
+}
+
+void cadastroAluno::on_dateEdit_editingFinished()
+{
+	janelaCadastro->campoNome->setFocus();
+	janelaCadastro->campoNome->selectAll();
+}
+
+void cadastroAluno::on_campoNome_returnPressed()
+{
+	janelaCadastro->campoEndereco->setFocus();
+	janelaCadastro->campoEndereco->selectAll();
+}
+
+void cadastroAluno::on_campoEndereco_returnPressed()
+{
+	janelaCadastro->campoSetor->setFocus();
+	janelaCadastro->campoSetor->selectAll();
+}
+
+void cadastroAluno::on_campoSetor_returnPressed()
+{
+	janelaCadastro->boxEstado->setFocus();
+}
+
+void cadastroAluno::on_boxEstado_currentIndexChanged()
+{
+	fillBoxCidades();
+	janelaCadastro->boxCidade->setFocus();
+}
+
+void cadastroAluno::on_boxCidade_currentIndexChanged()
+{
+	janelaCadastro->campoCelular->setFocus();
+	janelaCadastro->campoCelular->selectAll();
+}
+
+void cadastroAluno::on_campoCelular_returnPressed()
+{
+	janelaCadastro->campoEmail->setFocus();
+	janelaCadastro->campoEmail->selectAll();
+}
+
+void cadastroAluno::on_campoEmail_returnPressed()
+{
+	janelaCadastro->boxCurso->setFocus();
+}
+
+void cadastroAluno::on_boxCurso_currentIndexChanged()
+{
+	janelaCadastro->btnCadastrar->setFocus();
 }

@@ -29,11 +29,29 @@ private slots:
 	int getCodCidade();				// Retorna o código da cidade selecionada
 	bool commit_on_bd(Aluno *aluno);	// Grava no Banco de dados
 
-	void on_campoCpf_textChanged();	// Chamar validCpf_cad() sempre que o texto "cpf" mudar
+
 
 	void on_btnCadastrar_clicked();	// Chama validFields(), validCpf_cad() e commit_on_bd() e informa ao usuário o resultado
 
-	void on_boxEstado_currentIndexChanged();	// Atualizar boxCidades sempre que boxEstados mudar
+	void on_campoCpf_textChanged();	// Chama validCpf_cad() sempre que o texto "cpf" mudar
+
+	void on_dateEdit_editingFinished();		// Enviar foco para campoNome ao pressionar Enter
+
+	void on_campoNome_returnPressed();		// Enviar foco para campoEndereco ao pressionar Enter
+
+	void on_campoEndereco_returnPressed();	// Enviar foco para campoSetor ao pressionar Enter
+
+	void on_campoSetor_returnPressed();		// Enviar foco para boxEstado ao pressionar Enter
+
+	void on_boxEstado_currentIndexChanged();// Atualizar boxCidade sempre que boxEstados mudar
+
+	void on_boxCidade_currentIndexChanged();// Enviar foco para campoCelular ao pressionar Enter
+
+	void on_campoCelular_returnPressed();	// Enviar foco para campoEmail ao pressionar Enter
+
+	void on_campoEmail_returnPressed();		// Enviar foco para boxCurso ao pressionar Enter
+
+	void on_boxCurso_currentIndexChanged();	// Enviar foco para btnCadastrar ao pressionar Enter
 
 private:
 	Ui::cadastroAluno *janelaCadastro;

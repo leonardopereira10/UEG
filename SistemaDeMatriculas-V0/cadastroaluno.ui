@@ -373,22 +373,25 @@ p, li { white-space: pre-wrap; }
     <item row="3" column="1" colspan="3">
      <widget class="QComboBox" name="boxEstado">
       <property name="currentText">
-       <string/>
+       <string>select</string>
       </property>
       <property name="currentIndex">
-       <number>-1</number>
+       <number>0</number>
       </property>
       <item>
        <property name="text">
-        <string>Select</string>
+        <string>select</string>
        </property>
       </item>
      </widget>
     </item>
     <item row="3" column="5" colspan="3">
      <widget class="QComboBox" name="boxCidade">
+      <property name="currentText">
+       <string>Select</string>
+      </property>
       <property name="currentIndex">
-       <number>-1</number>
+       <number>0</number>
       </property>
       <item>
        <property name="text">

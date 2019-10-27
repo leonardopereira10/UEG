@@ -261,8 +261,8 @@ public:
 
         retranslateUi(cadastroAluno);
 
-        boxEstado->setCurrentIndex(-1);
-        boxCidade->setCurrentIndex(-1);
+        boxEstado->setCurrentIndex(0);
+        boxCidade->setCurrentIndex(0);
         boxCurso->setCurrentIndex(0);
 
 
@@ -316,13 +316,14 @@ public:
         labelSetor->setText(QApplication::translate("cadastroAluno", "<html><head/><body><p><span style=\" font-weight:600;\">Setor*</span></p></body></html>", Q_NULLPTR));
         boxEstado->clear();
         boxEstado->insertItems(0, QStringList()
-         << QApplication::translate("cadastroAluno", "Select", Q_NULLPTR)
+         << QApplication::translate("cadastroAluno", "select", Q_NULLPTR)
         );
-        boxEstado->setCurrentText(QString());
+        boxEstado->setCurrentText(QApplication::translate("cadastroAluno", "select", Q_NULLPTR));
         boxCidade->clear();
         boxCidade->insertItems(0, QStringList()
          << QApplication::translate("cadastroAluno", "Select", Q_NULLPTR)
         );
+        boxCidade->setCurrentText(QApplication::translate("cadastroAluno", "Select", Q_NULLPTR));
         campoEmail->setText(QString());
         labelCurso->setText(QApplication::translate("cadastroAluno", "<html><head/><body><p><span style=\" font-weight:600;\">Curso*</span></p></body></html>", Q_NULLPTR));
         boxCurso->clear();
