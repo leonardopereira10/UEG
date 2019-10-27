@@ -120,7 +120,10 @@ public:
         dateEdit = new QDateEdit(layoutWidget);
         dateEdit->setObjectName(QStringLiteral("dateEdit"));
         dateEdit->setMaximumDate(QDate(7999, 12, 31));
+        dateEdit->setMinimumDate(QDate(2019, 1, 1));
+        dateEdit->setCurrentSection(QDateTimeEdit::YearSection);
         dateEdit->setCalendarPopup(true);
+        dateEdit->setCurrentSectionIndex(0);
 
         gridLayout->addWidget(dateEdit, 2, 1, 1, 2);
 
@@ -291,7 +294,7 @@ public:
         campoMatricula->setText(QString());
         campoMatricula->setPlaceholderText(QString());
         labelAno->setText(QApplication::translate("cadastroAluno", "<html><head/><body><p><span style=\" font-weight:600;\">Ano</span></p></body></html>", Q_NULLPTR));
-        dateEdit->setDisplayFormat(QApplication::translate("cadastroAluno", "dd/MM/yyyy", Q_NULLPTR));
+        dateEdit->setDisplayFormat(QApplication::translate("cadastroAluno", "yyyy", Q_NULLPTR));
         btnCadastrar->setText(QApplication::translate("cadastroAluno", "Cadastrar", Q_NULLPTR));
         labelInvalidCpf->setText(QString());
         labelValidNome->setText(QString());

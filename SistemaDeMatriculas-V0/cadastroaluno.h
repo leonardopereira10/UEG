@@ -22,7 +22,7 @@ public:
 private slots:
 	void hideFields();
 	void showFields();
-	bool validCpf_cad(QString cpf);
+	void validCpf_cad(QString cpf);
 	bool validFields();
 	void fillBoxEstados();
 	void fillBoxCidades();
@@ -31,7 +31,8 @@ private slots:
 
 	void on_campoCpf_textChanged();
 
-	void on_campoCpf_editingFinished();
+	// NOTE: Slot obsoleto on_campoCpf_editingFinished();
+//	void on_campoCpf_editingFinished();
 
 	void on_btnCadastrar_clicked();
 
