@@ -18,6 +18,14 @@ cadastroAluno::cadastroAluno(QWidget *parent) :
 	janelaCadastro->dateEdit->setDate(QDate::currentDate());
 	janelaCadastro->labelValidFields->setAlignment(Qt::AlignCenter);
 
+	// Propriedades dos demais campos
+	janelaCadastro->campoNome->setValidator(new QRegExpValidator(QRegExp("^[a-zA-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑáàâãéèêíïóôõöúçñ ]+"), this));
+	janelaCadastro->campoEndereco->setValidator(new QRegExpValidator(QRegExp("^[1-9a-zA-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑáàâãéèêíïóôõöúçñ ]+"), this));
+	janelaCadastro->campoSetor->setValidator(new QRegExpValidator(QRegExp("^[1-9a-zA-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑáàâãéèêíïóôõöúçñ ]+"), this));
+	janelaCadastro->campoCelular->setValidator(new QRegExpValidator(QRegExp("^[1-9]+"), this));
+	janelaCadastro->campoEmail->setValidator(new QRegExpValidator(QRegExp("^[1-9a-zA-Z@_ ]+"), this));
+
+
 	// Verificar Driver QSQLITE
 	if(QSqlDatabase::isDriverAvailable("QSQLITE")) {
 		// Criar conexão com o banco
