@@ -286,7 +286,7 @@ p, li { white-space: pre-wrap; }
     <item row="0" column="2" colspan="6">
      <widget class="QLineEdit" name="campoNome">
       <property name="maxLength">
-       <number>30</number>
+       <number>50</number>
       </property>
      </widget>
     </item>
@@ -296,7 +296,7 @@ p, li { white-space: pre-wrap; }
        <string/>
       </property>
       <property name="maxLength">
-       <number>30</number>
+       <number>50</number>
       </property>
      </widget>
     </item>
@@ -359,7 +359,7 @@ p, li { white-space: pre-wrap; }
     <item row="2" column="2" colspan="6">
      <widget class="QLineEdit" name="campoSetor">
       <property name="maxLength">
-       <number>30</number>
+       <number>50</number>
       </property>
      </widget>
     </item>

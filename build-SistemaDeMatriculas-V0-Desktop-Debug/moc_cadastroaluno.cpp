@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_cadastroAluno_t {
     QByteArrayData data[16];
-    char stringdata0[215];
+    char stringdata0[216];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -40,17 +40,17 @@ QT_MOC_LITERAL(7, 66, 14), // "fillBoxEstados"
 QT_MOC_LITERAL(8, 81, 14), // "fillBoxCidades"
 QT_MOC_LITERAL(9, 96, 12), // "getCodCidade"
 QT_MOC_LITERAL(10, 109, 12), // "commit_on_bd"
-QT_MOC_LITERAL(11, 122, 5), // "Aluno"
-QT_MOC_LITERAL(12, 128, 5), // "aluno"
-QT_MOC_LITERAL(13, 134, 23), // "on_campoCpf_textChanged"
-QT_MOC_LITERAL(14, 158, 23), // "on_btnCadastrar_clicked"
-QT_MOC_LITERAL(15, 182, 32) // "on_boxEstado_currentIndexChanged"
+QT_MOC_LITERAL(11, 122, 6), // "Aluno*"
+QT_MOC_LITERAL(12, 129, 5), // "aluno"
+QT_MOC_LITERAL(13, 135, 23), // "on_campoCpf_textChanged"
+QT_MOC_LITERAL(14, 159, 23), // "on_btnCadastrar_clicked"
+QT_MOC_LITERAL(15, 183, 32) // "on_boxEstado_currentIndexChanged"
 
     },
     "cadastroAluno\0hideFields\0\0showFields\0"
     "validCpf_cad\0cpf\0validFields\0"
     "fillBoxEstados\0fillBoxCidades\0"
-    "getCodCidade\0commit_on_bd\0Aluno\0aluno\0"
+    "getCodCidade\0commit_on_bd\0Aluno*\0aluno\0"
     "on_campoCpf_textChanged\0on_btnCadastrar_clicked\0"
     "on_boxEstado_currentIndexChanged"
 };
@@ -85,7 +85,7 @@ static const uint qt_meta_data_cadastroAluno[] = {
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    5,
+    QMetaType::Bool, QMetaType::QString,    5,
     QMetaType::Bool,
     QMetaType::Void,
     QMetaType::Void,
@@ -106,14 +106,15 @@ void cadastroAluno::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         switch (_id) {
         case 0: _t->hideFields(); break;
         case 1: _t->showFields(); break;
-        case 2: _t->validCpf_cad((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 2: { bool _r = _t->validCpf_cad((*reinterpret_cast< QString(*)>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
         case 3: { bool _r = _t->validFields();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
         case 4: _t->fillBoxEstados(); break;
         case 5: _t->fillBoxCidades(); break;
         case 6: { int _r = _t->getCodCidade();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
-        case 7: { bool _r = _t->commit_on_bd((*reinterpret_cast< Aluno(*)>(_a[1])));
+        case 7: { bool _r = _t->commit_on_bd((*reinterpret_cast< Aluno*(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
         case 8: _t->on_campoCpf_textChanged(); break;
         case 9: _t->on_btnCadastrar_clicked(); break;

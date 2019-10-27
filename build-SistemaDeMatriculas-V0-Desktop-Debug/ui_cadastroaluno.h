@@ -163,13 +163,13 @@ public:
         gridLayout_2->setContentsMargins(0, 0, 0, 0);
         campoNome = new QLineEdit(layoutWidget1);
         campoNome->setObjectName(QStringLiteral("campoNome"));
-        campoNome->setMaxLength(30);
+        campoNome->setMaxLength(50);
 
         gridLayout_2->addWidget(campoNome, 0, 2, 1, 6);
 
         campoEndereco = new QLineEdit(layoutWidget1);
         campoEndereco->setObjectName(QStringLiteral("campoEndereco"));
-        campoEndereco->setMaxLength(30);
+        campoEndereco->setMaxLength(50);
 
         gridLayout_2->addWidget(campoEndereco, 1, 3, 1, 5);
 
@@ -215,7 +215,7 @@ public:
 
         campoSetor = new QLineEdit(layoutWidget1);
         campoSetor->setObjectName(QStringLiteral("campoSetor"));
-        campoSetor->setMaxLength(30);
+        campoSetor->setMaxLength(50);
 
         gridLayout_2->addWidget(campoSetor, 2, 2, 1, 6);
 

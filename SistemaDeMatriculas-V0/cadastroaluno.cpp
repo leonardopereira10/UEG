@@ -133,7 +133,7 @@ void cadastroAluno::showFields()
 	janelaCadastro->btnCadastrar->show();
 }
 
-void cadastroAluno::validCpf_cad(QString cpfValue)
+bool cadastroAluno::validCpf_cad(QString cpfValue)
 {
 	QPixmap valid(":/recursos/Imagens/Confirmação.png");
 	QPixmap invalid(":/recursos/Imagens/Erro.png");
@@ -147,7 +147,7 @@ void cadastroAluno::validCpf_cad(QString cpfValue)
 		query->bindValue(":cpf", cpfValue);
 		if(!query->exec()) {
 			qDebug() << "validCpf_cad(): " << query->lastError();
-			return;
+			return false;
 		}
 		query->first();
 		if(query->value(0).toInt() != 0) {
@@ -155,18 +155,20 @@ void cadastroAluno::validCpf_cad(QString cpfValue)
 			hideFields();
 			qDebug() << "validCpf_cad(): Cpf já existe na base de dados";
 			QMessageBox::warning(this, "CPF", "Já existe um aluno cadastrado com este CPF");
+			return false;
 		}
 		else {
 			janelaCadastro->labelValidCpf->setPixmap(valid);
 			showFields();
 			janelaCadastro->dateEdit->setFocus();
+			return true;
 		}
-		query->clear();
 	}
 	else {
 		janelaCadastro->labelInvalidCpf->setPixmap(invalid);
 		qDebug() << "validCpf_cad(): CPF inválido";
 		hideFields();
+		return false;
 	}
 }
 
@@ -287,12 +289,6 @@ void cadastroAluno::on_campoCpf_textChanged()
 	validCpf_cad(janelaCadastro->campoCpf->text());
 }
 
-// NOTE: Slot obsoleto on_campoCpf_editingFinished() {}
-//void cadastroAluno::on_campoCpf_editingFinished()
-//{
-//	validCpf_cad(janelaCadastro->campoCpf->text());
-//}
-
 void cadastroAluno::on_btnCadastrar_clicked()
 {
 	if(!validFields()) {
@@ -325,64 +321,56 @@ void cadastroAluno::on_btnCadastrar_clicked()
 						janelaCadastro->boxCurso->currentIndex());
 		}
 
-		if(!commit_on_bd(aluno)) {
-			qDebug() << "commit_on_bd(): " << query->lastError();
-			query->clear();
-			QMessageBox::warning(this, "Erro ao cadastrar", "Houve um erro ao cadastrar no banco de dados");
-		}
-		else {
-			query->clear();
-			query->prepare("SELECT matricula "
-						   "FROM alunos "
-						   "WHERE alunos.cpf= :cpf");
-			query->bindValue(":cpf", aluno.getCpf());
-
-			if(query->exec()) {
-				query->first();
-				janelaCadastro->campoMatricula->setText(query->value(0).toString());
-				QMessageBox::information(this, "Cadastro realizado", "Aluno cadastrado com sucesso!");
+		if(validCpf_cad(aluno.getCpf())) {
+			if(!commit_on_bd(&aluno)) {
+				qDebug() << "commit_on_bd(): " << query->lastError();
 				query->clear();
+				QMessageBox::warning(this, "Erro ao cadastrar", "Houve um erro ao cadastrar no banco de dados");
 			}
 			else {
-				qDebug() << "on_btnCadastrar_clicked(): " << query->lastError();
-				query->clear();
+				aluno.setMatricula(query->lastInsertId().toInt());
+
+				janelaCadastro->campoMatricula->setText(QString::number(aluno.getMatricula()));
+				QMessageBox::information(this, "Cadastro realizado", "Aluno cadastrado com sucesso!");
 			}
+		}
+		else {
+			return;
 		}
 	}
 }
 
-// TODO: Deixar parâmetro como ponteiro
-bool cadastroAluno::commit_on_bd(Aluno aluno)
+bool cadastroAluno::commit_on_bd(Aluno *aluno)
 {
 	query->clear();
 
 	if(!janelaCadastro->campoCelular->text().isEmpty()) {
 		query->prepare("INSERT INTO alunos(cpf, nome, endereco, setor, estado, cidade, celular, email, ano, curso) "
 					   "VALUES (:cpf, :nome, :endereco, :setor, :estado, :cidade, :celular, :email, :ano, :curso);");
-		query->bindValue(":cpf", aluno.getCpf());
-		query->bindValue(":nome", aluno.getNome());
-		query->bindValue(":endereco", aluno.getEndereco());
-		query->bindValue(":setor", aluno.getSetor());
-		query->bindValue(":estado", aluno.getEstado());
-		query->bindValue(":cidade", aluno.getCidade());
-		query->bindValue(":celular", aluno.getCelular());
-		query->bindValue(":email", aluno.getEmail());
-		query->bindValue(":ano", aluno.getAno());
-		query->bindValue(":curso", aluno.getCurso());
+		query->bindValue(":cpf", aluno->getCpf());
+		query->bindValue(":nome", aluno->getNome());
+		query->bindValue(":endereco", aluno->getEndereco());
+		query->bindValue(":setor", aluno->getSetor());
+		query->bindValue(":estado", aluno->getEstado());
+		query->bindValue(":cidade", aluno->getCidade());
+		query->bindValue(":celular", aluno->getCelular());
+		query->bindValue(":email", aluno->getEmail());
+		query->bindValue(":ano", aluno->getAno());
+		query->bindValue(":curso", aluno->getCurso());
 	}
 	else {
 		query->prepare("INSERT INTO alunos(cpf, nome, endereco, setor, estado, cidade, email, ano, curso) "
 					   "VALUES (:cpf, :nome, :endereco, :setor, :estado, :cidade, :email, :ano, :curso);");
-		query->bindValue(":cpf", aluno.getCpf());
-		query->bindValue(":cpf", aluno.getCpf());
-		query->bindValue(":nome", aluno.getNome());
-		query->bindValue(":endereco", aluno.getEndereco());
-		query->bindValue(":setor", aluno.getSetor());
-		query->bindValue(":estado", aluno.getEstado());
-		query->bindValue(":cidade", aluno.getCidade());
-		query->bindValue(":email", aluno.getEmail());
-		query->bindValue(":ano", aluno.getAno());
-		query->bindValue(":curso", aluno.getCurso());
+		query->bindValue(":cpf", aluno->getCpf());
+		query->bindValue(":cpf", aluno->getCpf());
+		query->bindValue(":nome", aluno->getNome());
+		query->bindValue(":endereco", aluno->getEndereco());
+		query->bindValue(":setor", aluno->getSetor());
+		query->bindValue(":estado", aluno->getEstado());
+		query->bindValue(":cidade", aluno->getCidade());
+		query->bindValue(":email", aluno->getEmail());
+		query->bindValue(":ano", aluno->getAno());
+		query->bindValue(":curso", aluno->getCurso());
 	}
 	return query->exec();
 }

@@ -42,6 +42,7 @@ public:
 	void setEmail(const QString &value);
 
 	int getMatricula() const;
+	void setMatricula(int value);
 
 	QString getAno() const;
 	void setAno(QString value);
@@ -49,8 +50,10 @@ public:
 	int getCurso() const;
 	void setCurso(const int &value);
 
+
+
 private:
-	int matricula; // NOTE: Matricula não está sendo setada/usada
+	int matricula;
 	QString ano;
 	int curso;
 };

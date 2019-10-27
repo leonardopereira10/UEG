@@ -114,6 +114,12 @@ int Aluno::getMatricula() const
 	return matricula;
 }
 
+void Aluno::setMatricula(int value)
+{
+	matricula = value;
+}
+
+
 QString Aluno::getAno() const
 {
 	return ano;
