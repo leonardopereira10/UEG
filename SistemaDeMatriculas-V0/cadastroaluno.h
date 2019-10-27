@@ -20,20 +20,20 @@ public:
 	~cadastroAluno();
 
 private slots:
-	void hideFields();
-	void showFields();
-	bool validCpf_cad(QString cpf);
-	bool validFields();
-	void fillBoxEstados();
-	void fillBoxCidades();
-	int getCodCidade();
-	bool commit_on_bd(Aluno *aluno);
+	void hideFields();				// Ocultar campos caso cpf seja inválido
+	void showFields();				// Exibir campos quando for necessário
+	bool validCpf_cad(QString cpf);	// Validar cpf digitado
+	bool validFields();				// Validar campos not-null na interface
+	void fillBoxEstados();			// Preencher boxEstados com valores do banco de dados
+	void fillBoxCidades();			// Preencher boxCidades com valores do banco de dados e de acordo com boxEstado
+	int getCodCidade();				// Retorna o código da cidade selecionada
+	bool commit_on_bd(Aluno *aluno);	// Grava no Banco de dados
 
-	void on_campoCpf_textChanged();
+	void on_campoCpf_textChanged();	// Chamar validCpf_cad() sempre que o texto "cpf" mudar
 
-	void on_btnCadastrar_clicked();
+	void on_btnCadastrar_clicked();	// Chama validFields(), validCpf_cad() e commit_on_bd() e informa ao usuário o resultado
 
-	void on_boxEstado_currentIndexChanged();
+	void on_boxEstado_currentIndexChanged();	// Atualizar boxCidades sempre que boxEstados mudar
 
 private:
 	Ui::cadastroAluno *janelaCadastro;

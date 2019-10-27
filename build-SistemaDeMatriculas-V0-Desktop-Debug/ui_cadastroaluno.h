@@ -124,6 +124,7 @@ public:
         dateEdit->setCurrentSection(QDateTimeEdit::YearSection);
         dateEdit->setCalendarPopup(true);
         dateEdit->setCurrentSectionIndex(0);
+        dateEdit->setDate(QDate(2019, 1, 1));
 
         gridLayout->addWidget(dateEdit, 2, 1, 1, 2);
 
