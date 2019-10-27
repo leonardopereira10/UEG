@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	this->showMaximized();
 	setCentralWidget(janelaInicial->mdiArea);
 
-	QPixmap bkg(":/imagens/Imagens/backgound.png");
+    QPixmap bkg(":/recursos/Imagens/backgound.png");
 	janelaInicial->mdiArea->setBackground(bkg);
 }
 

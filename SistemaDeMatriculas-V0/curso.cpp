@@ -5,7 +5,7 @@ Curso::Curso()
 
 }
 
-Curso::Curso(int idCurso, QString nome, float duracao)
+Curso::Curso(QString nome, double duracao)
 {
     this->idCurso=idCurso;
     this->nome=nome;
@@ -32,12 +32,12 @@ void Curso::setNome(const QString &value)
     nome = value;
 }
 
-float Curso::getDuracao() const
+double Curso::getDuracao() const
 {
     return duracao;
 }
 
-void Curso::setDuracao(float value)
+void Curso::setDuracao(double value)
 {
     duracao = value;
 }

@@ -8,11 +8,11 @@ class Curso
 private:
     int idCurso;
     QString nome;
-    float duracao;
+    double duracao;
 
 public:
     Curso();
-    Curso(int idCurso, QString nome, float duracao);
+    Curso(QString nome, double duracao);
 
     int getIdCurso() const;
     void setIdCurso(int value);
@@ -20,8 +20,8 @@ public:
     QString getNome() const;
     void setNome(const QString &value);
 
-    float getDuracao() const;
-    void setDuracao(float value);
+    double getDuracao() const;
+    void setDuracao(double value);
 };
 
 #endif // CURSO_H

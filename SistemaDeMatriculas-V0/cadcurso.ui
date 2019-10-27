@@ -14,7 +14,7 @@
    <string>Cadastro de Cursos</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="imagens.qrc">
+   <iconset>
     <normaloff>:/imagens/Imagens/logo.png</normaloff>:/imagens/Imagens/logo.png</iconset>
   </property>
   <widget class="QLabel" name="labelIcone">
@@ -27,7 +27,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/imagens/Imagens/Curso.png&quot; heigth=&quot;90&quot; width=&quot;90&quot;  /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/recursos/Imagens/Curso.png&quot; height=&quot;90&quot; width=&quot;90&quot; /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btnCadastrar">
@@ -56,7 +56,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -121,8 +121,6 @@
    </layout>
   </widget>
  </widget>
- <resources>
-  <include location="imagens.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
