@@ -20,13 +20,6 @@ MainWindow::~MainWindow()
 	delete janelaInicial;
 }
 
-// NOTE: metodo referente ao modulo aluno
-/*void MainWindow::on_actionCadastrarAluno_triggered()
-{
-	loadSubWindow(new cadastroAluno(this));
-}
-*/
-
 void MainWindow::on_actionCadastrarCurso_triggered()
 {
     loadSubWindow(new cadCurso(this));

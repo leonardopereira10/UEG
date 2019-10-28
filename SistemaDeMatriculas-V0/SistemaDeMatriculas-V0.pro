@@ -28,17 +28,20 @@ SOURCES += main.cpp \
 		mainwindow.cpp \
                 pessoa.cpp \
     curso.cpp \
-    cadcurso.cpp
+    cadcurso.cpp \
+    removecurso.cpp
 
 
 HEADERS	+= mainwindow.h \
 		cpf.h \
                 pessoa.h \
     curso.h \
-    cadcurso.h
+    cadcurso.h \
+    removecurso.h
 
 FORMS += mainwindow.ui \
-    cadcurso.ui
+    cadcurso.ui \
+    removecurso.ui
 
 RESOURCES += \
     recursos.qrc

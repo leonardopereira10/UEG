@@ -16,7 +16,6 @@ public:
 	~MainWindow();
 
 private slots:
-//	void on_actionCadastrarAluno_triggered();
 
 	void on_actionSair_triggered();
 
