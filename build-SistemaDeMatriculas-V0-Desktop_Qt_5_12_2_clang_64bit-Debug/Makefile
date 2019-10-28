@@ -54,21 +54,29 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../SistemaDeMatriculas-V0/main.cpp \
 		../SistemaDeMatriculas-V0/cadastro_professor.cpp \
+		../SistemaDeMatriculas-V0/consulta_professor.cpp \
 		../SistemaDeMatriculas-V0/cpf.cpp \
 		../SistemaDeMatriculas-V0/mainwindow.cpp \
 		../SistemaDeMatriculas-V0/pessoa.cpp \
-		../SistemaDeMatriculas-V0/professor.cpp qrc_imagens.cpp \
+		../SistemaDeMatriculas-V0/professor.cpp \
+		../SistemaDeMatriculas-V0/remove_professor.cpp qrc_imagens.cpp \
 		moc_mainwindow.cpp \
-		moc_cadastro_professor.cpp
+		moc_cadastro_professor.cpp \
+		moc_consulta_professor.cpp \
+		moc_remove_professor.cpp
 OBJECTS       = main.o \
 		cadastro_professor.o \
+		consulta_professor.o \
 		cpf.o \
 		mainwindow.o \
 		pessoa.o \
 		professor.o \
+		remove_professor.o \
 		qrc_imagens.o \
 		moc_mainwindow.o \
-		moc_cadastro_professor.o
+		moc_cadastro_professor.o \
+		moc_consulta_professor.o \
+		moc_remove_professor.o
 DIST          = ../../Qt/5.12.2/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.12.2/clang_64/mkspecs/qdevice.pri \
 		../../Qt/5.12.2/clang_64/mkspecs/features/device_config.prf \
@@ -244,14 +252,18 @@ DIST          = ../../Qt/5.12.2/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.12.2/clang_64/mkspecs/features/lex.prf \
 		../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro ../SistemaDeMatriculas-V0/mainwindow.h \
 		../SistemaDeMatriculas-V0/cadastro_professor.h \
+		../SistemaDeMatriculas-V0/consulta_professor.h \
 		../SistemaDeMatriculas-V0/cpf.h \
 		../SistemaDeMatriculas-V0/pessoa.h \
-		../SistemaDeMatriculas-V0/professor.h ../SistemaDeMatriculas-V0/main.cpp \
+		../SistemaDeMatriculas-V0/professor.h \
+		../SistemaDeMatriculas-V0/remove_professor.h ../SistemaDeMatriculas-V0/main.cpp \
 		../SistemaDeMatriculas-V0/cadastro_professor.cpp \
+		../SistemaDeMatriculas-V0/consulta_professor.cpp \
 		../SistemaDeMatriculas-V0/cpf.cpp \
 		../SistemaDeMatriculas-V0/mainwindow.cpp \
 		../SistemaDeMatriculas-V0/pessoa.cpp \
-		../SistemaDeMatriculas-V0/professor.cpp
+		../SistemaDeMatriculas-V0/professor.cpp \
+		../SistemaDeMatriculas-V0/remove_professor.cpp
 QMAKE_TARGET  = SistemaDeMatriculas-V0
 DESTDIR       = 
 TARGET        = SistemaDeMatriculas-V0.app/Contents/MacOS/SistemaDeMatriculas-V0
@@ -270,7 +282,7 @@ include /Users/danyelliasmanso/Qt/5.12.2/clang_64/mkspecs/features/mac/sdk.mk
 first: all
 ####### Build rules
 
-SistemaDeMatriculas-V0.app/Contents/MacOS/SistemaDeMatriculas-V0: ui_mainwindow.h ui_cadastro_professor.h $(OBJECTS)  
+SistemaDeMatriculas-V0.app/Contents/MacOS/SistemaDeMatriculas-V0: ui_mainwindow.h ui_cadastro_professor.h ui_consulta_professor.h ui_remove_professor.h $(OBJECTS)  
 	@test -d SistemaDeMatriculas-V0.app/Contents/MacOS/ || mkdir -p SistemaDeMatriculas-V0.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -664,9 +676,9 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/Imagens/imagens.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../Qt/5.12.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.h ../SistemaDeMatriculas-V0/cadastro_professor.h ../SistemaDeMatriculas-V0/cpf.h ../SistemaDeMatriculas-V0/pessoa.h ../SistemaDeMatriculas-V0/professor.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/cadastro_professor.cpp ../SistemaDeMatriculas-V0/cpf.cpp ../SistemaDeMatriculas-V0/mainwindow.cpp ../SistemaDeMatriculas-V0/pessoa.cpp ../SistemaDeMatriculas-V0/professor.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.ui ../SistemaDeMatriculas-V0/cadastro_professor.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.h ../SistemaDeMatriculas-V0/cadastro_professor.h ../SistemaDeMatriculas-V0/consulta_professor.h ../SistemaDeMatriculas-V0/cpf.h ../SistemaDeMatriculas-V0/pessoa.h ../SistemaDeMatriculas-V0/professor.h ../SistemaDeMatriculas-V0/remove_professor.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/cadastro_professor.cpp ../SistemaDeMatriculas-V0/consulta_professor.cpp ../SistemaDeMatriculas-V0/cpf.cpp ../SistemaDeMatriculas-V0/mainwindow.cpp ../SistemaDeMatriculas-V0/pessoa.cpp ../SistemaDeMatriculas-V0/professor.cpp ../SistemaDeMatriculas-V0/remove_professor.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.ui ../SistemaDeMatriculas-V0/cadastro_professor.ui ../SistemaDeMatriculas-V0/consulta_professor.ui ../SistemaDeMatriculas-V0/remove_professor.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -723,9 +735,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../Qt/5.12.2/clang_64/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.12 -Wall -W -dM -E -o moc_predefs.h ../../Qt/5.12.2/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_cadastro_professor.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_cadastro_professor.cpp moc_consulta_professor.cpp moc_remove_professor.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_cadastro_professor.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_cadastro_professor.cpp moc_consulta_professor.cpp moc_remove_professor.cpp
 moc_mainwindow.cpp: ../SistemaDeMatriculas-V0/mainwindow.h \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -743,7 +755,6 @@ moc_mainwindow.cpp: ../SistemaDeMatriculas-V0/mainwindow.h \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
 		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
-		../SistemaDeMatriculas-V0/mainwindow.h \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QtSql \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
@@ -760,6 +771,12 @@ moc_mainwindow.cpp: ../SistemaDeMatriculas-V0/mainwindow.h \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../SistemaDeMatriculas-V0/consulta_professor.h \
+		../SistemaDeMatriculas-V0/mainwindow.h \
+		../SistemaDeMatriculas-V0/remove_professor.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		moc_predefs.h \
@@ -778,12 +795,6 @@ moc_cadastro_professor.cpp: ../SistemaDeMatriculas-V0/cadastro_professor.h \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
 		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
-		../SistemaDeMatriculas-V0/mainwindow.h \
-		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
-		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMdiSubWindow \
-		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
-		../SistemaDeMatriculas-V0/cadastro_professor.h \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QtSql \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
@@ -800,19 +811,76 @@ moc_cadastro_professor.cpp: ../SistemaDeMatriculas-V0/cadastro_professor.h \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		moc_predefs.h \
+		../../Qt/5.12.2/clang_64/bin/moc
+	/Users/danyelliasmanso/Qt/5.12.2/clang_64/bin/moc $(DEFINES) --include /Users/danyelliasmanso/UEG/build-SistemaDeMatriculas-V0-Desktop_Qt_5_12_2_clang_64bit-Debug/moc_predefs.h -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/mkspecs/macx-clang -I/Users/danyelliasmanso/UEG/SistemaDeMatriculas-V0 -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtGui.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtSql.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib ../SistemaDeMatriculas-V0/cadastro_professor.h -o moc_cadastro_professor.cpp
+
+moc_consulta_professor.cpp: ../SistemaDeMatriculas-V0/consulta_professor.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QtSql \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../SistemaDeMatriculas-V0/mainwindow.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMdiSubWindow \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
+		../SistemaDeMatriculas-V0/cadastro_professor.h \
+		../SistemaDeMatriculas-V0/professor.h \
+		../SistemaDeMatriculas-V0/pessoa.h \
+		../SistemaDeMatriculas-V0/cpf.h \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QString \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../SistemaDeMatriculas-V0/consulta_professor.h \
+		../SistemaDeMatriculas-V0/remove_professor.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		moc_predefs.h \
 		../../Qt/5.12.2/clang_64/bin/moc
-	/Users/danyelliasmanso/Qt/5.12.2/clang_64/bin/moc $(DEFINES) --include /Users/danyelliasmanso/UEG/build-SistemaDeMatriculas-V0-Desktop_Qt_5_12_2_clang_64bit-Debug/moc_predefs.h -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/mkspecs/macx-clang -I/Users/danyelliasmanso/UEG/SistemaDeMatriculas-V0 -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtGui.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtSql.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib ../SistemaDeMatriculas-V0/cadastro_professor.h -o moc_cadastro_professor.cpp
+	/Users/danyelliasmanso/Qt/5.12.2/clang_64/bin/moc $(DEFINES) --include /Users/danyelliasmanso/UEG/build-SistemaDeMatriculas-V0-Desktop_Qt_5_12_2_clang_64bit-Debug/moc_predefs.h -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/mkspecs/macx-clang -I/Users/danyelliasmanso/UEG/SistemaDeMatriculas-V0 -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtGui.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtSql.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib ../SistemaDeMatriculas-V0/consulta_professor.h -o moc_consulta_professor.cpp
+
+moc_remove_professor.cpp: ../SistemaDeMatriculas-V0/remove_professor.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		moc_predefs.h \
+		../../Qt/5.12.2/clang_64/bin/moc
+	/Users/danyelliasmanso/Qt/5.12.2/clang_64/bin/moc $(DEFINES) --include /Users/danyelliasmanso/UEG/build-SistemaDeMatriculas-V0-Desktop_Qt_5_12_2_clang_64bit-Debug/moc_predefs.h -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/mkspecs/macx-clang -I/Users/danyelliasmanso/UEG/SistemaDeMatriculas-V0 -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtGui.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtSql.framework/Headers -I/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/danyelliasmanso/Qt/5.12.2/clang_64/lib ../SistemaDeMatriculas-V0/remove_professor.h -o moc_remove_professor.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_cadastro_professor.h
+compiler_uic_make_all: ui_mainwindow.h ui_cadastro_professor.h ui_consulta_professor.h ui_remove_professor.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_cadastro_professor.h
+	-$(DEL_FILE) ui_mainwindow.h ui_cadastro_professor.h ui_consulta_professor.h ui_remove_professor.h
 ui_mainwindow.h: ../SistemaDeMatriculas-V0/mainwindow.ui \
 		../../Qt/5.12.2/clang_64/bin/uic
 	/Users/danyelliasmanso/Qt/5.12.2/clang_64/bin/uic ../SistemaDeMatriculas-V0/mainwindow.ui -o ui_mainwindow.h
@@ -820,6 +888,14 @@ ui_mainwindow.h: ../SistemaDeMatriculas-V0/mainwindow.ui \
 ui_cadastro_professor.h: ../SistemaDeMatriculas-V0/cadastro_professor.ui \
 		../../Qt/5.12.2/clang_64/bin/uic
 	/Users/danyelliasmanso/Qt/5.12.2/clang_64/bin/uic ../SistemaDeMatriculas-V0/cadastro_professor.ui -o ui_cadastro_professor.h
+
+ui_consulta_professor.h: ../SistemaDeMatriculas-V0/consulta_professor.ui \
+		../../Qt/5.12.2/clang_64/bin/uic
+	/Users/danyelliasmanso/Qt/5.12.2/clang_64/bin/uic ../SistemaDeMatriculas-V0/consulta_professor.ui -o ui_consulta_professor.h
+
+ui_remove_professor.h: ../SistemaDeMatriculas-V0/remove_professor.ui \
+		../../Qt/5.12.2/clang_64/bin/uic
+	/Users/danyelliasmanso/Qt/5.12.2/clang_64/bin/uic ../SistemaDeMatriculas-V0/remove_professor.ui -o ui_remove_professor.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
@@ -866,6 +942,11 @@ main.o: ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/mainwindow.
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../SistemaDeMatriculas-V0/consulta_professor.h \
+		../SistemaDeMatriculas-V0/remove_professor.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
@@ -884,11 +965,6 @@ cadastro_professor.o: ../SistemaDeMatriculas-V0/cadastro_professor.cpp ../Sistem
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
 		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
-		../SistemaDeMatriculas-V0/mainwindow.h \
-		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
-		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMdiSubWindow \
-		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QtSql \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
@@ -905,10 +981,63 @@ cadastro_professor.o: ../SistemaDeMatriculas-V0/cadastro_professor.cpp ../Sistem
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		ui_cadastro_professor.h \
+		../SistemaDeMatriculas-V0/mainwindow.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMdiSubWindow \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
+		../SistemaDeMatriculas-V0/consulta_professor.h \
+		../SistemaDeMatriculas-V0/remove_professor.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cadastro_professor.o ../SistemaDeMatriculas-V0/cadastro_professor.cpp
+
+consulta_professor.o: ../SistemaDeMatriculas-V0/consulta_professor.cpp ../SistemaDeMatriculas-V0/consulta_professor.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QtSql \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../SistemaDeMatriculas-V0/mainwindow.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMdiSubWindow \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
+		../SistemaDeMatriculas-V0/cadastro_professor.h \
+		../SistemaDeMatriculas-V0/professor.h \
+		../SistemaDeMatriculas-V0/pessoa.h \
+		../SistemaDeMatriculas-V0/cpf.h \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QString \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../Qt/5.12.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../SistemaDeMatriculas-V0/remove_professor.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
-		ui_cadastro_professor.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cadastro_professor.o ../SistemaDeMatriculas-V0/cadastro_professor.cpp
+		ui_consulta_professor.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o consulta_professor.o ../SistemaDeMatriculas-V0/consulta_professor.cpp
 
 cpf.o: ../SistemaDeMatriculas-V0/cpf.cpp ../SistemaDeMatriculas-V0/cpf.h \
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QString \
@@ -948,6 +1077,11 @@ mainwindow.o: ../SistemaDeMatriculas-V0/mainwindow.cpp ../SistemaDeMatriculas-V0
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
 		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../SistemaDeMatriculas-V0/consulta_professor.h \
+		../SistemaDeMatriculas-V0/remove_professor.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		ui_mainwindow.h
@@ -970,6 +1104,18 @@ professor.o: ../SistemaDeMatriculas-V0/professor.cpp ../SistemaDeMatriculas-V0/p
 		../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o professor.o ../SistemaDeMatriculas-V0/professor.cpp
 
+remove_professor.o: ../SistemaDeMatriculas-V0/remove_professor.cpp ../SistemaDeMatriculas-V0/remove_professor.h \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		ui_remove_professor.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o remove_professor.o ../SistemaDeMatriculas-V0/remove_professor.cpp
+
 qrc_imagens.o: qrc_imagens.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_imagens.o qrc_imagens.cpp
 
@@ -978,6 +1124,12 @@ moc_mainwindow.o: moc_mainwindow.cpp
 
 moc_cadastro_professor.o: moc_cadastro_professor.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_cadastro_professor.o moc_cadastro_professor.cpp
+
+moc_consulta_professor.o: moc_consulta_professor.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_consulta_professor.o moc_consulta_professor.cpp
+
+moc_remove_professor.o: moc_remove_professor.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_remove_professor.o moc_remove_professor.cpp
 
 ####### Install
 

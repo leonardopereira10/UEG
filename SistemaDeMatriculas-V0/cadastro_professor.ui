@@ -581,7 +581,7 @@
     <string>Inserir</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>150</x>
@@ -603,7 +603,35 @@
     </item>
    </layout>
   </widget>
+  <widget class="QLabel" name="aviso_incorreto">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>122</y>
+     <width>59</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
  </widget>
+ <tabstops>
+  <tabstop>campo_cpf</tabstop>
+  <tabstop>inserir</tabstop>
+  <tabstop>campo_nome</tabstop>
+  <tabstop>campo_data_de_nascimento</tabstop>
+  <tabstop>campo_endereco</tabstop>
+  <tabstop>campo_setor</tabstop>
+  <tabstop>selecao_estado</tabstop>
+  <tabstop>selecao_cidade</tabstop>
+  <tabstop>campo_graduacao</tabstop>
+  <tabstop>selecao_titulacao</tabstop>
+  <tabstop>campo_celular</tabstop>
+  <tabstop>campo_email</tabstop>
+  <tabstop>btn_cadastrar</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

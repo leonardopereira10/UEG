@@ -70,9 +70,10 @@ public:
     QComboBox *selecao_cidade;
     QLabel *aviso_cpf;
     QPushButton *inserir;
-    QWidget *widget;
+    QWidget *layoutWidget3;
     QHBoxLayout *horizontalLayout_9;
     QPushButton *btn_cadastrar;
+    QLabel *aviso_incorreto;
 
     void setupUi(QWidget *cadastro_professor)
     {
@@ -332,18 +333,33 @@ public:
         inserir = new QPushButton(cadastro_professor);
         inserir->setObjectName(QString::fromUtf8("inserir"));
         inserir->setGeometry(QRect(368, 78, 70, 32));
-        widget = new QWidget(cadastro_professor);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(150, 480, 217, 32));
-        horizontalLayout_9 = new QHBoxLayout(widget);
+        layoutWidget3 = new QWidget(cadastro_professor);
+        layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
+        layoutWidget3->setGeometry(QRect(150, 480, 217, 32));
+        horizontalLayout_9 = new QHBoxLayout(layoutWidget3);
         horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
         horizontalLayout_9->setContentsMargins(0, 0, 0, 0);
-        btn_cadastrar = new QPushButton(widget);
+        btn_cadastrar = new QPushButton(layoutWidget3);
         btn_cadastrar->setObjectName(QString::fromUtf8("btn_cadastrar"));
         btn_cadastrar->setStyleSheet(QString::fromUtf8("btn_cadastrar->setSyleSheet->rgba(0, 0, 255, 191)"));
 
         horizontalLayout_9->addWidget(btn_cadastrar);
 
+        aviso_incorreto = new QLabel(cadastro_professor);
+        aviso_incorreto->setObjectName(QString::fromUtf8("aviso_incorreto"));
+        aviso_incorreto->setGeometry(QRect(370, 122, 59, 16));
+        QWidget::setTabOrder(campo_cpf, inserir);
+        QWidget::setTabOrder(inserir, campo_nome);
+        QWidget::setTabOrder(campo_nome, campo_data_de_nascimento);
+        QWidget::setTabOrder(campo_data_de_nascimento, campo_endereco);
+        QWidget::setTabOrder(campo_endereco, campo_setor);
+        QWidget::setTabOrder(campo_setor, selecao_estado);
+        QWidget::setTabOrder(selecao_estado, selecao_cidade);
+        QWidget::setTabOrder(selecao_cidade, campo_graduacao);
+        QWidget::setTabOrder(campo_graduacao, selecao_titulacao);
+        QWidget::setTabOrder(selecao_titulacao, campo_celular);
+        QWidget::setTabOrder(campo_celular, campo_email);
+        QWidget::setTabOrder(campo_email, btn_cadastrar);
 
         retranslateUi(cadastro_professor);
 
@@ -406,6 +422,7 @@ public:
         aviso_cpf->setText(QApplication::translate("cadastro_professor", "TextLabel", nullptr));
         inserir->setText(QApplication::translate("cadastro_professor", "Inserir", nullptr));
         btn_cadastrar->setText(QApplication::translate("cadastro_professor", "Cadastrar", nullptr));
+        aviso_incorreto->setText(QApplication::translate("cadastro_professor", "TextLabel", nullptr));
     } // retranslateUi
 
 };

@@ -28,10 +28,20 @@ void MainWindow::loadSubWindow(QWidget *widget)
     window->setWindowTitle(widget->windowTitle());
     window->setWindowIcon(widget->windowIcon());
     window->show();
-    window->setMinimumSize(561, 536);
+    window->showMaximized();
 }
 
 void MainWindow::on_actionCadastrarProf_triggered()
 {
     loadSubWindow(new cadastro_professor(this));
+}
+
+void MainWindow::on_actionConsultarProf_triggered()
+{
+    loadSubWindow(new consulta_professor(this));
+}
+
+void MainWindow::on_actionRemoverProf_triggered()
+{
+    loadSubWindow(new remove_professor(this));
 }

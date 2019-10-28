@@ -4,8 +4,9 @@
 #include <QWidget>
 #include <professor.h>
 #include <QPixmap>
-#include "mainwindow.h"
 #include <QtSql>
+#include <QSqlDatabase>
+
 
 
 
@@ -20,6 +21,13 @@ class cadastro_professor : public QWidget, public Cpf
 public:
     explicit cadastro_professor(QWidget *parent = nullptr);
     ~cadastro_professor();
+    bool check_inserted_text_name(QString text);
+    bool check_inserted_text_Bday(QString text);
+    bool check_inserted_text_commun(QString text);
+    bool check_inserted_text_phone(QString text);
+
+
+    QSqlDatabase banco_de_dados;
 
 private slots:
     void on_btn_cadastrar_clicked();
