@@ -347,7 +347,7 @@ public:
 
         aviso_incorreto = new QLabel(cadastro_professor);
         aviso_incorreto->setObjectName(QString::fromUtf8("aviso_incorreto"));
-        aviso_incorreto->setGeometry(QRect(370, 122, 59, 16));
+        aviso_incorreto->setGeometry(QRect(356, 122, 59, 16));
         QWidget::setTabOrder(campo_cpf, inserir);
         QWidget::setTabOrder(inserir, campo_nome);
         QWidget::setTabOrder(campo_nome, campo_data_de_nascimento);

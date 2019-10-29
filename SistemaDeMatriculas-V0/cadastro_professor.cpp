@@ -39,7 +39,7 @@ cadastro_professor::cadastro_professor(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::cadastro_professor)
 {
-    this->setMaximumSize(560, 560);
+    this->size();
     ui->setupUi(this);
     QPixmap logo_professor (":/imagens/Professores.png");
     ui->logo_professor->setPixmap(logo_professor.scaled(111,109, Qt::KeepAspectRatio));
@@ -405,51 +405,57 @@ void cadastro_professor::on_btn_cadastrar_clicked()
     QString titulacao = ui->selecao_titulacao->currentText();
 
     ui->aviso_incorreto->show();
-    ui->aviso_incorreto->setText("Verificando .");
     if(check_inserted_text_name(nome) == false){
         ui->campo_nome->setFocus();
         ui->aviso_incorreto->setText("Nome inserido é inválido!");
+        ui->aviso_incorreto->adjustSize();
+        ui->aviso_incorreto->setStyleSheet("background-color: red");
     }
         else{
-            ui->aviso_incorreto->setText("Verificando ..");
                 if(check_inserted_text_Bday(data_de_nascimento) == false){
                     ui->campo_data_de_nascimento->setFocus();
                     ui->aviso_incorreto->setText("Data de nascimento inválida!");
                     ui->aviso_incorreto->adjustSize();
-                    ui->aviso_incorreto->styleSheet("color: red");
+                    ui->aviso_incorreto->setStyleSheet("background-color: red");
                 }
                     else{
-                        ui->aviso_incorreto->setText("Verificando ...");
                         if(check_inserted_text_commun(endereco) == false){
                             ui->campo_endereco->setFocus();
                             ui->aviso_incorreto->setText("Endereço inserido é inválido!");
+                            ui->aviso_incorreto->adjustSize();
+                            ui->aviso_incorreto->setStyleSheet("background-color: red");
                         }
                            else{
-                            ui->aviso_incorreto->setText("Verificando ....");
                                 if(check_inserted_text_commun(setor) == false){
                                     ui->campo_setor->setFocus();
                                     ui->aviso_incorreto->setText("Setor inserido é inválido!");
+                                    ui->aviso_incorreto->adjustSize();
+                                    ui->aviso_incorreto->setStyleSheet("background-color: red");
                                     }
                                     else{
-                                        ui->aviso_incorreto->setText("Verificando .....");
                                         if(check_inserted_text_commun(graduacao) == false){
                                             ui->campo_graduacao->setFocus();
                                             ui->aviso_incorreto->setText("Graduação preenchida é inválida!");
+                                            ui->aviso_incorreto->adjustSize();
+                                            ui->aviso_incorreto->setStyleSheet("background-color: red");
                                         }
                                             else{
-                                                ui->aviso_incorreto->setText("Verificando ......");
                                                 if(check_inserted_text_phone(celular) == false){
                                                     ui->campo_celular->setFocus();
                                                     ui->aviso_incorreto->setText("Número de celular é inválido!");
+                                                    ui->aviso_incorreto->adjustSize();
+                                                    ui->aviso_incorreto->setStyleSheet("background-color: red");
                                                 }
                                                 else{
-                                                    ui->aviso_incorreto->setText("Verificando .......");
                                                     if(check_inserted_text_commun(email) == false){
                                                         ui->campo_email->setFocus();
                                                         ui->aviso_incorreto->setText("E-mail inválido!");
+                                                        ui->aviso_incorreto->adjustSize();
+                                                        ui->aviso_incorreto->setStyleSheet("background-color: red");
                                                     }
                                                     else{
-                                                        ui->aviso_incorreto->setStyleSheet("color: green");
+                                                        ui->aviso_incorreto->adjustSize();
+                                                        ui->aviso_incorreto->setStyleSheet("background-color: green");
                                                         ui->aviso_incorreto->setText("Verificação completada!");
 
                                                         if(!query.prepare("INSERT INTO tb_Professores VALUES ('"+cpf+"', '"+nome+"', '"+data_de_nascimento+"', '"+endereco+"', '"+setor+"', '"+uf+"', '"+cidade+"', '"+celular+"', '"+email+"', '"+graduacao+"', '"+titulacao+"')")){

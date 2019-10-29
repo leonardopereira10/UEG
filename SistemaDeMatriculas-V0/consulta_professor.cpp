@@ -6,7 +6,7 @@ consulta_professor::consulta_professor(QWidget *parent) :
     ui(new Ui::consulta_professor)
 {
     ui->setupUi(this);
-    this->showFullScreen();
+    this->showMaximized();
     ui->radio_cpf->setChecked(true);
     ui->campo_pesquisa->setInputMask("###.###.###-##");
     ui->campo_pesquisa->setMaximumWidth(110);
@@ -55,7 +55,7 @@ void consulta_professor::on_btn_pesquisar_clicked()
 
     //Pesquisa quando digitar o nome
     if(ui->campo_pesquisa->width() == 300){
-        query->prepare("SELECT * FROM tb_Professores WHERE Professor like '"+ui->campo_pesquisa->text()+"%' ORDER BY Professor asc");
+        query->prepare("SELECT * FROM tb_Professores WHERE Professor like '%"+ui->campo_pesquisa->text()+"%' ORDER BY Professor asc");
         query->exec();
         molde->setQuery(*query);
         ui->tabela_resultado->setModel(molde);
@@ -67,3 +67,7 @@ void consulta_professor::on_campo_pesquisa_returnPressed()
 {
     ui->btn_pesquisar->clicked();
 }
+
+
+//ui->tableWidget->horizontalHeader()->resizeSections(QHeaderView::ResizeToContents);
+//ui->tableWidget->verticalHeader()->resizeSections(QHeaderView::ResizeToContents);

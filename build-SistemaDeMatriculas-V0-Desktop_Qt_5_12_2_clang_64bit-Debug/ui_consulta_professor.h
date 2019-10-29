@@ -38,7 +38,7 @@ public:
     {
         if (consulta_professor->objectName().isEmpty())
             consulta_professor->setObjectName(QString::fromUtf8("consulta_professor"));
-        consulta_professor->resize(1017, 579);
+        consulta_professor->resize(1302, 728);
         label_variavel = new QLabel(consulta_professor);
         label_variavel->setObjectName(QString::fromUtf8("label_variavel"));
         label_variavel->setGeometry(QRect(21, 68, 29, 16));
@@ -66,10 +66,17 @@ public:
         btn_pesquisar->setGeometry(QRect(381, 60, 113, 32));
         tabela_resultado = new QTableView(consulta_professor);
         tabela_resultado->setObjectName(QString::fromUtf8("tabela_resultado"));
-        tabela_resultado->setGeometry(QRect(20, 110, 961, 431));
-        tabela_resultado->setVerticalScrollMode(QAbstractItemView::ScrollPerItem);
+        tabela_resultado->setGeometry(QRect(20, 110, 1261, 601));
+        tabela_resultado->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+        tabela_resultado->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContentsOnFirstShow);
+        tabela_resultado->setAutoScroll(true);
+        tabela_resultado->setSelectionMode(QAbstractItemView::ExtendedSelection);
+        tabela_resultado->setTextElideMode(Qt::ElideRight);
+        tabela_resultado->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
         tabela_resultado->setShowGrid(true);
-        tabela_resultado->setGridStyle(Qt::CustomDashLine);
+        tabela_resultado->setGridStyle(Qt::SolidLine);
+        tabela_resultado->setSortingEnabled(false);
+        tabela_resultado->setWordWrap(false);
         QWidget::setTabOrder(radio_cpf, radio_nome);
 
         retranslateUi(consulta_professor);

@@ -5,6 +5,7 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
+#include "confirmacao_remover.h"
 
 namespace Ui {
 class remove_professor;
@@ -28,6 +29,8 @@ private slots:
     void on_btn_pesquisar_clicked();
 
     void on_campo_pesquisa_returnPressed();
+
+    void on_btn_remover_clicked();
 
 private:
     Ui::remove_professor *ui;

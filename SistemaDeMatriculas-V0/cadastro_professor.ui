@@ -606,7 +606,7 @@
   <widget class="QLabel" name="aviso_incorreto">
    <property name="geometry">
     <rect>
-     <x>370</x>
+     <x>356</x>
      <y>122</y>
      <width>59</width>
      <height>16</height>

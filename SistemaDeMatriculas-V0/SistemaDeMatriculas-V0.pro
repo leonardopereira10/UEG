@@ -25,6 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp \
 		cadastro_professor.cpp \
+		confirmacao_remover.cpp \
 		consulta_professor.cpp \
 		cpf.cpp \
 		mainwindow.cpp \
@@ -35,6 +36,7 @@ SOURCES += main.cpp \
 
 HEADERS	+= mainwindow.h \
 		cadastro_professor.h \
+		confirmacao_remover.h \
 		consulta_professor.h \
 		cpf.h \
 		pessoa.h \
@@ -43,6 +45,7 @@ HEADERS	+= mainwindow.h \
 
 FORMS += mainwindow.ui \
     cadastro_professor.ui \
+    confirmacao_remover.ui \
     consulta_professor.ui \
     remove_professor.ui
 

@@ -54,7 +54,7 @@ void remove_professor::on_btn_pesquisar_clicked()
 
     //Pesquisa quando digitar o nome
     if(ui->campo_pesquisa->width() == 300){
-        query->prepare("SELECT CPF, Professor, Graduacao FROM tb_Professores WHERE Professor like '"+ui->campo_pesquisa->text()+"%' ORDER BY Professor asc");
+        query->prepare("SELECT CPF, Professor, Graduacao FROM tb_Professores WHERE Professor like '%"+ui->campo_pesquisa->text()+"%' ORDER BY Professor asc");
         query->exec();
         molde->setQuery(*query);
         ui->tabela_resultado->setModel(molde);
@@ -69,3 +69,10 @@ void remove_professor::on_campo_pesquisa_returnPressed()
 }
 
 
+
+void remove_professor::on_btn_remover_clicked()
+{
+    confirmacao_remover tela;
+    this->blockSignals(true);
+
+}
