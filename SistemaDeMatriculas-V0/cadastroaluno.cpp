@@ -20,11 +20,10 @@ cadastroAluno::cadastroAluno(QWidget *parent) :
 
 	// Propriedades dos demais campos
 	janelaCadastro->campoNome->setValidator(new QRegExpValidator(QRegExp("^[a-zA-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑáàâãéèêíïóôõöúçñ ]+"), this));
-	janelaCadastro->campoEndereco->setValidator(new QRegExpValidator(QRegExp("^[0-9a-zA-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑáàâãéèêíïóôõöúçñ ]+"), this));
-	janelaCadastro->campoSetor->setValidator(new QRegExpValidator(QRegExp("^[0-9a-zA-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑáàâãéèêíïóôõöúçñ ]+"), this));
+	janelaCadastro->campoEndereco->setValidator(new QRegExpValidator(QRegExp("^[0-9a-zA-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑáàâãéèêíïóôõöúçñ,\- ]+"), this));
+	janelaCadastro->campoSetor->setValidator(new QRegExpValidator(QRegExp("^[0-9a-zA-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑáàâãéèêíïóôõöúçñ,\- ]+"), this));
 	janelaCadastro->campoCelular->setValidator(new QRegExpValidator(QRegExp("^[0-9]+"), this));
-	janelaCadastro->campoEmail->setValidator(new QRegExpValidator(QRegExp("^[0-9a-zA-Z@_ ]+"), this));
-
+	janelaCadastro->campoEmail->setValidator(new QRegExpValidator(QRegExp("^[0-9a-zA-Z@_.\- ]+"), this));
 
 	// Verificar Driver QSQLITE
 	if(QSqlDatabase::isDriverAvailable("QSQLITE")) {
@@ -146,6 +145,19 @@ void cadastroAluno::showFields()
 	janelaCadastro->btnCadastrar->show();
 }
 
+void cadastroAluno::clearFields()
+{
+	janelaCadastro->campoNome->clear();
+	janelaCadastro->campoMatricula->clear();
+	janelaCadastro->campoEndereco->clear();
+	janelaCadastro->campoSetor->clear();
+	janelaCadastro->boxEstado->setCurrentIndex(0);
+	janelaCadastro->boxCidade->setCurrentIndex(0);
+	janelaCadastro->campoCelular->clear();
+	janelaCadastro->campoEmail->clear();
+	janelaCadastro->boxCurso->setCurrentIndex(0);
+}
+
 bool cadastroAluno::validCpf_cad(QString cpfValue)
 {
 	QPixmap valid(":/recursos/Imagens/Confirmação.png");
@@ -171,6 +183,7 @@ bool cadastroAluno::validCpf_cad(QString cpfValue)
 			qDebug() << "validCpf_cad(): Cpf já existe na base de dados";
 			QMessageBox::warning(this, "CPF", "Já existe um aluno cadastrado com este CPF");
 			janelaCadastro->campoCpf->selectAll();
+			clearFields();
 			return false;
 		}
 		else {

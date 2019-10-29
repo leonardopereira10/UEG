@@ -70,7 +70,15 @@ public:
     {
         if (cadastroAluno->objectName().isEmpty())
             cadastroAluno->setObjectName(QStringLiteral("cadastroAluno"));
-        cadastroAluno->resize(433, 466);
+        cadastroAluno->resize(438, 466);
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(cadastroAluno->sizePolicy().hasHeightForWidth());
+        cadastroAluno->setSizePolicy(sizePolicy);
+        cadastroAluno->setMinimumSize(QSize(0, 466));
+        cadastroAluno->setMaximumSize(QSize(438, 466));
+        cadastroAluno->setSizeIncrement(QSize(1, 1));
         QIcon icon;
         icon.addFile(QStringLiteral(":/imagens/Imagens/logo.png"), QSize(), QIcon::Normal, QIcon::Off);
         cadastroAluno->setWindowIcon(icon);

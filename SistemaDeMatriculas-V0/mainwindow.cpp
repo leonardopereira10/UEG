@@ -32,7 +32,7 @@ void MainWindow::loadSubWindow(QWidget *widget)
 
 	window->setWindowTitle(widget->windowTitle());
 	window->setWindowIcon(widget->windowIcon());
-	window->setMinimumSize(438, 490); // FIXME: Corrigir tamanho das janelas
+	window->setMinimumSize(widget->size());
 
 	window->setWidget(widget);
 	janelaInicial->mdiArea->addSubWindow(window);

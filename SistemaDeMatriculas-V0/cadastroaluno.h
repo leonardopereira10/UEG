@@ -22,6 +22,7 @@ public:
 private slots:
 	void hideFields();				// Ocultar campos caso cpf seja inválido
 	void showFields();				// Exibir campos quando for necessário
+	void clearFields();				// Limpar campos
 	bool validCpf_cad(QString cpf);	// Validar cpf digitado
 	bool validFields();				// Validar campos not-null na interface
 	void fillBoxEstados();			// Preencher boxEstados com valores do banco de dados

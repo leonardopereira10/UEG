@@ -19,7 +19,6 @@
 #include <QtWidgets/QMdiArea>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -63,7 +62,6 @@ public:
     QMenu *menuMatriculas;
     QMenu *menuEditar;
     QMenu *menuAjuda;
-    QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -180,9 +178,6 @@ public:
         menuAjuda = new QMenu(menuBar);
         menuAjuda->setObjectName(QStringLiteral("menuAjuda"));
         MainWindow->setMenuBar(menuBar);
-        statusBar = new QStatusBar(MainWindow);
-        statusBar->setObjectName(QStringLiteral("statusBar"));
-        MainWindow->setStatusBar(statusBar);
 
         menuBar->addAction(menuArquivo->menuAction());
         menuBar->addAction(menuEditar->menuAction());
