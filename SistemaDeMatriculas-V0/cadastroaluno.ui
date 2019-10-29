@@ -336,6 +336,9 @@ p, li { white-space: pre-wrap; }
       <property name="text">
        <string/>
       </property>
+      <property name="maxLength">
+       <number>11</number>
+      </property>
      </widget>
     </item>
     <item row="0" column="0" colspan="2">

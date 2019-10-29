@@ -19,11 +19,11 @@ cadastroAluno::cadastroAluno(QWidget *parent) :
 	janelaCadastro->labelValidFields->setAlignment(Qt::AlignCenter);
 
 	// Propriedades dos demais campos
-	janelaCadastro->campoNome->setValidator(new QRegExpValidator(QRegExp("^[a-zA-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑáàâãéèêíïóôõöúçñ ]+"), this));
-	janelaCadastro->campoEndereco->setValidator(new QRegExpValidator(QRegExp("^[0-9a-zA-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑáàâãéèêíïóôõöúçñ,\- ]+"), this));
-	janelaCadastro->campoSetor->setValidator(new QRegExpValidator(QRegExp("^[0-9a-zA-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑáàâãéèêíïóôõöúçñ,\- ]+"), this));
+	janelaCadastro->campoNome->setValidator(new QRegExpValidator(QRegExp("^[A-zÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑáàâãéèêíïóôõöúçñ ]+"), this));
+	janelaCadastro->campoEndereco->setValidator(new QRegExpValidator(QRegExp("^[0-9A-z-ÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑáàâãéèêíïóôõöúçñ, ]+"), this));
+	janelaCadastro->campoSetor->setValidator(new QRegExpValidator(QRegExp("^[0-9A-z-ÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑáàâãéèêíïóôõöúçñ, ]+"), this));
 	janelaCadastro->campoCelular->setValidator(new QRegExpValidator(QRegExp("^[0-9]+"), this));
-	janelaCadastro->campoEmail->setValidator(new QRegExpValidator(QRegExp("^[0-9a-zA-Z@_.\- ]+"), this));
+	janelaCadastro->campoEmail->setValidator(new QRegExpValidator(QRegExp("^[0-9a-zA-Z-@_. ]+"), this));
 
 	// Verificar Driver QSQLITE
 	if(QSqlDatabase::isDriverAvailable("QSQLITE")) {
@@ -36,6 +36,7 @@ cadastroAluno::cadastroAluno(QWidget *parent) :
 			query = new QSqlQuery(db);
 			fillBoxEstados();
 			fillBoxCidades();
+			fillBoxCursos();
 		}
 		else {
 			qDebug() << "cadastroAluno(): " << db.lastError();
@@ -293,6 +294,22 @@ void cadastroAluno::fillBoxCidades()
 	}
 }
 
+void cadastroAluno::fillBoxCursos()
+{
+	QSqlQueryModel *modelCursos = new QSqlQueryModel();
+
+	query->clear();
+	query->prepare("SELECT cursos.nome FROM cursos");
+
+	if(!query->exec())
+		qDebug() << "fillBoxCursos(): " << query->lastError();
+	else {
+		modelCursos->setQuery(*query);
+		janelaCadastro->boxCurso->setModel(modelCursos);
+	}
+
+}
+
 int cadastroAluno::getCodCidade()
 {
 	query->clear();
@@ -303,6 +320,21 @@ int cadastroAluno::getCodCidade()
 
 	if(!query->exec())
 		qDebug() << "getCodCidade(): " << query->lastError();
+
+	query->first();
+	return query->value(0).toInt();
+}
+
+int cadastroAluno::getCodCurso()
+{
+	query->clear();
+	query->prepare("SELECT idCurso "
+				   "FROM cursos "
+				   "WHERE cursos.nome=:curso");
+	query->bindValue(":curso", janelaCadastro->boxCurso->currentText());
+
+	if(!query->exec())
+		qDebug() << "getCurso(): " << query->lastError();
 
 	query->first();
 	return query->value(0).toInt();
@@ -328,7 +360,7 @@ void cadastroAluno::on_btnCadastrar_clicked()
 						janelaCadastro->campoCelular->text(),
 						janelaCadastro->campoEmail->text(),
 						janelaCadastro->dateEdit->text(),
-						janelaCadastro->boxCurso->currentIndex());
+						getCodCurso());
 		}
 		// Completar apenas dados not-null de alunos
 		else {
@@ -340,7 +372,7 @@ void cadastroAluno::on_btnCadastrar_clicked()
 						getCodCidade(),
 						janelaCadastro->campoEmail->text(),
 						janelaCadastro->dateEdit->text(),
-						janelaCadastro->boxCurso->currentIndex());
+						getCodCurso());
 		}
 
 		// Validar cpf

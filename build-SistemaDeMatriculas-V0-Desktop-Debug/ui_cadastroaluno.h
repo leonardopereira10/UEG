@@ -184,6 +184,7 @@ public:
 
         campoCelular = new QLineEdit(layoutWidget1);
         campoCelular->setObjectName(QStringLiteral("campoCelular"));
+        campoCelular->setMaxLength(11);
 
         gridLayout_2->addWidget(campoCelular, 4, 2, 1, 3);
 
