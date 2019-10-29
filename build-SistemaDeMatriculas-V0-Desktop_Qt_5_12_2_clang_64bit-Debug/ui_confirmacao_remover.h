@@ -64,7 +64,7 @@ public:
 
     void retranslateUi(QDialog *confirmacao_remover)
     {
-        confirmacao_remover->setWindowTitle(QApplication::translate("confirmacao_remover", "Dialog", nullptr));
+        confirmacao_remover->setWindowTitle(QApplication::translate("confirmacao_remover", "Confirma\303\247\303\243o", nullptr));
         pushButton->setText(QApplication::translate("confirmacao_remover", "N\303\243o", nullptr));
         pushButton_2->setText(QApplication::translate("confirmacao_remover", "Sim", nullptr));
         label->setText(QApplication::translate("confirmacao_remover", "Deseja realmente remover ?", nullptr));

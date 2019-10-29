@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Remoção</string>
   </property>
   <widget class="QLabel" name="label_variavel">
    <property name="geometry">
@@ -75,7 +75,7 @@
     <string>Pesquisar</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>20</x>

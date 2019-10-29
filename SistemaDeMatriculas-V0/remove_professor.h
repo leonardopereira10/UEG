@@ -32,8 +32,11 @@ private slots:
 
     void on_btn_remover_clicked();
 
+    void on_tabela_resultado_doubleClicked(const QModelIndex &index);
+
 private:
     Ui::remove_professor *ui;
+    confirmacao_remover tela;
 };
 
 #endif // REMOVE_PROFESSOR_H

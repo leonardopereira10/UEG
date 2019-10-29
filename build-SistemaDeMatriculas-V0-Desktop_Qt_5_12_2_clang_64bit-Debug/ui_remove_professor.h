@@ -30,7 +30,7 @@ public:
     QTableView *tabela_resultado;
     QPushButton *btn_remover;
     QPushButton *btn_pesquisar;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout;
     QRadioButton *radio_cpf;
     QRadioButton *radio_nome;
@@ -56,18 +56,18 @@ public:
         btn_pesquisar = new QPushButton(remove_professor);
         btn_pesquisar->setObjectName(QString::fromUtf8("btn_pesquisar"));
         btn_pesquisar->setGeometry(QRect(400, 65, 113, 32));
-        widget = new QWidget(remove_professor);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(20, 16, 211, 20));
-        horizontalLayout = new QHBoxLayout(widget);
+        layoutWidget = new QWidget(remove_professor);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(20, 16, 211, 20));
+        horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        radio_cpf = new QRadioButton(widget);
+        radio_cpf = new QRadioButton(layoutWidget);
         radio_cpf->setObjectName(QString::fromUtf8("radio_cpf"));
 
         horizontalLayout->addWidget(radio_cpf);
 
-        radio_nome = new QRadioButton(widget);
+        radio_nome = new QRadioButton(layoutWidget);
         radio_nome->setObjectName(QString::fromUtf8("radio_nome"));
 
         horizontalLayout->addWidget(radio_nome);
@@ -80,7 +80,7 @@ public:
 
     void retranslateUi(QWidget *remove_professor)
     {
-        remove_professor->setWindowTitle(QApplication::translate("remove_professor", "Form", nullptr));
+        remove_professor->setWindowTitle(QApplication::translate("remove_professor", "Remo\303\247\303\243o", nullptr));
         label_variavel->setText(QApplication::translate("remove_professor", "CPF:", nullptr));
         btn_remover->setText(QApplication::translate("remove_professor", "Remover", nullptr));
         btn_pesquisar->setText(QApplication::translate("remove_professor", "Pesquisar", nullptr));

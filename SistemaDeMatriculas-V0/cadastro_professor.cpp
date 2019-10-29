@@ -457,6 +457,7 @@ void cadastro_professor::on_btn_cadastrar_clicked()
                                                         ui->aviso_incorreto->adjustSize();
                                                         ui->aviso_incorreto->setStyleSheet("background-color: green");
                                                         ui->aviso_incorreto->setText("Verificação completada!");
+                                                        ui->aviso_incorreto->adjustSize();
 
                                                         if(!query.prepare("INSERT INTO tb_Professores VALUES ('"+cpf+"', '"+nome+"', '"+data_de_nascimento+"', '"+endereco+"', '"+setor+"', '"+uf+"', '"+cidade+"', '"+celular+"', '"+email+"', '"+graduacao+"', '"+titulacao+"')")){
                                                             qDebug() <<query.lastError();

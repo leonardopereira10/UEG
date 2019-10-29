@@ -72,7 +72,14 @@ void remove_professor::on_campo_pesquisa_returnPressed()
 
 void remove_professor::on_btn_remover_clicked()
 {
-    confirmacao_remover tela;
+
+
+
+}
+
+void remove_professor::on_tabela_resultado_doubleClicked(const QModelIndex &index)
+{
     this->blockSignals(true);
+    tela.open();
 
 }
