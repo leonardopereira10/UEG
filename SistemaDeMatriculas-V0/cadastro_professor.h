@@ -4,8 +4,6 @@
 #include <QWidget>
 #include <professor.h>
 #include <QPixmap>
-#include <QtSql>
-#include <QSqlDatabase>
 
 namespace Ui {
 class cadastro_professor;
@@ -22,9 +20,15 @@ public:
     bool check_inserted_text_Bday(QString text);
     bool check_inserted_text_commun(QString text);
     bool check_inserted_text_phone(QString text);
+    void hideall();
+    void showall();
 
 private slots:
 
+
+    void on_campo_cpf_returnPressed();
+
+    void on_inserir_clicked();
 
 private:
     Ui::cadastro_professor *ui;

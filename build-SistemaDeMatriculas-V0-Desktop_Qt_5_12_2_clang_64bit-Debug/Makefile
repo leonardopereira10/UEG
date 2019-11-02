@@ -893,7 +893,9 @@ mainwindow.o: ../SistemaDeMatriculas-V0/mainwindow.cpp ../SistemaDeMatriculas-V0
 		../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../SistemaDeMatriculas-V0/mainwindow.cpp
 
-persistprofessor.o: ../SistemaDeMatriculas-V0/persistprofessor.cpp ../SistemaDeMatriculas-V0/persistprofessor.h
+persistprofessor.o: ../SistemaDeMatriculas-V0/persistprofessor.cpp ../SistemaDeMatriculas-V0/persistprofessor.h \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../Qt/5.12.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o persistprofessor.o ../SistemaDeMatriculas-V0/persistprofessor.cpp
 
 pessoa.o: ../SistemaDeMatriculas-V0/pessoa.cpp ../SistemaDeMatriculas-V0/pessoa.h \
