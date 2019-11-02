@@ -1,44 +1,28 @@
 #ifndef PESSOA_H
 #define PESSOA_H
-#include <cpf.h>
+
+// TODO: Integrar método validCpf() na classe Pessoa como static
+
+#include <QString>
+#include <QDate>
 
 class Pessoa
-{	
+{
 protected:
 	Pessoa();
 	virtual ~Pessoa();
 
-	virtual QString getCpf() const = 0;
-	virtual void setCpf(const QString &value) = 0;
-
-	virtual QString getNome() const = 0;
-	virtual void setNome(const QString &value) = 0;
-
-	virtual QString getEndereco() const = 0;
-	virtual void setEndereco(const QString &value) = 0;
-
-	virtual QString getSetor() const = 0;
-	virtual void setSetor(const QString &value) = 0;
-
-	virtual int getCidade() const = 0;
-	virtual void setCidade(const int &value) = 0;
-
-	virtual int getEstado() const = 0;
-	virtual void setEstado(const int &value) = 0;
-
-	virtual QString getCelular() const = 0;
-	virtual void setCelular(const QString &value) = 0;
-
-	virtual QString getEmail() const = 0;
-	virtual void setEmail(const QString &value) = 0;
+	static bool validCpf(QString cpf);
+	virtual bool analisaPessoa(QString cpf) = 0;
 
 	QString cpf;
 	QString nome;
+	QDate dtNascimento;
 	QString endereco;
 	QString setor;
 	int cidade;
 	int estado;
-	QString celular;
+	QString telefone;
 	QString email;
 };
 

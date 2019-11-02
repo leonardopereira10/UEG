@@ -2,59 +2,28 @@
 #define ALUNO_H
 
 #include "pessoa.h"
+#include "mapaluno.h"
+
+// NOTE: Atributo celular definido como not null
+// TODO: Verificar se aluno já cursa ou cursou o respectivo curso
 
 class Aluno : protected Pessoa
 {
 public:
-	Aluno();
-
-	void alunoCompleto(QString cpf, QString nome, QString endereco, QString setor,
-		  int estado, int cidade, QString celular, QString email,
-		  QString ano, int curso);
-	void alunoBase(QString cpf, QString nome, QString endereco, QString setor,
-		  int estado, int cidade, QString email,
-		  QString ano, int curso);
-
+	Aluno(QString cpf, QString nome, QString endereco, QString setor,
+			int cidade, int estado, QString telefone, QString email,
+			QDate ano, int curso);
 	virtual ~Aluno();
 
-	QString getCpf() const;
-	void setCpf(const QString &value);
-
-	QString getNome() const;
-	void setNome(const QString &value);
-
-	QString getEndereco() const;
-	void setEndereco(const QString &value);
-
-	QString getSetor() const;
-	void setSetor(const QString &value);
-
-	int getCidade() const;
-	void setCidade(const int &value);
-
-	int getEstado() const;
-	void setEstado(const int &value);
-
-	QString getCelular() const;
-	void setCelular(const QString &value);
-
-	QString getEmail() const;
-	void setEmail(const QString &value);
+	virtual bool analisaPessoa(QString cpf);
+	bool analisaCurso(int idCurso);
 
 	int getMatricula() const;
 	void setMatricula(int value);
 
-	QString getAno() const;
-	void setAno(QString value);
-
-	int getCurso() const;
-	void setCurso(const int &value);
-
-
-
 private:
 	int matricula;
-	QString ano;
+	QDate ano;
 	int curso;
 };
 

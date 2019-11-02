@@ -58,8 +58,6 @@ private slots:
 
 private:
 	Ui::cadastroAluno *janelaCadastro;
-	QSqlDatabase db;
-	QSqlQuery *query;
 };
 
 #endif // CADASTROALUNO_H

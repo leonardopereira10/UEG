@@ -24,29 +24,6 @@ cadastroAluno::cadastroAluno(QWidget *parent) :
 	janelaCadastro->campoSetor->setValidator(new QRegExpValidator(QRegExp("^[0-9A-z-ÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑáàâãéèêíïóôõöúçñ, ]+"), this));
 	janelaCadastro->campoCelular->setValidator(new QRegExpValidator(QRegExp("^[0-9]+"), this));
 	janelaCadastro->campoEmail->setValidator(new QRegExpValidator(QRegExp("^[0-9a-zA-Z-@_. ]+"), this));
-
-	// Verificar Driver QSQLITE
-	if(QSqlDatabase::isDriverAvailable("QSQLITE")) {
-		// Criar conexão com o banco
-		db = QSqlDatabase::addDatabase("QSQLITE");
-		db.setDatabaseName("/home/lucas/UEG/SistemaDeMatriculas-V0/BD/testDB");
-
-		// Abrir banco
-		if(db.open()) {
-			query = new QSqlQuery(db);
-			fillBoxEstados();
-			fillBoxCidades();
-			fillBoxCursos();
-		}
-		else {
-			qDebug() << "cadastroAluno(): " << db.lastError();
-			janelaCadastro->labelValidFields->setText("Falha ao abrir banco de dados");
-		}
-	}
-	else {
-		qDebug() << "cadastroAluno(): " << db.lastError();
-		janelaCadastro->labelValidFields->setText("ERRO: Driver QSQLITE não disponível");
-	}
 }
 
 cadastroAluno::~cadastroAluno()
@@ -359,7 +336,7 @@ void cadastroAluno::on_btnCadastrar_clicked()
 						getCodCidade(),
 						janelaCadastro->campoCelular->text(),
 						janelaCadastro->campoEmail->text(),
-						janelaCadastro->dateEdit->text(),
+						janelaCadastro->dateEdit->text().toInt(),
 						getCodCurso());
 		}
 		// Completar apenas dados not-null de alunos
@@ -371,7 +348,7 @@ void cadastroAluno::on_btnCadastrar_clicked()
 						janelaCadastro->boxEstado->currentIndex(),
 						getCodCidade(),
 						janelaCadastro->campoEmail->text(),
-						janelaCadastro->dateEdit->text(),
+						janelaCadastro->dateEdit->text().toInt(),
 						getCodCurso());
 		}
 

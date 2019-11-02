@@ -1,21 +1,21 @@
-		#-------------------------------------------------
-	#
-	# Project created by QtCreator 2019-10-22T00:54:07
-	#
-	#-------------------------------------------------
+#-------------------------------------------------
+#
+# Project created by QtCreator 2019-10-22T00:54:07
+#
+#-------------------------------------------------
 
-	QT       += core gui sql
+QT       += core gui sql
 
-	greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-	TARGET = SistemaDeMatriculas-V0
-	TEMPLATE = app
+TARGET = SistemaDeMatriculas-V0
+TEMPLATE = app
 
-	# The following define makes your compiler emit warnings if you use
-	# any feature of Qt which as been marked as deprecated (the exact warnings
-	# depend on your compiler). Please consult the documentation of the
-	# deprecated API in order to know how to port your code away from it.
-	DEFINES += QT_DEPRECATED_WARNINGS
+# The following define makes your compiler emit warnings if you use
+# any feature of Qt which as been marked as deprecated (the exact warnings
+# depend on your compiler). Please consult the documentation of the
+# deprecated API in order to know how to port your code away from it.
+DEFINES += QT_DEPRECATED_WARNINGS
 
 # You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -25,22 +25,20 @@
 
 SOURCES += main.cpp \
 		aluno.cpp \
-		cpf.cpp \
 		mainwindow.cpp \
 		pessoa.cpp \
-    cadastroaluno.cpp
+		cadastroaluno.cpp \
+		mapaluno.cpp
 
 
 HEADERS	+= mainwindow.h \
 		aluno.h \
-		cpf.h \
 		pessoa.h \
-    cadastroaluno.h
+		cadastroaluno.h \
+		mapaluno.h
 
 FORMS += mainwindow.ui \
-    cadastroaluno.ui
+		cadastroaluno.ui
 
 RESOURCES += \
-    recursos.qrc
-
-QMAKE_CXXFLAGS += -std=gnu++14
+		recursos.qrc

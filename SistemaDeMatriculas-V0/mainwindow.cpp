@@ -10,9 +10,6 @@ MainWindow::MainWindow(QWidget *parent) :
 	janelaInicial->setupUi(this);
 	this->showMaximized();
 	setCentralWidget(janelaInicial->mdiArea);
-
-	QPixmap bkg(":/recursos/Imagens/backgound.png");
-	janelaInicial->mdiArea->setBackground(bkg);
 }
 
 MainWindow::~MainWindow()
