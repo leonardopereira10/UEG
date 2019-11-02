@@ -68,57 +68,8 @@ cadastro_professor::~cadastro_professor()
 
 void cadastro_professor::on_inserir_clicked()
 {
-    setCpf(ui->campo_cpf->text());
-    if(!validCpf()){
-        ui->aviso_cpf->show();
-        ui->aviso_cpf->setText("CPF inválido!");
-        ui->campo_cpf->selectAll();
-        ui->campo_cpf->setFocus();
-    }
-    else{
-        banco_de_dados.setDatabaseName("/Users/danyelliasmanso/Sistemas_de_informacao (1)/P_O_O_2/SQLite/SCM 2.db");
-        banco_de_dados.open();
-        QSqlQuery query(banco_de_dados);
-            if(query.exec("SELECT CPF from tb_Professores WHERE CPF = '"+ui->campo_cpf->text()+"'")){
-                    int cont = 0;
-                    while(query.next()){
-                        cont++;
-                    }
-                        if(cont>0){
-                            QMessageBox::about(this, "Cadastro", "Professor já cadastrado!");
-                            ui->campo_cpf->clear();
-                         }else{
-                            ui->aviso_cpf->setText("CPF válido!");
-                            ui->campo_cpf->setReadOnly(true);
-                            ui->nome->show();
-                            ui->data_de_nascimento->show();
-                            ui->selecao_data_de_nascimento->show();
-                            ui->endereco->show();
-                            ui->setor->show();
-                            ui->uf->show();
-                            ui->cidade->show();
-                            ui->celular->show();
-                            ui->email->show();
-                            ui->campo_nome->show();
-                            ui->campo_endereco->show();
-                            ui->campo_setor->show();
-                            ui->selecao_estado->show();
-                            ui->selecao_cidade->show();
-                            ui->graduacao->show();
-                            ui->campo_graduacao->show();
-                            ui->titulacao->show();
-                            ui->selecao_titulacao->show();
-                            ui->campo_celular->show();
-                            ui->campo_email->show();
-                            ui->btn_cadastrar->show();
-                            ui->campo_nome->setFocus();
 
-                            }
-            }
-
-        }
 }
-
 void cadastro_professor::on_campo_cpf_returnPressed()
 {
     ui->inserir->click();
