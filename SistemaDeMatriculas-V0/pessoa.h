@@ -2,6 +2,7 @@
 #define PESSOA_H
 #include <cpf.h>
 #include <QDebug>
+#include <QString>
 
 class Pessoa
 {
@@ -33,7 +34,7 @@ protected:
 	virtual void pessoaCompleta(QString nome, QString endereco, QString setor, QString celular, QString email) = 0;
 	virtual void pessoaCompleta(QString nome, QString endereco, QString setor, QString email) = 0;
 
-	QString cpf;
+    static QString cpf;
 	QString nome;
     QString data_de_nascimento;
 	QString endereco;

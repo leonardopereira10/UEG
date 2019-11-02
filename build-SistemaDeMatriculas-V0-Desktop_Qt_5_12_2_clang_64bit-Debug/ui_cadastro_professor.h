@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QDateEdit>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
@@ -57,8 +58,8 @@ public:
     QLabel *titulacao;
     QHBoxLayout *horizontalLayout_5;
     QLabel *data_de_nascimento;
-    QLineEdit *campo_data_de_nascimento;
-    QSpacerItem *horizontalSpacer_4;
+    QDateEdit *selecao_data_de_nascimento;
+    QSpacerItem *horizontalSpacer_2;
     QComboBox *selecao_titulacao;
     QHBoxLayout *horizontalLayout_2;
     QLabel *email;
@@ -261,15 +262,16 @@ public:
 
         horizontalLayout_5->addWidget(data_de_nascimento);
 
-        campo_data_de_nascimento = new QLineEdit(layoutWidget2);
-        campo_data_de_nascimento->setObjectName(QString::fromUtf8("campo_data_de_nascimento"));
-        campo_data_de_nascimento->setMaximumSize(QSize(80, 21));
+        selecao_data_de_nascimento = new QDateEdit(layoutWidget2);
+        selecao_data_de_nascimento->setObjectName(QString::fromUtf8("selecao_data_de_nascimento"));
+        selecao_data_de_nascimento->setWrapping(false);
+        selecao_data_de_nascimento->setCalendarPopup(true);
 
-        horizontalLayout_5->addWidget(campo_data_de_nascimento);
+        horizontalLayout_5->addWidget(selecao_data_de_nascimento);
 
-        horizontalSpacer_4 = new QSpacerItem(278, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_5->addItem(horizontalSpacer_4);
+        horizontalLayout_5->addItem(horizontalSpacer_2);
 
 
         gridLayout_3->addLayout(horizontalLayout_5, 1, 0, 1, 4);
@@ -350,8 +352,7 @@ public:
         aviso_incorreto->setGeometry(QRect(356, 122, 59, 16));
         QWidget::setTabOrder(campo_cpf, inserir);
         QWidget::setTabOrder(inserir, campo_nome);
-        QWidget::setTabOrder(campo_nome, campo_data_de_nascimento);
-        QWidget::setTabOrder(campo_data_de_nascimento, campo_endereco);
+        QWidget::setTabOrder(campo_nome, campo_endereco);
         QWidget::setTabOrder(campo_endereco, campo_setor);
         QWidget::setTabOrder(campo_setor, selecao_estado);
         QWidget::setTabOrder(selecao_estado, selecao_cidade);
@@ -409,7 +410,6 @@ public:
         campo_celular->setInputMask(QApplication::translate("cadastro_professor", "(##)#####-####", nullptr));
         titulacao->setText(QApplication::translate("cadastro_professor", "Titula\303\247\303\243o:", nullptr));
         data_de_nascimento->setText(QApplication::translate("cadastro_professor", "Data de Nascimento:", nullptr));
-        campo_data_de_nascimento->setInputMask(QApplication::translate("cadastro_professor", "##/##/####", nullptr));
         selecao_titulacao->setItemText(0, QApplication::translate("cadastro_professor", "Bacharelado", nullptr));
         selecao_titulacao->setItemText(1, QApplication::translate("cadastro_professor", "Licenciatura", nullptr));
         selecao_titulacao->setItemText(2, QApplication::translate("cadastro_professor", "Especializa\303\247\303\243o", nullptr));

@@ -39,6 +39,7 @@ HEADERS	+= mainwindow.h \
 		confirmacao_remover.h \
 		consulta_professor.h \
 		cpf.h \
+		persistencia_professor.h \
 		pessoa.h \
 		professor.h \
 		remove_professor.h

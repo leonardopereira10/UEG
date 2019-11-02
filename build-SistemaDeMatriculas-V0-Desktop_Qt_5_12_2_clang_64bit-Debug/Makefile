@@ -259,6 +259,7 @@ DIST          = ../../Qt/5.12.2/clang_64/mkspecs/features/spec_pre.prf \
 		../SistemaDeMatriculas-V0/confirmacao_remover.h \
 		../SistemaDeMatriculas-V0/consulta_professor.h \
 		../SistemaDeMatriculas-V0/cpf.h \
+		../SistemaDeMatriculas-V0/persistencia_professor.h \
 		../SistemaDeMatriculas-V0/pessoa.h \
 		../SistemaDeMatriculas-V0/professor.h \
 		../SistemaDeMatriculas-V0/remove_professor.h ../SistemaDeMatriculas-V0/main.cpp \
@@ -682,7 +683,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/Imagens/imagens.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../Qt/5.12.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.h ../SistemaDeMatriculas-V0/cadastro_professor.h ../SistemaDeMatriculas-V0/confirmacao_remover.h ../SistemaDeMatriculas-V0/consulta_professor.h ../SistemaDeMatriculas-V0/cpf.h ../SistemaDeMatriculas-V0/pessoa.h ../SistemaDeMatriculas-V0/professor.h ../SistemaDeMatriculas-V0/remove_professor.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.h ../SistemaDeMatriculas-V0/cadastro_professor.h ../SistemaDeMatriculas-V0/confirmacao_remover.h ../SistemaDeMatriculas-V0/consulta_professor.h ../SistemaDeMatriculas-V0/cpf.h ../SistemaDeMatriculas-V0/persistencia_professor.h ../SistemaDeMatriculas-V0/pessoa.h ../SistemaDeMatriculas-V0/professor.h ../SistemaDeMatriculas-V0/remove_professor.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/cadastro_professor.cpp ../SistemaDeMatriculas-V0/confirmacao_remover.cpp ../SistemaDeMatriculas-V0/consulta_professor.cpp ../SistemaDeMatriculas-V0/cpf.cpp ../SistemaDeMatriculas-V0/mainwindow.cpp ../SistemaDeMatriculas-V0/pessoa.cpp ../SistemaDeMatriculas-V0/professor.cpp ../SistemaDeMatriculas-V0/remove_professor.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.ui ../SistemaDeMatriculas-V0/cadastro_professor.ui ../SistemaDeMatriculas-V0/confirmacao_remover.ui ../SistemaDeMatriculas-V0/consulta_professor.ui ../SistemaDeMatriculas-V0/remove_professor.ui $(DISTDIR)/
 

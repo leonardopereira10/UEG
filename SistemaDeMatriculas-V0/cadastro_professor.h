@@ -7,9 +7,6 @@
 #include <QtSql>
 #include <QSqlDatabase>
 
-
-
-
 namespace Ui {
 class cadastro_professor;
 }
@@ -43,8 +40,6 @@ private slots:
     void on_campo_celular_returnPressed();
 
     void on_campo_email_returnPressed();
-
-    void on_campo_data_de_nascimento_returnPressed();
 
     void on_campo_cpf_returnPressed();
 

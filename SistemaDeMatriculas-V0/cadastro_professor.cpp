@@ -11,14 +11,6 @@ bool cadastro_professor::check_inserted_text_name(QString text){
         return true;
 }
 
-bool cadastro_professor::check_inserted_text_Bday(QString text)
-{
-    if(text.length() < 10)
-        return false;
-    else
-        return true;
-}
-
 bool cadastro_professor::check_inserted_text_commun(QString text)
 {
     if(text.length() < 5)
@@ -48,6 +40,7 @@ cadastro_professor::cadastro_professor(QWidget *parent) :
     ui->campo_cpf->setFocus();
     ui->nome->hide();
     ui->data_de_nascimento->hide();
+    ui->selecao_data_de_nascimento->hide();
     ui->endereco->hide();
     ui->setor->hide();
     ui->uf->hide();
@@ -55,7 +48,6 @@ cadastro_professor::cadastro_professor(QWidget *parent) :
     ui->celular->hide();
     ui->email->hide();
     ui->campo_nome->hide();
-    ui->campo_data_de_nascimento->hide();
     ui->campo_endereco->hide();
     ui->campo_setor->hide();
     ui->selecao_estado->hide();
@@ -100,6 +92,7 @@ void cadastro_professor::on_inserir_clicked()
                             ui->campo_cpf->setReadOnly(true);
                             ui->nome->show();
                             ui->data_de_nascimento->show();
+                            ui->selecao_data_de_nascimento->show();
                             ui->endereco->show();
                             ui->setor->show();
                             ui->uf->show();
@@ -116,7 +109,6 @@ void cadastro_professor::on_inserir_clicked()
                             ui->titulacao->show();
                             ui->selecao_titulacao->show();
                             ui->campo_celular->show();
-                            ui->campo_data_de_nascimento->show();
                             ui->campo_email->show();
                             ui->btn_cadastrar->show();
                             ui->campo_nome->setFocus();
@@ -134,11 +126,7 @@ void cadastro_professor::on_campo_cpf_returnPressed()
 
 void cadastro_professor::on_campo_nome_returnPressed()
 {
-    ui->campo_data_de_nascimento->setFocus();
-}
-void cadastro_professor::on_campo_data_de_nascimento_returnPressed()
-{
-    ui->campo_endereco->setFocus();
+    ui->selecao_data_de_nascimento->setFocus();
 }
 
 void cadastro_professor::on_campo_endereco_returnPressed()
@@ -164,24 +152,11 @@ void cadastro_professor::on_campo_email_returnPressed()
 
 void cadastro_professor::on_selecao_estado_activated(const QString &arg1)
 {
-        QSqlQueryModel* modelo = new QSqlQueryModel();
-        QSqlQuery* query = new QSqlQuery();
-
-        if(arg1 == "AC"){
-            query->prepare("SELECT c.Cidade from Cidades c INNER JOIN Estados e WHERE c.Estado = e.IdEstado and e.UF = 'AC'");
-            query->exec();
-            modelo->setQuery(*query);
-            ui->selecao_cidade->setModel(modelo);
-        }
-        QSqlQueryModel* modal = new QSqlQueryModel();
-        QSqlQuery* qry = new QSqlQuery();
-
+    QSqlQueryModel* modal = new QSqlQueryModel();
+    QSqlQuery* qry = new QSqlQuery();
 
         //Verificação da opção selecionada
         if(arg1 == "AC"){
-            qry->prepare("SELECT c.Cidade from Cidades c INNER JOIN Estados e WHERE c.Estado = e.IdEstado and e.UF = 'AC'");
-            qry->exec();
-            modal->setQuery(*qry);
             ui->selecao_cidade->setFocus();
             ui->selecao_cidade->setModel(modal);
         }
@@ -394,7 +369,7 @@ void cadastro_professor::on_btn_cadastrar_clicked()
 
     QString cpf = ui->campo_cpf->text();
     QString nome = ui->campo_nome->text();
-    QString data_de_nascimento = ui->campo_data_de_nascimento->text();
+    QString data_de_nascimento;
     QString endereco = ui->campo_endereco->text();
     QString setor = ui->campo_setor->text();
     QString uf = ui->selecao_estado->currentText();
@@ -412,18 +387,11 @@ void cadastro_professor::on_btn_cadastrar_clicked()
         ui->aviso_incorreto->setStyleSheet("background-color: red");
     }
         else{
-                if(check_inserted_text_Bday(data_de_nascimento) == false){
-                    ui->campo_data_de_nascimento->setFocus();
-                    ui->aviso_incorreto->setText("Data de nascimento inválida!");
-                    ui->aviso_incorreto->adjustSize();
-                    ui->aviso_incorreto->setStyleSheet("background-color: red");
-                }
-                    else{
-                        if(check_inserted_text_commun(endereco) == false){
-                            ui->campo_endereco->setFocus();
-                            ui->aviso_incorreto->setText("Endereço inserido é inválido!");
-                            ui->aviso_incorreto->adjustSize();
-                            ui->aviso_incorreto->setStyleSheet("background-color: red");
+              if(check_inserted_text_commun(endereco) == false){
+                   ui->campo_endereco->setFocus();
+                   ui->aviso_incorreto->setText("Endereço inserido é inválido!");
+                   ui->aviso_incorreto->adjustSize();
+                   ui->aviso_incorreto->setStyleSheet("background-color: red");
                         }
                            else{
                                 if(check_inserted_text_commun(setor) == false){
@@ -477,6 +445,7 @@ void cadastro_professor::on_btn_cadastrar_clicked()
                                                             ui->campo_cpf->setFocus();
                                                             ui->nome->hide();
                                                             ui->data_de_nascimento->hide();
+                                                            ui->selecao_data_de_nascimento->hide();
                                                             ui->endereco->hide();
                                                             ui->setor->hide();
                                                             ui->uf->hide();
@@ -484,7 +453,6 @@ void cadastro_professor::on_btn_cadastrar_clicked()
                                                             ui->celular->hide();
                                                             ui->email->hide();
                                                             ui->campo_nome->hide();
-                                                            ui->campo_data_de_nascimento->hide();
                                                             ui->campo_endereco->hide();
                                                             ui->campo_setor->hide();
                                                             ui->selecao_estado->hide();
@@ -500,7 +468,6 @@ void cadastro_professor::on_btn_cadastrar_clicked()
                                                             //Limpa todos os campos
                                                             ui->campo_cpf->clear();
                                                             ui->campo_nome->clear();
-                                                            ui->campo_data_de_nascimento->clear();
                                                             ui->campo_endereco->clear();
                                                             ui->campo_setor->clear();
                                                             ui->campo_graduacao->clear();
@@ -516,5 +483,3 @@ void cadastro_professor::on_btn_cadastrar_clicked()
                     }
          }
 
-
-    }

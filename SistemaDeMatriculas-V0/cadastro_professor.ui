@@ -428,26 +428,23 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="campo_data_de_nascimento">
-        <property name="maximumSize">
-         <size>
-          <width>80</width>
-          <height>21</height>
-         </size>
+       <widget class="QDateEdit" name="selecao_data_de_nascimento">
+        <property name="wrapping">
+         <bool>false</bool>
         </property>
-        <property name="inputMask">
-         <string>##/##/####</string>
+        <property name="calendarPopup">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
       <item>
-       <spacer name="horizontalSpacer_4">
+       <spacer name="horizontalSpacer_2">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>278</width>
+          <width>40</width>
           <height>20</height>
          </size>
         </property>
@@ -621,7 +618,6 @@
   <tabstop>campo_cpf</tabstop>
   <tabstop>inserir</tabstop>
   <tabstop>campo_nome</tabstop>
-  <tabstop>campo_data_de_nascimento</tabstop>
   <tabstop>campo_endereco</tabstop>
   <tabstop>campo_setor</tabstop>
   <tabstop>selecao_estado</tabstop>
