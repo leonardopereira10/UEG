@@ -11,7 +11,7 @@ namespace Ui {
 class cadastro_professor;
 }
 
-class cadastro_professor : public QWidget, public Cpf
+class cadastro_professor : public QWidget
 {
     Q_OBJECT
 
@@ -23,33 +23,8 @@ public:
     bool check_inserted_text_commun(QString text);
     bool check_inserted_text_phone(QString text);
 
-
-    QSqlDatabase banco_de_dados;
-
 private slots:
-    void on_btn_cadastrar_clicked();
 
-    void on_inserir_clicked();
-
-    void on_campo_nome_returnPressed();
-
-    void on_campo_endereco_returnPressed();
-
-    void on_campo_setor_returnPressed();
-
-    void on_campo_celular_returnPressed();
-
-    void on_campo_email_returnPressed();
-
-    void on_campo_cpf_returnPressed();
-
-    void on_selecao_estado_activated(const QString &arg1);
-    
-    void on_selecao_cidade_activated(const QString &arg1);
-
-    void on_campo_graduacao_returnPressed();
-
-    void on_selecao_titulacao_activated(const QString &arg1);
 
 private:
     Ui::cadastro_professor *ui;

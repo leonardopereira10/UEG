@@ -23,32 +23,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 
-SOURCES += main.cpp \
+SOURCES += \
 		cadastro_professor.cpp \
-		confirmacao_remover.cpp \
-		consulta_professor.cpp \
-		cpf.cpp \
 		mainwindow.cpp \
+		persistprofessor.cpp \
 		pessoa.cpp \
-		professor.cpp \
-		remove_professor.cpp
+		professor.cpp
 
 
 HEADERS	+= mainwindow.h \
 		cadastro_professor.h \
-		confirmacao_remover.h \
-		consulta_professor.h \
-		cpf.h \
-		persistencia_professor.h \
+		persistprofessor.h \
 		pessoa.h \
-		professor.h \
-		remove_professor.h
+		professor.h
 
 FORMS += mainwindow.ui \
-    cadastro_professor.ui \
-    confirmacao_remover.ui \
-    consulta_professor.ui \
-    remove_professor.ui
+    cadastro_professor.ui
 
 RESOURCES += \
     Imagens/imagens.qrc

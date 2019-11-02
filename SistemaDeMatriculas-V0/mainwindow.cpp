@@ -1,6 +1,15 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "cpf.h"
+#include <QApplication>
+
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+
+    return a.exec();
+}
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
@@ -9,13 +18,9 @@ MainWindow::MainWindow(QWidget *parent)
     banco_de_dados=QSqlDatabase::addDatabase("QSQLITE");
     janelaInicial->setupUi(this);
 	this->showMaximized();
-    banco_de_dados.setDatabaseName("/Users/danyelliasmanso/Sistemas_de_informacao (1)/P_O_O_2/SQLite/SCM 2.db");
+    banco_de_dados.setDatabaseName("/Users/danyelliasmanso/Sistemas_de_informacao (1)/P_O_O_2/SQLite/");
     if(!banco_de_dados.open())
         QMessageBox::about(this, "Banco de Dados", "Conexão com o banco de dados não realizada.");
-    else {
-        QMessageBox::about(this, "Banco de Dadods", "Conexão com o banco de dados realizada com sucesso!");
-
-    }
 }
 
 MainWindow::~MainWindow()
@@ -36,12 +41,3 @@ void MainWindow::on_actionCadastrarProf_triggered()
     loadSubWindow(new cadastro_professor(this));
 }
 
-void MainWindow::on_actionConsultarProf_triggered()
-{
-    loadSubWindow(new consulta_professor(this));
-}
-
-void MainWindow::on_actionRemoverProf_triggered()
-{
-    loadSubWindow(new remove_professor(this));
-}
