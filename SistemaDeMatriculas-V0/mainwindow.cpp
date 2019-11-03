@@ -18,9 +18,9 @@ MainWindow::MainWindow(QWidget *parent)
     banco_de_dados=QSqlDatabase::addDatabase("QSQLITE");
     janelaInicial->setupUi(this);
 	this->showMaximized();
-    banco_de_dados.setDatabaseName("/Users/danyelliasmanso/Sistemas_de_informacao (1)/P_O_O_2/SQLite/Projeto.db");
+    banco_de_dados.setDatabaseName("C:/Users/TDF - Inhumas-GO/Documents/UEG/SistemaDeMatriculas-V0/Projeto.db");
     if(!banco_de_dados.open())
-        QMessageBox::about(this, "Banco de Dados", "Conexão com o banco de dados não realizada.");
+        QMessageBox::critical(this, "Banco de Dados", "Conexão com o banco de dados não realizada.");
 }
 
 MainWindow::~MainWindow()

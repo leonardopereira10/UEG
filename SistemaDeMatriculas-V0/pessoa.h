@@ -12,7 +12,6 @@ protected:
 	Pessoa();
     virtual ~Pessoa();
 
-	static bool validCpf(QString cpf);
 	virtual bool analisaPessoa(QString cpf) = 0;
 
 	QString cpf;
@@ -24,6 +23,9 @@ protected:
 	int estado;
 	QString telefone;
 	QString email;
+public:
+    static bool validCpf(QString cpf);
+
 };
 
 #endif // PESSOA_H

@@ -144,141 +144,6 @@
           <height>32</height>
          </size>
         </property>
-        <item>
-         <property name="text">
-          <string>AC</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>AL</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>AP</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>AM</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>BA</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>CE</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>DF</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>ES</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>GO</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>MA</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>MT</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>MS</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>MG</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>PA</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>PB</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>PR</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>PE</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>PI</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>RJ</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>RN</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>RS</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>RO</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>RR</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>SC</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>SP</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>SE</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>TO</string>
-         </property>
-        </item>
        </widget>
       </item>
       <item>
@@ -618,6 +483,7 @@
   <tabstop>campo_cpf</tabstop>
   <tabstop>inserir</tabstop>
   <tabstop>campo_nome</tabstop>
+  <tabstop>selecao_data_de_nascimento</tabstop>
   <tabstop>campo_endereco</tabstop>
   <tabstop>campo_setor</tabstop>
   <tabstop>selecao_estado</tabstop>

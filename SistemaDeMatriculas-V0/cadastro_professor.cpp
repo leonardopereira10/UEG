@@ -81,6 +81,22 @@ void cadastro_professor::showall()
 
 }
 
+void cadastro_professor::fillBoxEstados()
+{
+        persistProfessor();
+        QSqlQueryModel *modelEstados = new QSqlQueryModel();
+        QSqlQuery *query = new QSqlQuery();
+        query->clear();
+        query->prepare("SELECT Sigla FROM Estados");
+
+        if(!query->exec())
+            qDebug() << "fillBoxEstados(): " << query->lastError();
+        else {
+            modelEstados->setQuery(*query);
+            ui->selecao_estado->setModel(modelEstados);
+        }
+}
+
 cadastro_professor::cadastro_professor(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::cadastro_professor)
@@ -97,13 +113,79 @@ cadastro_professor::~cadastro_professor()
     delete ui;
 }
 
-
 void cadastro_professor::on_campo_cpf_returnPressed()
 {
-
+    ui->inserir->clicked();
 }
 
 void cadastro_professor::on_inserir_clicked()
 {
-    Pessoa::validCpf(ui->campo_cpf->text());
+    if(!(Pessoa::validCpf(ui->campo_cpf->text()))){
+            ui->aviso_cpf->show();
+            ui->aviso_cpf->setText("CPF Inválido!");
+            ui->aviso_cpf->setStyleSheet("color: red;");
+            ui->campo_cpf->setFocus();
+            ui->campo_cpf->selectAll();
+    }
+    else{
+            ui->aviso_cpf->show();
+            ui->aviso_cpf->setText("CPF Válido!");
+            ui->aviso_cpf->setStyleSheet("color: green;");
+            ui->campo_cpf->setReadOnly(true);
+            showall();
+            ui->campo_nome->setFocus();
+            }
 }
+
+
+void cadastro_professor::on_campo_nome_returnPressed()
+{
+
+}
+
+void cadastro_professor::on_selecao_data_de_nascimento_userDateChanged(const QDate &date)
+{
+
+}
+
+void cadastro_professor::on_campo_endereco_returnPressed()
+{
+
+}
+
+void cadastro_professor::on_campo_setor_returnPressed()
+{
+    ui->selecao_estado->setFocus();
+}
+
+void cadastro_professor::on_selecao_estado_activated(const QString &arg1)
+{
+    fillBoxEstados();
+}
+
+void cadastro_professor::on_selecao_cidade_activated(const QString &arg1)
+{
+
+}
+
+void cadastro_professor::on_campo_graduacao_returnPressed()
+{
+
+}
+
+void cadastro_professor::on_selecao_titulacao_currentTextChanged(const QString &arg1)
+{
+
+}
+
+void cadastro_professor::on_campo_celular_returnPressed()
+{
+
+}
+
+void cadastro_professor::on_campo_email_returnPressed()
+{
+
+}
+
+
