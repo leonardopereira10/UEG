@@ -8,7 +8,11 @@ class persistProfessor
 {
 public:
     persistProfessor();
-
+    ~persistProfessor();
+    bool analisaprofessor(QString cpf);
+private:
+    QSqlDatabase *db;
+    QSqlQuery *query;
 
 };
 
