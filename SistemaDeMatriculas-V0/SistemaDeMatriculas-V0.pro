@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-10-22T00:54:07
+# Project created by QtCreator 2019-11-03T11:22:18
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = SistemaDeMatriculas-V0
+TARGET = test
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -23,22 +23,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 
-SOURCES += main.cpp \
-		aluno.cpp \
+SOURCES += main.cpp\
 		mainwindow.cpp \
-		pessoa.cpp \
+		aluno.cpp \
 		cadastroaluno.cpp \
-		mapaluno.cpp
+		pessoa.cpp \
+		persistaluno.cpp
 
-
-HEADERS	+= mainwindow.h \
+HEADERS  += mainwindow.h \
 		aluno.h \
 		pessoa.h \
 		cadastroaluno.h \
-		mapaluno.h
+		persistaluno.h
 
 FORMS += mainwindow.ui \
 		cadastroaluno.ui
 
 RESOURCES += \
 		recursos.qrc
+

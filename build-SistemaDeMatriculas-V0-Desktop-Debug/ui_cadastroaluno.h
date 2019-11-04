@@ -34,10 +34,10 @@ public:
     QGridLayout *gridLayout;
     QLabel *labelCpf;
     QLineEdit *campoCpf;
-    QLabel *labelMatricula;
-    QLineEdit *campoMatricula;
     QLabel *labelAno;
     QDateEdit *dateEdit;
+    QLabel *labelMatricula;
+    QLineEdit *campoMatricula;
     QPushButton *btnCadastrar;
     QLabel *labelInvalidCpf;
     QLabel *labelValidNome;
@@ -80,7 +80,7 @@ public:
         cadastroAluno->setMaximumSize(QSize(438, 466));
         cadastroAluno->setSizeIncrement(QSize(1, 1));
         QIcon icon;
-        icon.addFile(QStringLiteral(":/imagens/Imagens/logo.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral(":/recursos/Imagens/logo.png"), QSize(), QIcon::Normal, QIcon::Off);
         cadastroAluno->setWindowIcon(icon);
         cadastroAluno->setAutoFillBackground(false);
         labelLogo = new QLabel(cadastroAluno);
@@ -91,7 +91,7 @@ public:
         labelValidCpf->setGeometry(QRect(240, 10, 31, 31));
         layoutWidget = new QWidget(cadastroAluno);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(50, 10, 184, 111));
+        layoutWidget->setGeometry(QRect(50, 10, 184, 112));
         gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         gridLayout->setVerticalSpacing(10);
@@ -105,20 +105,6 @@ public:
         campoCpf->setObjectName(QStringLiteral("campoCpf"));
 
         gridLayout->addWidget(campoCpf, 0, 1, 1, 2);
-
-        labelMatricula = new QLabel(layoutWidget);
-        labelMatricula->setObjectName(QStringLiteral("labelMatricula"));
-
-        gridLayout->addWidget(labelMatricula, 1, 0, 1, 2);
-
-        campoMatricula = new QLineEdit(layoutWidget);
-        campoMatricula->setObjectName(QStringLiteral("campoMatricula"));
-        campoMatricula->setFocusPolicy(Qt::NoFocus);
-        campoMatricula->setAutoFillBackground(true);
-        campoMatricula->setReadOnly(true);
-        campoMatricula->setClearButtonEnabled(false);
-
-        gridLayout->addWidget(campoMatricula, 1, 2, 1, 1);
 
         labelAno = new QLabel(layoutWidget);
         labelAno->setObjectName(QStringLiteral("labelAno"));
@@ -135,6 +121,19 @@ public:
         dateEdit->setDate(QDate(2019, 1, 1));
 
         gridLayout->addWidget(dateEdit, 2, 1, 1, 2);
+
+        labelMatricula = new QLabel(layoutWidget);
+        labelMatricula->setObjectName(QStringLiteral("labelMatricula"));
+
+        gridLayout->addWidget(labelMatricula, 1, 0, 1, 1);
+
+        campoMatricula = new QLineEdit(layoutWidget);
+        campoMatricula->setObjectName(QStringLiteral("campoMatricula"));
+        campoMatricula->setFocusPolicy(Qt::NoFocus);
+        campoMatricula->setStyleSheet(QStringLiteral("background-color: rgb(245, 246, 247);"));
+        campoMatricula->setReadOnly(true);
+
+        gridLayout->addWidget(campoMatricula, 1, 2, 1, 1);
 
         btnCadastrar = new QPushButton(cadastroAluno);
         btnCadastrar->setObjectName(QStringLiteral("btnCadastrar"));
@@ -288,23 +287,9 @@ public:
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><img src=\":/recursos/Imagens/Aluno.png\" heigth=\"90\" width=\"90\" /></p></body></html>", Q_NULLPTR));
         labelValidCpf->setText(QString());
         labelCpf->setText(QApplication::translate("cadastroAluno", "<html><head/><body><p><span style=\" font-weight:600;\">CPF</span></p></body></html>", Q_NULLPTR));
-        labelMatricula->setText(QApplication::translate("cadastroAluno", "<html><head/><body><p><span style=\" font-weight:600;\">Matricula</span></p></body></html>", Q_NULLPTR));
-#ifndef QT_NO_STATUSTIP
-        campoMatricula->setStatusTip(QString());
-#endif // QT_NO_STATUSTIP
-#ifndef QT_NO_WHATSTHIS
-        campoMatricula->setWhatsThis(QString());
-#endif // QT_NO_WHATSTHIS
-#ifndef QT_NO_ACCESSIBILITY
-        campoMatricula->setAccessibleName(QString());
-#endif // QT_NO_ACCESSIBILITY
-#ifndef QT_NO_ACCESSIBILITY
-        campoMatricula->setAccessibleDescription(QString());
-#endif // QT_NO_ACCESSIBILITY
-        campoMatricula->setText(QString());
-        campoMatricula->setPlaceholderText(QString());
         labelAno->setText(QApplication::translate("cadastroAluno", "<html><head/><body><p><span style=\" font-weight:600;\">Ano</span></p></body></html>", Q_NULLPTR));
         dateEdit->setDisplayFormat(QApplication::translate("cadastroAluno", "yyyy", Q_NULLPTR));
+        labelMatricula->setText(QApplication::translate("cadastroAluno", "<html><head/><body><p><span style=\" font-weight:600;\">Matricula</span></p></body></html>", Q_NULLPTR));
         btnCadastrar->setText(QApplication::translate("cadastroAluno", "Cadastrar", Q_NULLPTR));
         labelInvalidCpf->setText(QString());
         labelValidNome->setText(QString());
