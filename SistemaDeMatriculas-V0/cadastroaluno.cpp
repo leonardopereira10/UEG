@@ -1,6 +1,6 @@
 #include "cadastroaluno.h"
 #include "ui_cadastroaluno.h"
-#include "cpf.h"
+#include "pessoa.h"
 
 cadastroAluno::cadastroAluno(QWidget *parent) :
 	QWidget(parent),
@@ -8,7 +8,7 @@ cadastroAluno::cadastroAluno(QWidget *parent) :
 {
 	janelaCadastro->setupUi(this);
 
-	hideFields();
+	ocultarCampos();
 	// Propriedades do campoCpf
 	janelaCadastro->campoCpf->setInputMask("999.999.999-99");
 	janelaCadastro->campoCpf->setFocus();
@@ -24,6 +24,11 @@ cadastroAluno::cadastroAluno(QWidget *parent) :
 	janelaCadastro->campoSetor->setValidator(new QRegExpValidator(QRegExp("^[0-9A-z-ÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑáàâãéèêíïóôõöúçñ, ]+"), this));
 	janelaCadastro->campoCelular->setValidator(new QRegExpValidator(QRegExp("^[0-9]+"), this));
 	janelaCadastro->campoEmail->setValidator(new QRegExpValidator(QRegExp("^[0-9a-zA-Z-@_. ]+"), this));
+
+	// Preencher caixas de estados, cidades e cursos
+	janelaCadastro->boxEstado->setModel(Pessoa::getEstados());
+	janelaCadastro->boxCidade->setModel(Pessoa::getCidades(janelaCadastro->boxEstado->currentIndex()));
+	janelaCadastro->boxCurso->setModel(Pessoa::getCursos());
 }
 
 cadastroAluno::~cadastroAluno()
@@ -31,7 +36,7 @@ cadastroAluno::~cadastroAluno()
 	delete janelaCadastro;
 }
 
-void cadastroAluno::hideFields()
+void cadastroAluno::ocultarCampos()
 {
 	janelaCadastro->campoMatricula->hide();
 	janelaCadastro->labelMatricula->hide();
@@ -77,7 +82,7 @@ void cadastroAluno::hideFields()
 	janelaCadastro->btnCadastrar->hide();
 }
 
-void cadastroAluno::showFields()
+void cadastroAluno::mostrarCampos()
 {
 	janelaCadastro->campoMatricula->show();
 	janelaCadastro->labelMatricula->show();
@@ -123,7 +128,7 @@ void cadastroAluno::showFields()
 	janelaCadastro->btnCadastrar->show();
 }
 
-void cadastroAluno::clearFields()
+void cadastroAluno::limparCampos()
 {
 	janelaCadastro->campoNome->clear();
 	janelaCadastro->campoMatricula->clear();
@@ -136,49 +141,7 @@ void cadastroAluno::clearFields()
 	janelaCadastro->boxCurso->setCurrentIndex(0);
 }
 
-bool cadastroAluno::validCpf_cad(QString cpfValue)
-{
-	QPixmap valid(":/recursos/Imagens/Confirmação.png");
-	QPixmap invalid(":/recursos/Imagens/Erro.png");
-
-	Cpf cpf(cpfValue);
-	if(cpf.validCpf()) {
-		// Verificar se cpfValue já existe no banco
-		query->clear();
-		query->prepare("SELECT COUNT(alunos.cpf) "
-					   "FROM alunos "
-					   "WHERE alunos.cpf=:cpf");
-		query->bindValue(":cpf", cpfValue);
-		if(!query->exec()) {
-			qDebug() << "validCpf_cad(): " << query->lastError();
-			return false;
-		}
-		query->first();
-		// Caso cpfValue já exista
-		if(query->value(0).toInt() != 0) {
-			janelaCadastro->labelValidCpf->setPixmap(invalid);
-			hideFields();
-			qDebug() << "validCpf_cad(): Cpf já existe na base de dados";
-			QMessageBox::warning(this, "CPF", "Já existe um aluno cadastrado com este CPF");
-			janelaCadastro->campoCpf->selectAll();
-			clearFields();
-			return false;
-		}
-		else {
-			janelaCadastro->labelValidCpf->setPixmap(valid);
-			showFields();
-			return true;
-		}
-	}
-	else {
-		janelaCadastro->labelInvalidCpf->setPixmap(invalid);
-		qDebug() << "validCpf_cad(): CPF inválido";
-		hideFields();
-		return false;
-	}
-}
-
-bool cadastroAluno::validFields()
+bool cadastroAluno::validarCampos()
 {
 	bool cont = true;
 	QPixmap invalid(":/recursos/Imagens/Erro.png");
@@ -237,184 +200,51 @@ bool cadastroAluno::validFields()
 	return false;
 }
 
-void cadastroAluno::fillBoxEstados()
-{
-	QSqlQueryModel *modelEstados = new QSqlQueryModel();
-
-	query->clear();
-	query->prepare("SELECT sigla FROM estados");
-
-	if(!query->exec())
-		qDebug() << "fillBoxEstados(): " << query->lastError();
-	else {
-		modelEstados->setQuery(*query);
-		janelaCadastro->boxEstado->setModel(modelEstados);
-	}
-}
-
-void cadastroAluno::fillBoxCidades()
-{
-	QSqlQueryModel *modelCidades = new QSqlQueryModel();
-
-	query->clear();
-	query->prepare("SELECT cidades.nome "
-				   "FROM cidades, estados "
-				   "WHERE cidades.estado=estados.cod_estados "
-				   "AND estados.sigla=:uf");
-	query->bindValue(":uf", janelaCadastro->boxEstado->currentText());
-
-	if(!query->exec())
-		qDebug() << "fillBoxCidades(): " << query->lastError();
-	else {
-		modelCidades->setQuery(*query);
-		janelaCadastro->boxCidade->setModel(modelCidades);
-	}
-}
-
-void cadastroAluno::fillBoxCursos()
-{
-	QSqlQueryModel *modelCursos = new QSqlQueryModel();
-
-	query->clear();
-	query->prepare("SELECT cursos.nome FROM cursos");
-
-	if(!query->exec())
-		qDebug() << "fillBoxCursos(): " << query->lastError();
-	else {
-		modelCursos->setQuery(*query);
-		janelaCadastro->boxCurso->setModel(modelCursos);
-	}
-
-}
-
-int cadastroAluno::getCodCidade()
-{
-	query->clear();
-	query->prepare("SELECT cod_cidades "
-				   "FROM cidades "
-				   "WHERE cidades.nome=:cidade");
-	query->bindValue(":cidade", janelaCadastro->boxCidade->currentText());
-
-	if(!query->exec())
-		qDebug() << "getCodCidade(): " << query->lastError();
-
-	query->first();
-	return query->value(0).toInt();
-}
-
-int cadastroAluno::getCodCurso()
-{
-	query->clear();
-	query->prepare("SELECT idCurso "
-				   "FROM cursos "
-				   "WHERE cursos.nome=:curso");
-	query->bindValue(":curso", janelaCadastro->boxCurso->currentText());
-
-	if(!query->exec())
-		qDebug() << "getCurso(): " << query->lastError();
-
-	query->first();
-	return query->value(0).toInt();
-}
-
 void cadastroAluno::on_btnCadastrar_clicked()
 {
 	// Verificar se existem campos vazios
-	if(!validFields()) {
+	if(!validarCampos()) {
 		janelaCadastro->labelValidFields->setText("* Não podem ficar vazios");
 	}
 	else {
-		Aluno aluno;
+		Aluno aluno(janelaCadastro->campoCpf->text(), janelaCadastro->campoNome->text(),
+					janelaCadastro->campoEndereco->text(), janelaCadastro->campoSetor->text(),
+					Pessoa::getCodCidades(janelaCadastro->boxCidade->currentText(), janelaCadastro->boxEstado->currentIndex()),
+					janelaCadastro->boxEstado->currentIndex(), janelaCadastro->campoCelular->text(),
+					janelaCadastro->campoEmail->text(), janelaCadastro->dateEdit->date(), Pessoa::getCodCurso(janelaCadastro->boxCurso->currentText()));
 
-		// Completar todos os dados de aluno
-		if(!janelaCadastro->campoCelular->text().isEmpty()) {
-			aluno.alunoCompleto(janelaCadastro->campoCpf->text(),
-						janelaCadastro->campoNome->text(),
-						janelaCadastro->campoEndereco->text(),
-						janelaCadastro->campoSetor->text(),
-						janelaCadastro->boxEstado->currentIndex(),
-						getCodCidade(),
-						janelaCadastro->campoCelular->text(),
-						janelaCadastro->campoEmail->text(),
-						janelaCadastro->dateEdit->text().toInt(),
-						getCodCurso());
-		}
-		// Completar apenas dados not-null de alunos
-		else {
-			aluno.alunoBase(janelaCadastro->campoCpf->text(),
-						janelaCadastro->campoNome->text(),
-						janelaCadastro->campoEndereco->text(),
-						janelaCadastro->campoSetor->text(),
-						janelaCadastro->boxEstado->currentIndex(),
-						getCodCidade(),
-						janelaCadastro->campoEmail->text(),
-						janelaCadastro->dateEdit->text().toInt(),
-						getCodCurso());
-		}
-
-		// Validar cpf
-		if(validCpf_cad(aluno.getCpf())) {
 			// Tentar enviar dados ao BD
-			if(!commit_on_bd(&aluno)) {
-				qDebug() << "commit_on_bd(): " << query->lastError();
+			if(!Aluno::cadastraAluno(aluno)) {
 				QMessageBox::warning(this, "Erro ao cadastrar", "Houve um erro ao cadastrar no banco de dados");
 			}
 			else {
-				// Recuperar matricula do aluno recém cadastrado
-				aluno.setMatricula(query->lastInsertId().toInt());
-
+				aluno.setMatricula(janelaCadastro->campoCpf->text());
 				janelaCadastro->campoMatricula->setText(QString::number(aluno.getMatricula()));
 				QMessageBox::information(this, "Cadastro realizado", "Aluno cadastrado com sucesso!");
 			}
 		}
-		else {
-			janelaCadastro->campoCpf->setFocus();
-			janelaCadastro->campoCpf->selectAll();
-			return;
-		}
-	}
-}
-
-bool cadastroAluno::commit_on_bd(Aluno *aluno)
-{
-	query->clear();
-
-	if(!janelaCadastro->campoCelular->text().isEmpty()) {
-		query->prepare("INSERT INTO alunos(cpf, nome, endereco, setor, estado, cidade, celular, email, ano, curso) "
-					   "VALUES (:cpf, :nome, :endereco, :setor, :estado, :cidade, :celular, :email, :ano, :curso);");
-		query->bindValue(":cpf", aluno->getCpf());
-		query->bindValue(":nome", aluno->getNome());
-		query->bindValue(":endereco", aluno->getEndereco());
-		query->bindValue(":setor", aluno->getSetor());
-		query->bindValue(":estado", aluno->getEstado());
-		query->bindValue(":cidade", aluno->getCidade());
-		query->bindValue(":celular", aluno->getCelular());
-		query->bindValue(":email", aluno->getEmail());
-		query->bindValue(":ano", aluno->getAno());
-		query->bindValue(":curso", aluno->getCurso());
-	}
-	else {
-		query->prepare("INSERT INTO alunos(cpf, nome, endereco, setor, estado, cidade, email, ano, curso) "
-					   "VALUES (:cpf, :nome, :endereco, :setor, :estado, :cidade, :email, :ano, :curso);");
-		query->bindValue(":cpf", aluno->getCpf());
-		query->bindValue(":cpf", aluno->getCpf());
-		query->bindValue(":nome", aluno->getNome());
-		query->bindValue(":endereco", aluno->getEndereco());
-		query->bindValue(":setor", aluno->getSetor());
-		query->bindValue(":estado", aluno->getEstado());
-		query->bindValue(":cidade", aluno->getCidade());
-		query->bindValue(":email", aluno->getEmail());
-		query->bindValue(":ano", aluno->getAno());
-		query->bindValue(":curso", aluno->getCurso());
-	}
-	return query->exec();
+	janelaCadastro->campoCpf->setFocus();
+	janelaCadastro->campoCpf->selectAll();
 }
 
 void cadastroAluno::on_campoCpf_textChanged()
 {
-	if(validCpf_cad(janelaCadastro->campoCpf->text())) {
-		janelaCadastro->dateEdit->setFocus();
-		janelaCadastro->dateEdit->selectAll();
+	if(Pessoa::validCpf(janelaCadastro->campoCpf->text())) {
+		if(Pessoa::analisaPessoa(janelaCadastro->campoCpf->text())) {
+			mostrarCampos();
+			janelaCadastro->dateEdit->setFocus();
+			janelaCadastro->dateEdit->selectAll();
+		}
+		else {
+			QMessageBox::warning(this, "Atenção", "Já existe um aluno cadastrado com este cpf");
+			janelaCadastro->campoCpf->setFocus();
+			janelaCadastro->campoCpf->selectAll();
+			limparCampos();
+		}
+	}
+	else {
+		ocultarCampos();
+		limparCampos();
 	}
 }
 
@@ -443,7 +273,7 @@ void cadastroAluno::on_campoSetor_returnPressed()
 
 void cadastroAluno::on_boxEstado_currentIndexChanged()
 {
-	fillBoxCidades();
+	janelaCadastro->boxCidade->setModel(Pessoa::getCidades(janelaCadastro->boxEstado->currentIndex()));
 	janelaCadastro->boxCidade->setFocus();
 }
 

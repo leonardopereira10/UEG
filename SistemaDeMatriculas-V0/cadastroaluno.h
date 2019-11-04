@@ -5,7 +5,7 @@
 #include <QtSql>
 #include <QDebug>
 #include <QMessageBox>
-#include "aluno.h"
+#include "persistaluno.h"
 
 namespace Ui {
 class cadastroAluno;
@@ -20,19 +20,10 @@ public:
 	~cadastroAluno();
 
 private slots:
-	void hideFields();					// Ocultar campos caso cpf seja inválido
-	void showFields();					// Exibir campos quando for necessário
-	void clearFields();					// Limpar campos
-	bool validCpf_cad(QString cpf);		// Validar cpf digitado
-	bool validFields();					// Validar campos not-null na interface
-	void fillBoxEstados();				// Preencher boxEstados com valores do banco de dados
-	void fillBoxCidades();				// Preencher boxCidades com valores do banco de dados e de acordo com boxEstado
-	void fillBoxCursos();				// Preencher boxCursos com valores do banco de dados
-	int getCodCidade();					// Retorna o código da cidade selecionada
-	int getCodCurso();					// Retorna o código do curso selecionado
-	bool commit_on_bd(Aluno *aluno);	// Grava no Banco de dados
-
-
+	void ocultarCampos();					// Ocultar campos caso cpf seja inválido
+	void mostrarCampos();					// Exibir campos quando for necessário
+	void limparCampos();					// Limpar campos
+	bool validarCampos();					// Validar campos not-null na interface
 
 	void on_btnCadastrar_clicked();	// Chama validFields(), validCpf_cad() e commit_on_bd() e informa ao usuário o resultado
 

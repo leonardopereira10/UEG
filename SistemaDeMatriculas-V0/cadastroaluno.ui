@@ -38,8 +38,8 @@
    <string>Cadastro de aluno</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>:/imagens/Imagens/logo.png</normaloff>:/imagens/Imagens/logo.png</iconset>
+   <iconset resource="recursos.qrc">
+    <normaloff>:/recursos/Imagens/logo.png</normaloff>:/recursos/Imagens/logo.png</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -80,7 +80,7 @@ p, li { white-space: pre-wrap; }
      <x>50</x>
      <y>10</y>
      <width>184</width>
-     <height>111</height>
+     <height>112</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
@@ -96,47 +96,6 @@ p, li { white-space: pre-wrap; }
     </item>
     <item row="0" column="1" colspan="2">
      <widget class="QLineEdit" name="campoCpf"/>
-    </item>
-    <item row="1" column="0" colspan="2">
-     <widget class="QLabel" name="labelMatricula">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Matricula&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2">
-     <widget class="QLineEdit" name="campoMatricula">
-      <property name="focusPolicy">
-       <enum>Qt::NoFocus</enum>
-      </property>
-      <property name="statusTip">
-       <string/>
-      </property>
-      <property name="whatsThis">
-       <string/>
-      </property>
-      <property name="accessibleName">
-       <string/>
-      </property>
-      <property name="accessibleDescription">
-       <string/>
-      </property>
-      <property name="autoFillBackground">
-       <bool>true</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="readOnly">
-       <bool>true</bool>
-      </property>
-      <property name="placeholderText">
-       <string/>
-      </property>
-      <property name="clearButtonEnabled">
-       <bool>false</bool>
-      </property>
-     </widget>
     </item>
     <item row="2" column="0">
      <widget class="QLabel" name="labelAno">
@@ -179,6 +138,26 @@ p, li { white-space: pre-wrap; }
         <month>1</month>
         <day>1</day>
        </date>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="labelMatricula">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Matricula&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLineEdit" name="campoMatricula">
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(245, 246, 247);</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -469,6 +448,8 @@ p, li { white-space: pre-wrap; }
   <tabstop>boxCurso</tabstop>
   <tabstop>btnCadastrar</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="recursos.qrc"/>
+ </resources>
  <connections/>
 </ui>
