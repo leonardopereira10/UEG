@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 #include <QApplication>
 
+static QSqlDatabase banco_de_dados=QSqlDatabase::addDatabase("QSQLITE");
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -15,12 +17,15 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
     janelaInicial(new Ui::MainWindow)
 {
-    banco_de_dados=QSqlDatabase::addDatabase("QSQLITE");
     janelaInicial->setupUi(this);
 	this->showMaximized();
-    banco_de_dados.setDatabaseName("C:/Users/TDF - Inhumas-GO/Documents/UEG/SistemaDeMatriculas-V0/Projeto.db");
+    banco_de_dados.setDatabaseName("D:/BD/Projeto.db");
     if(!banco_de_dados.open())
         QMessageBox::critical(this, "Banco de Dados", "Conexão com o banco de dados não realizada.");
+    else{
+        QMessageBox::about(this, "Banco de Dados", "Conexão com o banco de dados realizada.");
+    }
+
 }
 
 MainWindow::~MainWindow()
@@ -39,5 +44,6 @@ void MainWindow::loadSubWindow(QWidget *widget)
 void MainWindow::on_actionCadastrarProf_triggered()
 {
     loadSubWindow(new cadastro_professor(this));
+
 }
 

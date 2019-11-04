@@ -11,12 +11,6 @@ class persistProfessor
 public:
     persistProfessor();
     ~persistProfessor();
-    bool analisaprofessor(QString cpf);
-private:
-    QMainWindow *janela;
-    QSqlDatabase *db;
-    QSqlQuery *query;
-
 };
 
 #endif // PERSISTPROFESSOR_H

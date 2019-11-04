@@ -2,7 +2,14 @@
 
 Pessoa::Pessoa()
 {
-
+    this->cpf = nullptr;
+    this->nome = nullptr;
+    this->dtNascimento = nullptr;
+    this->setor = nullptr;
+    this->cidade;
+    this->estado;
+    this->telefone;
+    this->email;
 }
 
 Pessoa::~Pessoa()
@@ -25,7 +32,7 @@ bool Pessoa::validCpf(QString cpf)
 		cpf.remove('.');
 		cpf.remove('-');
 
-		// Cpf to int
+        // Cpf to int
 		for (int i = 0; i < 11; i++) {
 			tmpCpf[i] = cpf.at(i);
 			vetCpf[i] = tmpCpf[i].toInt();

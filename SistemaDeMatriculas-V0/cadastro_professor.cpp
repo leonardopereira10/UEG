@@ -1,6 +1,5 @@
 #include "cadastro_professor.h"
 #include "ui_cadastro_professor.h"
-#include <QMessageBox>
 
 
 bool cadastro_professor::check_inserted_text_name(QString text){
@@ -60,6 +59,7 @@ void cadastro_professor::showall()
     ui->nome->show();
     ui->data_de_nascimento->show();
     ui->selecao_data_de_nascimento->show();
+    ui->selecao_data_de_nascimento->setDate();
     ui->endereco->show();
     ui->setor->show();
     ui->uf->show();
@@ -83,14 +83,13 @@ void cadastro_professor::showall()
 
 void cadastro_professor::fillBoxEstados()
 {
-        persistProfessor();
         QSqlQueryModel *modelEstados = new QSqlQueryModel();
         QSqlQuery *query = new QSqlQuery();
         query->clear();
         query->prepare("SELECT Sigla FROM Estados");
 
         if(!query->exec())
-            qDebug() << "fillBoxEstados(): " << query->lastError();
+            qDebug() << "fillBoxEstados()" ;
         else {
             modelEstados->setQuery(*query);
             ui->selecao_estado->setModel(modelEstados);
@@ -134,23 +133,23 @@ void cadastro_professor::on_inserir_clicked()
             ui->campo_cpf->setReadOnly(true);
             showall();
             ui->campo_nome->setFocus();
-            }
+      }
 }
 
 
 void cadastro_professor::on_campo_nome_returnPressed()
 {
-
+    ui->selecao_data_de_nascimento->setFocus();
 }
 
 void cadastro_professor::on_selecao_data_de_nascimento_userDateChanged(const QDate &date)
 {
-
+    ui->campo_endereco->setFocus();
 }
 
 void cadastro_professor::on_campo_endereco_returnPressed()
 {
-
+    ui->campo_setor->setFocus();
 }
 
 void cadastro_professor::on_campo_setor_returnPressed()
@@ -170,22 +169,22 @@ void cadastro_professor::on_selecao_cidade_activated(const QString &arg1)
 
 void cadastro_professor::on_campo_graduacao_returnPressed()
 {
-
+    ui->selecao_titulacao->setFocus();
 }
 
 void cadastro_professor::on_selecao_titulacao_currentTextChanged(const QString &arg1)
 {
-
+    ui->campo_celular->setFocus();
 }
 
 void cadastro_professor::on_campo_celular_returnPressed()
 {
-
+    ui->campo_email->setFocus();
 }
 
 void cadastro_professor::on_campo_email_returnPressed()
 {
-
+    ui->btn_cadastrar->clicked();
 }
 
 

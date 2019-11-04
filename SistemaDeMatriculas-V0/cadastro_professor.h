@@ -4,7 +4,12 @@
 #include <QWidget>
 #include <professor.h>
 #include <QPixmap>
-#include "persistprofessor.h"
+#include <QSqlQuery>
+#include <QSqlQueryModel>
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QtDebug>
+#include <QMessageBox>
 
 
 namespace Ui {
@@ -59,6 +64,7 @@ private slots:
 
 private:
     Ui::cadastro_professor *ui;
+
 };
 
 #endif // CADASTRO_PROFESSOR_H
