@@ -1,4 +1,5 @@
 #include "pessoa.h"
+#include "persistaluno.h"
 
 Pessoa::Pessoa()
 {
@@ -8,6 +9,36 @@ Pessoa::Pessoa()
 Pessoa::~Pessoa()
 {
 
+}
+
+QSqlQueryModel *Pessoa::getEstados()
+{
+	PersistAluno Sqlite;
+	return Sqlite.getEstados();
+}
+
+QSqlQueryModel *Pessoa::getCidades(int codEstado)
+{
+	PersistAluno Sqlite;
+	return Sqlite.getCidades(codEstado);
+}
+
+int Pessoa::getCodCidades(QString nome, int estado)
+{
+	PersistAluno Sqlite;
+	return Sqlite.getCodCidades(nome, estado);
+}
+
+QSqlQueryModel *Pessoa::getCursos()
+{
+	PersistAluno Sqlite;
+	return Sqlite.getCursos();
+}
+
+int Pessoa::getCodCurso(QString nome)
+{
+	PersistAluno Sqlite;
+	return Sqlite.getCodCurso(nome);
 }
 
 bool Pessoa::validCpf(QString cpf)
@@ -65,4 +96,10 @@ bool Pessoa::validCpf(QString cpf)
 			return false;
 		}
 	}
+}
+
+bool Pessoa::analisaPessoa(QString cpf)
+{
+	PersistAluno Sqlite;
+	return Sqlite.analisaPessoa(cpf);
 }
