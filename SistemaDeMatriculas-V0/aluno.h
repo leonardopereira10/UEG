@@ -2,10 +2,6 @@
 #define ALUNO_H
 
 #include "pessoa.h"
-#include "mapaluno.h"
-
-// NOTE: Atributo celular definido como not null
-// TODO: Verificar se aluno já cursa ou cursou o respectivo curso
 
 class Aluno : protected Pessoa
 {
@@ -15,11 +11,21 @@ public:
 			QDate ano, int curso);
 	virtual ~Aluno();
 
-	virtual bool analisaPessoa(QString cpf);
-	bool analisaCurso(int idCurso);
-
+	void setMatricula(QString cpf);
 	int getMatricula() const;
-	void setMatricula(int value);
+	QDate getAno() const;
+	int getCurso() const;
+	virtual QString getCpf() const;
+	virtual QString getNome() const;
+	virtual QDate getDtNascimento() const;
+	virtual QString getEndereco() const;
+	virtual QString getSetor() const;
+	virtual int getCidade() const;
+	virtual int getEstado() const;
+	virtual QString getTelefone() const;
+	virtual QString getEmail() const;
+
+	static bool cadastraAluno(Aluno aluno);
 
 private:
 	int matricula;

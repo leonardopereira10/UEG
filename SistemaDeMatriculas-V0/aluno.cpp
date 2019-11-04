@@ -1,3 +1,4 @@
+#include "persistaluno.h"
 #include "aluno.h"
 
 Aluno::Aluno(QString cpf, QString nome, QString endereco, QString setor,
@@ -21,12 +22,86 @@ Aluno::~Aluno()
 
 }
 
+void Aluno::setMatricula(QString cpf)
+{
+	PersistAluno Sqlite;
+	matricula = Sqlite.getMatricula_fromDB(cpf);
+}
+
 int Aluno::getMatricula() const
 {
 	return matricula;
 }
 
-void Aluno::setMatricula(int value)
+QDate Aluno::getAno() const
 {
-	matricula = value;
+	return ano;
 }
+
+int Aluno::getCurso() const
+{
+	return curso;
+}
+
+QString Aluno::getCpf() const
+{
+	return Pessoa::cpf;
+}
+
+QString Aluno::getNome() const
+{
+	return Pessoa::nome;
+}
+
+QDate Aluno::getDtNascimento() const
+{
+	return Pessoa::dtNascimento;
+}
+
+QString Aluno::getEndereco() const
+{
+	return Pessoa::endereco;
+}
+
+QString Aluno::getSetor() const
+{
+	return Pessoa::setor;
+}
+
+int Aluno::getCidade() const
+{
+	return Pessoa::cidade;
+}
+
+int Aluno::getEstado() const
+{
+	return Pessoa::estado;
+}
+
+QString Aluno::getTelefone() const
+{
+	return Pessoa::telefone;
+}
+
+QString Aluno::getEmail() const
+{
+	return Pessoa::email;
+}
+
+bool Aluno::cadastraAluno(Aluno aluno)
+{
+	PersistAluno Sqlite;
+	return Sqlite.cadastraAluno(aluno);
+}
+
+
+
+
+
+
+
+
+
+
+
+
