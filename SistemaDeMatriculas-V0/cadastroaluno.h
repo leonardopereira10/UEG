@@ -5,7 +5,7 @@
 #include <QtSql>
 #include <QDebug>
 #include <QMessageBox>
-#include "persistaluno.h"
+#include "aluno.h"
 
 namespace Ui {
 class cadastroAluno;
@@ -20,32 +20,32 @@ public:
 	~cadastroAluno();
 
 private slots:
-	void ocultarCampos();					// Ocultar campos caso cpf seja inválido
-	void mostrarCampos();					// Exibir campos quando for necessário
-	void limparCampos();					// Limpar campos
-	bool validarCampos();					// Validar campos not-null na interface
+	void ocultarCampos();
+	void mostrarCampos();
+	void limparCampos();
+	bool validarCampos();
 
-	void on_btnCadastrar_clicked();	// Chama validFields(), validCpf_cad() e commit_on_bd() e informa ao usuário o resultado
+	void on_btnCadastrar_clicked();
 
-	void on_campoCpf_textChanged();	// Chama validCpf_cad() sempre que o texto "cpf" mudar
+	void on_campoCpf_textChanged();
 
-	void on_dateEdit_editingFinished();		// Enviar foco para campoNome ao pressionar Enter
+	void on_dateEdit_editingFinished();
 
-	void on_campoNome_returnPressed();		// Enviar foco para campoEndereco ao pressionar Enter
+	void on_campoNome_returnPressed();
 
-	void on_campoEndereco_returnPressed();	// Enviar foco para campoSetor ao pressionar Enter
+	void on_campoEndereco_returnPressed();
 
-	void on_campoSetor_returnPressed();		// Enviar foco para boxEstado ao pressionar Enter
+	void on_campoSetor_returnPressed();
 
-	void on_boxEstado_currentIndexChanged();// Atualizar boxCidade sempre que boxEstados mudar
+	void on_boxEstado_currentIndexChanged();
 
-	void on_boxCidade_currentIndexChanged();// Enviar foco para campoCelular ao pressionar Enter
+	void on_boxCidade_currentIndexChanged();
 
-	void on_campoCelular_returnPressed();	// Enviar foco para campoEmail ao pressionar Enter
+	void on_campoCelular_returnPressed();
 
-	void on_campoEmail_returnPressed();		// Enviar foco para boxCurso ao pressionar Enter
+	void on_campoEmail_returnPressed();
 
-	void on_boxCurso_currentIndexChanged();	// Enviar foco para btnCadastrar ao pressionar Enter
+	void on_boxCurso_currentIndexChanged();
 
 private:
 	Ui::cadastroAluno *janelaCadastro;

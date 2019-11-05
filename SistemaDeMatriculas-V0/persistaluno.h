@@ -18,13 +18,14 @@ public:
 	int getCodCurso(QString &nome);
 
 	bool analisaPessoa(QString &cpf);
+	bool analisaAluno(int &matricula);
 
 	bool cadastraAluno(Aluno &aluno);
 	int getMatricula_fromDB(QString &cpf);
 
-//	QSqlQueryModel *consultaAlunoCpf(QString &cpf);
-//	QSqlQueryModel *consultaAlunoNome(QString &nome);
-//	QSqlQueryModel *consultaAlunoMatricula(int &matricula);
+	QSqlQueryModel *consultaAlunoCpf(Aluno &alunoCpf);
+	QSqlQueryModel *consultaAlunoNome(Aluno &alunoNome);
+	QSqlQueryModel *consultaAlunoMatricula(Aluno &alunoMatricula);
 
 //	bool removeAluno(QString &cpf);
 //	bool removeAluno(int &matricula);

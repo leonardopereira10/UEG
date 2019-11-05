@@ -53,18 +53,22 @@ SOURCES       = ../SistemaDeMatriculas-V0/main.cpp \
 		../SistemaDeMatriculas-V0/aluno.cpp \
 		../SistemaDeMatriculas-V0/cadastroaluno.cpp \
 		../SistemaDeMatriculas-V0/pessoa.cpp \
-		../SistemaDeMatriculas-V0/persistaluno.cpp qrc_recursos.cpp \
+		../SistemaDeMatriculas-V0/persistaluno.cpp \
+		../SistemaDeMatriculas-V0/consultaaluno.cpp qrc_recursos.cpp \
 		moc_mainwindow.cpp \
-		moc_cadastroaluno.cpp
+		moc_cadastroaluno.cpp \
+		moc_consultaaluno.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		aluno.o \
 		cadastroaluno.o \
 		pessoa.o \
 		persistaluno.o \
+		consultaaluno.o \
 		qrc_recursos.o \
 		moc_mainwindow.o \
-		moc_cadastroaluno.o
+		moc_cadastroaluno.o \
+		moc_consultaaluno.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -111,6 +115,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		../SistemaDeMatriculas-V0/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -133,12 +138,14 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../SistemaDeMatriculas-V0/aluno.h \
 		../SistemaDeMatriculas-V0/pessoa.h \
 		../SistemaDeMatriculas-V0/cadastroaluno.h \
-		../SistemaDeMatriculas-V0/persistaluno.h ../SistemaDeMatriculas-V0/main.cpp \
+		../SistemaDeMatriculas-V0/persistaluno.h \
+		../SistemaDeMatriculas-V0/consultaaluno.h ../SistemaDeMatriculas-V0/main.cpp \
 		../SistemaDeMatriculas-V0/mainwindow.cpp \
 		../SistemaDeMatriculas-V0/aluno.cpp \
 		../SistemaDeMatriculas-V0/cadastroaluno.cpp \
 		../SistemaDeMatriculas-V0/pessoa.cpp \
-		../SistemaDeMatriculas-V0/persistaluno.cpp
+		../SistemaDeMatriculas-V0/persistaluno.cpp \
+		../SistemaDeMatriculas-V0/consultaaluno.cpp
 QMAKE_TARGET  = test
 DESTDIR       = 
 TARGET        = test
@@ -147,7 +154,7 @@ TARGET        = test
 first: all
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h ui_cadastroaluno.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_cadastroaluno.h ui_consultaaluno.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -196,6 +203,7 @@ Makefile: ../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro /usr/lib/x86_64-l
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -267,6 +275,7 @@ Makefile: ../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro /usr/lib/x86_64-l
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -306,9 +315,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/recursos.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.h ../SistemaDeMatriculas-V0/aluno.h ../SistemaDeMatriculas-V0/pessoa.h ../SistemaDeMatriculas-V0/cadastroaluno.h ../SistemaDeMatriculas-V0/persistaluno.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/mainwindow.cpp ../SistemaDeMatriculas-V0/aluno.cpp ../SistemaDeMatriculas-V0/cadastroaluno.cpp ../SistemaDeMatriculas-V0/pessoa.cpp ../SistemaDeMatriculas-V0/persistaluno.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.ui ../SistemaDeMatriculas-V0/cadastroaluno.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.h ../SistemaDeMatriculas-V0/aluno.h ../SistemaDeMatriculas-V0/pessoa.h ../SistemaDeMatriculas-V0/cadastroaluno.h ../SistemaDeMatriculas-V0/persistaluno.h ../SistemaDeMatriculas-V0/consultaaluno.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/mainwindow.cpp ../SistemaDeMatriculas-V0/aluno.cpp ../SistemaDeMatriculas-V0/cadastroaluno.cpp ../SistemaDeMatriculas-V0/pessoa.cpp ../SistemaDeMatriculas-V0/persistaluno.cpp ../SistemaDeMatriculas-V0/consultaaluno.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.ui ../SistemaDeMatriculas-V0/cadastroaluno.ui ../SistemaDeMatriculas-V0/consultaaluno.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -354,25 +363,30 @@ qrc_recursos.cpp: ../SistemaDeMatriculas-V0/recursos.qrc \
 		../SistemaDeMatriculas-V0/Imagens/pesquisar.png
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name recursos ../SistemaDeMatriculas-V0/recursos.qrc -o qrc_recursos.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_cadastroaluno.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_cadastroaluno.cpp moc_consultaaluno.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_cadastroaluno.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_cadastroaluno.cpp moc_consultaaluno.cpp
 moc_mainwindow.cpp: ../SistemaDeMatriculas-V0/mainwindow.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lucas/UEG/SistemaDeMatriculas-V0 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../SistemaDeMatriculas-V0/mainwindow.h -o moc_mainwindow.cpp
 
-moc_cadastroaluno.cpp: ../SistemaDeMatriculas-V0/persistaluno.h \
-		../SistemaDeMatriculas-V0/aluno.h \
+moc_cadastroaluno.cpp: ../SistemaDeMatriculas-V0/aluno.h \
 		../SistemaDeMatriculas-V0/pessoa.h \
 		../SistemaDeMatriculas-V0/cadastroaluno.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lucas/UEG/SistemaDeMatriculas-V0 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../SistemaDeMatriculas-V0/cadastroaluno.h -o moc_cadastroaluno.cpp
 
+moc_consultaaluno.cpp: ../SistemaDeMatriculas-V0/aluno.h \
+		../SistemaDeMatriculas-V0/pessoa.h \
+		../SistemaDeMatriculas-V0/consultaaluno.h \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lucas/UEG/SistemaDeMatriculas-V0 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../SistemaDeMatriculas-V0/consultaaluno.h -o moc_consultaaluno.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_cadastroaluno.h
+compiler_uic_make_all: ui_mainwindow.h ui_cadastroaluno.h ui_consultaaluno.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_cadastroaluno.h
+	-$(DEL_FILE) ui_mainwindow.h ui_cadastroaluno.h ui_consultaaluno.h
 ui_mainwindow.h: ../SistemaDeMatriculas-V0/mainwindow.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../SistemaDeMatriculas-V0/mainwindow.ui -o ui_mainwindow.h
@@ -380,6 +394,10 @@ ui_mainwindow.h: ../SistemaDeMatriculas-V0/mainwindow.ui \
 ui_cadastroaluno.h: ../SistemaDeMatriculas-V0/cadastroaluno.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../SistemaDeMatriculas-V0/cadastroaluno.ui -o ui_cadastroaluno.h
+
+ui_consultaaluno.h: ../SistemaDeMatriculas-V0/consultaaluno.ui \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../SistemaDeMatriculas-V0/consultaaluno.ui -o ui_consultaaluno.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -397,7 +415,6 @@ main.o: ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/mainwindow.
 mainwindow.o: ../SistemaDeMatriculas-V0/mainwindow.cpp ../SistemaDeMatriculas-V0/mainwindow.h \
 		ui_mainwindow.h \
 		../SistemaDeMatriculas-V0/cadastroaluno.h \
-		../SistemaDeMatriculas-V0/persistaluno.h \
 		../SistemaDeMatriculas-V0/aluno.h \
 		../SistemaDeMatriculas-V0/pessoa.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../SistemaDeMatriculas-V0/mainwindow.cpp
@@ -408,7 +425,6 @@ aluno.o: ../SistemaDeMatriculas-V0/aluno.cpp ../SistemaDeMatriculas-V0/persistal
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o aluno.o ../SistemaDeMatriculas-V0/aluno.cpp
 
 cadastroaluno.o: ../SistemaDeMatriculas-V0/cadastroaluno.cpp ../SistemaDeMatriculas-V0/cadastroaluno.h \
-		../SistemaDeMatriculas-V0/persistaluno.h \
 		../SistemaDeMatriculas-V0/aluno.h \
 		../SistemaDeMatriculas-V0/pessoa.h \
 		ui_cadastroaluno.h
@@ -424,6 +440,12 @@ persistaluno.o: ../SistemaDeMatriculas-V0/persistaluno.cpp ../SistemaDeMatricula
 		../SistemaDeMatriculas-V0/pessoa.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o persistaluno.o ../SistemaDeMatriculas-V0/persistaluno.cpp
 
+consultaaluno.o: ../SistemaDeMatriculas-V0/consultaaluno.cpp ../SistemaDeMatriculas-V0/consultaaluno.h \
+		../SistemaDeMatriculas-V0/aluno.h \
+		../SistemaDeMatriculas-V0/pessoa.h \
+		ui_consultaaluno.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o consultaaluno.o ../SistemaDeMatriculas-V0/consultaaluno.cpp
+
 qrc_recursos.o: qrc_recursos.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_recursos.o qrc_recursos.cpp
 
@@ -432,6 +454,9 @@ moc_mainwindow.o: moc_mainwindow.cpp
 
 moc_cadastroaluno.o: moc_cadastroaluno.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_cadastroaluno.o moc_cadastroaluno.cpp
+
+moc_consultaaluno.o: moc_consultaaluno.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_consultaaluno.o moc_consultaaluno.cpp
 
 ####### Install
 

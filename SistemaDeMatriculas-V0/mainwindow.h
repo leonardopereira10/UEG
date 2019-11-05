@@ -16,13 +16,14 @@ public:
 	~MainWindow();
 
 private slots:
+	void on_actionSair_triggered();
+
 	void on_actionCadastrarAluno_triggered();
 
-	void on_actionSair_triggered();
+	void on_actionConsultarAluno_triggered();
 
 private:
 	Ui::MainWindow *janelaInicial;
-
 	void loadSubWindow(QWidget *widget);
 };
 

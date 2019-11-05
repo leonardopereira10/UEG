@@ -1,6 +1,22 @@
 #include "persistaluno.h"
 #include "aluno.h"
 
+Aluno::Aluno()
+{
+
+}
+
+Aluno::Aluno(int matricula)
+{
+	this->matricula = matricula;
+}
+
+Aluno::Aluno(QString cpf, QString nome)
+{
+	this->cpf = cpf;
+	this->nome = nome;
+}
+
 Aluno::Aluno(QString cpf, QString nome, QString endereco, QString setor,
 			 int cidade, int estado, QString telefone, QString email,
 			 QDate ano, int curso)
@@ -88,10 +104,34 @@ QString Aluno::getEmail() const
 	return Pessoa::email;
 }
 
+bool Aluno::analisaAluno(int matricula)
+{
+	PersistAluno Sqlite;
+	return Sqlite.analisaAluno(matricula);
+}
+
 bool Aluno::cadastraAluno(Aluno aluno)
 {
 	PersistAluno Sqlite;
 	return Sqlite.cadastraAluno(aluno);
+}
+
+QSqlQueryModel *Aluno::consultaAlunoCpf(Aluno alunoCpf)
+{
+	PersistAluno Sqlite;
+	return Sqlite.consultaAlunoCpf(alunoCpf);
+}
+
+QSqlQueryModel *Aluno::consultaAlunoNome(Aluno alunoNome)
+{
+	PersistAluno Sqlite;
+	return Sqlite.consultaAlunoNome(alunoNome);
+}
+
+QSqlQueryModel *Aluno::consultaAlunoMatricula(Aluno alunoMatricula)
+{
+	PersistAluno Sqlite;
+	return Sqlite.consultaAlunoMatricula(alunoMatricula);
 }
 
 

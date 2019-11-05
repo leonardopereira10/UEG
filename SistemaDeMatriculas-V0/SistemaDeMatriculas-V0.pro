@@ -28,16 +28,19 @@ SOURCES += main.cpp\
 		aluno.cpp \
 		cadastroaluno.cpp \
 		pessoa.cpp \
-		persistaluno.cpp
+		persistaluno.cpp \
+    consultaaluno.cpp
 
 HEADERS  += mainwindow.h \
 		aluno.h \
 		pessoa.h \
 		cadastroaluno.h \
-		persistaluno.h
+		persistaluno.h \
+    consultaaluno.h
 
 FORMS += mainwindow.ui \
-		cadastroaluno.ui
+		cadastroaluno.ui \
+    consultaaluno.ui
 
 RESOURCES += \
 		recursos.qrc

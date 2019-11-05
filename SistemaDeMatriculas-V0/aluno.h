@@ -6,6 +6,9 @@
 class Aluno : protected Pessoa
 {
 public:
+	Aluno();
+	Aluno(int matricula);
+	Aluno(QString cpf, QString nome);
 	Aluno(QString cpf, QString nome, QString endereco, QString setor,
 			int cidade, int estado, QString telefone, QString email,
 			QDate ano, int curso);
@@ -25,7 +28,12 @@ public:
 	virtual QString getTelefone() const;
 	virtual QString getEmail() const;
 
+	static bool analisaAluno(int matricula);
 	static bool cadastraAluno(Aluno aluno);
+
+	static QSqlQueryModel *consultaAlunoCpf(Aluno alunoCpf);
+	static QSqlQueryModel *consultaAlunoNome(Aluno alunoNome);
+	static QSqlQueryModel *consultaAlunoMatricula(Aluno alunoMatricula);
 
 private:
 	int matricula;

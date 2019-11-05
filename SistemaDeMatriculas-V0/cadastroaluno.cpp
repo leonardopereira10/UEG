@@ -207,11 +207,12 @@ void cadastroAluno::on_btnCadastrar_clicked()
 		janelaCadastro->labelValidFields->setText("* Não podem ficar vazios");
 	}
 	else {
-		Aluno aluno(janelaCadastro->campoCpf->text(), janelaCadastro->campoNome->text(),
-					janelaCadastro->campoEndereco->text(), janelaCadastro->campoSetor->text(),
-					Pessoa::getCodCidades(janelaCadastro->boxCidade->currentText(), janelaCadastro->boxEstado->currentIndex()),
-					janelaCadastro->boxEstado->currentIndex(), janelaCadastro->campoCelular->text(),
-					janelaCadastro->campoEmail->text(), janelaCadastro->dateEdit->date(), Pessoa::getCodCurso(janelaCadastro->boxCurso->currentText()));
+		if(Pessoa::analisaPessoa(janelaCadastro->campoCpf->text())) {
+			Aluno aluno(janelaCadastro->campoCpf->text(), janelaCadastro->campoNome->text(),
+						janelaCadastro->campoEndereco->text(), janelaCadastro->campoSetor->text(),
+						Pessoa::getCodCidades(janelaCadastro->boxCidade->currentText(), janelaCadastro->boxEstado->currentIndex()),
+						janelaCadastro->boxEstado->currentIndex(), janelaCadastro->campoCelular->text(),
+						janelaCadastro->campoEmail->text(), janelaCadastro->dateEdit->date(), Pessoa::getCodCurso(janelaCadastro->boxCurso->currentText()));
 
 			// Tentar enviar dados ao BD
 			if(!Aluno::cadastraAluno(aluno)) {
@@ -223,6 +224,10 @@ void cadastroAluno::on_btnCadastrar_clicked()
 				QMessageBox::information(this, "Cadastro realizado", "Aluno cadastrado com sucesso!");
 			}
 		}
+		else {
+			QMessageBox::warning(this, "Atenção", "Já existe um aluno cadastrado com este cpf");
+		}
+	}
 	janelaCadastro->campoCpf->setFocus();
 	janelaCadastro->campoCpf->selectAll();
 }

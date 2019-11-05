@@ -287,6 +287,7 @@ public:
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><img src=\":/recursos/Imagens/Aluno.png\" heigth=\"90\" width=\"90\" /></p></body></html>", Q_NULLPTR));
         labelValidCpf->setText(QString());
         labelCpf->setText(QApplication::translate("cadastroAluno", "<html><head/><body><p><span style=\" font-weight:600;\">CPF</span></p></body></html>", Q_NULLPTR));
+        campoCpf->setPlaceholderText(QString());
         labelAno->setText(QApplication::translate("cadastroAluno", "<html><head/><body><p><span style=\" font-weight:600;\">Ano</span></p></body></html>", Q_NULLPTR));
         dateEdit->setDisplayFormat(QApplication::translate("cadastroAluno", "yyyy", Q_NULLPTR));
         labelMatricula->setText(QApplication::translate("cadastroAluno", "<html><head/><body><p><span style=\" font-weight:600;\">Matricula</span></p></body></html>", Q_NULLPTR));
@@ -299,6 +300,7 @@ public:
         labelValidEmail->setText(QString());
         labelValidCidade->setText(QString());
         labelValidCurso->setText(QString());
+        campoNome->setPlaceholderText(QString());
         campoEndereco->setText(QString());
         campoCelular->setText(QString());
         labelNome->setText(QApplication::translate("cadastroAluno", "<html><head/><body><p><span style=\" font-weight:600;\">Nome*</span></p></body></html>", Q_NULLPTR));

@@ -95,7 +95,11 @@ p, li { white-space: pre-wrap; }
      </widget>
     </item>
     <item row="0" column="1" colspan="2">
-     <widget class="QLineEdit" name="campoCpf"/>
+     <widget class="QLineEdit" name="campoCpf">
+      <property name="placeholderText">
+       <string/>
+      </property>
+     </widget>
     </item>
     <item row="2" column="0">
      <widget class="QLabel" name="labelAno">
@@ -297,6 +301,9 @@ p, li { white-space: pre-wrap; }
      <widget class="QLineEdit" name="campoNome">
       <property name="maxLength">
        <number>50</number>
+      </property>
+      <property name="placeholderText">
+       <string/>
       </property>
      </widget>
     </item>
