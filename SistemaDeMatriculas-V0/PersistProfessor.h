@@ -21,9 +21,9 @@ public:
     int getCodCidades(QString &nome, int &estado);
 
     bool analisaPessoa(QString &cpf);
-
     bool cadastraProfessor(Professor &professor);
 private:
+
     QSqlDatabase db;
 };
 

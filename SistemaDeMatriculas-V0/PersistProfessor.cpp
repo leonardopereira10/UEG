@@ -1,5 +1,5 @@
-#include "persistprofessor.h"
-#include "persistprofessor.h"
+#include "PersistProfessor.h"
+#include "PersistProfessor.h"
 #include "professor.h"
 
 

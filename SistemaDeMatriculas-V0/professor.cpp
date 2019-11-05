@@ -79,8 +79,11 @@ QString Professor::getTitulacao() const
     return titulacao;
 }
 
-bool Professor::cadastraProfessor(Professor Professor){
+bool Professor::cadastraProfessor(Professor professor)
+{
     PersistProfessor sqlite;
-    return sqlite.cadastraProfessor(Professor);
+    return sqlite.cadastraProfessor(professor);
 }
+
+
 

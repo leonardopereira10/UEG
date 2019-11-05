@@ -3,7 +3,6 @@
 #include "pessoa.h"
 #include "persistprofessor.h"
 
-
 class Professor : protected Pessoa
 {
 public:
@@ -26,7 +25,7 @@ public:
     QString getTitulacao() const;
 
 
-    static bool cadastraProfessor(Professor Professor);
+    static bool cadastraProfessor(Professor professor);
 private:
     QString graduacao, titulacao;
 };

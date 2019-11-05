@@ -33,9 +33,9 @@ SOURCES += \
 
 
 HEADERS	+= mainwindow.h \
+		PersistProfessor.h \
 		cadastro_professor.h \
 		consulta_professor.h \
-		persistprofessor.h \
 		pessoa.h \
 		professor.h
 

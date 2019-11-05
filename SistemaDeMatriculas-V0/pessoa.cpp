@@ -1,5 +1,5 @@
 #include "pessoa.h"
-#include "persistprofessor.h"
+#include "PersistProfessor.h"
 
 Pessoa::Pessoa()
 {

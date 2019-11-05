@@ -7,7 +7,7 @@
 #include <QMessageBox>
 
 #include "pessoa.h"
-#include "persistprofessor.h"
+#include "PersistProfessor.h"
 
 
 namespace Ui {
