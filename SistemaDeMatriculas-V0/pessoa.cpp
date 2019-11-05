@@ -13,19 +13,19 @@ Pessoa::~Pessoa()
 
 QSqlQueryModel *Pessoa::getEstados()
 {
-    persistProfessor Sqlite;
+    PersistProfessor Sqlite;
     return Sqlite.getEstados();
 }
 
 QSqlQueryModel *Pessoa::getCidades(int codEstado)
 {
-    persistProfessor Sqlite;
+    PersistProfessor Sqlite;
     return Sqlite.getCidades(codEstado);
 }
 
 int Pessoa::getCodCidades(QString nome, int estado)
 {
-    persistProfessor Sqlite;
+    PersistProfessor Sqlite;
     return Sqlite.getCodCidades(nome, estado);
 }
 
@@ -88,6 +88,6 @@ bool Pessoa::validCpf(QString cpf)
 
 bool Pessoa::analisaPessoa(QString cpf)
 {
-    persistProfessor Sqlite;
+    PersistProfessor Sqlite;
     return Sqlite.analisaPessoa(cpf);
 }

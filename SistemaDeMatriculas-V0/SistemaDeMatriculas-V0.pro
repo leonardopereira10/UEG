@@ -26,6 +26,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
 		PersistProfessor.cpp \
 		cadastro_professor.cpp \
+		consulta_professor.cpp \
 		mainwindow.cpp \
 		pessoa.cpp \
 		professor.cpp
@@ -33,12 +34,14 @@ SOURCES += \
 
 HEADERS	+= mainwindow.h \
 		cadastro_professor.h \
+		consulta_professor.h \
 		persistprofessor.h \
 		pessoa.h \
 		professor.h
 
 FORMS += mainwindow.ui \
-    cadastro_professor.ui
+    cadastro_professor.ui \
+    consulta_professor.ui
 
 RESOURCES += \
     Imagens/imagens.qrc

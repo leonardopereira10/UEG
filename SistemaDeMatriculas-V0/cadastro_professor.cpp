@@ -103,7 +103,7 @@ cadastro_professor::cadastro_professor(QWidget *parent) :
     ui->logo_professor->setPixmap(logo_professor.scaled(111,109, Qt::KeepAspectRatio));
     clear_all();
     hideall();
-    ui->selecao_estado->setModel(persistProfessor().getEstados());
+    ui->selecao_estado->setModel(PersistProfessor().getEstados());
     ui->selecao_cidade->setModel(Pessoa::getCidades(ui->selecao_estado->currentIndex()));
 
 }
@@ -200,5 +200,19 @@ void cadastro_professor::on_campo_email_returnPressed()
 //Cadastro no banco
 void cadastro_professor::on_btn_cadastrar_clicked()
 {
+    Professor Professor(ui->campo_cpf->text(), ui->campo_nome->text(), ui->selecao_data_de_nascimento->date(),
+                        ui->campo_endereco->text(), ui->campo_setor->text(), Pessoa::getCodCidades(ui->selecao_cidade->currentText(), ui->selecao_estado->currentIndex()),
+                        ui->selecao_estado->currentIndex(), ui->campo_graduacao->text(), ui->selecao_titulacao->currentText(),
+                        ui->campo_celular->text(), ui->campo_email->text());
 
-}
+                // Tentar enviar dados ao BD
+                if(!Professor::cadastraProfessor(Professor)) {
+                    QMessageBox::warning(this, "Erro ao cadastrar", "Houve um erro ao cadastrar no banco de dados");
+                }
+                else {
+                    QMessageBox::information(this, "Cadastro realizado", "Aluno cadastrado com sucesso!");
+                }
+                ui->campo_cpf->setFocus();
+                ui->campo_cpf->selectAll();
+            }
+

@@ -6,7 +6,6 @@
 #include <QtDebug>
 #include <QMessageBox>
 
-#include "professor.h"
 #include "pessoa.h"
 #include "persistprofessor.h"
 

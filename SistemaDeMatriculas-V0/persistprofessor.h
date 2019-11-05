@@ -15,11 +15,14 @@ class PersistProfessor
 public:
     PersistProfessor();
     ~PersistProfessor();
+
     QSqlQueryModel *getEstados();
     QSqlQueryModel *getCidades(int &codEstado);
-    bool analisaPessoa(QString &cpf);
     int getCodCidades(QString &nome, int &estado);
-    bool cadastraProfessor(Professor &Professor);
+
+    bool analisaPessoa(QString &cpf);
+
+    bool cadastraProfessor(Professor &professor);
 private:
     QSqlDatabase db;
 };
