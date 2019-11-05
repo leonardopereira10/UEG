@@ -6,18 +6,20 @@
 #include <QMessageBox>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
-#include <QSqlError>
+#include "professor.h"
 
 
-class persistProfessor
+
+class PersistProfessor
 {
 public:
-    persistProfessor();
-    ~persistProfessor();
+    PersistProfessor();
+    ~PersistProfessor();
     QSqlQueryModel *getEstados();
     QSqlQueryModel *getCidades(int &codEstado);
     bool analisaPessoa(QString &cpf);
     int getCodCidades(QString &nome, int &estado);
+    bool cadastraProfessor(Professor &Professor);
 private:
     QSqlDatabase db;
 };

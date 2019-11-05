@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_cadastro_professor_t {
     QByteArrayData data[15];
-    char stringdata0[415];
+    char stringdata0[435];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -43,9 +43,9 @@ QT_MOC_LITERAL(8, 201, 37), // "on_selecao_estado_currentInde..."
 QT_MOC_LITERAL(9, 239, 37), // "on_selecao_cidade_currentInde..."
 QT_MOC_LITERAL(10, 277, 32), // "on_campo_graduacao_returnPressed"
 QT_MOC_LITERAL(11, 310, 39), // "on_selecao_titulacao_currentT..."
-QT_MOC_LITERAL(12, 350, 4), // "arg1"
-QT_MOC_LITERAL(13, 355, 30), // "on_campo_celular_returnPressed"
-QT_MOC_LITERAL(14, 386, 28) // "on_campo_email_returnPressed"
+QT_MOC_LITERAL(12, 350, 30), // "on_campo_celular_returnPressed"
+QT_MOC_LITERAL(13, 381, 28), // "on_campo_email_returnPressed"
+QT_MOC_LITERAL(14, 410, 24) // "on_btn_cadastrar_clicked"
 
     },
     "cadastro_professor\0on_campo_cpf_returnPressed\0"
@@ -57,8 +57,9 @@ QT_MOC_LITERAL(14, 386, 28) // "on_campo_email_returnPressed"
     "on_selecao_cidade_currentIndexChanged\0"
     "on_campo_graduacao_returnPressed\0"
     "on_selecao_titulacao_currentTextChanged\0"
-    "arg1\0on_campo_celular_returnPressed\0"
-    "on_campo_email_returnPressed"
+    "on_campo_celular_returnPressed\0"
+    "on_campo_email_returnPressed\0"
+    "on_btn_cadastrar_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -68,7 +69,7 @@ static const uint qt_meta_data_cadastro_professor[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      12,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -76,18 +77,19 @@ static const uint qt_meta_data_cadastro_professor[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   74,    2, 0x08 /* Private */,
-       3,    0,   75,    2, 0x08 /* Private */,
-       4,    0,   76,    2, 0x08 /* Private */,
-       5,    0,   77,    2, 0x08 /* Private */,
-       6,    0,   78,    2, 0x08 /* Private */,
-       7,    0,   79,    2, 0x08 /* Private */,
-       8,    0,   80,    2, 0x08 /* Private */,
-       9,    0,   81,    2, 0x08 /* Private */,
-      10,    0,   82,    2, 0x08 /* Private */,
-      11,    1,   83,    2, 0x08 /* Private */,
-      13,    0,   86,    2, 0x08 /* Private */,
-      14,    0,   87,    2, 0x08 /* Private */,
+       1,    0,   79,    2, 0x08 /* Private */,
+       3,    0,   80,    2, 0x08 /* Private */,
+       4,    0,   81,    2, 0x08 /* Private */,
+       5,    0,   82,    2, 0x08 /* Private */,
+       6,    0,   83,    2, 0x08 /* Private */,
+       7,    0,   84,    2, 0x08 /* Private */,
+       8,    0,   85,    2, 0x08 /* Private */,
+       9,    0,   86,    2, 0x08 /* Private */,
+      10,    0,   87,    2, 0x08 /* Private */,
+      11,    0,   88,    2, 0x08 /* Private */,
+      12,    0,   89,    2, 0x08 /* Private */,
+      13,    0,   90,    2, 0x08 /* Private */,
+      14,    0,   91,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -99,7 +101,8 @@ static const uint qt_meta_data_cadastro_professor[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   12,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -121,12 +124,14 @@ void cadastro_professor::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
         case 6: _t->on_selecao_estado_currentIndexChanged(); break;
         case 7: _t->on_selecao_cidade_currentIndexChanged(); break;
         case 8: _t->on_campo_graduacao_returnPressed(); break;
-        case 9: _t->on_selecao_titulacao_currentTextChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 9: _t->on_selecao_titulacao_currentTextChanged(); break;
         case 10: _t->on_campo_celular_returnPressed(); break;
         case 11: _t->on_campo_email_returnPressed(); break;
+        case 12: _t->on_btn_cadastrar_clicked(); break;
         default: ;
         }
     }
+    Q_UNUSED(_a);
 }
 
 QT_INIT_METAOBJECT const QMetaObject cadastro_professor::staticMetaObject = { {
@@ -158,13 +163,13 @@ int cadastro_professor::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 12)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 12)
+        if (_id < 13)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 12;
+        _id -= 13;
     }
     return _id;
 }

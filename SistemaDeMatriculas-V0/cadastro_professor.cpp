@@ -182,7 +182,7 @@ void cadastro_professor::on_campo_graduacao_returnPressed()
     ui->selecao_titulacao->setFocus();
 }
 
-void cadastro_professor::on_selecao_titulacao_currentTextChanged(const QString &arg1)
+void cadastro_professor::on_selecao_titulacao_currentTextChanged()
 {
     ui->campo_celular->setFocus();
 }
@@ -197,5 +197,8 @@ void cadastro_professor::on_campo_email_returnPressed()
     ui->btn_cadastrar->clicked();
 }
 
+//Cadastro no banco
+void cadastro_professor::on_btn_cadastrar_clicked()
+{
 
-
+}

@@ -24,9 +24,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
+		PersistProfessor.cpp \
 		cadastro_professor.cpp \
 		mainwindow.cpp \
-		persistprofessor.cpp \
 		pessoa.cpp \
 		professor.cpp
 

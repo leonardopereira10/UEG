@@ -1,19 +1,17 @@
 #include "persistprofessor.h"
-#include "persistprofessor.h"
-#include "persistprofessor.h"
 
-persistProfessor::persistProfessor()
+PersistProfessor::PersistProfessor()
 {    
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("D:/BD/Projeto.db");
 }
 
-persistProfessor::~persistProfessor()
+PersistProfessor::~PersistProfessor()
 {
 
 }
 
-QSqlQueryModel *persistProfessor::getEstados()
+QSqlQueryModel *PersistProfessor::getEstados()
 {
     QSqlQueryModel *modelEstados = new QSqlQueryModel();
     QSqlQuery query(db);
@@ -26,7 +24,7 @@ QSqlQueryModel *persistProfessor::getEstados()
     return modelEstados;
 }
 
-QSqlQueryModel *persistProfessor::getCidades(int &codEstado)
+QSqlQueryModel *PersistProfessor::getCidades(int &codEstado)
 {
     QSqlQueryModel *modelCidades = new QSqlQueryModel();
     QSqlQuery query(db);
@@ -44,7 +42,7 @@ QSqlQueryModel *persistProfessor::getCidades(int &codEstado)
     return modelCidades;
 }
 
-bool persistProfessor::analisaPessoa(QString &cpf){
+bool PersistProfessor::analisaPessoa(QString &cpf){
         bool result = true;
         QSqlQuery query(db);
         db.open();
@@ -62,7 +60,7 @@ bool persistProfessor::analisaPessoa(QString &cpf){
         return result;
 }
 
-int persistProfessor::getCodCidades(QString &nome, int &estado)
+int PersistProfessor::getCodCidades(QString &nome, int &estado)
 {
     int cod;
     QSqlQuery query(db);
@@ -81,3 +79,33 @@ int persistProfessor::getCodCidades(QString &nome, int &estado)
     return cod;
 }
 
+bool PersistProfessor::cadastraProfessor(Professor &Professor)
+{
+    bool result = true;
+    QSqlQuery query(db);
+    db.open();
+    query.prepare("INSERT INTO Pessoas(CPF, Nome, Endereco, Setor, FK_IDCidade, Telefone, Email) "
+                   "VALUES(:pCpf, :pNome, :pEndereco, :pSetor, :pCidade, :pTelefone, :pEmail); ");
+    query.bindValue(":pCpf", getCpf());
+    query.bindValue(":pNome", Professor.getNome());
+    query.bindValue(":pEndereco", Professor.getEndereco());
+    query.bindValue(":pSetor", Professor.getSetor());
+    query.bindValue(":pCidade", Professor.getCidade());
+    query.bindValue(":pTelefone", Professor.getTelefone());
+    query.bindValue(":pEmail", Professor.getEmail());
+    if(!query.exec()) {
+        qDebug() << "persistProfessor().CadastraProfessor()\n\tdb: " << db.lastError() << "\n\tquery: " << query.lastError();
+        result = false;
+    }
+    query.prepare("INSERT INTO Professores(FK_CPF, Graduacao, Titulacao) "
+                   "VALUES(:profCPF, :profGraduacao, :profTitulacao);");
+    query.bindValue(":profCPF", Professor.getCpf());
+    query.bindValue(":profGraduacao", Professor.getGraduacao());
+    query.bindValue(":profTitulacao", Professor.getTitulacao());
+    if(!query.exec()) {
+        qDebug() << "persistProfessor().CadastraProfessor()\n\tdb: " << db.lastError() << "\n\tquery: " << query.lastError();
+        result = false;
+    }
+    db.close();
+    return result;
+}

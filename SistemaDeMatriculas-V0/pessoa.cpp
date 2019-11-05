@@ -29,8 +29,6 @@ int Pessoa::getCodCidades(QString nome, int estado)
     return Sqlite.getCodCidades(nome, estado);
 }
 
-
-
 bool Pessoa::validCpf(QString cpf)
 {
     if (cpf.length() < 14)

@@ -22,7 +22,7 @@ class cadastro_professor : public QWidget
 public:
     explicit cadastro_professor(QWidget *parent = nullptr);
     ~cadastro_professor();
-    bool check_inserted_text_name(QString text);
+    bool check_inserted_text_name(QString text);    //Checa se o nome é válido
     bool check_inserted_text_commun(QString text); //Checa se o endereço, setor, graduação ou email é valido
     bool check_inserted_text_phone(QString text);  //Checa se o telefone é válido
     void hideall();  //Oculta todos os campos
@@ -48,11 +48,13 @@ private slots:
 
     void on_campo_graduacao_returnPressed();
 
-    void on_selecao_titulacao_currentTextChanged(const QString &arg1);
+    void on_selecao_titulacao_currentTextChanged();
 
     void on_campo_celular_returnPressed();
 
     void on_campo_email_returnPressed();
+
+    void on_btn_cadastrar_clicked();
 
 private:
     Ui::cadastro_professor *ui;

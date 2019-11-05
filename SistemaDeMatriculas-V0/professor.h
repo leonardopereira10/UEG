@@ -1,13 +1,15 @@
 #ifndef PROFESSOR_H
 #define PROFESSOR_H
 #include "pessoa.h"
+#include "persistprofessor.h"
 
 
-class Professor : public Pessoa
+class Professor : protected Pessoa
 {
 public:
     Professor();
     virtual ~Professor();
+
 private:
     QString graduacao, titulacao;
 };
