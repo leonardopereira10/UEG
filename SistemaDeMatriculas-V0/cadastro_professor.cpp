@@ -33,6 +33,7 @@ void cadastro_professor::hideall()
     ui->nome->hide();
     ui->data_de_nascimento->hide();
     ui->selecao_data_de_nascimento->hide();
+    ui->selecao_data_de_nascimento->setDate(QDate::currentDate());
     ui->endereco->hide();
     ui->setor->hide();
     ui->uf->hide();
@@ -59,7 +60,6 @@ void cadastro_professor::showall()
     ui->nome->show();
     ui->data_de_nascimento->show();
     ui->selecao_data_de_nascimento->show();
-    ui->selecao_data_de_nascimento->setDate();
     ui->endereco->show();
     ui->setor->show();
     ui->uf->show();
@@ -81,20 +81,17 @@ void cadastro_professor::showall()
 
 }
 
-void cadastro_professor::fillBoxEstados()
-{
-        QSqlQueryModel *modelEstados = new QSqlQueryModel();
-        QSqlQuery *query = new QSqlQuery();
-        query->clear();
-        query->prepare("SELECT Sigla FROM Estados");
-
-        if(!query->exec())
-            qDebug() << "fillBoxEstados()" ;
-        else {
-            modelEstados->setQuery(*query);
-            ui->selecao_estado->setModel(modelEstados);
-        }
+void cadastro_professor::clear_all(){
+    ui->campo_nome->clear();
+    ui->campo_endereco->clear();
+    ui->campo_setor->clear();
+    ui->selecao_estado->setCurrentIndex(0);
+    ui->selecao_cidade->setCurrentIndex(0);
+    ui->campo_graduacao->clear();
+    ui->campo_celular->clear();
+    ui->campo_email->clear();
 }
+
 
 cadastro_professor::cadastro_professor(QWidget *parent) :
     QWidget(parent),
@@ -104,7 +101,11 @@ cadastro_professor::cadastro_professor(QWidget *parent) :
     ui->setupUi(this);
     QPixmap logo_professor (":/imagens/Professores.png");
     ui->logo_professor->setPixmap(logo_professor.scaled(111,109, Qt::KeepAspectRatio));
+    clear_all();
     hideall();
+    ui->selecao_estado->setModel(persistProfessor().getEstados());
+    ui->selecao_cidade->setModel(Pessoa::getCidades(ui->selecao_estado->currentIndex()));
+
 }
 
 cadastro_professor::~cadastro_professor()
@@ -127,12 +128,20 @@ void cadastro_professor::on_inserir_clicked()
             ui->campo_cpf->selectAll();
     }
     else{
+        if(Pessoa::analisaPessoa(ui->campo_cpf->text())){
             ui->aviso_cpf->show();
             ui->aviso_cpf->setText("CPF Válido!");
             ui->aviso_cpf->setStyleSheet("color: green;");
             ui->campo_cpf->setReadOnly(true);
             showall();
             ui->campo_nome->setFocus();
+        }
+        else{
+            QMessageBox::warning(this, "Atenção", "Já existe um Professor cadastrado com esse CPF.");
+            clear_all();
+            ui->campo_cpf->setFocus();
+            ui->campo_cpf->selectAll();
+        }
       }
 }
 
@@ -142,7 +151,7 @@ void cadastro_professor::on_campo_nome_returnPressed()
     ui->selecao_data_de_nascimento->setFocus();
 }
 
-void cadastro_professor::on_selecao_data_de_nascimento_userDateChanged(const QDate &date)
+void cadastro_professor::on_selecao_data_de_nascimento_editingFinished()
 {
     ui->campo_endereco->setFocus();
 }
@@ -157,14 +166,15 @@ void cadastro_professor::on_campo_setor_returnPressed()
     ui->selecao_estado->setFocus();
 }
 
-void cadastro_professor::on_selecao_estado_activated(const QString &arg1)
+void cadastro_professor::on_selecao_estado_currentIndexChanged()
 {
-    fillBoxEstados();
+    ui->selecao_cidade->setFocus();
+    ui->selecao_cidade->setModel(Pessoa::getCidades(ui->selecao_estado->currentIndex()));
 }
 
-void cadastro_professor::on_selecao_cidade_activated(const QString &arg1)
+void cadastro_professor::on_selecao_cidade_currentIndexChanged()
 {
-
+    ui->campo_graduacao->setFocus();
 }
 
 void cadastro_professor::on_campo_graduacao_returnPressed()
@@ -186,5 +196,6 @@ void cadastro_professor::on_campo_email_returnPressed()
 {
     ui->btn_cadastrar->clicked();
 }
+
 
 

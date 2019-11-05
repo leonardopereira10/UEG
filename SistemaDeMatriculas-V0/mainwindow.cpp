@@ -19,13 +19,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     janelaInicial->setupUi(this);
 	this->showMaximized();
-    banco_de_dados.setDatabaseName("D:/BD/Projeto.db");
-    if(!banco_de_dados.open())
-        QMessageBox::critical(this, "Banco de Dados", "Conexão com o banco de dados não realizada.");
-    else{
-        QMessageBox::about(this, "Banco de Dados", "Conexão com o banco de dados realizada.");
-    }
-
 }
 
 MainWindow::~MainWindow()

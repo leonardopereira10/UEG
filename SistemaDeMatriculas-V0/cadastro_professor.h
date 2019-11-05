@@ -2,14 +2,13 @@
 #define CADASTRO_PROFESSOR_H
 
 #include <QWidget>
-#include <professor.h>
 #include <QPixmap>
-#include <QSqlQuery>
-#include <QSqlQueryModel>
-#include <QSqlDatabase>
-#include <QSqlError>
 #include <QtDebug>
 #include <QMessageBox>
+
+#include "professor.h"
+#include "pessoa.h"
+#include "persistprofessor.h"
 
 
 namespace Ui {
@@ -24,15 +23,12 @@ public:
     explicit cadastro_professor(QWidget *parent = nullptr);
     ~cadastro_professor();
     bool check_inserted_text_name(QString text);
-    bool check_inserted_text_Bday(QString text);
-    bool check_inserted_text_commun(QString text);
-    bool check_inserted_text_phone(QString text);
-    void hideall();
-    void showall();
-    void fillBoxEstados();
-
+    bool check_inserted_text_commun(QString text); //Checa se o endereço, setor, graduação ou email é valido
+    bool check_inserted_text_phone(QString text);  //Checa se o telefone é válido
+    void hideall();  //Oculta todos os campos
+    void showall();  //Exibe todos os campos
+    void clear_all();  //Limpa todos os campos
 private slots:
-
 
     void on_campo_cpf_returnPressed();
 
@@ -40,15 +36,15 @@ private slots:
 
     void on_campo_nome_returnPressed();
 
-    void on_selecao_data_de_nascimento_userDateChanged(const QDate &date);
+    void on_selecao_data_de_nascimento_editingFinished();
 
     void on_campo_endereco_returnPressed();
 
     void on_campo_setor_returnPressed();
 
-    void on_selecao_estado_currentTextChanged(const QString &arg1);
+    void on_selecao_estado_currentIndexChanged();
 
-    void on_selecao_cidade_currentTextChanged(const QString &arg1);
+    void on_selecao_cidade_currentIndexChanged();
 
     void on_campo_graduacao_returnPressed();
 
@@ -57,10 +53,6 @@ private slots:
     void on_campo_celular_returnPressed();
 
     void on_campo_email_returnPressed();
-
-    void on_selecao_estado_activated(const QString &arg1);
-
-    void on_selecao_cidade_activated(const QString &arg1);
 
 private:
     Ui::cadastro_professor *ui;
