@@ -148,6 +148,7 @@ void cadastro_professor::on_inserir_clicked()
 
 void cadastro_professor::on_campo_nome_returnPressed()
 {
+    ui->campo_nome->setInputMask("<");
     ui->selecao_data_de_nascimento->setFocus();
 }
 
@@ -200,6 +201,9 @@ void cadastro_professor::on_campo_email_returnPressed()
 //Cadastro no banco
 void cadastro_professor::on_btn_cadastrar_clicked()
 {
+    if(check_inserted_text_name(ui->campo_nome->text()) && check_inserted_text_commun(ui->campo_endereco->text()) &&
+            check_inserted_text_commun(ui->campo_setor->text()) && check_inserted_text_commun(ui->campo_graduacao->text()) &&
+             check_inserted_text_commun(ui->campo_email->text())){
     Professor Professor(ui->campo_cpf->text(), ui->campo_nome->text(), ui->selecao_data_de_nascimento->date(),
                         ui->campo_endereco->text(), ui->campo_setor->text(), Pessoa::getCodCidades(ui->selecao_cidade->currentText(), ui->selecao_estado->currentIndex()),
                         ui->selecao_estado->currentIndex(), ui->campo_graduacao->text(), ui->selecao_titulacao->currentText(),
@@ -210,9 +214,11 @@ void cadastro_professor::on_btn_cadastrar_clicked()
                     QMessageBox::warning(this, "Erro ao cadastrar", "Houve um erro ao cadastrar no banco de dados");
                 }
                 else {
-                    QMessageBox::information(this, "Cadastro realizado", "Aluno cadastrado com sucesso!");
+                    QMessageBox::information(this, "Cadastro realizado", "Professor cadastrado com sucesso!");
                 }
+                hideall();
                 ui->campo_cpf->setFocus();
                 ui->campo_cpf->selectAll();
             }
+}
 

@@ -44,5 +44,4 @@ void MainWindow::on_actionCadastrarProf_triggered()
 void MainWindow::on_actionConsultarProf_triggered()
 {
     loadSubWindow(new Consulta_professor(this));
-
 }

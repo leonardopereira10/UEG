@@ -1,12 +1,12 @@
 #include "PersistProfessor.h"
-#include "PersistProfessor.h"
 #include "professor.h"
 
 
 PersistProfessor::PersistProfessor()
 {    
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("D:/BD/Projeto.db");
+    db.setDatabaseName("C:/Users/debor/Desktop/UEG/Projeto.db");
+
 }
 
 PersistProfessor::~PersistProfessor()
@@ -87,10 +87,11 @@ bool PersistProfessor::cadastraProfessor(Professor &professor)
     bool result = true;
     QSqlQuery query(db);
     db.open();
-    query.prepare("INSERT INTO Pessoas(CPF, Nome, Endereco, Setor, FK_IDCidade, Telefone, Email) "
-                   "VALUES(:pCpf, :pNome, :pEndereco, :pSetor, :pCidade, :pTelefone, :pEmail); ");
+    query.prepare("INSERT INTO Pessoas(CPF, Nome, Data_Nascimento, Endereco, Setor, FK_IDCidade, Telefone, Email) "
+                   "VALUES(:pCpf, :pNome, :pDtNascimento, :pEndereco, :pSetor, :pCidade, :pTelefone, :pEmail); ");
     query.bindValue(":pCpf", professor.getCpf());
     query.bindValue(":pNome", professor.getNome());
+    query.bindValue(":pDtNascimento", professor.getDtNascimento());
     query.bindValue(":pEndereco", professor.getEndereco());
     query.bindValue(":pSetor", professor.getSetor());
     query.bindValue(":pCidade", professor.getCidade());
@@ -111,4 +112,37 @@ bool PersistProfessor::cadastraProfessor(Professor &professor)
     }
     db.close();
     return result;
+}
+QSqlQueryModel *PersistProfessor::consultaProfessor(QString CPF)
+{
+    QSqlQueryModel *model = new QSqlQueryModel();
+    QSqlQuery query(db);
+    db.open();
+    query.prepare("SELECT Pessoas.CPF, Pessoas.Nome, Pessoas.Data_Nascimento, Pessoas.Endereco, Pessoas.Setor, Cidades.Cidade, Estados.Estado, Pessoas.Telefone, Pessoas.Email, Professores.Graduacao, Professores.Titulacao "
+                  "FROM Pessoas, Professores, Estados, Cidades "
+                  "WHERE Professores.FK_CPF=:cpf AND Pessoas.FK_IDCidade=Cidades.IDCidade AND Cidades.FK_IDEstado=Estados.IDEstado "
+                  "ORDER BY Pessoas.Nome ASC");
+    query.bindValue(":cpf", CPF);
+    if(!query.exec())
+        qDebug() << "PersistProfessor::consultaProfessor()\n\tdb: " << db.lastError() << "\n\tquery: " << query.lastError();
+    model->setQuery(query);
+    db.close();
+    return model;
+}
+
+QSqlQueryModel *PersistProfessor::consultaProfessorNome(QString nome)
+{
+    QSqlQueryModel *model = new QSqlQueryModel();
+    QSqlQuery query(db);
+    db.open();
+    query.prepare("SELECT Pessoas.CPF, Pessoas.Nome, Pessoas.Endereco, Pessoas.Setor, Cidades.Cidade, Estados.Estado, Pessoas.Telefone, Pessoas.Email, Professores.Graduacao, Professores.Titulacao "
+                  "FROM Pessoas, Professores, Estados, Cidades "
+                  "WHERE Pessoas.nome like '%:nome%' AND Professores.FK_CPF=Pessoas.CPF AND Pessoas.FK_IDCidade=Cidades.IDCidade AND Cidades.FK_IDEstado=Estados.IDEstado "
+                  "ORDER BY Pessoas.Nome ASC");
+    query.bindValue(":nome", nome);
+    if(!query.exec())
+        qDebug() << "PersistProfessor::consultaProfessorNome()\n\tdb: " << db.lastError() << "\n\tquery: " << query.lastError();
+    model->setQuery(query);
+    db.close();
+    return model;
 }

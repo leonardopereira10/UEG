@@ -1,5 +1,5 @@
 #include "professor.h"
-#include "persistprofessor.h"
+#include "PersistProfessor.h"
 
 Professor::Professor(QString CPF, QString Nome, QDate DtNascimento, QString Endereco,
                      QString Setor, int Cidade, int Estado, QString Graduacao, QString Titulacao,
@@ -26,47 +26,47 @@ Professor::~Professor()
 
 QString Professor::getCpf() const
 {
-    return Pessoa::getCpf();
+    return Pessoa::cpf;
 }
 
 QString Professor::getNome() const
 {
-    return Pessoa::getNome();
+    return Pessoa::nome;
 }
 
 QDate Professor::getDtNascimento() const
 {
-    return Pessoa::getDtNascimento();
+    return Pessoa::dtNascimento;
 }
 
 QString Professor::getEndereco() const
 {
-    return  Pessoa::getEndereco();
+    return  Pessoa::endereco;
 }
 
 QString Professor::getSetor() const
 {
-    return Pessoa::getSetor();
+    return Pessoa::setor;
 }
 
 int Professor::getCidade() const
 {
-    return Pessoa::getCidade();
+    return Pessoa::cidade;
 }
 
 int Professor::getEstado() const
 {
-    return Pessoa::getEstado();
+    return Pessoa::estado;
 }
 
 QString Professor::getTelefone() const
 {
-    return Pessoa::getTelefone();
+    return Pessoa::telefone;
 }
 
 QString Professor::getEmail() const
 {
-    return Pessoa::getEmail();
+    return Pessoa::email;
 }
 
 QString Professor::getGraduacao() const
@@ -79,10 +79,18 @@ QString Professor::getTitulacao() const
     return titulacao;
 }
 
-bool Professor::cadastraProfessor(Professor professor)
+bool Professor::cadastraProfessor(Professor &professor)
 {
     PersistProfessor sqlite;
     return sqlite.cadastraProfessor(professor);
+}
+QSqlQueryModel *Professor::consultaProfessor(QString CPF){
+    PersistProfessor sqlite;
+    return sqlite.consultaProfessor(CPF);
+}
+QSqlQueryModel *Professor::consultaProfessorNome(QString nome_prof){
+    PersistProfessor sqlite;
+    return sqlite.consultaProfessor(nome_prof);
 }
 
 

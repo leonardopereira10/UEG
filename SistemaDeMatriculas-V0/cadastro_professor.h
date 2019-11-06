@@ -9,7 +9,6 @@
 #include "pessoa.h"
 #include "PersistProfessor.h"
 
-
 namespace Ui {
 class cadastro_professor;
 }

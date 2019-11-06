@@ -1,6 +1,5 @@
 #ifndef PERSISTPROFESSOR_H
 #define PERSISTPROFESSOR_H
-#include <mainwindow.h>
 #include <QSqlDatabase>
 #include <QtSql>
 #include <QMessageBox>
@@ -22,6 +21,8 @@ public:
 
     bool analisaPessoa(QString &cpf);
     bool cadastraProfessor(Professor &professor);
+    QSqlQueryModel *consultaProfessor(QString CPF);
+    QSqlQueryModel *consultaProfessorNome(QString nome);
 private:
 
     QSqlDatabase db;

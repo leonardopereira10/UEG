@@ -44,4 +44,6 @@ protected:
     QString email;
 };
 
+
+
 #endif // PESSOA.H

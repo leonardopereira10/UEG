@@ -13,38 +13,38 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QRadioButton" name="radioButton">
+  <widget class="QRadioButton" name="radio_cpf">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>10</y>
-     <width>42</width>
-     <height>17</height>
+     <width>49</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
     <string>CPF</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radioButton_2">
+  <widget class="QRadioButton" name="radio_nome">
    <property name="geometry">
     <rect>
      <x>120</x>
      <y>10</y>
-     <width>50</width>
-     <height>17</height>
+     <width>60</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
     <string>Nome</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="variavel">
    <property name="geometry">
     <rect>
      <x>21</x>
      <y>51</y>
-     <width>47</width>
+     <width>55</width>
      <height>16</height>
     </rect>
    </property>
@@ -52,14 +52,20 @@
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="campo_busca">
    <property name="geometry">
     <rect>
-     <x>78</x>
+     <x>89</x>
      <y>51</y>
      <width>310</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>310</width>
+     <height>16777215</height>
+    </size>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
