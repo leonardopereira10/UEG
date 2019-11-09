@@ -18,8 +18,6 @@ public:
     ~Consulta_professor();
 
 private slots:
-    void on_radioButton_clicked();
-
     void on_radio_cpf_clicked();
 
     void on_radio_nome_clicked();

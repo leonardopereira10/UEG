@@ -1,13 +1,12 @@
 #include "professor.h"
 #include "PersistProfessor.h"
 
-Professor::Professor(QString CPF, QString Nome, QDate DtNascimento, QString Endereco,
+Professor::Professor(QString CPF, QString Nome, QString Endereco,
                      QString Setor, int Cidade, int Estado, QString Graduacao, QString Titulacao,
                      QString Telefone, QString Email)
 {
     this->cpf = CPF;
     this->nome = Nome;
-    this->dtNascimento = DtNascimento;
     this->endereco = Endereco;
     this->setor = Setor;
     this->cidade = Cidade;
@@ -32,11 +31,6 @@ QString Professor::getCpf() const
 QString Professor::getNome() const
 {
     return Pessoa::nome;
-}
-
-QDate Professor::getDtNascimento() const
-{
-    return Pessoa::dtNascimento;
 }
 
 QString Professor::getEndereco() const

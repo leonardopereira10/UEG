@@ -7,12 +7,11 @@
 class Professor : protected Pessoa
 {
 public:
-    Professor(QString CPF, QString Nome, QDate DtNascimento, QString Endereco, QString Setor, int Cidade, int Estado, QString Graduacao, QString Titulacao, QString Telefone, QString Email);
+    Professor(QString CPF, QString Nome, QString Endereco, QString Setor, int Cidade, int Estado, QString Graduacao, QString Titulacao, QString Telefone, QString Email);
     ~Professor();
 
     virtual QString getCpf() const ;
     virtual QString getNome() const;
-    virtual QDate getDtNascimento() const;
     virtual QString getEndereco() const;
     virtual QString getSetor() const;
     virtual int getCidade() const;

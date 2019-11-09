@@ -10,7 +10,7 @@ Consulta_professor::Consulta_professor(QWidget *parent) :
     ui->radio_cpf->setChecked(true);
     ui->variavel->setText("CPF:");
     ui->campo_busca->setInputMask("###.###.###-##");
-    ui->campo_busca->setMinimumWidth(110);
+    ui->campo_busca->setMaximumWidth(110);
     ui->campo_busca->setFocus();
 }
 

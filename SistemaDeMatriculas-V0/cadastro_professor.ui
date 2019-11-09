@@ -105,7 +105,157 @@
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_3">
-    <item row="6" column="0">
+    <item row="1" column="0" colspan="4">
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="campo_endereco">
+        <property name="maximumSize">
+         <size>
+          <width>450</width>
+          <height>21</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" alignment="Qt::AlignLeft">
+       <widget class="QLabel" name="endereco">
+        <property name="maximumSize">
+         <size>
+          <width>60</width>
+          <height>21</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Endereço:</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="0" colspan="4">
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QLabel" name="nome">
+        <property name="text">
+         <string>Nome:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="campo_nome">
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>21</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="8" column="0" colspan="4">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="celular">
+        <property name="text">
+         <string>Celular:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="campo_celular">
+        <property name="inputMask">
+         <string>(##)#####-####</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>338</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="5" column="3">
+     <widget class="QComboBox" name="selecao_titulacao">
+      <item>
+       <property name="text">
+        <string>Bacharelado</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Licenciatura</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Especialização</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Mestrado</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Doutorado</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Pós-Doutorado</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLineEdit" name="campo_graduacao">
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>21</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <layout class="QHBoxLayout" name="horizontalLayout_8">
+      <item>
+       <widget class="QLabel" name="cidade">
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>26</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Cidade:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="selecao_cidade">
+        <property name="maximumSize">
+         <size>
+          <width>350</width>
+          <height>32</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="5" column="0">
      <widget class="QLabel" name="graduacao">
       <property name="maximumSize">
        <size>
@@ -118,7 +268,34 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="0">
+    <item row="2" column="0" colspan="4">
+     <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <item>
+       <widget class="QLabel" name="setor">
+        <property name="text">
+         <string>Setor:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="campo_setor"/>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_7">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>308</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="3" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout_7">
       <property name="sizeConstraint">
        <enum>QLayout::SetNoConstraint</enum>
@@ -164,113 +341,7 @@
       </item>
      </layout>
     </item>
-    <item row="2" column="0" colspan="4">
-     <layout class="QGridLayout" name="gridLayout_2">
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="campo_endereco">
-        <property name="maximumSize">
-         <size>
-          <width>450</width>
-          <height>21</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0" alignment="Qt::AlignLeft">
-       <widget class="QLabel" name="endereco">
-        <property name="maximumSize">
-         <size>
-          <width>60</width>
-          <height>21</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Endereço:</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="3" column="0" colspan="4">
-     <layout class="QHBoxLayout" name="horizontalLayout_6">
-      <item>
-       <widget class="QLabel" name="setor">
-        <property name="text">
-         <string>Setor:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="campo_setor"/>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_7">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>308</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </item>
-    <item row="0" column="0" colspan="4">
-     <layout class="QHBoxLayout" name="horizontalLayout_4">
-      <item>
-       <widget class="QLabel" name="nome">
-        <property name="text">
-         <string>Nome:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="campo_nome">
-        <property name="maximumSize">
-         <size>
-          <width>500</width>
-          <height>21</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="9" column="0" colspan="4">
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
-      <item>
-       <widget class="QLabel" name="celular">
-        <property name="text">
-         <string>Celular:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="campo_celular">
-        <property name="inputMask">
-         <string>(##)#####-####</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_5">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>338</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </item>
-    <item row="6" column="2">
+    <item row="5" column="2">
      <widget class="QLabel" name="titulacao">
       <property name="maximumSize">
        <size>
@@ -283,75 +354,7 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="0" colspan="4">
-     <layout class="QHBoxLayout" name="horizontalLayout_5">
-      <item>
-       <widget class="QLabel" name="data_de_nascimento">
-        <property name="text">
-         <string>Data de Nascimento:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QDateEdit" name="selecao_data_de_nascimento">
-        <property name="wrapping">
-         <bool>false</bool>
-        </property>
-        <property name="calendarPopup">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </item>
-    <item row="6" column="3">
-     <widget class="QComboBox" name="selecao_titulacao">
-      <item>
-       <property name="text">
-        <string>Bacharelado</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Licenciatura</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Especialização</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Mestrado</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Doutorado</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Pós-Doutorado</string>
-       </property>
-      </item>
-     </widget>
-    </item>
-    <item row="10" column="0" colspan="4">
+    <item row="9" column="0" colspan="4">
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
        <widget class="QLabel" name="email">
@@ -375,43 +378,6 @@
          </size>
         </property>
        </spacer>
-      </item>
-     </layout>
-    </item>
-    <item row="6" column="1">
-     <widget class="QLineEdit" name="campo_graduacao">
-      <property name="maximumSize">
-       <size>
-        <width>200</width>
-        <height>21</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
-     <layout class="QHBoxLayout" name="horizontalLayout_8">
-      <item>
-       <widget class="QLabel" name="cidade">
-        <property name="maximumSize">
-         <size>
-          <width>50</width>
-          <height>26</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Cidade:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="selecao_cidade">
-        <property name="maximumSize">
-         <size>
-          <width>350</width>
-          <height>32</height>
-         </size>
-        </property>
-       </widget>
       </item>
      </layout>
     </item>
@@ -483,7 +449,6 @@
   <tabstop>campo_cpf</tabstop>
   <tabstop>inserir</tabstop>
   <tabstop>campo_nome</tabstop>
-  <tabstop>selecao_data_de_nascimento</tabstop>
   <tabstop>campo_endereco</tabstop>
   <tabstop>campo_setor</tabstop>
   <tabstop>selecao_estado</tabstop>

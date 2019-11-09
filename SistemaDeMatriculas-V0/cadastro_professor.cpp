@@ -31,9 +31,6 @@ void cadastro_professor::hideall()
     ui->aviso_cpf->hide();
     ui->campo_cpf->setFocus();
     ui->nome->hide();
-    ui->data_de_nascimento->hide();
-    ui->selecao_data_de_nascimento->hide();
-    ui->selecao_data_de_nascimento->setDate(QDate::currentDate());
     ui->endereco->hide();
     ui->setor->hide();
     ui->uf->hide();
@@ -58,8 +55,6 @@ void cadastro_professor::hideall()
 void cadastro_professor::showall()
 {
     ui->nome->show();
-    ui->data_de_nascimento->show();
-    ui->selecao_data_de_nascimento->show();
     ui->endereco->show();
     ui->setor->show();
     ui->uf->show();
@@ -103,6 +98,7 @@ cadastro_professor::cadastro_professor(QWidget *parent) :
     ui->logo_professor->setPixmap(logo_professor.scaled(111,109, Qt::KeepAspectRatio));
     clear_all();
     hideall();
+
     ui->selecao_estado->setModel(PersistProfessor().getEstados());
     ui->selecao_cidade->setModel(Pessoa::getCidades(ui->selecao_estado->currentIndex()));
 
@@ -134,6 +130,12 @@ void cadastro_professor::on_inserir_clicked()
             ui->aviso_cpf->setStyleSheet("color: green;");
             ui->campo_cpf->setReadOnly(true);
             showall();
+            ui->campo_nome->setPlaceholderText("Insira seu nome");
+            ui->campo_endereco->setPlaceholderText("Insira seu endereço");
+            ui->campo_setor->setPlaceholderText("Insira seu setor");
+            ui->campo_graduacao->setPlaceholderText("Insira sua graduação");
+            ui->campo_email->setPlaceholderText("Insira seu email");
+
             ui->campo_nome->setFocus();
         }
         else{
@@ -147,12 +149,6 @@ void cadastro_professor::on_inserir_clicked()
 
 
 void cadastro_professor::on_campo_nome_returnPressed()
-{
-    ui->campo_nome->setInputMask("<");
-    ui->selecao_data_de_nascimento->setFocus();
-}
-
-void cadastro_professor::on_selecao_data_de_nascimento_editingFinished()
 {
     ui->campo_endereco->setFocus();
 }
@@ -203,8 +199,9 @@ void cadastro_professor::on_btn_cadastrar_clicked()
 {
     if(check_inserted_text_name(ui->campo_nome->text()) && check_inserted_text_commun(ui->campo_endereco->text()) &&
             check_inserted_text_commun(ui->campo_setor->text()) && check_inserted_text_commun(ui->campo_graduacao->text()) &&
-             check_inserted_text_commun(ui->campo_email->text())){
-    Professor Professor(ui->campo_cpf->text(), ui->campo_nome->text(), ui->selecao_data_de_nascimento->date(),
+             check_inserted_text_phone(ui->campo_celular->text()) && check_inserted_text_commun(ui->campo_email->text())){
+
+    Professor Professor(ui->campo_cpf->text(), ui->campo_nome->text(),
                         ui->campo_endereco->text(), ui->campo_setor->text(), Pessoa::getCodCidades(ui->selecao_cidade->currentText(), ui->selecao_estado->currentIndex()),
                         ui->selecao_estado->currentIndex(), ui->campo_graduacao->text(), ui->selecao_titulacao->currentText(),
                         ui->campo_celular->text(), ui->campo_email->text());
@@ -220,5 +217,8 @@ void cadastro_professor::on_btn_cadastrar_clicked()
                 ui->campo_cpf->setFocus();
                 ui->campo_cpf->selectAll();
             }
+    else{
+        QMessageBox::critical(this, "ERRO", " Eistem campos preenchidos incorretamente! Verifique-os");
+    }
 }
 

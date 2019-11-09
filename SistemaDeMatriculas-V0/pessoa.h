@@ -25,7 +25,6 @@ protected:
 
     virtual QString getCpf() const = 0;
     virtual QString getNome() const = 0;
-    virtual QDate getDtNascimento() const = 0;
     virtual QString getEndereco() const = 0;
     virtual QString getSetor() const = 0;
     virtual int getCidade() const = 0;
@@ -35,7 +34,6 @@ protected:
 
     QString cpf;
     QString nome;
-    QDate dtNascimento;
     QString endereco;
     QString setor;
     int cidade;

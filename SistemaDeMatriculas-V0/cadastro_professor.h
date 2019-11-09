@@ -34,8 +34,6 @@ private slots:
 
     void on_campo_nome_returnPressed();
 
-    void on_selecao_data_de_nascimento_editingFinished();
-
     void on_campo_endereco_returnPressed();
 
     void on_campo_setor_returnPressed();
