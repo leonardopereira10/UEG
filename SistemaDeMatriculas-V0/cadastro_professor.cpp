@@ -219,7 +219,7 @@ void cadastro_professor::on_btn_cadastrar_clicked()
                 ui->campo_cpf->setReadOnly(false);
             }
     else{
-        QMessageBox::critical(this, "ERRO", " Eistem campos preenchidos incorretamente! Verifique-os");
+        QMessageBox::critical(this, "ERRO", " Existem campos preenchidos incorretamente! Verifique-os");
     }
 }
 

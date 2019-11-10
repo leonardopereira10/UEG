@@ -53,3 +53,12 @@ void remove_professor::on_pushButton_clicked()
     }
 
 }
+
+void remove_professor::on_tableView_doubleClicked(const QModelIndex &index)
+{
+    QMessageBox confirmacao;
+            confirmacao.warning(this, "Confirmação", "Deseja realmente remover o professor selecionado?", QMessageBox::Yes, QMessageBox::No);
+    if(confirmacao.exec() == confirmacao.Yes){
+        ui->tableView->setRootIndex(index);
+    }
+}
