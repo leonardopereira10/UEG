@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "professor.h"
+#include "mainwindow.h"
 
 
 namespace Ui {
@@ -16,6 +17,7 @@ class remove_professor : public QWidget
 public:
     explicit remove_professor(QWidget *parent = nullptr);
     ~remove_professor();
+
 
 private slots:
     void on_radio_cpf_clicked();
