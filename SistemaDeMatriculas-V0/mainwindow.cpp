@@ -45,3 +45,9 @@ void MainWindow::on_actionConsultarProf_triggered()
 {
     loadSubWindow(new Consulta_professor(this));
 }
+
+void MainWindow::on_actionRemoverProf_triggered()
+{
+    loadSubWindow(new remove_professor(this));
+
+}

@@ -25,6 +25,8 @@ private slots:
 
     void on_radio_nome_clicked();
 
+    void on_campo_busca_returnPressed();
+
 private:
     Ui::Consulta_professor *ui;
 };

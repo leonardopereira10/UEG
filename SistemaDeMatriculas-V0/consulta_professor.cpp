@@ -7,6 +7,8 @@ Consulta_professor::Consulta_professor(QWidget *parent) :
 {
     ui->setupUi(this);
     this->showMaximized();
+    ui->radio_cpf->setChecked(true);
+    ui->radio_cpf->clicked();
 }
 
 Consulta_professor::~Consulta_professor()
@@ -34,13 +36,20 @@ void Consulta_professor::on_radio_nome_clicked()
 void Consulta_professor::on_pushButton_clicked()
 {
     if(ui->radio_cpf->isChecked()){
-        ui->tableView->setModel(Professor::consultaProfessor(ui->campo_busca->text()));
+        Professor professor(ui->campo_busca->text(), "NULL");
+        ui->tableView->setModel(Professor::consultaProfessor(professor));
         ui->campo_busca->setFocus();
         ui->campo_busca->selectAll();
     }
     if(ui->radio_nome->isChecked()){
-        ui->tableView->setModel(Professor::consultaProfessorNome(ui->campo_busca->text()));
+        Professor professor("NULL", ui->campo_busca->text());
+        ui->tableView->setModel(Professor::consultaProfessorNome(professor));
         ui->campo_busca->setFocus();
         ui->campo_busca->selectAll();
     }
+}
+
+void Consulta_professor::on_campo_busca_returnPressed()
+{
+    ui->pushButton->clicked();
 }

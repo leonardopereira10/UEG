@@ -112,15 +112,14 @@ bool PersistProfessor::cadastraProfessor(Professor &professor)
     db.close();
     return result;
 }
-QSqlQueryModel *PersistProfessor::consultaProfessor(QString CPF)
+QSqlQueryModel *PersistProfessor::consultaProfessor(Professor &professor)
 {
     QSqlQueryModel *model = new QSqlQueryModel();
     QSqlQuery query(db);
     db.open();
-    query.prepare("SSELECT Pessoas.CPF, Pessoas.Nome, Pessoas.Endereco, Pessoas.Setor, Cidades.Cidade, Estados.Estado, Pessoas.Telefone, Pessoas.Email, Professores.Graduacao, Professores.Titulacao "
+    query.prepare("SELECT Pessoas.CPF, Pessoas.Nome, Pessoas.Endereco, Pessoas.Setor, Cidades.Cidade, Estados.Estado, Pessoas.Telefone, Pessoas.Email, Professores.Graduacao, Professores.Titulacao "
                   "FROM Pessoas, Professores, Cidades , Estados "
-                  "WHERE Pessoas.CPF = ':cpf' AND Professores.FK_CPF = Pessoas.CPF AND Pessoas.FK_IDCidade = Cidades.IDCidade AND Cidades.FK_IDEstado = Estados.IDEstado; ");
-    query.bindValue(":cpf", CPF);
+                  "WHERE Pessoas.CPF = '"+professor.getCpf()+"' AND Professores.FK_CPF = Pessoas.CPF AND Pessoas.FK_IDCidade = Cidades.IDCidade AND Cidades.FK_IDEstado = Estados.IDEstado;");
     if(!query.exec())
         qDebug() << "PersistProfessor::consultaProfessor()\n\tdb: " << db.lastError() << "\n\tquery: " << query.lastError();
     model->setQuery(query);
@@ -129,16 +128,15 @@ QSqlQueryModel *PersistProfessor::consultaProfessor(QString CPF)
 }
 
 
-QSqlQueryModel *PersistProfessor::consultaProfessorNome(QString nome)
+QSqlQueryModel *PersistProfessor::consultaProfessorNome(Professor &professor)
 {
     QSqlQueryModel *model = new QSqlQueryModel();
     QSqlQuery query(db);
     db.open();
     query.prepare("SELECT Pessoas.CPF, Pessoas.Nome, Pessoas.Endereco, Pessoas.Setor, Cidades.Cidade, Estados.Estado, Pessoas.Telefone, Pessoas.Email, Professores.Graduacao, Professores.Titulacao "
                   "FROM Pessoas, Professores, Estados, Cidades "
-                  "WHERE Professores.FK_CPF=Pessoas.CPF AND Pessoas.Nome LIKE '"+nome+"%' AND Pessoas.FK_IDCidade=Cidades.IDCidade AND Cidades.FK_IDEstado=Estados.IDEstado "
+                  "WHERE Professores.FK_CPF=Pessoas.CPF AND Pessoas.Nome LIKE '%"+professor.getNome()+"%' AND Pessoas.FK_IDCidade=Cidades.IDCidade AND Cidades.FK_IDEstado=Estados.IDEstado "
                   "ORDER BY Pessoas.Nome asc");
-    query.bindValue(":nome", nome);
     if(!query.exec())
         qDebug() << "PersistProfessor::consultaProfessorNome()\n\tdb: " << db.lastError() << "\n\tquery: " << query.lastError();
     model->setQuery(query);

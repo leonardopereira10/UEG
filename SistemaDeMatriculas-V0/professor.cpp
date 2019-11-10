@@ -18,6 +18,12 @@ Professor::Professor(QString CPF, QString Nome, QString Endereco,
 
 }
 
+Professor::Professor(QString CPF, QString Nome)
+{
+    this->cpf = CPF;
+    this->nome = Nome;
+}
+
 Professor::~Professor()
 {
 
@@ -78,13 +84,13 @@ bool Professor::cadastraProfessor(Professor &professor)
     PersistProfessor sqlite;
     return sqlite.cadastraProfessor(professor);
 }
-QSqlQueryModel *Professor::consultaProfessor(QString CPF){
+QSqlQueryModel *Professor::consultaProfessor(Professor &professor){
     PersistProfessor sqlite;
-    return sqlite.consultaProfessor(CPF);
+    return sqlite.consultaProfessor(professor);
 }
-QSqlQueryModel *Professor::consultaProfessorNome(QString nome_prof){
+QSqlQueryModel *Professor::consultaProfessorNome(Professor &professor){
     PersistProfessor sqlite;
-    return sqlite.consultaProfessor(nome_prof);
+    return sqlite.consultaProfessorNome(professor);
 }
 
 

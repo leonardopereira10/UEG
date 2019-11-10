@@ -21,8 +21,8 @@ public:
 
     bool analisaPessoa(QString &cpf);
     bool cadastraProfessor(Professor &professor);
-    QSqlQueryModel *consultaProfessor(QString CPF);
-    QSqlQueryModel *consultaProfessorNome(QString nome);
+    QSqlQueryModel *consultaProfessor(Professor &professor);
+    QSqlQueryModel *consultaProfessorNome(Professor &professor);
 private:
 
     QSqlDatabase db;
