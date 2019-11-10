@@ -29,7 +29,8 @@ SOURCES += \
 		consulta_professor.cpp \
 		mainwindow.cpp \
 		pessoa.cpp \
-		professor.cpp
+		professor.cpp \
+		remove_professor.cpp
 
 
 HEADERS	+= mainwindow.h \
@@ -37,11 +38,13 @@ HEADERS	+= mainwindow.h \
 		cadastro_professor.h \
 		consulta_professor.h \
 		pessoa.h \
-		professor.h
+		professor.h \
+		remove_professor.h
 
 FORMS += mainwindow.ui \
     cadastro_professor.ui \
-    consulta_professor.ui
+    consulta_professor.ui \
+    remove_professor.ui
 
 RESOURCES += \
     Imagens/imagens.qrc

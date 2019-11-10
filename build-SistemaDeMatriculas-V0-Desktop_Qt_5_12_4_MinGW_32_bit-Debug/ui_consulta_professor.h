@@ -48,7 +48,7 @@ public:
         campo_busca = new QLineEdit(Consulta_professor);
         campo_busca->setObjectName(QString::fromUtf8("campo_busca"));
         campo_busca->setGeometry(QRect(89, 51, 310, 20));
-        campo_busca->setMaximumSize(QSize(310, 16777215));
+        campo_busca->setMaximumSize(QSize(16777215, 16777215));
         pushButton = new QPushButton(Consulta_professor);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(410, 50, 75, 23));
@@ -63,7 +63,7 @@ public:
 
     void retranslateUi(QWidget *Consulta_professor)
     {
-        Consulta_professor->setWindowTitle(QApplication::translate("Consulta_professor", "Form", nullptr));
+        Consulta_professor->setWindowTitle(QApplication::translate("Consulta_professor", "Consulta", nullptr));
         radio_cpf->setText(QApplication::translate("Consulta_professor", "CPF", nullptr));
         radio_nome->setText(QApplication::translate("Consulta_professor", "Nome", nullptr));
         variavel->setText(QApplication::translate("Consulta_professor", "TextLabel", nullptr));

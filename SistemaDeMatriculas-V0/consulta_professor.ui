@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Consulta</string>
   </property>
   <widget class="QRadioButton" name="radio_cpf">
    <property name="geometry">
@@ -63,7 +63,7 @@
    </property>
    <property name="maximumSize">
     <size>
-     <width>310</width>
+     <width>16777215</width>
      <height>16777215</height>
     </size>
    </property>
