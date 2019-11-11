@@ -2,8 +2,6 @@
 #define LISTAALUNOS_H
 
 #include <QWidget>
-#include <QDebug>
-#include <QMessageBox>
 
 namespace Ui {
 class ListaAlunos;

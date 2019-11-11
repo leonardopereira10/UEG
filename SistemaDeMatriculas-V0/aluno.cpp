@@ -134,6 +134,12 @@ QSqlQueryModel *Aluno::consultaAlunoMatricula(Aluno alunoMatricula)
 	return Sqlite.consultaAlunoMatricula(alunoMatricula);
 }
 
+bool Aluno::removeAluno(int matricula)
+{
+	PersistAluno Sqlite;
+	return Sqlite.removeAluno(matricula);
+}
+
 
 
 

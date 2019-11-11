@@ -35,6 +35,8 @@ public:
 	static QSqlQueryModel *consultaAlunoNome(Aluno alunoNome);
 	static QSqlQueryModel *consultaAlunoMatricula(Aluno alunoMatricula);
 
+	static bool removeAluno(int matricula);
+
 private:
 	int matricula;
 	QDate ano;
