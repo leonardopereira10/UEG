@@ -110,7 +110,7 @@ bool PersistAluno::analisaPessoa(QString &cpf)
 
 bool PersistAluno::analisaAluno(int &matricula)
 {
-	bool result = true;
+	bool result = false;
 	QSqlQuery query(db);
 	db.open();
 	query.prepare("SELECT COUNT(Alunos.Matricula) "
@@ -120,8 +120,8 @@ bool PersistAluno::analisaAluno(int &matricula)
 	if(!query.exec())
 		qDebug() << "PersistAluno::analisaAluno()\n\tdb: " << db.lastError() << "\n\tquery: " << query.lastError();
 	query.first();
-	if(query.value(0).toInt() == 0)
-		result = false;
+	if(query.value(0).toInt() != 0)
+		result = true;
 	db.close();
 	return result;
 }
@@ -224,17 +224,20 @@ QSqlQueryModel *PersistAluno::consultaAlunoMatricula(Aluno &alunoMatricula)
 
 bool PersistAluno::removeAluno(int &matricula)
 {
-	QSqlQueryModel *model = new QSqlQueryModel();
+	bool result = true;
 	QSqlQuery query(db);
 	db.open();
-	query.prepare("SELECT Pessoas.CPF, Pessoas.Nome, Alunos.Matricula, Cursos.Curso, Alunos.Ano, Pessoas.Endereco, Pessoas.Setor, Cidades.Cidade, Estados.Estado, Pessoas.Telefone, Pessoas.Email "
-				  "FROM Pessoas, Alunos, Cursos, Estados, Cidades "
-				  "WHERE Alunos.FK_CPF=Pessoas.CPF AND Alunos.Matricula=:matricula AND Pessoas.FK_IDCidade=Cidades.IDCidade AND Alunos.FK_IDCurso=Cursos.IDCurso AND Cidades.FK_IDEstado=Estados.IDEstado "
-				  "ORDER BY Pessoas.Nome asc");
-	query.bindValue(":matricula", alunoMatricula.getMatricula());
-	if(!query.exec())
-		qDebug() << "PersistAluno::consultaAlunoMatricula()\n\tdb: " << db.lastError() << "\n\tquery: " << query.lastError();
-	model->setQuery(query);
+	db.exec("PRAGMA foreign_keys = ON;");
+	query.prepare("DELETE FROM Pessoas "
+				  "WHERE EXISTS( "
+				  "SELECT Alunos.FK_CPF "
+				  "FROM Alunos "
+				  "WHERE Alunos.FK_CPF=Pessoas.CPF AND Alunos.Matricula=:matricula);");
+	query.bindValue(":matricula", matricula);
+	if(!query.exec()) {
+		qDebug() << "PersistAluno::removeAluno()\n\tdb: " << db.lastError() << "\n\tquery: " << query.lastError();
+		result = false;
+	}
 	db.close();
-	return model;
+	return result;
 }
