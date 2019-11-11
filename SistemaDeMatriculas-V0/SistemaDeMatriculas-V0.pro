@@ -25,28 +25,45 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
 	mainwindow.cpp \
-	aluno.cpp \
-	cadastroaluno.cpp \
 	pessoa.cpp \
+	aluno.cpp \
 	persistaluno.cpp \
+	cadastroaluno.cpp \
 	consultaaluno.cpp \
     removealuno.cpp \
-    listaalunos.cpp
+	listaalunos.cpp \
+	matricula.cpp \
+	mapmatriculas.cpp \
+	criamatricula.cpp \
+	consultamatricula.cpp \
+	excluirmatricula.cpp \
+	listatodasmatriculas.cpp
 
 HEADERS  += mainwindow.h \
-	aluno.h \
 	pessoa.h \
-	cadastroaluno.h \
+	aluno.h \
 	persistaluno.h \
+	cadastroaluno.h \
 	consultaaluno.h \
     removealuno.h \
-    listaalunos.h
+	listaalunos.h \
+	matricula.h \
+	mapmatriculas.h \
+	criamatricula.h \
+	consultamatricula.h \
+	excluirmatricula.h \
+	listatodasmatriculas.h
 
 FORMS += mainwindow.ui \
 	cadastroaluno.ui \
 	consultaaluno.ui \
     removealuno.ui \
-    listaalunos.ui
+	listaalunos.ui \
+	criamatricula.ui \
+	consultamatricula.ui \
+	excluirmatricula.ui \
+	listatodasmatriculas.ui
+
 
 RESOURCES += \
 		recursos.qrc

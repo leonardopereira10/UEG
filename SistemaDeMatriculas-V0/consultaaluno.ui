@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Consultar Aluno</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="recursos.qrc">
+    <normaloff>:/recursos/Imagens/pesquisar.png</normaloff>:/recursos/Imagens/pesquisar.png</iconset>
+  </property>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
@@ -111,6 +115,8 @@
   <tabstop>radioNome</tabstop>
   <tabstop>tableView</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="recursos.qrc"/>
+ </resources>
  <connections/>
 </ui>

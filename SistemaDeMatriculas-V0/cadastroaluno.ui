@@ -39,7 +39,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="recursos.qrc">
-    <normaloff>:/recursos/Imagens/logo.png</normaloff>:/recursos/Imagens/logo.png</iconset>
+    <normaloff>:/recursos/Imagens/Cadastrar.png</normaloff>:/recursos/Imagens/Cadastrar.png</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>

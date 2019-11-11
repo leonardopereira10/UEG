@@ -5,6 +5,10 @@
 #include "consultaaluno.h"
 #include "removealuno.h"
 #include "listaalunos.h"
+#include "criamatricula.h"
+#include "consultamatricula.h"
+#include "excluirmatricula.h"
+#include "listartodasmatriculas.h"
 
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent),
@@ -57,4 +61,24 @@ void MainWindow::on_actionRemoverAluno_triggered()
 void MainWindow::on_actionListarAlunos_triggered()
 {
 	loadSubWindow(new ListaAlunos(this));
+}
+
+void MainWindow::on_actionMatricular_aluno_em_disciplina_triggered()
+{
+	loadSubWindow(new CriaMatricula(this));
+}
+
+void MainWindow::on_actionConsultar_matriculas_por_aluno_triggered()
+{
+	loadSubWindow(new ConsultaMatricula(this));
+}
+
+void MainWindow::on_actionRemover_matricula_para_disciplina_triggered()
+{
+	loadSubWindow(new ExcluirMatricula(this));
+}
+
+void MainWindow::on_actionListar_matriculas_para_disciplina_triggered()
+{
+	loadSubWindow(new ListarTodasMatriculas(this));
 }

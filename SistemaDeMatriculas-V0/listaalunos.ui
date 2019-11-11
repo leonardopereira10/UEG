@@ -1,9 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>ListaAlunos</class>
- <widget name="ListaAlunos" class="QWidget">
+ <widget class="QWidget" name="ListaAlunos">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -15,7 +13,13 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="recursos.qrc">
+    <normaloff>:/recursos/Imagens/Aluno.png</normaloff>:/recursos/Imagens/Aluno.png</iconset>
+  </property>
  </widget>
- <pixmapfunction/>
+ <resources>
+  <include location="recursos.qrc"/>
+ </resources>
  <connections/>
 </ui>

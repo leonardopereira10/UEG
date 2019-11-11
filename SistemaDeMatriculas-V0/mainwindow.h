@@ -26,13 +26,13 @@ private slots:
 
 	void on_actionListarAlunos_triggered();
 
-//	void on_actionMatricular_aluno_em_disciplina_triggered();
+	void on_actionMatricular_aluno_em_disciplina_triggered();
 
-//	void on_actionConsultar_matriculas_por_aluno_triggered();
+	void on_actionConsultar_matriculas_por_aluno_triggered();
 
-//	void on_actionRemover_matricula_para_disciplina_triggered();
+	void on_actionRemover_matricula_para_disciplina_triggered();
 
-//	void on_actionListar_matriculas_para_disciplina_triggered();
+	void on_actionListar_matriculas_para_disciplina_triggered();
 
 private:
 	Ui::MainWindow *janelaInicial;
