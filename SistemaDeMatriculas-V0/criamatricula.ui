@@ -14,16 +14,16 @@
    <string>Vincular Aluno à Disciplina</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="Imagens/imagens.qrc">
-    <normaloff>:/imagens/Cadastrar.png</normaloff>:/imagens/Cadastrar.png</iconset>
+   <iconset resource="recursos.qrc">
+    <normaloff>:/recursos/Imagens/Cadastrar.png</normaloff>:/recursos/Imagens/Cadastrar.png</iconset>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>40</x>
      <y>40</y>
      <width>231</width>
-     <height>181</height>
+     <height>190</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -144,7 +144,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="Imagens/imagens.qrc"/>
+  <include location="recursos.qrc"/>
  </resources>
  <connections/>
 </ui>

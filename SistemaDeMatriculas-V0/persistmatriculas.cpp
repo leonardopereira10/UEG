@@ -1,8 +1,8 @@
 #include "persistmatriculas.h"
 
-PersistMatriculas::PersistMatriculas() { db.setDatabaseName("Projeto.db"); }
+PersistMatriculas::PersistMatriculas() { db.setDatabaseName("/home/lucas/UEG/SistemaDeMatriculas-V0/Projeto.db"); }
 
-void PersistMatriculas::ExcluirMatricula(Matricula dto) {
+void PersistMatriculas::ExcluirMatricula(Matricula &dto) {
   db.open();
   QSqlQuery query(db);
   query.prepare("delete from Matriculas where FK_IDAluno = " + QString::number(dto.getCodAluno()) +
@@ -13,7 +13,7 @@ void PersistMatriculas::ExcluirMatricula(Matricula dto) {
   db.close();
 }
 
-QSqlQueryModel *PersistMatriculas::ListaDisciplinasPorAlunos(Matricula dto) {
+QSqlQueryModel *PersistMatriculas::ListaDisciplinasPorAlunos(Matricula &dto) {
   db.open();
   QSqlQueryModel *model = new QSqlQueryModel();
   QSqlQuery query(db);
@@ -24,7 +24,7 @@ QSqlQueryModel *PersistMatriculas::ListaDisciplinasPorAlunos(Matricula dto) {
   return model;
 }
 
-void PersistMatriculas::Insere(Matricula matricula) {
+void PersistMatriculas::Insere(Matricula &matricula) {
 
   db.open();
   QSqlQuery query(db);
@@ -37,7 +37,25 @@ void PersistMatriculas::Insere(Matricula matricula) {
   db.close();
 }
 
-bool PersistMatriculas::ExisteAluno(QString idAluno)
+bool PersistMatriculas::AlunoPossuiMatricula(int &MatriculaAluno)
+{
+	bool result = true;
+	QSqlQuery query(db);
+	db.open();
+	query.prepare("SELECT COUNT(IDMatricula) "
+				  "FROM Matriculas "
+				  "WHERE Matriculas.FK_IDAluno=:matricula");
+	query.bindValue(":matricula", MatriculaAluno);
+	if(!query.exec())
+		qDebug() << "PersistMatriculas::AlunoPossuiMatricula():\n\tdb: " << db.lastError() << "\n\tquery: " << query.lastError();
+	query.first();
+	if(query.value(0).toInt() == 0)
+		result = false;
+	db.close();
+	return result;
+}
+
+bool PersistMatriculas::ExisteAluno(QString &idAluno)
 {
     bool retorno = false;
     db.open();
@@ -63,7 +81,7 @@ QSqlQueryModel *PersistMatriculas::ListarTodasMatriculas() {
   return model;
 }
 
-bool PersistMatriculas::ExisteDisciplina(QString idDisciplina) {
+bool PersistMatriculas::ExisteDisciplina(QString &idDisciplina) {
     bool retorno = false;
     db.open();
     QSqlQuery query(db);
@@ -77,7 +95,7 @@ bool PersistMatriculas::ExisteDisciplina(QString idDisciplina) {
     return retorno;
 }
 
-bool PersistMatriculas::VerificaMatriculaExiste(Matricula matricula)
+bool PersistMatriculas::VerificaMatriculaExiste(Matricula &matricula)
 {
     bool retorno = false;
     db.open();

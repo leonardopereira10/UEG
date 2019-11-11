@@ -11,7 +11,7 @@ class ExcluirMatricula : public QWidget {
   Q_OBJECT
 
 public:
-  explicit ExcluirMatricula(QWidget *parent = nullptr);
+  explicit ExcluirMatricula(QWidget *parent = 0);
   ~ExcluirMatricula();
 
 private slots:

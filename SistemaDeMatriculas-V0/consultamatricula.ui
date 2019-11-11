@@ -14,8 +14,8 @@
    <string>Form</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="Imagens/imagens.qrc">
-    <normaloff>:/imagens/pesquisar.png</normaloff>:/imagens/pesquisar.png</iconset>
+   <iconset resource="recursos.qrc">
+    <normaloff>:/recursos/Imagens/pesquisar.png</normaloff>:/recursos/Imagens/pesquisar.png</iconset>
   </property>
   <widget class="QTableView" name="tableView">
    <property name="geometry">
@@ -27,13 +27,13 @@
     </rect>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>30</x>
      <y>10</y>
      <width>227</width>
-     <height>53</height>
+     <height>68</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -62,7 +62,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="Imagens/imagens.qrc"/>
+  <include location="recursos.qrc"/>
  </resources>
  <connections/>
 </ui>

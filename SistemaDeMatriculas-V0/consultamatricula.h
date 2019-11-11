@@ -11,7 +11,7 @@ class ConsultaMatricula : public QWidget {
   Q_OBJECT
 
 public:
-  explicit ConsultaMatricula(QWidget *parent = nullptr);
+  explicit ConsultaMatricula(QWidget *parent = 0);
   ~ConsultaMatricula();
 
 private slots:

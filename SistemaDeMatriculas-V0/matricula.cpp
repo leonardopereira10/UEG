@@ -57,7 +57,13 @@ Matricula::Matricula(QString CodDisciplina, QString CodAluno, QString ano, QStri
 
 Matricula::Matricula(QString CodAluno)
 {
-    this->CodAluno = CodAluno.toInt();
+	this->CodAluno = CodAluno.toInt();
+}
+
+bool Matricula::AlunoPossuiMatricula(int MatriculaAluno)
+{
+	PersistMatriculas SQLite;
+	return SQLite.AlunoPossuiMatricula(MatriculaAluno);
 }
 
 bool Matricula::VerificaDisciplinaExiste(QString value) {

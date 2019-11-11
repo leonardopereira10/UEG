@@ -14,8 +14,8 @@
    <string>Listar Todas as Matriculas</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="Imagens/imagens.qrc">
-    <normaloff>:/imagens/Disciplinas.png</normaloff>:/imagens/Disciplinas.png</iconset>
+   <iconset resource="recursos.qrc">
+    <normaloff>:/recursos/Imagens/Disciplinas.png</normaloff>:/recursos/Imagens/Disciplinas.png</iconset>
   </property>
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
@@ -60,7 +60,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="Imagens/imagens.qrc"/>
+  <include location="recursos.qrc"/>
  </resources>
  <connections/>
 </ui>

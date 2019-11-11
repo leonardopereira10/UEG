@@ -20,6 +20,8 @@ public:
   Matricula(QString CodDisciplina, QString CodAluno, QString ano, QString semestre);
   Matricula(QString CodAluno);
 
+  static bool AlunoPossuiMatricula(int MatriculaAluno);
+
   static bool VerificaDisciplinaExiste(QString value);
 
   static bool VerificaAlunoExistente(QString value);

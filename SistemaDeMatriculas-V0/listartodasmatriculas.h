@@ -11,7 +11,7 @@ class ListarTodasMatriculas : public QWidget {
   Q_OBJECT
 
 public:
-  explicit ListarTodasMatriculas(QWidget *parent = nullptr);
+  explicit ListarTodasMatriculas(QWidget *parent = 0);
   ~ListarTodasMatriculas();
 
 private slots:

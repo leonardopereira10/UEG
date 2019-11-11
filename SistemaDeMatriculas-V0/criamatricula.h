@@ -13,7 +13,7 @@ class CriaMatricula : public QWidget {
   Q_OBJECT
 
 public:
-  CriaMatricula(QWidget *parent = nullptr);
+  CriaMatricula(QWidget *parent = 0);
   ~CriaMatricula();
 
 private slots:
