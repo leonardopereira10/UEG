@@ -1,9 +1,6 @@
 #include "consultaaluno.h"
 #include "ui_consultaaluno.h"
 
-// TODO: Ajustar consulta de aluno por matricula
-// TODO: Ajustar consulta por nome
-
 ConsultaAluno::ConsultaAluno(QWidget *parent) :
 	QWidget(parent),
 	janelaConsulta(new Ui::ConsultaAluno)

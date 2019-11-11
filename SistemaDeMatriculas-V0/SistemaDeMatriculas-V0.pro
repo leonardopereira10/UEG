@@ -24,23 +24,29 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-		mainwindow.cpp \
-		aluno.cpp \
-		cadastroaluno.cpp \
-		pessoa.cpp \
-		persistaluno.cpp \
-    consultaaluno.cpp
+	mainwindow.cpp \
+	aluno.cpp \
+	cadastroaluno.cpp \
+	pessoa.cpp \
+	persistaluno.cpp \
+	consultaaluno.cpp \
+    removealuno.cpp \
+    listaalunos.cpp
 
 HEADERS  += mainwindow.h \
-		aluno.h \
-		pessoa.h \
-		cadastroaluno.h \
-		persistaluno.h \
-    consultaaluno.h
+	aluno.h \
+	pessoa.h \
+	cadastroaluno.h \
+	persistaluno.h \
+	consultaaluno.h \
+    removealuno.h \
+    listaalunos.h
 
 FORMS += mainwindow.ui \
-		cadastroaluno.ui \
-    consultaaluno.ui
+	cadastroaluno.ui \
+	consultaaluno.ui \
+    removealuno.ui \
+    listaalunos.ui
 
 RESOURCES += \
 		recursos.qrc

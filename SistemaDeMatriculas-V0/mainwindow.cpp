@@ -3,6 +3,8 @@
 #include "ui_mainwindow.h"
 #include "cadastroaluno.h"
 #include "consultaaluno.h"
+#include "removealuno.h"
+#include "listaalunos.h"
 
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent),
@@ -42,9 +44,17 @@ void MainWindow::on_actionCadastrarAluno_triggered()
 	loadSubWindow(new cadastroAluno(this));
 }
 
-
-
 void MainWindow::on_actionConsultarAluno_triggered()
 {
 	loadSubWindow(new ConsultaAluno(this));
+}
+
+void MainWindow::on_actionRemoverAluno_triggered()
+{
+	loadSubWindow(new RemoveAluno(this));
+}
+
+void MainWindow::on_actionListarAlunos_triggered()
+{
+	loadSubWindow(new ListaAlunos(this));
 }

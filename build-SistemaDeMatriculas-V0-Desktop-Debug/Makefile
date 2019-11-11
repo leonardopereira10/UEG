@@ -54,10 +54,14 @@ SOURCES       = ../SistemaDeMatriculas-V0/main.cpp \
 		../SistemaDeMatriculas-V0/cadastroaluno.cpp \
 		../SistemaDeMatriculas-V0/pessoa.cpp \
 		../SistemaDeMatriculas-V0/persistaluno.cpp \
-		../SistemaDeMatriculas-V0/consultaaluno.cpp qrc_recursos.cpp \
+		../SistemaDeMatriculas-V0/consultaaluno.cpp \
+		../SistemaDeMatriculas-V0/removealuno.cpp \
+		../SistemaDeMatriculas-V0/listaalunos.cpp qrc_recursos.cpp \
 		moc_mainwindow.cpp \
 		moc_cadastroaluno.cpp \
-		moc_consultaaluno.cpp
+		moc_consultaaluno.cpp \
+		moc_removealuno.cpp \
+		moc_listaalunos.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		aluno.o \
@@ -65,10 +69,14 @@ OBJECTS       = main.o \
 		pessoa.o \
 		persistaluno.o \
 		consultaaluno.o \
+		removealuno.o \
+		listaalunos.o \
 		qrc_recursos.o \
 		moc_mainwindow.o \
 		moc_cadastroaluno.o \
-		moc_consultaaluno.o
+		moc_consultaaluno.o \
+		moc_removealuno.o \
+		moc_listaalunos.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -115,7 +123,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
-		../SistemaDeMatriculas-V0/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -139,13 +146,17 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../SistemaDeMatriculas-V0/pessoa.h \
 		../SistemaDeMatriculas-V0/cadastroaluno.h \
 		../SistemaDeMatriculas-V0/persistaluno.h \
-		../SistemaDeMatriculas-V0/consultaaluno.h ../SistemaDeMatriculas-V0/main.cpp \
+		../SistemaDeMatriculas-V0/consultaaluno.h \
+		../SistemaDeMatriculas-V0/removealuno.h \
+		../SistemaDeMatriculas-V0/listaalunos.h ../SistemaDeMatriculas-V0/main.cpp \
 		../SistemaDeMatriculas-V0/mainwindow.cpp \
 		../SistemaDeMatriculas-V0/aluno.cpp \
 		../SistemaDeMatriculas-V0/cadastroaluno.cpp \
 		../SistemaDeMatriculas-V0/pessoa.cpp \
 		../SistemaDeMatriculas-V0/persistaluno.cpp \
-		../SistemaDeMatriculas-V0/consultaaluno.cpp
+		../SistemaDeMatriculas-V0/consultaaluno.cpp \
+		../SistemaDeMatriculas-V0/removealuno.cpp \
+		../SistemaDeMatriculas-V0/listaalunos.cpp
 QMAKE_TARGET  = test
 DESTDIR       = 
 TARGET        = test
@@ -154,7 +165,7 @@ TARGET        = test
 first: all
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h ui_cadastroaluno.h ui_consultaaluno.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_cadastroaluno.h ui_consultaaluno.h ui_removealuno.h ui_listaalunos.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -203,7 +214,6 @@ Makefile: ../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro /usr/lib/x86_64-l
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -275,7 +285,6 @@ Makefile: ../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro /usr/lib/x86_64-l
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -315,9 +324,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/recursos.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.h ../SistemaDeMatriculas-V0/aluno.h ../SistemaDeMatriculas-V0/pessoa.h ../SistemaDeMatriculas-V0/cadastroaluno.h ../SistemaDeMatriculas-V0/persistaluno.h ../SistemaDeMatriculas-V0/consultaaluno.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/mainwindow.cpp ../SistemaDeMatriculas-V0/aluno.cpp ../SistemaDeMatriculas-V0/cadastroaluno.cpp ../SistemaDeMatriculas-V0/pessoa.cpp ../SistemaDeMatriculas-V0/persistaluno.cpp ../SistemaDeMatriculas-V0/consultaaluno.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.ui ../SistemaDeMatriculas-V0/cadastroaluno.ui ../SistemaDeMatriculas-V0/consultaaluno.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.h ../SistemaDeMatriculas-V0/aluno.h ../SistemaDeMatriculas-V0/pessoa.h ../SistemaDeMatriculas-V0/cadastroaluno.h ../SistemaDeMatriculas-V0/persistaluno.h ../SistemaDeMatriculas-V0/consultaaluno.h ../SistemaDeMatriculas-V0/removealuno.h ../SistemaDeMatriculas-V0/listaalunos.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/mainwindow.cpp ../SistemaDeMatriculas-V0/aluno.cpp ../SistemaDeMatriculas-V0/cadastroaluno.cpp ../SistemaDeMatriculas-V0/pessoa.cpp ../SistemaDeMatriculas-V0/persistaluno.cpp ../SistemaDeMatriculas-V0/consultaaluno.cpp ../SistemaDeMatriculas-V0/removealuno.cpp ../SistemaDeMatriculas-V0/listaalunos.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.ui ../SistemaDeMatriculas-V0/cadastroaluno.ui ../SistemaDeMatriculas-V0/consultaaluno.ui ../SistemaDeMatriculas-V0/removealuno.ui ../SistemaDeMatriculas-V0/listaalunos.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -363,9 +372,9 @@ qrc_recursos.cpp: ../SistemaDeMatriculas-V0/recursos.qrc \
 		../SistemaDeMatriculas-V0/Imagens/pesquisar.png
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name recursos ../SistemaDeMatriculas-V0/recursos.qrc -o qrc_recursos.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_cadastroaluno.cpp moc_consultaaluno.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_cadastroaluno.cpp moc_consultaaluno.cpp moc_removealuno.cpp moc_listaalunos.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_cadastroaluno.cpp moc_consultaaluno.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_cadastroaluno.cpp moc_consultaaluno.cpp moc_removealuno.cpp moc_listaalunos.cpp
 moc_mainwindow.cpp: ../SistemaDeMatriculas-V0/mainwindow.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lucas/UEG/SistemaDeMatriculas-V0 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../SistemaDeMatriculas-V0/mainwindow.h -o moc_mainwindow.cpp
@@ -382,11 +391,19 @@ moc_consultaaluno.cpp: ../SistemaDeMatriculas-V0/aluno.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lucas/UEG/SistemaDeMatriculas-V0 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../SistemaDeMatriculas-V0/consultaaluno.h -o moc_consultaaluno.cpp
 
+moc_removealuno.cpp: ../SistemaDeMatriculas-V0/removealuno.h \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lucas/UEG/SistemaDeMatriculas-V0 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../SistemaDeMatriculas-V0/removealuno.h -o moc_removealuno.cpp
+
+moc_listaalunos.cpp: ../SistemaDeMatriculas-V0/listaalunos.h \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lucas/UEG/SistemaDeMatriculas-V0 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../SistemaDeMatriculas-V0/listaalunos.h -o moc_listaalunos.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_cadastroaluno.h ui_consultaaluno.h
+compiler_uic_make_all: ui_mainwindow.h ui_cadastroaluno.h ui_consultaaluno.h ui_removealuno.h ui_listaalunos.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_cadastroaluno.h ui_consultaaluno.h
+	-$(DEL_FILE) ui_mainwindow.h ui_cadastroaluno.h ui_consultaaluno.h ui_removealuno.h ui_listaalunos.h
 ui_mainwindow.h: ../SistemaDeMatriculas-V0/mainwindow.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../SistemaDeMatriculas-V0/mainwindow.ui -o ui_mainwindow.h
@@ -398,6 +415,14 @@ ui_cadastroaluno.h: ../SistemaDeMatriculas-V0/cadastroaluno.ui \
 ui_consultaaluno.h: ../SistemaDeMatriculas-V0/consultaaluno.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../SistemaDeMatriculas-V0/consultaaluno.ui -o ui_consultaaluno.h
+
+ui_removealuno.h: ../SistemaDeMatriculas-V0/removealuno.ui \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../SistemaDeMatriculas-V0/removealuno.ui -o ui_removealuno.h
+
+ui_listaalunos.h: ../SistemaDeMatriculas-V0/listaalunos.ui \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../SistemaDeMatriculas-V0/listaalunos.ui -o ui_listaalunos.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -416,7 +441,10 @@ mainwindow.o: ../SistemaDeMatriculas-V0/mainwindow.cpp ../SistemaDeMatriculas-V0
 		ui_mainwindow.h \
 		../SistemaDeMatriculas-V0/cadastroaluno.h \
 		../SistemaDeMatriculas-V0/aluno.h \
-		../SistemaDeMatriculas-V0/pessoa.h
+		../SistemaDeMatriculas-V0/pessoa.h \
+		../SistemaDeMatriculas-V0/consultaaluno.h \
+		../SistemaDeMatriculas-V0/removealuno.h \
+		../SistemaDeMatriculas-V0/listaalunos.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../SistemaDeMatriculas-V0/mainwindow.cpp
 
 aluno.o: ../SistemaDeMatriculas-V0/aluno.cpp ../SistemaDeMatriculas-V0/persistaluno.h \
@@ -446,6 +474,14 @@ consultaaluno.o: ../SistemaDeMatriculas-V0/consultaaluno.cpp ../SistemaDeMatricu
 		ui_consultaaluno.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o consultaaluno.o ../SistemaDeMatriculas-V0/consultaaluno.cpp
 
+removealuno.o: ../SistemaDeMatriculas-V0/removealuno.cpp ../SistemaDeMatriculas-V0/removealuno.h \
+		ui_removealuno.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o removealuno.o ../SistemaDeMatriculas-V0/removealuno.cpp
+
+listaalunos.o: ../SistemaDeMatriculas-V0/listaalunos.cpp ../SistemaDeMatriculas-V0/listaalunos.h \
+		ui_listaalunos.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o listaalunos.o ../SistemaDeMatriculas-V0/listaalunos.cpp
+
 qrc_recursos.o: qrc_recursos.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_recursos.o qrc_recursos.cpp
 
@@ -457,6 +493,12 @@ moc_cadastroaluno.o: moc_cadastroaluno.cpp
 
 moc_consultaaluno.o: moc_consultaaluno.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_consultaaluno.o moc_consultaaluno.cpp
+
+moc_removealuno.o: moc_removealuno.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_removealuno.o moc_removealuno.cpp
+
+moc_listaalunos.o: moc_listaalunos.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_listaalunos.o moc_listaalunos.cpp
 
 ####### Install
 

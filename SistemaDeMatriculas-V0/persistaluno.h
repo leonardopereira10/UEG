@@ -3,7 +3,6 @@
 
 #include <QtSql>
 #include "aluno.h"
-using namespace std;
 
 class PersistAluno
 {
@@ -27,8 +26,7 @@ public:
 	QSqlQueryModel *consultaAlunoNome(Aluno &alunoNome);
 	QSqlQueryModel *consultaAlunoMatricula(Aluno &alunoMatricula);
 
-//	bool removeAluno(QString &cpf);
-//	bool removeAluno(int &matricula);
+	bool removeAluno(int &matricula);
 
 //	QSqlQueryModel *listaAlunos(QString &nome);
 

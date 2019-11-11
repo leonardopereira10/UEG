@@ -2,7 +2,6 @@
 #define CADASTROALUNO_H
 
 #include <QWidget>
-#include <QtSql>
 #include <QDebug>
 #include <QMessageBox>
 #include "aluno.h"
