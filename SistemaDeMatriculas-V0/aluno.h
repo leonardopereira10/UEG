@@ -37,7 +37,7 @@ public:
 
 	static bool removeAluno(int matricula);
 
-	static QSqlQueryModel *listaAlunos(QString order);
+	static QSqlQueryModel *listaAlunos(QString coluna, QString ordem);
 
 private:
 	int matricula;
