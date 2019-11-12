@@ -191,6 +191,7 @@ QSqlQueryModel *PersistProfessor::listarProfessor()
     QSqlQueryModel *model = new QSqlQueryModel();
     QSqlQuery query(db);
     db.open();
+    query.exec("PRAGMA foreign_key = ON;");
     query.prepare("SELECT Professores.FK_CPF, Pessoas.Nome, Pessoas.Endereco, Pessoas.Setor, Cidades.Cidade, Estados.Estado, Pessoas.Telefone, Pessoas.Email, Professores.Graduacao, Professores.Titulacao "
                   "FROM Professores, Pessoas, Cidades , Estados "
                   "WHERE Pessoas.CPF = Professores.FK_CPF AND Pessoas.FK_IDCidade = Cidades.IDCidade AND Cidades.FK_IDEstado = Estados.IDEstado;");
