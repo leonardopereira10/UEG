@@ -17,6 +17,7 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTableView>
@@ -35,6 +36,7 @@ public:
     QLabel *labelOrdem;
     QComboBox *boxOrdem;
     QSpacerItem *horizontalSpacer;
+    QPushButton *btnAtualizar;
 
     void setupUi(QWidget *ListaAlunos)
     {
@@ -83,8 +85,15 @@ public:
 
         horizontalSpacer = new QSpacerItem(655, 17, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer, 0, 5, 1, 1);
+        gridLayout->addItem(horizontalSpacer, 0, 4, 1, 1);
 
+        btnAtualizar = new QPushButton(widget);
+        btnAtualizar->setObjectName(QStringLiteral("btnAtualizar"));
+
+        gridLayout->addWidget(btnAtualizar, 0, 5, 1, 1);
+
+        gridLayout->setColumnStretch(1, 1);
+        gridLayout->setColumnStretch(5, 1);
 
         retranslateUi(ListaAlunos);
 
@@ -106,6 +115,7 @@ public:
          << QApplication::translate("ListaAlunos", "Cidade", Q_NULLPTR)
          << QApplication::translate("ListaAlunos", "Estado", Q_NULLPTR)
         );
+        btnAtualizar->setText(QApplication::translate("ListaAlunos", "Atualizar", Q_NULLPTR));
     } // retranslateUi
 
 };
