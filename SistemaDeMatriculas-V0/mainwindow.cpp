@@ -51,3 +51,8 @@ void MainWindow::on_actionRemoverProf_triggered()
     loadSubWindow(new remove_professor(this));
 
 }
+
+void MainWindow::on_actionListarProfs_triggered()
+{
+    loadSubWindow(new listar_professor(this));
+}

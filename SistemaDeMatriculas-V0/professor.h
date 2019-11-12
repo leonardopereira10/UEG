@@ -30,6 +30,7 @@ public:
     static QSqlQueryModel *consultaProfessorNome(Professor &professor);
     static bool removeProfessor(Professor &professor);
     static bool ExisteDisciplina(Professor &professor);
+    static QSqlQueryModel *listarProfessor();
 private:
     QString graduacao, titulacao;
 };

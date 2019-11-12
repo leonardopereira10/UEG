@@ -100,6 +100,10 @@ bool Professor::ExisteDisciplina(Professor &professor){
     PersistProfessor sqlite;
     return sqlite.ExisteDisciplina(professor);
 }
+QSqlQueryModel *Professor::listarProfessor(){
+    PersistProfessor sqlite;
+    return sqlite.listarProfessor();
+}
 
 
 

@@ -6,6 +6,7 @@
 #include "cadastro_professor.h"
 #include "consulta_professor.h"
 #include "remove_professor.h"
+#include "listar_professor.h"
 #include <QtSql>
 #include <QMessageBox>
 
@@ -28,6 +29,8 @@ private slots:
     void on_actionConsultarProf_triggered();
 
     void on_actionRemoverProf_triggered();
+
+    void on_actionListarProfs_triggered();
 
 private:
     Ui::MainWindow *janelaInicial;

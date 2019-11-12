@@ -12,3 +12,8 @@ listar_professor::~listar_professor()
 {
     delete ui;
 }
+
+void listar_professor::on_btn_listar_clicked()
+{
+    ui->tableView->setModel(Professor::listarProfessor());
+}

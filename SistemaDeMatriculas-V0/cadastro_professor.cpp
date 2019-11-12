@@ -212,11 +212,12 @@ void cadastro_professor::on_btn_cadastrar_clicked()
                 }
                 else {
                     QMessageBox::information(this, "Cadastro realizado", "Professor cadastrado com sucesso!");
+                    hideall();
+                    ui->campo_cpf->setFocus();
+                    ui->campo_cpf->clear();
+                    ui->campo_cpf->setReadOnly(false);
                 }
-                hideall();
-                ui->campo_cpf->setFocus();
-                ui->campo_cpf->clear();
-                ui->campo_cpf->setReadOnly(false);
+
             }
     else{
         QMessageBox::critical(this, "ERRO", " Existem campos preenchidos incorretamente! Verifique-os");

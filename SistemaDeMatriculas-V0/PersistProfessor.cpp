@@ -156,9 +156,11 @@ QSqlQueryModel *PersistProfessor::consultaProfessorNome(Professor &professor)
 bool PersistProfessor::remove_professor(Professor &professor){
     db.open();
     QSqlQuery query(db);
-    query.prepare("DELETE FROM Pessoas WHERE Pessoas.CPF in (SELECT Professores.FK_CPF FROM Pessoas "
-                  "INNER JOIN Professores ON Pessoas.CPF = Professores.FK_CPF "
-                  "WHERE Professores.FK_CPF = '"+professor.getCpf()+"')");
+    query.prepare("DELETE FROM Pessoas "
+                  "WHERE EXISTS( "
+                  "SELECT Professores.FK_CPF "
+                  "FROM Professores "
+                  "WHERE Professores.FK_CPF = Pessoas.CPF AND Professores.FK_CPF = '"+professor.getCpf()+"');");
     if(!query.exec()){
         qDebug() << "PersistProfessor::remove_professorquery()/n/tdb: " <<db.lastError()  <<"\n\rquery: " <<query.lastError();
         return false;
@@ -182,4 +184,20 @@ bool PersistProfessor::ExisteDisciplina(Professor &professor) {
     query.clear();
     db.close();
     return retorno;
+}
+
+QSqlQueryModel *PersistProfessor::listarProfessor()
+{
+    QSqlQueryModel *model = new QSqlQueryModel();
+    QSqlQuery query(db);
+    db.open();
+    query.prepare("SELECT Professores.FK_CPF, Pessoas.Nome, Pessoas.Endereco, Pessoas.Setor, Cidades.Cidade, Estados.Estado, Pessoas.Telefone, Pessoas.Email, Professores.Graduacao, Professores.Titulacao "
+                  "FROM Professores, Pessoas, Cidades , Estados "
+                  "WHERE Pessoas.CPF = Professores.FK_CPF AND Pessoas.FK_IDCidade = Cidades.IDCidade AND Cidades.FK_IDEstado = Estados.IDEstado;");
+    if(!query.exec())
+        qDebug() << "PersistProfessor::consultaProfessor()\n\tdb: " << db.lastError() << "\n\tquery: " << query.lastError();
+    model->setQuery(query);
+    db.close();
+    return model;
+
 }

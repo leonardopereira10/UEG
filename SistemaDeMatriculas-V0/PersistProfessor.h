@@ -25,6 +25,7 @@ public:
     QSqlQueryModel *consultaProfessorNome(Professor &professor);
     bool remove_professor(Professor &professor);
     bool ExisteDisciplina(Professor &professor);
+    QSqlQueryModel *listarProfessor();
 private:
 
     QSqlDatabase db;
