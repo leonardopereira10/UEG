@@ -114,7 +114,8 @@
     <property name="title">
      <string>Editar</string>
     </property>
-    <addaction name="actionSelecionar_base_de_dados"/>
+    <addaction name="actionOrganizar_janelas_em_cascata"/>
+    <addaction name="actionOrganizar_janelas_lado_a_lado"/>
    </widget>
    <widget class="QMenu" name="menuAjuda">
     <property name="title">
@@ -308,15 +309,6 @@
     <string>Sobre</string>
    </property>
   </action>
-  <action name="actionSelecionar_base_de_dados">
-   <property name="icon">
-    <iconset resource="recursos.qrc">
-     <normaloff>:/recursos/Imagens/BancoDeDados.png</normaloff>:/recursos/Imagens/BancoDeDados.png</iconset>
-   </property>
-   <property name="text">
-    <string>Selecionar base de dados</string>
-   </property>
-  </action>
   <action name="actionRemoverAluno">
    <property name="text">
     <string>Remover</string>
@@ -331,6 +323,30 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+A, 2</string>
+   </property>
+  </action>
+  <action name="actionOrganizar_janelas_lado_a_lado">
+   <property name="icon">
+    <iconset resource="recursos.qrc">
+     <normaloff>:/recursos/Imagens/ladoLado.png</normaloff>:/recursos/Imagens/ladoLado.png</iconset>
+   </property>
+   <property name="text">
+    <string>Organizar janelas lado a lado</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E, L</string>
+   </property>
+  </action>
+  <action name="actionOrganizar_janelas_em_cascata">
+   <property name="icon">
+    <iconset resource="recursos.qrc">
+     <normaloff>:/recursos/Imagens/cascata.png</normaloff>:/recursos/Imagens/cascata.png</iconset>
+   </property>
+   <property name="text">
+    <string>Organizar janelas em cascata</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E, C</string>
    </property>
   </action>
  </widget>

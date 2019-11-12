@@ -16,6 +16,10 @@ public:
 	~MainWindow();
 
 private slots:
+	void on_actionOrganizar_janelas_lado_a_lado_triggered();
+
+	void on_actionOrganizar_janelas_em_cascata_triggered();
+
 	void on_actionSair_triggered();
 
 	void on_actionCadastrarAluno_triggered();

@@ -16,5 +16,7 @@
         <file>Imagens/Exit.png</file>
         <file>Imagens/Aluno.png</file>
         <file>Imagens/Erro.png</file>
+        <file>Imagens/cascata.png</file>
+        <file>Imagens/ladoLado.png</file>
     </qresource>
 </RCC>

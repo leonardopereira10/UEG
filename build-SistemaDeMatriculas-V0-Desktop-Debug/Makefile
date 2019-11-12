@@ -390,21 +390,23 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_recursos.cpp
 qrc_recursos.cpp: ../SistemaDeMatriculas-V0/recursos.qrc \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/rcc \
-		../SistemaDeMatriculas-V0/Imagens/manual.png \
-		../SistemaDeMatriculas-V0/Imagens/sobre.png \
-		../SistemaDeMatriculas-V0/Imagens/Professores.png \
-		../SistemaDeMatriculas-V0/Imagens/remover.png \
-		../SistemaDeMatriculas-V0/Imagens/BancoDeDados.png \
-		../SistemaDeMatriculas-V0/Imagens/Cadastrar.png \
-		../SistemaDeMatriculas-V0/Imagens/logo.png \
-		../SistemaDeMatriculas-V0/Imagens/Exit.png \
-		../SistemaDeMatriculas-V0/Imagens/Aluno.png \
-		../SistemaDeMatriculas-V0/Imagens/backgound.png \
-		../SistemaDeMatriculas-V0/Imagens/Disciplinas.png \
-		../SistemaDeMatriculas-V0/Imagens/fullScreen.png \
 		../SistemaDeMatriculas-V0/Imagens/Curso.png \
+		../SistemaDeMatriculas-V0/Imagens/Cadastrar.png \
+		../SistemaDeMatriculas-V0/Imagens/Exit.png \
+		../SistemaDeMatriculas-V0/Imagens/fullScreen.png \
+		../SistemaDeMatriculas-V0/Imagens/Aluno.png \
+		../SistemaDeMatriculas-V0/Imagens/BancoDeDados.png \
+		../SistemaDeMatriculas-V0/Imagens/sobre.png \
+		../SistemaDeMatriculas-V0/Imagens/backgound.png \
+		../SistemaDeMatriculas-V0/Imagens/manual.png \
+		../SistemaDeMatriculas-V0/Imagens/ladoLado.png \
+		../SistemaDeMatriculas-V0/Imagens/Disciplinas.png \
+		../SistemaDeMatriculas-V0/Imagens/pesquisar.png \
+		../SistemaDeMatriculas-V0/Imagens/Professores.png \
 		../SistemaDeMatriculas-V0/Imagens/Erro.png \
-		../SistemaDeMatriculas-V0/Imagens/pesquisar.png
+		../SistemaDeMatriculas-V0/Imagens/remover.png \
+		../SistemaDeMatriculas-V0/Imagens/cascata.png \
+		../SistemaDeMatriculas-V0/Imagens/logo.png
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name recursos ../SistemaDeMatriculas-V0/recursos.qrc -o qrc_recursos.cpp
 
 compiler_moc_header_make_all: moc_mainwindow.cpp moc_cadastroaluno.cpp moc_consultaaluno.cpp moc_removealuno.cpp moc_listaalunos.cpp moc_criamatricula.cpp moc_consultamatricula.cpp moc_excluirmatricula.cpp moc_listartodasmatriculas.cpp

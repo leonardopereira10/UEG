@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	janelaInicial->setupUi(this);
 	this->showMaximized();
 	setCentralWidget(janelaInicial->mdiArea);
+
 }
 
 MainWindow::~MainWindow()
@@ -36,6 +37,16 @@ void MainWindow::loadSubWindow(QWidget *widget)
 	window->setWidget(widget);
 	janelaInicial->mdiArea->addSubWindow(window);
 	window->show();
+}
+
+void MainWindow::on_actionOrganizar_janelas_lado_a_lado_triggered()
+{
+	janelaInicial->mdiArea->tileSubWindows();
+}
+
+void MainWindow::on_actionOrganizar_janelas_em_cascata_triggered()
+{
+	janelaInicial->mdiArea->cascadeSubWindows();
 }
 
 void MainWindow::on_actionSair_triggered()
