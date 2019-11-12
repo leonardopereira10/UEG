@@ -23,6 +23,8 @@ public:
     bool cadastraProfessor(Professor &professor);
     QSqlQueryModel *consultaProfessor(Professor &professor);
     QSqlQueryModel *consultaProfessorNome(Professor &professor);
+    bool remove_professor(Professor &professor);
+    bool ExisteDisciplina(Professor &professor);
 private:
 
     QSqlDatabase db;

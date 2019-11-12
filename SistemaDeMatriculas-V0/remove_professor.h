@@ -18,18 +18,10 @@ public:
     explicit remove_professor(QWidget *parent = nullptr);
     ~remove_professor();
 
-
 private slots:
-    void on_radio_cpf_clicked();
-
-    void on_radio_nome_clicked();
-
-    void on_campo_busca_returnPressed();
+    void on_campo_cpf_returnPressed();
 
     void on_pushButton_clicked();
-
-
-    void on_tableView_doubleClicked(const QModelIndex &index);
 
 private:
     Ui::remove_professor *ui;

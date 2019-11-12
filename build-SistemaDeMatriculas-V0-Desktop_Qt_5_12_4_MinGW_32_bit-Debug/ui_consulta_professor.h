@@ -30,6 +30,7 @@ public:
     QLineEdit *campo_busca;
     QPushButton *pushButton;
     QTableView *tableView;
+    QLabel *aviso_cpf;
 
     void setupUi(QWidget *Consulta_professor)
     {
@@ -44,17 +45,20 @@ public:
         radio_nome->setGeometry(QRect(120, 10, 60, 20));
         variavel = new QLabel(Consulta_professor);
         variavel->setObjectName(QString::fromUtf8("variavel"));
-        variavel->setGeometry(QRect(21, 51, 55, 16));
+        variavel->setGeometry(QRect(21, 59, 55, 16));
         campo_busca = new QLineEdit(Consulta_professor);
         campo_busca->setObjectName(QString::fromUtf8("campo_busca"));
-        campo_busca->setGeometry(QRect(89, 51, 310, 20));
+        campo_busca->setGeometry(QRect(89, 59, 310, 20));
         campo_busca->setMaximumSize(QSize(16777215, 16777215));
         pushButton = new QPushButton(Consulta_professor);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(410, 50, 75, 23));
+        pushButton->setGeometry(QRect(410, 58, 75, 23));
         tableView = new QTableView(Consulta_professor);
         tableView->setObjectName(QString::fromUtf8("tableView"));
         tableView->setGeometry(QRect(20, 100, 991, 541));
+        aviso_cpf = new QLabel(Consulta_professor);
+        aviso_cpf->setObjectName(QString::fromUtf8("aviso_cpf"));
+        aviso_cpf->setGeometry(QRect(110, 38, 80, 16));
 
         retranslateUi(Consulta_professor);
 
@@ -68,6 +72,7 @@ public:
         radio_nome->setText(QApplication::translate("Consulta_professor", "Nome", nullptr));
         variavel->setText(QApplication::translate("Consulta_professor", "TextLabel", nullptr));
         pushButton->setText(QApplication::translate("Consulta_professor", "Buscar", nullptr));
+        aviso_cpf->setText(QApplication::translate("Consulta_professor", "TextLabel", nullptr));
     } // retranslateUi
 
 };

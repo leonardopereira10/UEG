@@ -92,6 +92,14 @@ QSqlQueryModel *Professor::consultaProfessorNome(Professor &professor){
     PersistProfessor sqlite;
     return sqlite.consultaProfessorNome(professor);
 }
+bool Professor::removeProfessor(Professor &professor){
+    PersistProfessor sqlite;
+    return sqlite.remove_professor(professor);
+}
+bool Professor::ExisteDisciplina(Professor &professor){
+    PersistProfessor sqlite;
+    return sqlite.ExisteDisciplina(professor);
+}
 
 
 

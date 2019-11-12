@@ -28,6 +28,8 @@ public:
     static bool cadastraProfessor(Professor &professor);
     static QSqlQueryModel *consultaProfessor(Professor &professor);
     static QSqlQueryModel *consultaProfessorNome(Professor &professor);
+    static bool removeProfessor(Professor &professor);
+    static bool ExisteDisciplina(Professor &professor);
 private:
     QString graduacao, titulacao;
 };

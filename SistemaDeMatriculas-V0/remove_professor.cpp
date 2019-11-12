@@ -7,8 +7,8 @@ remove_professor::remove_professor(QWidget *parent) :
     ui(new Ui::remove_professor)
 {
     ui->setupUi(this);
-    ui->radio_cpf->setChecked(true);
-    ui->radio_cpf->clicked();
+    ui->aviso_cpf->hide();
+    ui->campo_cpf->setFocus();
 }
 
 remove_professor::~remove_professor()
@@ -16,49 +16,55 @@ remove_professor::~remove_professor()
     delete ui;
 }
 
-void remove_professor::on_radio_cpf_clicked()
-{
-    ui->variavel->setText("CPF:");
-    ui->campo_busca->setInputMask("###.###.###-##");
-    ui->campo_busca->setMaxLength(14);
-    ui->campo_busca->setFocus();
-}
-
-void remove_professor::on_radio_nome_clicked()
-{
-    ui->variavel->setText("Nome:");
-    ui->campo_busca->setInputMask("");
-    ui->campo_busca->setMaxLength(310);
-    ui->campo_busca->setFocus();
-}
-
-void remove_professor::on_campo_busca_returnPressed()
+void remove_professor::on_campo_cpf_returnPressed()
 {
     ui->pushButton->clicked();
 }
 
 void remove_professor::on_pushButton_clicked()
 {
-    if(ui->radio_cpf->isChecked()){
-        Professor professor(ui->campo_busca->text(), "NULL");
-        ui->tableView->setModel(Professor::consultaProfessor(professor));
-        ui->campo_busca->setFocus();
-        ui->campo_busca->selectAll();
+    if(!Pessoa::validCpf(ui->campo_cpf->text())){
+        ui->aviso_cpf->show();
+        ui->aviso_cpf->setText("CPF Inválido!");
+        ui->aviso_cpf->setStyleSheet("color: red;");
+        ui->campo_cpf->setFocus();
+        ui->campo_cpf->selectAll();
     }
-    if(ui->radio_nome->isChecked()){
-        Professor professor("NULL", ui->campo_busca->text());
-        ui->tableView->setModel(Professor::consultaProfessorNome(professor));
-        ui->campo_busca->setFocus();
-        ui->campo_busca->selectAll();
-    }
+    else{
+        ui->aviso_cpf->hide();
+        Professor professor(ui->campo_cpf->text(), "NULL");
+        if(Professor::consultaProfessor(professor) == nullptr){
+                ui->aviso_cpf->hide();
+                QMessageBox::warning(this, "Remoção", "Nenhum professor encontrado.");
+                ui->campo_cpf->setFocus();
+                ui->campo_cpf->selectAll();
+        }
+        else{
+            if(Professor::ExisteDisciplina(professor) == false){
+                QMessageBox msg;
 
-}
+                msg.setText("Tem certeza que deseja remover?");
+                QPushButton *sim = msg.addButton(tr("Sim"), QMessageBox::ActionRole);
+                QPushButton *nao = msg.addButton(QMessageBox::Abort);
 
-void remove_professor::on_tableView_doubleClicked(const QModelIndex &index)
-{
-    QMessageBox confirmacao;
-            confirmacao.warning(this, "Confirmação", "Deseja realmente remover o professor selecionado?", QMessageBox::Yes, QMessageBox::No);
-    if(confirmacao.exec() == confirmacao.Yes){
-        ui->tableView->setRootIndex(index);
+                msg.exec();
+
+                if(msg.clickedButton() == sim){
+                Professor::removeProfessor(professor);
+                QMessageBox::about(this, "Remoção", "Professor removido com sucesso!");
+                ui->campo_cpf->setFocus();
+                ui->campo_cpf->clear();
+                }
+                if(msg.clickedButton() == nao){
+                    ui->campo_cpf->setFocus();
+                    ui->campo_cpf->selectAll();
+                }
+            }
+            else{
+                QMessageBox::critical(this, "Remoção", "Professor não pode ser emovido, pois possui discplinas a ministrar.");
+                ui->campo_cpf->setFocus();
+                ui->campo_cpf->selectAll();
+            }
+        }
     }
 }

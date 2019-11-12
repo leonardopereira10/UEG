@@ -27,6 +27,7 @@ SOURCES += \
 		PersistProfessor.cpp \
 		cadastro_professor.cpp \
 		consulta_professor.cpp \
+		listar_professor.cpp \
 		mainwindow.cpp \
 		pessoa.cpp \
 		professor.cpp \
@@ -37,6 +38,7 @@ HEADERS	+= mainwindow.h \
 		PersistProfessor.h \
 		cadastro_professor.h \
 		consulta_professor.h \
+		listar_professor.h \
 		pessoa.h \
 		professor.h \
 		remove_professor.h
@@ -44,6 +46,7 @@ HEADERS	+= mainwindow.h \
 FORMS += mainwindow.ui \
     cadastro_professor.ui \
     consulta_professor.ui \
+    listar_professor.ui \
     remove_professor.ui
 
 RESOURCES += \

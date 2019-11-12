@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1021</width>
-    <height>659</height>
+    <width>280</width>
+    <height>86</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,48 +16,22 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>400</x>
-     <y>50</y>
+     <x>180</x>
+     <y>30</y>
      <width>75</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
-    <string>Buscar</string>
+    <string>Remover</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radio_nome">
+  <widget class="QLabel" name="aviso_cpf">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>90</x>
      <y>10</y>
-     <width>60</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Nome</string>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="radio_cpf">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>49</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>CPF</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="variavel">
-   <property name="geometry">
-    <rect>
-     <x>11</x>
-     <y>51</y>
-     <width>55</width>
+     <width>80</width>
      <height>16</height>
     </rect>
    </property>
@@ -65,31 +39,43 @@
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="campo_busca">
-   <property name="geometry">
-    <rect>
-     <x>79</x>
-     <y>51</y>
-     <width>310</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>16777215</width>
-     <height>16777215</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="QTableView" name="tableView">
+  <widget class="QWidget" name="layoutWidget1">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>100</y>
-     <width>991</width>
-     <height>541</height>
+     <y>30</y>
+     <width>168</width>
+     <height>23</height>
     </rect>
    </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="cpf">
+      <property name="maximumSize">
+       <size>
+        <width>30</width>
+        <height>21</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>CPF: </string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1" alignment="Qt::AlignLeft">
+     <widget class="QLineEdit" name="campo_cpf">
+      <property name="maximumSize">
+       <size>
+        <width>110</width>
+        <height>21</height>
+       </size>
+      </property>
+      <property name="inputMask">
+       <string>###.###.###-##</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>
