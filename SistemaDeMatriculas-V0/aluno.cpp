@@ -140,6 +140,12 @@ bool Aluno::removeAluno(int matricula)
 	return Sqlite.removeAluno(matricula);
 }
 
+QSqlQueryModel *Aluno::listaAlunos(QString order)
+{
+	PersistAluno Sqlite;
+	return Sqlite.listaAlunos(order);
+}
+
 
 
 

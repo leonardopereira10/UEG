@@ -28,7 +28,7 @@ public:
 
 	bool removeAluno(int &matricula);
 
-//	QSqlQueryModel *listaAlunos(QString &nome);
+	QSqlQueryModel *listaAlunos(QString &order);
 
 private:
 	QSqlDatabase db;

@@ -241,3 +241,20 @@ bool PersistAluno::removeAluno(int &matricula)
 	db.close();
 	return result;
 }
+
+QSqlQueryModel *PersistAluno::listaAlunos(QString &order)
+{
+	QSqlQueryModel *model = new QSqlQueryModel();
+	QSqlQuery query(db);
+	db.open();
+	query.prepare("SELECT Pessoas.CPF, Pessoas.Nome, Alunos.Matricula, Cursos.Curso, Alunos.Ano, Pessoas.Endereco, Pessoas.Setor, Cidades.Cidade, Estados.Estado, Pessoas.Telefone, Pessoas.Email "
+				  "FROM Pessoas, Alunos, Cursos, Estados, Cidades "
+				  "WHERE Alunos.FK_CPF=Pessoas.CPF AND Pessoas.FK_IDCidade=Cidades.IDCidade AND Alunos.FK_IDCurso=Cursos.IDCurso AND Cidades.FK_IDEstado=Estados.IDEstado "
+				  "ORDER BY :ordem asc");
+	query.bindValue(":ordem", order);
+	if(!query.exec())
+		qDebug() << "PersistAluno::listaAlunos\n\tdb: " << db.lastError() << "\n\tquery: " << query.lastError();
+	model->setQuery(query);
+	db.close();
+	return model;
+}
