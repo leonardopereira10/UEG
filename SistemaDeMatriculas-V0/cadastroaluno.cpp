@@ -77,8 +77,6 @@ void cadastroAluno::ocultarCampos()
 	janelaCadastro->labelValidCpf->hide();
 	janelaCadastro->labelInvalidCpf->show();
 
-	janelaCadastro->labelValidFields->hide();
-
 	janelaCadastro->btnCadastrar->hide();
 }
 
@@ -122,8 +120,6 @@ void cadastroAluno::mostrarCampos()
 
 	janelaCadastro->labelValidCpf->show();
 	janelaCadastro->labelInvalidCpf->hide();
-
-	janelaCadastro->labelValidFields->show();
 
 	janelaCadastro->btnCadastrar->show();
 }
@@ -239,6 +235,7 @@ void cadastroAluno::on_campoCpf_textChanged()
 			mostrarCampos();
 			janelaCadastro->dateEdit->setFocus();
 			janelaCadastro->dateEdit->selectAll();
+			janelaCadastro->labelValidFields->clear();
 		}
 		else {
 			QMessageBox::warning(this, "Atenção", "Já existe um aluno cadastrado com este cpf");
@@ -248,6 +245,7 @@ void cadastroAluno::on_campoCpf_textChanged()
 		}
 	}
 	else {
+		janelaCadastro->labelValidFields->setText("Cpf inválido");
 		ocultarCampos();
 		limparCampos();
 	}

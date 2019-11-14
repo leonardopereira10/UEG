@@ -69,11 +69,6 @@ QString Aluno::getNome() const
 	return Pessoa::nome;
 }
 
-QDate Aluno::getDtNascimento() const
-{
-	return Pessoa::dtNascimento;
-}
-
 QString Aluno::getEndereco() const
 {
 	return Pessoa::endereco;

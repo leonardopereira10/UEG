@@ -1,7 +1,6 @@
 #include "removealuno.h"
 #include "ui_removealuno.h"
 #include <QMessageBox>
-#include "matricula.h"
 
 RemoveAluno::RemoveAluno(QWidget *parent) :
 	QWidget(parent),

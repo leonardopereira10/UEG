@@ -28,7 +28,7 @@ QT_BEGIN_NAMESPACE
 class Ui_ListaAlunos
 {
 public:
-    QWidget *widget;
+    QWidget *layoutWidget;
     QGridLayout *gridLayout;
     QTableView *tableView;
     QRadioButton *radioCresc;
@@ -46,39 +46,40 @@ public:
         QIcon icon;
         icon.addFile(QStringLiteral(":/recursos/Imagens/Aluno.png"), QSize(), QIcon::Normal, QIcon::Off);
         ListaAlunos->setWindowIcon(icon);
-        widget = new QWidget(ListaAlunos);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(10, 10, 1118, 481));
-        gridLayout = new QGridLayout(widget);
+        layoutWidget = new QWidget(ListaAlunos);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(10, 10, 1118, 481));
+        gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        tableView = new QTableView(widget);
+        tableView = new QTableView(layoutWidget);
         tableView->setObjectName(QStringLiteral("tableView"));
         tableView->setFrameShape(QFrame::StyledPanel);
         tableView->setFrameShadow(QFrame::Sunken);
         tableView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustIgnored);
         tableView->setProperty("showDropIndicator", QVariant(true));
         tableView->setAlternatingRowColors(false);
+        tableView->setSortingEnabled(true);
 
         gridLayout->addWidget(tableView, 1, 0, 1, 6);
 
-        radioCresc = new QRadioButton(widget);
+        radioCresc = new QRadioButton(layoutWidget);
         radioCresc->setObjectName(QStringLiteral("radioCresc"));
         radioCresc->setChecked(true);
 
         gridLayout->addWidget(radioCresc, 0, 2, 1, 1);
 
-        radioDecresc = new QRadioButton(widget);
+        radioDecresc = new QRadioButton(layoutWidget);
         radioDecresc->setObjectName(QStringLiteral("radioDecresc"));
 
         gridLayout->addWidget(radioDecresc, 0, 3, 1, 1);
 
-        labelOrdem = new QLabel(widget);
+        labelOrdem = new QLabel(layoutWidget);
         labelOrdem->setObjectName(QStringLiteral("labelOrdem"));
 
         gridLayout->addWidget(labelOrdem, 0, 0, 1, 1);
 
-        boxOrdem = new QComboBox(widget);
+        boxOrdem = new QComboBox(layoutWidget);
         boxOrdem->setObjectName(QStringLiteral("boxOrdem"));
 
         gridLayout->addWidget(boxOrdem, 0, 1, 1, 1);
@@ -87,7 +88,7 @@ public:
 
         gridLayout->addItem(horizontalSpacer, 0, 4, 1, 1);
 
-        btnAtualizar = new QPushButton(widget);
+        btnAtualizar = new QPushButton(layoutWidget);
         btnAtualizar->setObjectName(QStringLiteral("btnAtualizar"));
 
         gridLayout->addWidget(btnAtualizar, 0, 5, 1, 1);

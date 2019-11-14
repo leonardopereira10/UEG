@@ -277,9 +277,9 @@ public:
         actionRemoverAluno->setShortcut(QApplication::translate("MainWindow", "Ctrl+A, 3", Q_NULLPTR));
         actionConsultarAluno->setText(QApplication::translate("MainWindow", "Consultar", Q_NULLPTR));
         actionConsultarAluno->setShortcut(QApplication::translate("MainWindow", "Ctrl+A, 2", Q_NULLPTR));
-        actionOrganizar_janelas_lado_a_lado->setText(QApplication::translate("MainWindow", "Organizar janelas lado a lado", Q_NULLPTR));
+        actionOrganizar_janelas_lado_a_lado->setText(QApplication::translate("MainWindow", "Janelas lado a lado", Q_NULLPTR));
         actionOrganizar_janelas_lado_a_lado->setShortcut(QApplication::translate("MainWindow", "Ctrl+E, L", Q_NULLPTR));
-        actionOrganizar_janelas_em_cascata->setText(QApplication::translate("MainWindow", "Organizar janelas em cascata", Q_NULLPTR));
+        actionOrganizar_janelas_em_cascata->setText(QApplication::translate("MainWindow", "Janelas em cascata", Q_NULLPTR));
         actionOrganizar_janelas_em_cascata->setShortcut(QApplication::translate("MainWindow", "Ctrl+E, C", Q_NULLPTR));
         menuArquivo->setTitle(QApplication::translate("MainWindow", "Arquivo", Q_NULLPTR));
         menuAlunos->setTitle(QApplication::translate("MainWindow", "Alunos", Q_NULLPTR));

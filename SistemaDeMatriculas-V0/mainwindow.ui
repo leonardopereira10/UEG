@@ -331,7 +331,7 @@
      <normaloff>:/recursos/Imagens/ladoLado.png</normaloff>:/recursos/Imagens/ladoLado.png</iconset>
    </property>
    <property name="text">
-    <string>Organizar janelas lado a lado</string>
+    <string>Janelas lado a lado</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+E, L</string>
@@ -343,7 +343,7 @@
      <normaloff>:/recursos/Imagens/cascata.png</normaloff>:/recursos/Imagens/cascata.png</iconset>
    </property>
    <property name="text">
-    <string>Organizar janelas em cascata</string>
+    <string>Janelas em cascata</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+E, C</string>

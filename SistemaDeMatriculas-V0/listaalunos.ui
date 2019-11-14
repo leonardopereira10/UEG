@@ -17,7 +17,7 @@
    <iconset resource="recursos.qrc">
     <normaloff>:/recursos/Imagens/Aluno.png</normaloff>:/recursos/Imagens/Aluno.png</iconset>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -42,6 +42,9 @@
        <bool>true</bool>
       </property>
       <property name="alternatingRowColors">
+       <bool>false</bool>
+      </property>
+      <property name="sortingEnabled">
        <bool>false</bool>
       </property>
      </widget>

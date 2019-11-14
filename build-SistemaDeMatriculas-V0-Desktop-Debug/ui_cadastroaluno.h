@@ -38,12 +38,10 @@ public:
     QDateEdit *dateEdit;
     QLabel *labelMatricula;
     QLineEdit *campoMatricula;
-    QPushButton *btnCadastrar;
     QLabel *labelInvalidCpf;
     QLabel *labelValidNome;
     QLabel *labelValidEndereco;
     QLabel *labelValidSetor;
-    QLabel *labelValidFields;
     QLabel *labelValidEmail;
     QLabel *labelValidCidade;
     QLabel *labelValidCurso;
@@ -65,6 +63,10 @@ public:
     QLineEdit *campoEmail;
     QLabel *labelCurso;
     QComboBox *boxCurso;
+    QWidget *widget;
+    QGridLayout *gridLayout_3;
+    QLabel *labelValidFields;
+    QPushButton *btnCadastrar;
 
     void setupUi(QWidget *cadastroAluno)
     {
@@ -135,9 +137,6 @@ public:
 
         gridLayout->addWidget(campoMatricula, 1, 2, 1, 1);
 
-        btnCadastrar = new QPushButton(cadastroAluno);
-        btnCadastrar->setObjectName(QStringLiteral("btnCadastrar"));
-        btnCadastrar->setGeometry(QRect(130, 410, 171, 29));
         labelInvalidCpf = new QLabel(cadastroAluno);
         labelInvalidCpf->setObjectName(QStringLiteral("labelInvalidCpf"));
         labelInvalidCpf->setGeometry(QRect(240, 50, 31, 31));
@@ -150,9 +149,6 @@ public:
         labelValidSetor = new QLabel(cadastroAluno);
         labelValidSetor->setObjectName(QStringLiteral("labelValidSetor"));
         labelValidSetor->setGeometry(QRect(404, 220, 31, 31));
-        labelValidFields = new QLabel(cadastroAluno);
-        labelValidFields->setObjectName(QStringLiteral("labelValidFields"));
-        labelValidFields->setGeometry(QRect(110, 380, 221, 20));
         labelValidEmail = new QLabel(cadastroAluno);
         labelValidEmail->setObjectName(QStringLiteral("labelValidEmail"));
         labelValidEmail->setGeometry(QRect(404, 295, 31, 31));
@@ -256,6 +252,22 @@ public:
         gridLayout_2->setColumnStretch(3, 1);
         gridLayout_2->setColumnStretch(6, 10);
         gridLayout_2->setColumnStretch(7, 1);
+        widget = new QWidget(cadastroAluno);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(150, 390, 121, 53));
+        gridLayout_3 = new QGridLayout(widget);
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        gridLayout_3->setContentsMargins(0, 0, 0, 0);
+        labelValidFields = new QLabel(widget);
+        labelValidFields->setObjectName(QStringLiteral("labelValidFields"));
+
+        gridLayout_3->addWidget(labelValidFields, 0, 0, 1, 1);
+
+        btnCadastrar = new QPushButton(widget);
+        btnCadastrar->setObjectName(QStringLiteral("btnCadastrar"));
+
+        gridLayout_3->addWidget(btnCadastrar, 1, 0, 1, 1);
+
         QWidget::setTabOrder(campoCpf, dateEdit);
         QWidget::setTabOrder(dateEdit, campoNome);
         QWidget::setTabOrder(campoNome, campoEndereco);
@@ -291,12 +303,10 @@ public:
         labelAno->setText(QApplication::translate("cadastroAluno", "<html><head/><body><p><span style=\" font-weight:600;\">Ano</span></p></body></html>", Q_NULLPTR));
         dateEdit->setDisplayFormat(QApplication::translate("cadastroAluno", "yyyy", Q_NULLPTR));
         labelMatricula->setText(QApplication::translate("cadastroAluno", "<html><head/><body><p><span style=\" font-weight:600;\">Matricula</span></p></body></html>", Q_NULLPTR));
-        btnCadastrar->setText(QApplication::translate("cadastroAluno", "Cadastrar", Q_NULLPTR));
         labelInvalidCpf->setText(QString());
         labelValidNome->setText(QString());
         labelValidEndereco->setText(QString());
         labelValidSetor->setText(QString());
-        labelValidFields->setText(QString());
         labelValidEmail->setText(QString());
         labelValidCidade->setText(QString());
         labelValidCurso->setText(QString());
@@ -326,6 +336,8 @@ public:
         boxCurso->insertItems(0, QStringList()
          << QApplication::translate("cadastroAluno", "Select", Q_NULLPTR)
         );
+        labelValidFields->setText(QString());
+        btnCadastrar->setText(QApplication::translate("cadastroAluno", "Cadastrar", Q_NULLPTR));
     } // retranslateUi
 
 };

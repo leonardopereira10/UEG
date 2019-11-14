@@ -32,12 +32,6 @@ SOURCES += main.cpp\
 	consultaaluno.cpp \
     removealuno.cpp \
 	listaalunos.cpp \
-	matricula.cpp \
-	persistmatriculas.cpp \
-	criamatricula.cpp \
-	consultamatricula.cpp \
-	excluirmatricula.cpp \
-	listartodasmatriculas.cpp
 
 HEADERS  += mainwindow.h \
 	pessoa.h \
@@ -47,22 +41,12 @@ HEADERS  += mainwindow.h \
 	consultaaluno.h \
     removealuno.h \
 	listaalunos.h \
-	matricula.h \
-	persistmatriculas.h \
-	criamatricula.h \
-	consultamatricula.h \
-	excluirmatricula.h \
-	listartodasmatriculas.h
 
 FORMS += mainwindow.ui \
 	cadastroaluno.ui \
 	consultaaluno.ui \
     removealuno.ui \
 	listaalunos.ui \
-	criamatricula.ui \
-	consultamatricula.ui \
-	excluirmatricula.ui \
-	listartodasmatriculas.ui
 
 
 RESOURCES += \

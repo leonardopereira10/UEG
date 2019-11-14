@@ -13,13 +13,12 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableView>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -28,12 +27,11 @@ class Ui_ConsultaMatricula
 {
 public:
     QTableView *tableView;
-    QWidget *layoutWidget;
-    QVBoxLayout *verticalLayout;
-    QHBoxLayout *horizontalLayout;
+    QWidget *widget;
+    QGridLayout *gridLayout;
     QLabel *label_7;
-    QLineEdit *lineEdit_5;
     QPushButton *pushButton_3;
+    QLineEdit *lineEdit;
 
     void setupUi(QWidget *ConsultaMatricula)
     {
@@ -46,31 +44,26 @@ public:
         tableView = new QTableView(ConsultaMatricula);
         tableView->setObjectName(QStringLiteral("tableView"));
         tableView->setGeometry(QRect(30, 80, 321, 221));
-        layoutWidget = new QWidget(ConsultaMatricula);
-        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(30, 10, 227, 68));
-        verticalLayout = new QVBoxLayout(layoutWidget);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        label_7 = new QLabel(layoutWidget);
+        widget = new QWidget(ConsultaMatricula);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(31, 12, 225, 66));
+        gridLayout = new QGridLayout(widget);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setContentsMargins(0, 0, 0, 0);
+        label_7 = new QLabel(widget);
         label_7->setObjectName(QStringLiteral("label_7"));
 
-        horizontalLayout->addWidget(label_7);
+        gridLayout->addWidget(label_7, 0, 0, 1, 1);
 
-        lineEdit_5 = new QLineEdit(layoutWidget);
-        lineEdit_5->setObjectName(QStringLiteral("lineEdit_5"));
-
-        horizontalLayout->addWidget(lineEdit_5);
-
-
-        verticalLayout->addLayout(horizontalLayout);
-
-        pushButton_3 = new QPushButton(layoutWidget);
+        pushButton_3 = new QPushButton(widget);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
 
-        verticalLayout->addWidget(pushButton_3);
+        gridLayout->addWidget(pushButton_3, 1, 0, 1, 2);
+
+        lineEdit = new QLineEdit(widget);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+
+        gridLayout->addWidget(lineEdit, 0, 1, 1, 1);
 
 
         retranslateUi(ConsultaMatricula);
