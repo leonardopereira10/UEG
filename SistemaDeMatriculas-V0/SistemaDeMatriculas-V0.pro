@@ -24,20 +24,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp \
-		cpf.cpp \
 		mainwindow.cpp \
-                pessoa.cpp \
     curso.cpp \
     cadcurso.cpp \
-    removecurso.cpp
+    removecurso.cpp \
+    persistcurso.cpp
 
 
 HEADERS	+= mainwindow.h \
-		cpf.h \
-                pessoa.h \
     curso.h \
     cadcurso.h \
-    removecurso.h
+    removecurso.h \
+    persistcurso.h
 
 FORMS += mainwindow.ui \
     cadcurso.ui \
@@ -45,5 +43,3 @@ FORMS += mainwindow.ui \
 
 RESOURCES += \
     recursos.qrc
-
-QMAKE_CXXFLAGS += -std=gnu++14

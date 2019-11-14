@@ -1,35 +1,9 @@
 #include "curso.h"
-
-Curso::Curso()
-{
-
-}
-
-Curso::Curso(QString nome, double duracao)  //Inicialização do objeto
-{
-    this->idCurso=idCurso;
-    this->nome=nome;
-    this->duracao=duracao;
-}
-
-int Curso::getIdCurso() const
-{
-    return idCurso;
-}
-
-void Curso::setIdCurso(int value)
-{
-    idCurso = value;
-}
+#include "persistcurso.h"
 
 QString Curso::getNome() const
 {
     return nome;
-}
-
-void Curso::setNome(const QString &value)
-{
-    nome = value;
 }
 
 double Curso::getDuracao() const
@@ -37,7 +11,34 @@ double Curso::getDuracao() const
     return duracao;
 }
 
-void Curso::setDuracao(double value)
+int Curso::getIdCurso() const
 {
-    duracao = value;
+    return idCurso;
 }
+
+Curso::Curso()
+{
+
+}
+
+Curso::Curso(QString nome, double duracao, int idCurso)  //Inicialização do objeto
+{
+    this->nome=nome;
+    this->duracao=duracao;
+    this->idCurso=idCurso;
+}
+
+bool Curso::cadCurso(Curso curso)
+{
+    PersistCurso sqlite;
+    return  sqlite.cadastrarCurso(curso);
+}
+
+bool Curso::analisaCurso(int idCurso)
+{
+    PersistCurso sqlite;
+    return  sqlite.analisaCurso(idCurso);
+}
+
+
+

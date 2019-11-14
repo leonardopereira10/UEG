@@ -90,10 +90,10 @@
     <item row="2" column="3" colspan="2">
      <widget class="QLineEdit" name="campoIDCurso">
       <property name="focusPolicy">
-       <enum>Qt::NoFocus</enum>
+       <enum>Qt::StrongFocus</enum>
       </property>
       <property name="readOnly">
-       <bool>true</bool>
+       <bool>false</bool>
       </property>
      </widget>
     </item>

@@ -1,5 +1,6 @@
 #include "cadcurso.h"
 #include "ui_cadcurso.h"
+#include <QMessageBox>
 
 cadCurso::cadCurso(QWidget *parent) :   //Construtor da Interface
     QWidget(parent),
@@ -8,25 +9,6 @@ cadCurso::cadCurso(QWidget *parent) :   //Construtor da Interface
     janelaCadastro->setupUi(this);
     janelaCadastro->labelValid->setAlignment(Qt::AlignCenter);          //alinhamento do campo de validação
 
-    //Verificar driver do SQLite
-    if (QSqlDatabase::isDriverAvailable("QSQLITE")) {
-        db = QSqlDatabase::addDatabase("QSQLITE");
-        db.setDatabaseName("/home/samea/UEG/SistemaDeMatriculas-V0/bd/bdCurso");
-
-        //abrir o banco de dados
-        if (db.open()){
-            query = new QSqlQuery(db);
-
-        //mensagem falha
-        } else {
-            qDebug()<<"cadCurso(): "<<db.lastError();
-            janelaCadastro->labelValid->setText("falha ao abrir o banco de dados.");
-        }
-        //Mensagem driver não disponivel
-    } else {
-        qDebug()<<"cadCurso(): "<<db.lastError();
-        janelaCadastro->labelValid->setText("Driver SQLITE não disponível.");
-    }
 }
 
 cadCurso::~cadCurso()
@@ -40,7 +22,10 @@ bool cadCurso::validarCampos()
            //Verificar se os campos estao vazios
     if (janelaCadastro->campoNome->text().isEmpty() || janelaCadastro->boxDuracao->value() < 1)
         return !cont;
+    if (janelaCadastro->campoIDCurso->text().isEmpty())
+        return !cont;
     return cont;
+
 }
 
 void cadCurso::on_campoNome_returnPressed()
@@ -59,24 +44,19 @@ void cadCurso::on_btnCadastrar_clicked()
         janelaCadastro->labelValid->setText("* Não podem estar vazios");
     }
     else {
-        janelaCadastro->labelValid->clear();
-        Curso curso(janelaCadastro->campoNome->text(),
-                    janelaCadastro->boxDuracao->value());
-
-        if (enviarBd(&curso)){      //Enviar para o Banco de dados
-            curso.setIdCurso(query->lastInsertId().toInt());     //pegar ID
-            janelaCadastro->campoIDCurso->setText(QString::number(curso.getIdCurso()));
+        if (Curso::analisaCurso(janelaCadastro->campoIDCurso->text().toInt())){
+            Curso curso(janelaCadastro->campoNome->text(),
+                        janelaCadastro->boxDuracao->text().toFloat(),
+                        janelaCadastro->campoIDCurso->text().toInt());
+            if (Curso::cadCurso(curso)) {
+                QMessageBox::information(this, "Cadastro Realizado", "Curso Cadastrado Com Sucesso!");
+            } else {
+                QMessageBox::warning(this, "Erro ao Cadastrar", "Houve um erro ao cadastrar o curso");
+            }
+        } else {
+            QMessageBox::warning(this, "Erro ao Cadastrar", "Curso já existe");
         }
     }
-    query->clear();
 }
 
-bool cadCurso::enviarBd(Curso *curso)
-{
-    query->clear();
-    query->prepare("INSERT INTO cursos(nome,duracao) "
-                   "VALUES (:nome,:duracao);");
-    query->bindValue(":nome",curso->getNome());
-    query->bindValue(":duracao", curso->getDuracao());
-    return query->exec();
-}
+

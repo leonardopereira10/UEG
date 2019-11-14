@@ -12,16 +12,13 @@ private:
 
 public:           //Criação de métodos
     Curso();
-    Curso(QString nome, double duracao);  //construtor da classe
+    Curso(QString nome, double duracao, int idCurso);  //construtor da classe
 
-    int getIdCurso() const;      //get e set id curso
-    void setIdCurso(int value);
+    static bool cadCurso(Curso curso);
+    static bool analisaCurso(int idCurso);
 
-    QString getNome() const;    //get e set nome
-    void setNome(const QString &value);
-
-    double getDuracao() const;    //get e set duração
-    void setDuracao(double value);
+    QString getNome() const;
+    double getDuracao() const;
+    int getIdCurso() const;
 };
-
 #endif // CURSO_H
