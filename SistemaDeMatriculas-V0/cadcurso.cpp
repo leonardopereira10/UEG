@@ -44,9 +44,9 @@ void cadCurso::on_btnCadastrar_clicked()
         janelaCadastro->labelValid->setText("* Não podem estar vazios");
     }
     else {
-        if (Curso::analisaCurso(janelaCadastro->campoIDCurso->text().toInt())){
+         if (Curso::analisaCurso(janelaCadastro->campoIDCurso->text().toInt())){
             Curso curso(janelaCadastro->campoNome->text(),
-                        janelaCadastro->boxDuracao->text().toFloat(),
+                        janelaCadastro->boxDuracao->value(),
                         janelaCadastro->campoIDCurso->text().toInt());
             if (Curso::cadCurso(curso)) {
                 QMessageBox::information(this, "Cadastro Realizado", "Curso Cadastrado Com Sucesso!");

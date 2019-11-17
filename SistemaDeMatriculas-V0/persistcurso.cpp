@@ -20,8 +20,9 @@ bool PersistCurso::cadastrarCurso(Curso &curso)
 {
     QSqlQuery query(db);
     db.open();
-    query.prepare("INSERT INTO Cursos(Curso,Duracao) "
-                  "VALUES(:Nome,:Duracao) ");
+    query.prepare("INSERT INTO Cursos(IDCurso, Curso, Duracao) "
+                  "VALUES(:IDCurso, :Nome, :Duracao) ");
+    query.bindValue(":IDCurso", curso.getIdCurso());
     query.bindValue(":Nome", curso.getNome());
     query.bindValue(":Duracao", curso.getDuracao());
     if (!query.exec()) {
@@ -33,17 +34,18 @@ bool PersistCurso::cadastrarCurso(Curso &curso)
 
 bool PersistCurso::analisaCurso(int &idCurso)
 {
+    int retorno = true;
     QSqlQuery query(db);
     db.open();
-    query.prepare("SELECT COUNT(Curso.IDCurso) "
-                  "FROM Curso "
-                  "WHERE Curso.IDCurso=:idCurso");
+    query.prepare("SELECT COUNT(Cursos.IDCurso) "
+                  "FROM Cursos "
+                  "WHERE Cursos.IDCurso=:idCurso");
     query.bindValue(":idCurso",idCurso);
     if (!query.exec())
         qDebug() <<"PersistCurso::analisaCurso \n\tdb: " << db.lastError() <<"\n\tquery: " << query.lastError();
     query.first();
-    db.close();
     if(query.value(0).toInt() != 0)
-        return false;
-    return true;
+        retorno = false;
+    db.close();
+    return retorno;
 }
