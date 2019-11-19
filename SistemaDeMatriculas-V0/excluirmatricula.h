@@ -29,6 +29,8 @@ private slots:
 
   void MensagemCampoNotFound(char campo[]);
 
+  void MensagemSucesso(char CampoMaisAcao[]);
+
 private:
   Ui::ExcluirMatricula *ui;
 };

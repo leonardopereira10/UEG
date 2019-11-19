@@ -12,7 +12,7 @@ ExcluirMatricula::ExcluirMatricula(QWidget *parent)
 ExcluirMatricula::~ExcluirMatricula() { delete ui; }
 
 void ExcluirMatricula::on_BtnExcluir_clicked() {
-  Matricula matricula(ui->txbCodAluno->text(), ui->txbCodDisciplina->text(), ui->txbAno->text(), ui->txbSemestre->text());
+  Matricula matricula(ui->txbCodDisciplina->text(), ui->txbCodAluno->text(), ui->txbAno->text(), ui->txbSemestre->text());
   if(!Matricula::VerificaAlunoExistente(ui->txbCodAluno->text()))
   {
       MensagemCampoNotFound("ID do Aluno");
@@ -21,22 +21,42 @@ void ExcluirMatricula::on_BtnExcluir_clicked() {
   {
       MensagemCampoNotFound("ID da Disciplina");
   }
-  //else if !VerificaMatricula
+  else if(!Matricula::VerificaMatriculaExiste(matricula))
+  {
+      MensagemCampoNotFound("Vinculo de Matricula");
+  }
   else
   {
+      //criar widget aqui
+      Matricula::ExcluirMatricula(matricula);
+      MensagemSucesso("Matricula excluida");
   }
-  Matricula::ExcluirMatricula(matricula);
 
 }
 
 void ExcluirMatricula::on_txbCodAluno_returnPressed()
 {
-    ui->txbCodDisciplina->setFocus();
+    if(!Matricula::VerificaAlunoExistente(ui->txbCodAluno->text()))
+    {
+        MensagemCampoNotFound("ID do Aluno");
+    }
+    else
+    {
+        ui->txbCodDisciplina->setFocus();
+    }
 }
 
 void ExcluirMatricula::on_txbCodDisciplina_returnPressed()
 {
-    ui->txbAno->setFocus();
+    if(!Matricula::VerificaDisciplinaExiste(ui->txbCodDisciplina->text()))
+    {
+        MensagemCampoNotFound("ID da Disciplina");
+    }
+    //else if !VerificaMatricula
+    else
+    {
+        ui->txbAno->setFocus();
+    }
 }
 
 void ExcluirMatricula::on_txbAno_returnPressed()
@@ -53,5 +73,12 @@ void ExcluirMatricula::MensagemCampoNotFound(char campo[])
 {
     QMessageBox::warning(this, tr("Atenção!"),
                          tr(campo)+" não encontrado!",
+                         QMessageBox::Ok);
+}
+
+void ExcluirMatricula::MensagemSucesso(char CampoMaisAcao[])
+{
+    QMessageBox::information(this, tr("Report"),
+                         tr(CampoMaisAcao)+" com sucesso!!!",
                          QMessageBox::Ok);
 }

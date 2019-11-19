@@ -9,6 +9,10 @@
 #include "consultamatricula.h"
 #include "excluirmatricula.h"
 #include "listartodasmatriculas.h"
+#include "cadastro_professor.h"
+#include "consulta_professor.h"
+#include "remove_professor.h"
+#include "listar_professor.h"
 
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent),
@@ -92,4 +96,26 @@ void MainWindow::on_actionRemover_matricula_para_disciplina_triggered()
 void MainWindow::on_actionListar_matriculas_para_disciplina_triggered()
 {
 	loadSubWindow(new ListarTodasMatriculas(this));
+}
+
+void MainWindow::on_actionCadastrarProf_triggered()
+{
+    loadSubWindow(new cadastro_professor(this));
+
+}
+
+void MainWindow::on_actionConsultarProf_triggered()
+{
+    loadSubWindow(new Consulta_professor(this));
+}
+
+void MainWindow::on_actionRemoverProf_triggered()
+{
+    loadSubWindow(new remove_professor(this));
+
+}
+
+void MainWindow::on_actionListarProfs_triggered()
+{
+    loadSubWindow(new listar_professor(this));
 }

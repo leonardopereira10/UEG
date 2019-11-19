@@ -24,12 +24,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
+    PersistProfessor.cpp \
+    cadastro_professor.cpp \
+    consulta_professor.cpp \
+    listar_professor.cpp \
 	mainwindow.cpp \
 	pessoa.cpp \
 	aluno.cpp \
 	persistaluno.cpp \
 	cadastroaluno.cpp \
 	consultaaluno.cpp \
+    professor.cpp \
+    remove_professor.cpp \
     removealuno.cpp \
 	listaalunos.cpp \
 	matricula.cpp \
@@ -40,11 +46,17 @@ SOURCES += main.cpp\
 	listartodasmatriculas.cpp
 
 HEADERS  += mainwindow.h \
+    PersistProfessor.h \
+    cadastro_professor.h \
+    consulta_professor.h \
+    listar_professor.h \
 	pessoa.h \
 	aluno.h \
 	persistaluno.h \
 	cadastroaluno.h \
 	consultaaluno.h \
+    professor.h \
+    remove_professor.h \
     removealuno.h \
 	listaalunos.h \
 	matricula.h \
@@ -55,8 +67,12 @@ HEADERS  += mainwindow.h \
 	listartodasmatriculas.h
 
 FORMS += mainwindow.ui \
+    cadastro_professor.ui \
 	cadastroaluno.ui \
+    consulta_professor.ui \
 	consultaaluno.ui \
+    listar_professor.ui \
+    remove_professor.ui \
     removealuno.ui \
 	listaalunos.ui \
 	criamatricula.ui \

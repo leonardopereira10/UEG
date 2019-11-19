@@ -38,6 +38,14 @@ private slots:
 
 	void on_actionListar_matriculas_para_disciplina_triggered();
 
+    void on_actionCadastrarProf_triggered();
+
+    void on_actionConsultarProf_triggered();
+
+    void on_actionRemoverProf_triggered();
+
+    void on_actionListarProfs_triggered();
+
 private:
 	Ui::MainWindow *janelaInicial;
 	void loadSubWindow(QWidget *widget);
