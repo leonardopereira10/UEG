@@ -15,5 +15,6 @@
         <file>BancoDeDados.png</file>
         <file>manual.png</file>
         <file>backgound.png</file>
+        <file>fullScreen.png</file>
     </qresource>
 </RCC>

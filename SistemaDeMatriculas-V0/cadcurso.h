@@ -24,6 +24,8 @@ private slots:
 
     void on_boxDuracao_editingFinished();
 
+    void on_campoIDCurso_returnPressed();
+
     void on_btnCadastrar_clicked();
 
 private:

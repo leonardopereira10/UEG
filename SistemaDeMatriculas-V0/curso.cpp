@@ -40,5 +40,11 @@ bool Curso::analisaCurso(int idCurso)
     return  sqlite.analisaCurso(idCurso);
 }
 
+bool Curso::removeCurso(int idCurso)
+{
+    PersistCurso sqlite;
+    return sqlite.removeCurso(idCurso);
+}
+
 
 

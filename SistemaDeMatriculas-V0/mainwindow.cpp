@@ -1,7 +1,12 @@
 #include <QMdiSubWindow>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+//#include "cadastroaluno.h"
+//#include "consultaaluno.h"
+//#include "removealuno.h"
+//#include "listaalunos.h"
 #include "cadcurso.h"
+#include "removecurso.h"
 
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent),
@@ -11,18 +16,11 @@ MainWindow::MainWindow(QWidget *parent) :
 	this->showMaximized();
 	setCentralWidget(janelaInicial->mdiArea);
 
-//    QPixmap bkg(":/recursos/Imagens/backgound.png");
-//	janelaInicial->mdiArea->setBackground(bkg);
 }
 
 MainWindow::~MainWindow()
 {
 	delete janelaInicial;
-}
-
-void MainWindow::on_actionCadastrarCurso_triggered()
-{
-    loadSubWindow(new cadCurso(this));
 }
 
 void MainWindow::loadSubWindow(QWidget *widget)
@@ -32,11 +30,21 @@ void MainWindow::loadSubWindow(QWidget *widget)
 
 	window->setWindowTitle(widget->windowTitle());
 	window->setWindowIcon(widget->windowIcon());
-    window->setMinimumSize(438, 455); // TODO: corrigir tamanho das janelas
+	window->setMinimumSize(widget->size());
 
 	window->setWidget(widget);
 	janelaInicial->mdiArea->addSubWindow(window);
 	window->show();
+}
+
+void MainWindow::on_actionOrganizar_janelas_lado_a_lado_triggered()
+{
+	janelaInicial->mdiArea->tileSubWindows();
+}
+
+void MainWindow::on_actionOrganizar_janelas_em_cascata_triggered()
+{
+	janelaInicial->mdiArea->cascadeSubWindows();
 }
 
 void MainWindow::on_actionSair_triggered()
@@ -44,6 +52,34 @@ void MainWindow::on_actionSair_triggered()
 	close();
 }
 
+// NOTE: Slots relacionados ao módulo Aluno
 
+//void MainWindow::on_actionCadastrarAluno_triggered()
+//{
+//	loadSubWindow(new cadastroAluno(this));
+//}
 
+//void MainWindow::on_actionConsultarAluno_triggered()
+//{
+//	loadSubWindow(new ConsultaAluno(this));
+//}
 
+//void MainWindow::on_actionRemoverAluno_triggered()
+//{
+//	loadSubWindow(new RemoveAluno(this));
+//}
+
+//void MainWindow::on_actionListarAlunos_triggered()
+//{
+//	loadSubWindow(new ListaAlunos(this));
+//}
+
+void MainWindow::on_actionCadastrarCurso_triggered()
+{
+    loadSubWindow(new cadCurso(this));
+}
+
+void MainWindow::on_actionRemoverCurso_triggered()
+{
+    loadSubWindow(new removeCurso(this));
+}

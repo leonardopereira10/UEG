@@ -43,7 +43,7 @@ public:
     {
         if (cadCurso->objectName().isEmpty())
             cadCurso->setObjectName(QStringLiteral("cadCurso"));
-        cadCurso->resize(400, 276);
+        cadCurso->resize(400, 272);
         QIcon icon;
         icon.addFile(QStringLiteral(":/imagens/Imagens/logo.png"), QSize(), QIcon::Normal, QIcon::Off);
         cadCurso->setWindowIcon(icon);
@@ -52,10 +52,10 @@ public:
         labelIcone->setGeometry(QRect(290, 20, 91, 101));
         btnCadastrar = new QPushButton(cadCurso);
         btnCadastrar->setObjectName(QStringLiteral("btnCadastrar"));
-        btnCadastrar->setGeometry(QRect(160, 210, 90, 28));
+        btnCadastrar->setGeometry(QRect(150, 200, 90, 28));
         labelValid = new QLabel(cadCurso);
         labelValid->setObjectName(QStringLiteral("labelValid"));
-        labelValid->setGeometry(QRect(130, 180, 151, 16));
+        labelValid->setGeometry(QRect(120, 170, 151, 16));
         layoutWidget = new QWidget(cadCurso);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
         layoutWidget->setGeometry(QRect(20, 20, 256, 124));
@@ -101,6 +101,9 @@ public:
 
         gridLayout->addWidget(labelIdCurso, 2, 0, 1, 3);
 
+        QWidget::setTabOrder(campoNome, campoIDCurso);
+        QWidget::setTabOrder(campoIDCurso, btnCadastrar);
+        QWidget::setTabOrder(btnCadastrar, boxDuracao);
 
         retranslateUi(cadCurso);
 

@@ -19,7 +19,6 @@
 #include <QtWidgets/QMdiArea>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -48,9 +47,10 @@ public:
     QAction *actionSair;
     QAction *actionManual;
     QAction *actionSobre;
-    QAction *actionSelecionar_base_de_dados;
     QAction *actionRemoverAluno;
     QAction *actionConsultarAluno;
+    QAction *actionOrganizar_janelas_lado_a_lado;
+    QAction *actionOrganizar_janelas_em_cascata;
     QWidget *centralWidget;
     QGridLayout *gridLayout;
     QMdiArea *mdiArea;
@@ -63,7 +63,6 @@ public:
     QMenu *menuMatriculas;
     QMenu *menuEditar;
     QMenu *menuAjuda;
-    QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -124,15 +123,20 @@ public:
         QIcon icon3;
         icon3.addFile(QStringLiteral(":/recursos/Imagens/sobre.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionSobre->setIcon(icon3);
-        actionSelecionar_base_de_dados = new QAction(MainWindow);
-        actionSelecionar_base_de_dados->setObjectName(QStringLiteral("actionSelecionar_base_de_dados"));
-        QIcon icon4;
-        icon4.addFile(QStringLiteral(":/recursos/Imagens/BancoDeDados.png"), QSize(), QIcon::Normal, QIcon::Off);
-        actionSelecionar_base_de_dados->setIcon(icon4);
         actionRemoverAluno = new QAction(MainWindow);
         actionRemoverAluno->setObjectName(QStringLiteral("actionRemoverAluno"));
         actionConsultarAluno = new QAction(MainWindow);
         actionConsultarAluno->setObjectName(QStringLiteral("actionConsultarAluno"));
+        actionOrganizar_janelas_lado_a_lado = new QAction(MainWindow);
+        actionOrganizar_janelas_lado_a_lado->setObjectName(QStringLiteral("actionOrganizar_janelas_lado_a_lado"));
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/recursos/Imagens/ladoLado.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionOrganizar_janelas_lado_a_lado->setIcon(icon4);
+        actionOrganizar_janelas_em_cascata = new QAction(MainWindow);
+        actionOrganizar_janelas_em_cascata->setObjectName(QStringLiteral("actionOrganizar_janelas_em_cascata"));
+        QIcon icon5;
+        icon5.addFile(QStringLiteral(":/recursos/Imagens/cascata.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionOrganizar_janelas_em_cascata->setIcon(icon5);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
@@ -147,42 +151,39 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 665, 22));
+        menuBar->setGeometry(QRect(0, 0, 665, 23));
         menuArquivo = new QMenu(menuBar);
         menuArquivo->setObjectName(QStringLiteral("menuArquivo"));
         menuAlunos = new QMenu(menuArquivo);
         menuAlunos->setObjectName(QStringLiteral("menuAlunos"));
-        QIcon icon5;
-        icon5.addFile(QStringLiteral(":/recursos/Imagens/Aluno.png"), QSize(), QIcon::Normal, QIcon::Off);
-        menuAlunos->setIcon(icon5);
+        QIcon icon6;
+        icon6.addFile(QStringLiteral(":/recursos/Imagens/Aluno.png"), QSize(), QIcon::Normal, QIcon::Off);
+        menuAlunos->setIcon(icon6);
         menuProfessores = new QMenu(menuArquivo);
         menuProfessores->setObjectName(QStringLiteral("menuProfessores"));
-        QIcon icon6;
-        icon6.addFile(QStringLiteral(":/recursos/Imagens/Professores.png"), QSize(), QIcon::Normal, QIcon::Off);
-        menuProfessores->setIcon(icon6);
+        QIcon icon7;
+        icon7.addFile(QStringLiteral(":/recursos/Imagens/Professores.png"), QSize(), QIcon::Normal, QIcon::Off);
+        menuProfessores->setIcon(icon7);
         menuCursos = new QMenu(menuArquivo);
         menuCursos->setObjectName(QStringLiteral("menuCursos"));
-        QIcon icon7;
-        icon7.addFile(QStringLiteral(":/recursos/Imagens/Curso.png"), QSize(), QIcon::Normal, QIcon::Off);
-        menuCursos->setIcon(icon7);
+        QIcon icon8;
+        icon8.addFile(QStringLiteral(":/recursos/Imagens/Curso.png"), QSize(), QIcon::Normal, QIcon::Off);
+        menuCursos->setIcon(icon8);
         menuDisciplinas = new QMenu(menuArquivo);
         menuDisciplinas->setObjectName(QStringLiteral("menuDisciplinas"));
-        QIcon icon8;
-        icon8.addFile(QStringLiteral(":/recursos/Imagens/Disciplinas.png"), QSize(), QIcon::Normal, QIcon::Off);
-        menuDisciplinas->setIcon(icon8);
+        QIcon icon9;
+        icon9.addFile(QStringLiteral(":/recursos/Imagens/Disciplinas.png"), QSize(), QIcon::Normal, QIcon::Off);
+        menuDisciplinas->setIcon(icon9);
         menuMatriculas = new QMenu(menuArquivo);
         menuMatriculas->setObjectName(QStringLiteral("menuMatriculas"));
-        QIcon icon9;
-        icon9.addFile(QStringLiteral(":/recursos/Imagens/Cadastrar.png"), QSize(), QIcon::Normal, QIcon::Off);
-        menuMatriculas->setIcon(icon9);
+        QIcon icon10;
+        icon10.addFile(QStringLiteral(":/recursos/Imagens/Cadastrar.png"), QSize(), QIcon::Normal, QIcon::Off);
+        menuMatriculas->setIcon(icon10);
         menuEditar = new QMenu(menuBar);
         menuEditar->setObjectName(QStringLiteral("menuEditar"));
         menuAjuda = new QMenu(menuBar);
         menuAjuda->setObjectName(QStringLiteral("menuAjuda"));
         MainWindow->setMenuBar(menuBar);
-        statusBar = new QStatusBar(MainWindow);
-        statusBar->setObjectName(QStringLiteral("statusBar"));
-        MainWindow->setStatusBar(statusBar);
 
         menuBar->addAction(menuArquivo->menuAction());
         menuBar->addAction(menuEditar->menuAction());
@@ -214,7 +215,8 @@ public:
         menuMatriculas->addAction(actionConsultar_matriculas_por_aluno);
         menuMatriculas->addAction(actionRemover_matricula_para_disciplina);
         menuMatriculas->addAction(actionListar_matriculas_para_disciplina);
-        menuEditar->addAction(actionSelecionar_base_de_dados);
+        menuEditar->addAction(actionOrganizar_janelas_em_cascata);
+        menuEditar->addAction(actionOrganizar_janelas_lado_a_lado);
         menuAjuda->addAction(actionManual);
         menuAjuda->addSeparator();
         menuAjuda->addAction(actionSobre);
@@ -311,7 +313,6 @@ public:
         actionManual->setShortcut(QApplication::translate("MainWindow", "F1", Q_NULLPTR));
 #endif // QT_NO_SHORTCUT
         actionSobre->setText(QApplication::translate("MainWindow", "Sobre", Q_NULLPTR));
-        actionSelecionar_base_de_dados->setText(QApplication::translate("MainWindow", "Selecionar base de dados", Q_NULLPTR));
         actionRemoverAluno->setText(QApplication::translate("MainWindow", "Remover", Q_NULLPTR));
 #ifndef QT_NO_SHORTCUT
         actionRemoverAluno->setShortcut(QApplication::translate("MainWindow", "Ctrl+A, 3", Q_NULLPTR));
@@ -319,6 +320,14 @@ public:
         actionConsultarAluno->setText(QApplication::translate("MainWindow", "Consultar", Q_NULLPTR));
 #ifndef QT_NO_SHORTCUT
         actionConsultarAluno->setShortcut(QApplication::translate("MainWindow", "Ctrl+A, 2", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
+        actionOrganizar_janelas_lado_a_lado->setText(QApplication::translate("MainWindow", "Janelas lado a lado", Q_NULLPTR));
+#ifndef QT_NO_SHORTCUT
+        actionOrganizar_janelas_lado_a_lado->setShortcut(QApplication::translate("MainWindow", "Ctrl+E, L", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
+        actionOrganizar_janelas_em_cascata->setText(QApplication::translate("MainWindow", "Janelas em cascata", Q_NULLPTR));
+#ifndef QT_NO_SHORTCUT
+        actionOrganizar_janelas_em_cascata->setShortcut(QApplication::translate("MainWindow", "Ctrl+E, C", Q_NULLPTR));
 #endif // QT_NO_SHORTCUT
         menuArquivo->setTitle(QApplication::translate("MainWindow", "Arquivo", Q_NULLPTR));
         menuAlunos->setTitle(QApplication::translate("MainWindow", "Alunos", Q_NULLPTR));

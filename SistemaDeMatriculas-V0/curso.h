@@ -16,6 +16,7 @@ public:           //Criação de métodos
 
     static bool cadCurso(Curso curso);
     static bool analisaCurso(int idCurso);
+    static bool removeCurso(int idCurso);
 
     QString getNome() const;
     double getDuracao() const;

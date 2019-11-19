@@ -7,8 +7,9 @@ cadCurso::cadCurso(QWidget *parent) :   //Construtor da Interface
     janelaCadastro(new Ui::cadCurso)
 {
     janelaCadastro->setupUi(this);
-    janelaCadastro->labelValid->setAlignment(Qt::AlignCenter);          //alinhamento do campo de validação
-
+    janelaCadastro->labelValid->setAlignment(Qt::AlignCenter);
+    janelaCadastro->campoIDCurso->setValidator(new QRegExpValidator(QRegExp("^[0-9]+"), this));
+    janelaCadastro->campoNome->setFocus();
 }
 
 cadCurso::~cadCurso()
@@ -25,7 +26,6 @@ bool cadCurso::validarCampos()
     if (janelaCadastro->campoIDCurso->text().isEmpty())
         return !cont;
     return cont;
-
 }
 
 void cadCurso::on_campoNome_returnPressed()
@@ -35,7 +35,14 @@ void cadCurso::on_campoNome_returnPressed()
 
 void cadCurso::on_boxDuracao_editingFinished()
 {
+    janelaCadastro->campoIDCurso->setFocus();
+    janelaCadastro->campoIDCurso->selectAll();
+}
+
+void cadCurso::on_campoIDCurso_returnPressed()
+{
     janelaCadastro->btnCadastrar->setFocus();
+    janelaCadastro->btnCadastrar->click();
 }
 
 void cadCurso::on_btnCadastrar_clicked()
@@ -50,13 +57,19 @@ void cadCurso::on_btnCadastrar_clicked()
                         janelaCadastro->campoIDCurso->text().toInt());
             if (Curso::cadCurso(curso)) {
                 QMessageBox::information(this, "Cadastro Realizado", "Curso Cadastrado Com Sucesso!");
+                janelaCadastro->campoNome->setFocus();
+                janelaCadastro->campoNome->selectAll();
             } else {
                 QMessageBox::warning(this, "Erro ao Cadastrar", "Houve um erro ao cadastrar o curso");
             }
         } else {
             QMessageBox::warning(this, "Erro ao Cadastrar", "Curso já existe");
+            janelaCadastro->campoIDCurso->setFocus();
+            janelaCadastro->campoIDCurso->selectAll();
         }
     }
 }
+
+
 
 

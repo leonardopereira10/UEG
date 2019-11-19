@@ -15,6 +15,7 @@ public:
 
     bool cadastrarCurso(Curso &curso);
     bool analisaCurso(int &idCurso);
+    bool removeCurso(int &idCurso);
 };
 
 #endif // PERSISTCURSO_H
