@@ -7,6 +7,7 @@
 //#include "listaalunos.h"
 #include "cadcurso.h"
 #include "removecurso.h"
+#include "consultarcurso.h"
 
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent),
@@ -82,4 +83,9 @@ void MainWindow::on_actionCadastrarCurso_triggered()
 void MainWindow::on_actionRemoverCurso_triggered()
 {
     loadSubWindow(new removeCurso(this));
+}
+
+void MainWindow::on_actionConsultarCurso_triggered()
+{
+    loadSubWindow(new ConsultarCurso(this));
 }

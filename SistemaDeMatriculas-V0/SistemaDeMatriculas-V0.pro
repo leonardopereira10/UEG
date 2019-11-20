@@ -28,18 +28,24 @@ SOURCES += main.cpp\
 	curso.cpp \
 	persistcurso.cpp \
 	cadcurso.cpp \
-	removecurso.cpp
+	removecurso.cpp \
+    consultarcurso.cpp \
+    listarcurso.cpp
 
 
 HEADERS  += mainwindow.h \
 	curso.h \
 	persistcurso.h \
 	cadcurso.h \
-	removecurso.h
+	removecurso.h \
+    consultarcurso.h \
+    listarcurso.h
 
 FORMS += mainwindow.ui \
 	cadcurso.ui \
-	removecurso.ui
+	removecurso.ui \
+    consultarcurso.ui \
+    listarcurso.ui
 
 
 RESOURCES += \

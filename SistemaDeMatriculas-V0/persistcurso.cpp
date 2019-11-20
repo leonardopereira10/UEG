@@ -64,3 +64,17 @@ bool PersistCurso::removeCurso(int &idCurso)
     db.close();
     return result;
 }
+
+QSqlQueryModel *PersistCurso::consultaCurso(int &idCurso)
+{
+    QSqlQueryModel *model = new QSqlQueryModel();
+    QSqlQuery query(db);
+    db.open();
+    query.prepare("select Curso, IDCurso as Codigo, Duracao from Cursos where Cursos.IDCurso=:IDCurso");
+    query.bindValue(":IDCurso", idCurso);
+    if(!query.exec())
+            qDebug() << "PersistCurso::consultaCurso\n\tdb: " << db.lastError() << "\n\tquery: " << query.lastError();
+        model->setQuery(query);
+        db.close();
+        return model;
+}

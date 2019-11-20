@@ -16,9 +16,14 @@ int Curso::getIdCurso() const
     return idCurso;
 }
 
+void Curso::setIdCurso(int value)
+{
+    idCurso = value;
+}
+
 Curso::Curso()
 {
-
+    
 }
 
 Curso::Curso(QString nome, double duracao, int idCurso)  //Inicialização do objeto
@@ -44,6 +49,12 @@ bool Curso::removeCurso(int idCurso)
 {
     PersistCurso sqlite;
     return sqlite.removeCurso(idCurso);
+}
+
+QSqlQueryModel *Curso::consultarCurso(int idCurso)
+{
+    PersistCurso sqlite;
+    return sqlite.consultaCurso(idCurso);
 }
 
 

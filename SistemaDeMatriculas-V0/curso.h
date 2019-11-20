@@ -1,6 +1,7 @@
 #ifndef CURSO_H
 #define CURSO_H
 #include <QString>
+#include <QtSql>
 
 
 class Curso
@@ -17,9 +18,11 @@ public:           //Criação de métodos
     static bool cadCurso(Curso curso);
     static bool analisaCurso(int idCurso);
     static bool removeCurso(int idCurso);
+    static QSqlQueryModel *consultarCurso(int idCurso);
 
     QString getNome() const;
     double getDuracao() const;
     int getIdCurso() const;
+    void setIdCurso(int value);
 };
 #endif // CURSO_H
