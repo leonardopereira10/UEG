@@ -213,6 +213,7 @@ void cadastro_professor::on_btn_cadastrar_clicked()
                 else {
                     QMessageBox::information(this, "Cadastro realizado", "Professor cadastrado com sucesso!");
                     hideall();
+                    clear_all();
                     ui->campo_cpf->setFocus();
                     ui->campo_cpf->clear();
                     ui->campo_cpf->setReadOnly(false);

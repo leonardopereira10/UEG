@@ -12,7 +12,6 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
-#include <QtWidgets/QDateEdit>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
@@ -36,18 +35,9 @@ public:
     QSpacerItem *verticalSpacer;
     QWidget *layoutWidget3;
     QGridLayout *gridLayout_3;
-    QLabel *graduacao;
-    QHBoxLayout *horizontalLayout_7;
-    QLabel *uf;
-    QComboBox *selecao_estado;
-    QSpacerItem *horizontalSpacer;
     QGridLayout *gridLayout_2;
     QLineEdit *campo_endereco;
     QLabel *endereco;
-    QHBoxLayout *horizontalLayout_6;
-    QLabel *setor;
-    QLineEdit *campo_setor;
-    QSpacerItem *horizontalSpacer_7;
     QHBoxLayout *horizontalLayout_4;
     QLabel *nome;
     QLineEdit *campo_nome;
@@ -55,20 +45,25 @@ public:
     QLabel *celular;
     QLineEdit *campo_celular;
     QSpacerItem *horizontalSpacer_5;
-    QLabel *titulacao;
-    QHBoxLayout *horizontalLayout_5;
-    QLabel *data_de_nascimento;
-    QDateEdit *selecao_data_de_nascimento;
-    QSpacerItem *horizontalSpacer_2;
     QComboBox *selecao_titulacao;
-    QHBoxLayout *horizontalLayout_2;
-    QLabel *email;
-    QLineEdit *campo_email;
-    QSpacerItem *horizontalSpacer_6;
     QLineEdit *campo_graduacao;
     QHBoxLayout *horizontalLayout_8;
     QLabel *cidade;
     QComboBox *selecao_cidade;
+    QLabel *graduacao;
+    QHBoxLayout *horizontalLayout_6;
+    QLabel *setor;
+    QLineEdit *campo_setor;
+    QSpacerItem *horizontalSpacer_7;
+    QHBoxLayout *horizontalLayout_7;
+    QLabel *uf;
+    QComboBox *selecao_estado;
+    QSpacerItem *horizontalSpacer;
+    QLabel *titulacao;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *email;
+    QLineEdit *campo_email;
+    QSpacerItem *horizontalSpacer_6;
     QLabel *aviso_cpf;
     QPushButton *inserir;
     QWidget *layoutWidget;
@@ -123,34 +118,6 @@ public:
         gridLayout_3 = new QGridLayout(layoutWidget3);
         gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
         gridLayout_3->setContentsMargins(0, 0, 0, 0);
-        graduacao = new QLabel(layoutWidget3);
-        graduacao->setObjectName(QString::fromUtf8("graduacao"));
-        graduacao->setMaximumSize(QSize(80, 16777215));
-
-        gridLayout_3->addWidget(graduacao, 6, 0, 1, 1);
-
-        horizontalLayout_7 = new QHBoxLayout();
-        horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
-        horizontalLayout_7->setSizeConstraint(QLayout::SetNoConstraint);
-        uf = new QLabel(layoutWidget3);
-        uf->setObjectName(QString::fromUtf8("uf"));
-        uf->setMaximumSize(QSize(20, 26));
-
-        horizontalLayout_7->addWidget(uf);
-
-        selecao_estado = new QComboBox(layoutWidget3);
-        selecao_estado->setObjectName(QString::fromUtf8("selecao_estado"));
-        selecao_estado->setMaximumSize(QSize(80, 32));
-
-        horizontalLayout_7->addWidget(selecao_estado);
-
-        horizontalSpacer = new QSpacerItem(0, 0, QSizePolicy::Ignored, QSizePolicy::Minimum);
-
-        horizontalLayout_7->addItem(horizontalSpacer);
-
-
-        gridLayout_3->addLayout(horizontalLayout_7, 4, 0, 1, 1);
-
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         campo_endereco = new QLineEdit(layoutWidget3);
@@ -166,26 +133,7 @@ public:
         gridLayout_2->addWidget(endereco, 0, 0, 1, 1, Qt::AlignLeft);
 
 
-        gridLayout_3->addLayout(gridLayout_2, 2, 0, 1, 4);
-
-        horizontalLayout_6 = new QHBoxLayout();
-        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
-        setor = new QLabel(layoutWidget3);
-        setor->setObjectName(QString::fromUtf8("setor"));
-
-        horizontalLayout_6->addWidget(setor);
-
-        campo_setor = new QLineEdit(layoutWidget3);
-        campo_setor->setObjectName(QString::fromUtf8("campo_setor"));
-
-        horizontalLayout_6->addWidget(campo_setor);
-
-        horizontalSpacer_7 = new QSpacerItem(308, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_6->addItem(horizontalSpacer_7);
-
-
-        gridLayout_3->addLayout(horizontalLayout_6, 3, 0, 1, 4);
+        gridLayout_3->addLayout(gridLayout_2, 1, 0, 1, 4);
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
@@ -220,34 +168,7 @@ public:
         horizontalLayout_3->addItem(horizontalSpacer_5);
 
 
-        gridLayout_3->addLayout(horizontalLayout_3, 9, 0, 1, 4);
-
-        titulacao = new QLabel(layoutWidget3);
-        titulacao->setObjectName(QString::fromUtf8("titulacao"));
-        titulacao->setMaximumSize(QSize(60, 26));
-
-        gridLayout_3->addWidget(titulacao, 6, 2, 1, 1);
-
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
-        data_de_nascimento = new QLabel(layoutWidget3);
-        data_de_nascimento->setObjectName(QString::fromUtf8("data_de_nascimento"));
-
-        horizontalLayout_5->addWidget(data_de_nascimento);
-
-        selecao_data_de_nascimento = new QDateEdit(layoutWidget3);
-        selecao_data_de_nascimento->setObjectName(QString::fromUtf8("selecao_data_de_nascimento"));
-        selecao_data_de_nascimento->setWrapping(false);
-        selecao_data_de_nascimento->setCalendarPopup(true);
-
-        horizontalLayout_5->addWidget(selecao_data_de_nascimento);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_5->addItem(horizontalSpacer_2);
-
-
-        gridLayout_3->addLayout(horizontalLayout_5, 1, 0, 1, 4);
+        gridLayout_3->addLayout(horizontalLayout_3, 8, 0, 1, 4);
 
         selecao_titulacao = new QComboBox(layoutWidget3);
         selecao_titulacao->addItem(QString());
@@ -258,7 +179,83 @@ public:
         selecao_titulacao->addItem(QString());
         selecao_titulacao->setObjectName(QString::fromUtf8("selecao_titulacao"));
 
-        gridLayout_3->addWidget(selecao_titulacao, 6, 3, 1, 1);
+        gridLayout_3->addWidget(selecao_titulacao, 5, 3, 1, 1);
+
+        campo_graduacao = new QLineEdit(layoutWidget3);
+        campo_graduacao->setObjectName(QString::fromUtf8("campo_graduacao"));
+        campo_graduacao->setMaximumSize(QSize(200, 21));
+
+        gridLayout_3->addWidget(campo_graduacao, 5, 1, 1, 1);
+
+        horizontalLayout_8 = new QHBoxLayout();
+        horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
+        cidade = new QLabel(layoutWidget3);
+        cidade->setObjectName(QString::fromUtf8("cidade"));
+        cidade->setMaximumSize(QSize(50, 26));
+
+        horizontalLayout_8->addWidget(cidade);
+
+        selecao_cidade = new QComboBox(layoutWidget3);
+        selecao_cidade->setObjectName(QString::fromUtf8("selecao_cidade"));
+        selecao_cidade->setMaximumSize(QSize(350, 32));
+
+        horizontalLayout_8->addWidget(selecao_cidade);
+
+
+        gridLayout_3->addLayout(horizontalLayout_8, 3, 1, 1, 1);
+
+        graduacao = new QLabel(layoutWidget3);
+        graduacao->setObjectName(QString::fromUtf8("graduacao"));
+        graduacao->setMaximumSize(QSize(80, 16777215));
+
+        gridLayout_3->addWidget(graduacao, 5, 0, 1, 1);
+
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
+        setor = new QLabel(layoutWidget3);
+        setor->setObjectName(QString::fromUtf8("setor"));
+
+        horizontalLayout_6->addWidget(setor);
+
+        campo_setor = new QLineEdit(layoutWidget3);
+        campo_setor->setObjectName(QString::fromUtf8("campo_setor"));
+
+        horizontalLayout_6->addWidget(campo_setor);
+
+        horizontalSpacer_7 = new QSpacerItem(308, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_6->addItem(horizontalSpacer_7);
+
+
+        gridLayout_3->addLayout(horizontalLayout_6, 2, 0, 1, 4);
+
+        horizontalLayout_7 = new QHBoxLayout();
+        horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
+        horizontalLayout_7->setSizeConstraint(QLayout::SetNoConstraint);
+        uf = new QLabel(layoutWidget3);
+        uf->setObjectName(QString::fromUtf8("uf"));
+        uf->setMaximumSize(QSize(20, 26));
+
+        horizontalLayout_7->addWidget(uf);
+
+        selecao_estado = new QComboBox(layoutWidget3);
+        selecao_estado->setObjectName(QString::fromUtf8("selecao_estado"));
+        selecao_estado->setMaximumSize(QSize(80, 32));
+
+        horizontalLayout_7->addWidget(selecao_estado);
+
+        horizontalSpacer = new QSpacerItem(0, 0, QSizePolicy::Ignored, QSizePolicy::Minimum);
+
+        horizontalLayout_7->addItem(horizontalSpacer);
+
+
+        gridLayout_3->addLayout(horizontalLayout_7, 3, 0, 1, 1);
+
+        titulacao = new QLabel(layoutWidget3);
+        titulacao->setObjectName(QString::fromUtf8("titulacao"));
+        titulacao->setMaximumSize(QSize(60, 26));
+
+        gridLayout_3->addWidget(titulacao, 5, 2, 1, 1);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
@@ -277,30 +274,7 @@ public:
         horizontalLayout_2->addItem(horizontalSpacer_6);
 
 
-        gridLayout_3->addLayout(horizontalLayout_2, 10, 0, 1, 4);
-
-        campo_graduacao = new QLineEdit(layoutWidget3);
-        campo_graduacao->setObjectName(QString::fromUtf8("campo_graduacao"));
-        campo_graduacao->setMaximumSize(QSize(200, 21));
-
-        gridLayout_3->addWidget(campo_graduacao, 6, 1, 1, 1);
-
-        horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
-        cidade = new QLabel(layoutWidget3);
-        cidade->setObjectName(QString::fromUtf8("cidade"));
-        cidade->setMaximumSize(QSize(50, 26));
-
-        horizontalLayout_8->addWidget(cidade);
-
-        selecao_cidade = new QComboBox(layoutWidget3);
-        selecao_cidade->setObjectName(QString::fromUtf8("selecao_cidade"));
-        selecao_cidade->setMaximumSize(QSize(350, 32));
-
-        horizontalLayout_8->addWidget(selecao_cidade);
-
-
-        gridLayout_3->addLayout(horizontalLayout_8, 4, 1, 1, 1);
+        gridLayout_3->addLayout(horizontalLayout_2, 9, 0, 1, 4);
 
         aviso_cpf = new QLabel(cadastro_professor);
         aviso_cpf->setObjectName(QString::fromUtf8("aviso_cpf"));
@@ -325,8 +299,7 @@ public:
         aviso_incorreto->setGeometry(QRect(356, 122, 59, 16));
         QWidget::setTabOrder(campo_cpf, inserir);
         QWidget::setTabOrder(inserir, campo_nome);
-        QWidget::setTabOrder(campo_nome, selecao_data_de_nascimento);
-        QWidget::setTabOrder(selecao_data_de_nascimento, campo_endereco);
+        QWidget::setTabOrder(campo_nome, campo_endereco);
         QWidget::setTabOrder(campo_endereco, campo_setor);
         QWidget::setTabOrder(campo_setor, selecao_estado);
         QWidget::setTabOrder(selecao_estado, selecao_cidade);
@@ -347,15 +320,10 @@ public:
         cpf->setText(QApplication::translate("cadastro_professor", "CPF: ", nullptr));
         campo_cpf->setInputMask(QApplication::translate("cadastro_professor", "###.###.###-##", nullptr));
         logo_professor->setText(QApplication::translate("cadastro_professor", "TextLabel", nullptr));
-        graduacao->setText(QApplication::translate("cadastro_professor", "Gradua\303\247\303\243o:", nullptr));
-        uf->setText(QApplication::translate("cadastro_professor", "UF:", nullptr));
         endereco->setText(QApplication::translate("cadastro_professor", "Endere\303\247o:", nullptr));
-        setor->setText(QApplication::translate("cadastro_professor", "Setor:", nullptr));
         nome->setText(QApplication::translate("cadastro_professor", "Nome:", nullptr));
         celular->setText(QApplication::translate("cadastro_professor", "Celular:", nullptr));
         campo_celular->setInputMask(QApplication::translate("cadastro_professor", "(##)#####-####", nullptr));
-        titulacao->setText(QApplication::translate("cadastro_professor", "Titula\303\247\303\243o:", nullptr));
-        data_de_nascimento->setText(QApplication::translate("cadastro_professor", "Data de Nascimento:", nullptr));
         selecao_titulacao->setItemText(0, QApplication::translate("cadastro_professor", "Bacharelado", nullptr));
         selecao_titulacao->setItemText(1, QApplication::translate("cadastro_professor", "Licenciatura", nullptr));
         selecao_titulacao->setItemText(2, QApplication::translate("cadastro_professor", "Especializa\303\247\303\243o", nullptr));
@@ -363,8 +331,12 @@ public:
         selecao_titulacao->setItemText(4, QApplication::translate("cadastro_professor", "Doutorado", nullptr));
         selecao_titulacao->setItemText(5, QApplication::translate("cadastro_professor", "P\303\263s-Doutorado", nullptr));
 
-        email->setText(QApplication::translate("cadastro_professor", "E-mail:", nullptr));
         cidade->setText(QApplication::translate("cadastro_professor", "Cidade:", nullptr));
+        graduacao->setText(QApplication::translate("cadastro_professor", "Gradua\303\247\303\243o:", nullptr));
+        setor->setText(QApplication::translate("cadastro_professor", "Setor:", nullptr));
+        uf->setText(QApplication::translate("cadastro_professor", "UF:", nullptr));
+        titulacao->setText(QApplication::translate("cadastro_professor", "Titula\303\247\303\243o:", nullptr));
+        email->setText(QApplication::translate("cadastro_professor", "E-mail:", nullptr));
         aviso_cpf->setText(QApplication::translate("cadastro_professor", "TextLabel", nullptr));
         inserir->setText(QApplication::translate("cadastro_professor", "Inserir", nullptr));
         btn_cadastrar->setText(QApplication::translate("cadastro_professor", "Cadastrar", nullptr));
