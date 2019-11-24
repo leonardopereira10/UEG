@@ -56,11 +56,13 @@ SOURCES       = ../SistemaDeMatriculas-V0/main.cpp \
 		../SistemaDeMatriculas-V0/persistcurso.cpp \
 		../SistemaDeMatriculas-V0/cadcurso.cpp \
 		../SistemaDeMatriculas-V0/removecurso.cpp \
-		../SistemaDeMatriculas-V0/consultarcurso.cpp qrc_recursos.cpp \
+		../SistemaDeMatriculas-V0/consultarcurso.cpp \
+		../SistemaDeMatriculas-V0/listarcurso.cpp qrc_recursos.cpp \
 		moc_mainwindow.cpp \
 		moc_cadcurso.cpp \
 		moc_removecurso.cpp \
-		moc_consultarcurso.cpp
+		moc_consultarcurso.cpp \
+		moc_listarcurso.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		curso.o \
@@ -68,11 +70,13 @@ OBJECTS       = main.o \
 		cadcurso.o \
 		removecurso.o \
 		consultarcurso.o \
+		listarcurso.o \
 		qrc_recursos.o \
 		moc_mainwindow.o \
 		moc_cadcurso.o \
 		moc_removecurso.o \
-		moc_consultarcurso.o
+		moc_consultarcurso.o \
+		moc_listarcurso.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -152,13 +156,15 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../SistemaDeMatriculas-V0/persistcurso.h \
 		../SistemaDeMatriculas-V0/cadcurso.h \
 		../SistemaDeMatriculas-V0/removecurso.h \
-		../SistemaDeMatriculas-V0/consultarcurso.h ../SistemaDeMatriculas-V0/main.cpp \
+		../SistemaDeMatriculas-V0/consultarcurso.h \
+		../SistemaDeMatriculas-V0/listarcurso.h ../SistemaDeMatriculas-V0/main.cpp \
 		../SistemaDeMatriculas-V0/mainwindow.cpp \
 		../SistemaDeMatriculas-V0/curso.cpp \
 		../SistemaDeMatriculas-V0/persistcurso.cpp \
 		../SistemaDeMatriculas-V0/cadcurso.cpp \
 		../SistemaDeMatriculas-V0/removecurso.cpp \
-		../SistemaDeMatriculas-V0/consultarcurso.cpp
+		../SistemaDeMatriculas-V0/consultarcurso.cpp \
+		../SistemaDeMatriculas-V0/listarcurso.cpp
 QMAKE_TARGET  = test
 DESTDIR       = 
 TARGET        = test
@@ -167,7 +173,7 @@ TARGET        = test
 first: all
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h ui_cadcurso.h ui_removecurso.h ui_consultarcurso.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_cadcurso.h ui_removecurso.h ui_consultarcurso.h ui_listarcurso.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../SistemaDeMatriculas-V0/SistemaDeMatriculas-V0.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -347,9 +353,9 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/recursos.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.h ../SistemaDeMatriculas-V0/curso.h ../SistemaDeMatriculas-V0/persistcurso.h ../SistemaDeMatriculas-V0/cadcurso.h ../SistemaDeMatriculas-V0/removecurso.h ../SistemaDeMatriculas-V0/consultarcurso.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/mainwindow.cpp ../SistemaDeMatriculas-V0/curso.cpp ../SistemaDeMatriculas-V0/persistcurso.cpp ../SistemaDeMatriculas-V0/cadcurso.cpp ../SistemaDeMatriculas-V0/removecurso.cpp ../SistemaDeMatriculas-V0/consultarcurso.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.ui ../SistemaDeMatriculas-V0/cadcurso.ui ../SistemaDeMatriculas-V0/removecurso.ui ../SistemaDeMatriculas-V0/consultarcurso.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.h ../SistemaDeMatriculas-V0/curso.h ../SistemaDeMatriculas-V0/persistcurso.h ../SistemaDeMatriculas-V0/cadcurso.h ../SistemaDeMatriculas-V0/removecurso.h ../SistemaDeMatriculas-V0/consultarcurso.h ../SistemaDeMatriculas-V0/listarcurso.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/main.cpp ../SistemaDeMatriculas-V0/mainwindow.cpp ../SistemaDeMatriculas-V0/curso.cpp ../SistemaDeMatriculas-V0/persistcurso.cpp ../SistemaDeMatriculas-V0/cadcurso.cpp ../SistemaDeMatriculas-V0/removecurso.cpp ../SistemaDeMatriculas-V0/consultarcurso.cpp ../SistemaDeMatriculas-V0/listarcurso.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../SistemaDeMatriculas-V0/mainwindow.ui ../SistemaDeMatriculas-V0/cadcurso.ui ../SistemaDeMatriculas-V0/removecurso.ui ../SistemaDeMatriculas-V0/consultarcurso.ui ../SistemaDeMatriculas-V0/listarcurso.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -403,9 +409,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_cadcurso.cpp moc_removecurso.cpp moc_consultarcurso.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_cadcurso.cpp moc_removecurso.cpp moc_consultarcurso.cpp moc_listarcurso.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_cadcurso.cpp moc_removecurso.cpp moc_consultarcurso.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_cadcurso.cpp moc_removecurso.cpp moc_consultarcurso.cpp moc_listarcurso.cpp
 moc_mainwindow.cpp: ../SistemaDeMatriculas-V0/mainwindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
@@ -429,11 +435,16 @@ moc_consultarcurso.cpp: ../SistemaDeMatriculas-V0/curso.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/samea/UEG/SistemaDeMatriculas-V0 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../SistemaDeMatriculas-V0/consultarcurso.h -o moc_consultarcurso.cpp
 
+moc_listarcurso.cpp: ../SistemaDeMatriculas-V0/listarcurso.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/samea/UEG/SistemaDeMatriculas-V0 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../SistemaDeMatriculas-V0/listarcurso.h -o moc_listarcurso.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_cadcurso.h ui_removecurso.h ui_consultarcurso.h
+compiler_uic_make_all: ui_mainwindow.h ui_cadcurso.h ui_removecurso.h ui_consultarcurso.h ui_listarcurso.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_cadcurso.h ui_removecurso.h ui_consultarcurso.h
+	-$(DEL_FILE) ui_mainwindow.h ui_cadcurso.h ui_removecurso.h ui_consultarcurso.h ui_listarcurso.h
 ui_mainwindow.h: ../SistemaDeMatriculas-V0/mainwindow.ui \
 		/usr/lib/qt5/bin/uic
 	/usr/lib/qt5/bin/uic ../SistemaDeMatriculas-V0/mainwindow.ui -o ui_mainwindow.h
@@ -449,6 +460,10 @@ ui_removecurso.h: ../SistemaDeMatriculas-V0/removecurso.ui \
 ui_consultarcurso.h: ../SistemaDeMatriculas-V0/consultarcurso.ui \
 		/usr/lib/qt5/bin/uic
 	/usr/lib/qt5/bin/uic ../SistemaDeMatriculas-V0/consultarcurso.ui -o ui_consultarcurso.h
+
+ui_listarcurso.h: ../SistemaDeMatriculas-V0/listarcurso.ui \
+		/usr/lib/qt5/bin/uic
+	/usr/lib/qt5/bin/uic ../SistemaDeMatriculas-V0/listarcurso.ui -o ui_listarcurso.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -467,7 +482,8 @@ mainwindow.o: ../SistemaDeMatriculas-V0/mainwindow.cpp ../SistemaDeMatriculas-V0
 		ui_mainwindow.h \
 		../SistemaDeMatriculas-V0/cadcurso.h \
 		../SistemaDeMatriculas-V0/curso.h \
-		../SistemaDeMatriculas-V0/removecurso.h
+		../SistemaDeMatriculas-V0/removecurso.h \
+		../SistemaDeMatriculas-V0/consultarcurso.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../SistemaDeMatriculas-V0/mainwindow.cpp
 
 curso.o: ../SistemaDeMatriculas-V0/curso.cpp ../SistemaDeMatriculas-V0/curso.h \
@@ -493,6 +509,10 @@ consultarcurso.o: ../SistemaDeMatriculas-V0/consultarcurso.cpp ../SistemaDeMatri
 		ui_consultarcurso.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o consultarcurso.o ../SistemaDeMatriculas-V0/consultarcurso.cpp
 
+listarcurso.o: ../SistemaDeMatriculas-V0/listarcurso.cpp ../SistemaDeMatriculas-V0/listarcurso.h \
+		ui_listarcurso.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o listarcurso.o ../SistemaDeMatriculas-V0/listarcurso.cpp
+
 qrc_recursos.o: qrc_recursos.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_recursos.o qrc_recursos.cpp
 
@@ -507,6 +527,9 @@ moc_removecurso.o: moc_removecurso.cpp
 
 moc_consultarcurso.o: moc_consultarcurso.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_consultarcurso.o moc_consultarcurso.cpp
+
+moc_listarcurso.o: moc_listarcurso.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_listarcurso.o moc_listarcurso.cpp
 
 ####### Install
 

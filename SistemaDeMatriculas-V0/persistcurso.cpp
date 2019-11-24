@@ -74,7 +74,20 @@ QSqlQueryModel *PersistCurso::consultaCurso(int &idCurso)
     query.bindValue(":IDCurso", idCurso);
     if(!query.exec())
             qDebug() << "PersistCurso::consultaCurso\n\tdb: " << db.lastError() << "\n\tquery: " << query.lastError();
-        model->setQuery(query);
-        db.close();
-        return model;
+    model->setQuery(query);
+    db.close();
+    return model;
+}
+
+QSqlQueryModel *PersistCurso::listarCurso()
+{
+    QSqlQueryModel *model = new QSqlQueryModel();
+    QSqlQuery query(db);
+    db.open();
+    query.prepare("select Curso, IDCurso, Duracao from Cursos");
+    if(!query.exec())
+            qDebug() << "PersistCurso::listarCurso\n\tdb: " << db.lastError() << "\n\tquery: " << query.lastError();
+    model->setQuery(query);
+    db.close();
+    return model;
 }

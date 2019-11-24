@@ -36,6 +36,8 @@ private slots:
 
     void on_actionConsultarCurso_triggered();
 
+    void on_actionListarCursos_triggered();
+
 private:
 	Ui::MainWindow *janelaInicial;
 	void loadSubWindow(QWidget *widget);

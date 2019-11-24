@@ -17,6 +17,7 @@ public:
     bool analisaCurso(int &idCurso);
     bool removeCurso(int &idCurso);
     QSqlQueryModel *consultaCurso(int &idCurso);
+    QSqlQueryModel *listarCurso();
 };
 
 #endif // PERSISTCURSO_H

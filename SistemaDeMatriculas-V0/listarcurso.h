@@ -15,6 +15,9 @@ public:
     explicit ListarCurso(QWidget *parent = 0);
     ~ListarCurso();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::ListarCurso *ui;
 };

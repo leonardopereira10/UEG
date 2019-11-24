@@ -19,6 +19,7 @@ public:           //Criação de métodos
     static bool analisaCurso(int idCurso);
     static bool removeCurso(int idCurso);
     static QSqlQueryModel *consultarCurso(int idCurso);
+    static QSqlQueryModel *listarCurso();
 
     QString getNome() const;
     double getDuracao() const;

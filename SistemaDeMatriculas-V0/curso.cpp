@@ -57,5 +57,11 @@ QSqlQueryModel *Curso::consultarCurso(int idCurso)
     return sqlite.consultaCurso(idCurso);
 }
 
+QSqlQueryModel *Curso::listarCurso()
+{
+    PersistCurso sqlite;
+    return  sqlite.listarCurso();
+}
+
 
 
