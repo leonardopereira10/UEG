@@ -94,7 +94,7 @@ cadastro_professor::cadastro_professor(QWidget *parent) :
 {
     this->size();
     ui->setupUi(this);
-    QPixmap logo_professor (":/imagens/Professores.png");
+	QPixmap logo_professor (":/recursos/Imagens/Professores.png");
     ui->logo_professor->setPixmap(logo_professor.scaled(111,109, Qt::KeepAspectRatio));
     clear_all();
     hideall();
