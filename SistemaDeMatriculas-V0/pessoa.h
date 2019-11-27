@@ -1,43 +1,44 @@
 #ifndef PESSOA_H
 #define PESSOA_H
-#include <cpf.h>
-#include <QDebug>
+
+#include <QString>
+#include <QDate>
+#include <QSqlQueryModel>
 
 class Pessoa
 {
+public:
+	static bool validCpf(QString cpf);
+	static bool analisaPessoa(QString cpf);
+
+	// Cidades, Estados e Cursos do BD
+	static QSqlQueryModel *getEstados();
+	static QSqlQueryModel *getCidades(int codEstado);
+	static int  getCodCidades(QString nome, int estado);
+	static QSqlQueryModel *getCursos();
+	static int getCodCurso(QString nome);
+
 protected:
 	Pessoa();
+	virtual ~Pessoa();
 
-	QString getCpf() const;
-	void setCpf(const QString &value);
+	virtual QString getCpf() const = 0;
+	virtual QString getNome() const = 0;
+	virtual QString getEndereco() const = 0;
+	virtual QString getSetor() const = 0;
+	virtual int getCidade() const = 0;
+	virtual int getEstado() const = 0;
+	virtual QString getTelefone() const = 0;
+	virtual QString getEmail() const = 0;
 
-	QString getNome() const;
-	void setNome(const QString &value);
-
-	QString getEndereco() const;
-	void setEndereco(const QString &value);
-
-	QString getSetor() const;
-	void setSetor(const QString &value);
-
-	QString getCelular() const;
-	void setCelular(const QString &value);
-
-	QString getEmail() const;
-	void setEmail(const QString &value);
-
-	virtual void pessoaBase(QString cpf) = 0;
-	virtual void pessoaCompleta(QString nome, QString endereco, QString setor, QString celular, QString email) = 0;
-	virtual void pessoaCompleta(QString nome, QString endereco, QString setor, QString email) = 0;
-
-
-
-private:
 	QString cpf;
 	QString nome;
+	QDate dtNascimento;
 	QString endereco;
 	QString setor;
-	QString celular;
+	int cidade;
+	int estado;
+	QString telefone;
 	QString email;
 };
 

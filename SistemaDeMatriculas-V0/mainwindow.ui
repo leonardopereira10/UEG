@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>665</width>
+    <height>384</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Sistema de controle de matrículas - SCM</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="recursos.qrc">
+    <normaloff>:/recursos/Imagens/logo.png</normaloff>:/recursos/Imagens/logo.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QMdiArea" name="mdiArea"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>665</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArquivo">
+    <property name="title">
+     <string>Arquivo</string>
+    </property>
+    <widget class="QMenu" name="menuAlunos">
+     <property name="title">
+      <string>Alunos</string>
+     </property>
+     <property name="icon">
+      <iconset resource="recursos.qrc">
+       <normaloff>:/recursos/Imagens/Aluno.png</normaloff>:/recursos/Imagens/Aluno.png</iconset>
+     </property>
+     <addaction name="actionCadastrarAluno"/>
+     <addaction name="actionConsultarAluno"/>
+     <addaction name="actionRemoverAluno"/>
+     <addaction name="actionListarAlunos"/>
+    </widget>
+    <widget class="QMenu" name="menuProfessores">
+     <property name="title">
+      <string>Professores</string>
+     </property>
+     <property name="icon">
+      <iconset resource="recursos.qrc">
+       <normaloff>:/recursos/Imagens/Professores.png</normaloff>:/recursos/Imagens/Professores.png</iconset>
+     </property>
+     <addaction name="actionCadastrarProf"/>
+     <addaction name="actionConsultarProf"/>
+     <addaction name="actionRemoverProf"/>
+     <addaction name="actionListarProfs"/>
+    </widget>
+    <widget class="QMenu" name="menuCursos">
+     <property name="title">
+      <string>Cursos</string>
+     </property>
+     <property name="icon">
+      <iconset resource="recursos.qrc">
+       <normaloff>:/recursos/Imagens/Curso.png</normaloff>:/recursos/Imagens/Curso.png</iconset>
+     </property>
+     <addaction name="actionCadastrarCurso"/>
+     <addaction name="actionConsultarCurso"/>
+     <addaction name="actionRemoverCurso"/>
+     <addaction name="actionListarCursos"/>
+    </widget>
+    <widget class="QMenu" name="menuDisciplinas">
+     <property name="title">
+      <string>Disciplinas</string>
+     </property>
+     <property name="icon">
+      <iconset resource="recursos.qrc">
+       <normaloff>:/recursos/Imagens/Disciplinas.png</normaloff>:/recursos/Imagens/Disciplinas.png</iconset>
+     </property>
+     <addaction name="actionCadastrarDisc"/>
+     <addaction name="actionConsultarDisc"/>
+     <addaction name="actionRemoverDisc"/>
+     <addaction name="actionListarDisc"/>
+    </widget>
+    <widget class="QMenu" name="menuMatriculas">
+     <property name="title">
+      <string>Matriculas</string>
+     </property>
+     <property name="icon">
+      <iconset resource="recursos.qrc">
+       <normaloff>:/recursos/Imagens/Cadastrar.png</normaloff>:/recursos/Imagens/Cadastrar.png</iconset>
+     </property>
+     <addaction name="actionMatricular_aluno_em_disciplina"/>
+     <addaction name="actionConsultar_matriculas_por_aluno"/>
+     <addaction name="actionRemover_matricula_para_disciplina"/>
+     <addaction name="actionListar_matriculas_para_disciplina"/>
+    </widget>
+    <addaction name="menuAlunos"/>
+    <addaction name="menuProfessores"/>
+    <addaction name="menuCursos"/>
+    <addaction name="menuDisciplinas"/>
+    <addaction name="menuMatriculas"/>
+    <addaction name="separator"/>
+    <addaction name="actionSair"/>
+   </widget>
+   <widget class="QMenu" name="menuEditar">
+    <property name="title">
+     <string>Editar</string>
+    </property>
+    <addaction name="actionOrganizar_janelas_em_cascata"/>
+    <addaction name="actionOrganizar_janelas_lado_a_lado"/>
+   </widget>
+   <widget class="QMenu" name="menuAjuda">
+    <property name="title">
+     <string>Ajuda</string>
+    </property>
+    <addaction name="actionManual"/>
+    <addaction name="separator"/>
+    <addaction name="actionSobre"/>
+   </widget>
+   <addaction name="menuArquivo"/>
+   <addaction name="menuEditar"/>
+   <addaction name="menuAjuda"/>
+  </widget>
+  <action name="actionCadastrarAluno">
+   <property name="text">
+    <string>Cadastrar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A, 1</string>
+   </property>
+  </action>
+  <action name="actionCadastrarProf">
+   <property name="text">
+    <string>Cadastrar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P, 1</string>
+   </property>
+  </action>
+  <action name="actionConsultarProf">
+   <property name="text">
+    <string>Consultar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P, 2</string>
+   </property>
+  </action>
+  <action name="actionRemoverProf">
+   <property name="text">
+    <string>Remover</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P, 3</string>
+   </property>
+  </action>
+  <action name="actionListarAlunos">
+   <property name="text">
+    <string>Listar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A, 4</string>
+   </property>
+  </action>
+  <action name="actionListarProfs">
+   <property name="text">
+    <string>Listar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P, 4</string>
+   </property>
+  </action>
+  <action name="actionCadastrarCurso">
+   <property name="text">
+    <string>Cadastrar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C, 1</string>
+   </property>
+  </action>
+  <action name="actionConsultarCurso">
+   <property name="text">
+    <string>Consultar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C, 2</string>
+   </property>
+  </action>
+  <action name="actionRemoverCurso">
+   <property name="text">
+    <string>Remover</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C, 3</string>
+   </property>
+  </action>
+  <action name="actionListarCursos">
+   <property name="text">
+    <string>Listar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C, 4</string>
+   </property>
+  </action>
+  <action name="actionCadastrarDisc">
+   <property name="text">
+    <string>Cadastrar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D, 1</string>
+   </property>
+  </action>
+  <action name="actionConsultarDisc">
+   <property name="text">
+    <string>Consultar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D, 2</string>
+   </property>
+  </action>
+  <action name="actionRemoverDisc">
+   <property name="text">
+    <string>Remover</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D, 3</string>
+   </property>
+  </action>
+  <action name="actionListarDisc">
+   <property name="text">
+    <string>Listar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D, 4</string>
+   </property>
+  </action>
+  <action name="actionMatricular_aluno_em_disciplina">
+   <property name="text">
+    <string>Matricular aluno em disciplina</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M, 1</string>
+   </property>
+  </action>
+  <action name="actionConsultar_matriculas_por_aluno">
+   <property name="text">
+    <string>Consultar matriculas por aluno</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M, 2</string>
+   </property>
+  </action>
+  <action name="actionRemover_matricula_para_disciplina">
+   <property name="text">
+    <string>Remover matricula para disciplina</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M, 3</string>
+   </property>
+  </action>
+  <action name="actionListar_matriculas_para_disciplina">
+   <property name="text">
+    <string>Listar matriculas para disciplina</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M, 4</string>
+   </property>
+  </action>
+  <action name="actionSair">
+   <property name="icon">
+    <iconset resource="recursos.qrc">
+     <normaloff>:/recursos/Imagens/Exit.png</normaloff>:/recursos/Imagens/Exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Sair</string>
+   </property>
+   <property name="whatsThis">
+    <string>Encerrar sistema</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionManual">
+   <property name="icon">
+    <iconset resource="recursos.qrc">
+     <normaloff>:/recursos/Imagens/manual.png</normaloff>:/recursos/Imagens/manual.png</iconset>
+   </property>
+   <property name="text">
+    <string>Manual</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="actionSobre">
+   <property name="icon">
+    <iconset resource="recursos.qrc">
+     <normaloff>:/recursos/Imagens/sobre.png</normaloff>:/recursos/Imagens/sobre.png</iconset>
+   </property>
+   <property name="text">
+    <string>Sobre</string>
+   </property>
+  </action>
+  <action name="actionRemoverAluno">
+   <property name="text">
+    <string>Remover</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A, 3</string>
+   </property>
+  </action>
+  <action name="actionConsultarAluno">
+   <property name="text">
+    <string>Consultar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A, 2</string>
+   </property>
+  </action>
+  <action name="actionOrganizar_janelas_lado_a_lado">
+   <property name="icon">
+    <iconset resource="recursos.qrc">
+     <normaloff>:/recursos/Imagens/ladoLado.png</normaloff>:/recursos/Imagens/ladoLado.png</iconset>
+   </property>
+   <property name="text">
+    <string>Janelas lado a lado</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E, L</string>
+   </property>
+  </action>
+  <action name="actionOrganizar_janelas_em_cascata">
+   <property name="icon">
+    <iconset resource="recursos.qrc">
+     <normaloff>:/recursos/Imagens/cascata.png</normaloff>:/recursos/Imagens/cascata.png</iconset>
+   </property>
+   <property name="text">
+    <string>Janelas em cascata</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E, C</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="recursos.qrc"/>
+ </resources>
+ <connections/>
+</ui>

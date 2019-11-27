@@ -1,44 +1,102 @@
+#-------------------------------------------------
+#
+# Project created by QtCreator 2019-11-03T11:22:18
+#
+#-------------------------------------------------
+
 QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+TARGET = test
+TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
-# any Qt feature that has been marked deprecated (the exact warnings
+# any feature of Qt which as been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
 
-# You can also make your code fail to compile if it uses deprecated APIs.
+# You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-SOURCES += \
-    cpf.cpp \
-    main.cpp \
-    menu_principal.cpp \
-    opcao_cadastrar.cpp \
+
+SOURCES += main.cpp\
+	mainwindow.cpp \
 	pessoa.cpp \
+	aluno.cpp \
+	persistaluno.cpp \
+	cadastroaluno.cpp \
+	consultaaluno.cpp \
+    removealuno.cpp \
+	listaalunos.cpp \
+	matricula.cpp \
+	persistmatriculas.cpp \
+	criamatricula.cpp \
+	consultamatricula.cpp \
+	excluirmatricula.cpp \
+	listartodasmatriculas.cpp \
+	curso.cpp \
+	persistcurso.cpp \
+	cadcurso.cpp \
+	consultarcurso.cpp \
+	removecurso.cpp \
+	listarcurso.cpp \
+	cadastro_professor.cpp \
+	consulta_professor.cpp \
+	listar_professor.cpp \
+	PersistProfessor.cpp \
+	professor.cpp \
+	remove_professor.cpp
 
-HEADERS += \
-    cpf.h \
-    menu_principal.h \
-    opcao_cadastrar.h \
+HEADERS  += mainwindow.h \
 	pessoa.h \
+	aluno.h \
+	persistaluno.h \
+	cadastroaluno.h \
+	consultaaluno.h \
+    removealuno.h \
+	listaalunos.h \
+	matricula.h \
+	persistmatriculas.h \
+	criamatricula.h \
+	consultamatricula.h \
+	excluirmatricula.h \
+	listartodasmatriculas.h \
+	curso.h \
+	consultarcurso.h \
+	cadcurso.h \
+	listarcurso.h \
+	persistcurso.h \
+	removecurso.h \
+	cadastro_professor.h \
+	consulta_professor.h \
+	listar_professor.h \
+	PersistProfessor.h \
+	professor.h \
+	remove_professor.h
 
-FORMS += \
-    cpf.ui \
-    menu_principal.ui \
-    opcao_cadastrar.ui
+FORMS += mainwindow.ui \
+	cadastroaluno.ui \
+	consultaaluno.ui \
+    removealuno.ui \
+	listaalunos.ui \
+	criamatricula.ui \
+	consultamatricula.ui \
+	excluirmatricula.ui \
+	listartodasmatriculas.ui \
+	cadcurso.ui \
+	consultarcurso.ui \
+	listarcurso.ui \
+	removecurso.ui \
+	cadastro_professor.ui \
+	consulta_professor.ui \
+	listar_professor.ui \
+	remove_professor.ui
 
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
-
-DISTFILES += \
 
 RESOURCES += \
-    Imagens/imagens.qrc
+		recursos.qrc
+

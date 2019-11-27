@@ -1,66 +1,105 @@
 #include "pessoa.h"
+#include "persistaluno.h"
 
 Pessoa::Pessoa()
 {
 
 }
 
-QString Pessoa::getCpf() const
+Pessoa::~Pessoa()
 {
-	return cpf;
+
 }
 
-void Pessoa::setCpf(const QString &value)
+QSqlQueryModel *Pessoa::getEstados()
 {
-	cpf = value;
+	PersistAluno Sqlite;
+	return Sqlite.getEstados();
 }
 
-QString Pessoa::getNome() const
+QSqlQueryModel *Pessoa::getCidades(int codEstado)
 {
-	return nome;
+	PersistAluno Sqlite;
+	return Sqlite.getCidades(codEstado);
 }
 
-void Pessoa::setNome(const QString &value)
+int Pessoa::getCodCidades(QString nome, int estado)
 {
-	nome = value;
+	PersistAluno Sqlite;
+	return Sqlite.getCodCidades(nome, estado);
 }
 
-QString Pessoa::getEndereco() const
+QSqlQueryModel *Pessoa::getCursos()
 {
-	return endereco;
+	PersistAluno Sqlite;
+	return Sqlite.getCursos();
 }
 
-void Pessoa::setEndereco(const QString &value)
+int Pessoa::getCodCurso(QString nome)
 {
-	endereco = value;
+	PersistAluno Sqlite;
+	return Sqlite.getCodCurso(nome);
 }
 
-QString Pessoa::getSetor() const
+bool Pessoa::validCpf(QString cpf)
 {
-	return setor;
+	if (cpf.length() < 14)
+		return false;
+	else {
+		int sumDigitOne = 0;
+		int restDigitOne = 0;
+		int sumDigitTwo = 0;
+		int restDigitTwo = 0;
+		QString tmpCpf[11];
+		int vetCpf[11];
+
+		cpf.remove('.');
+		cpf.remove('-');
+
+		// Cpf to int
+		for (int i = 0; i < 11; i++) {
+			tmpCpf[i] = cpf.at(i);
+			vetCpf[i] = tmpCpf[i].toInt();
+		}
+
+		// CPFs inválidos conhecidos (222.222.222-22)
+		for (int i = 0, f = 0; i < 11; i++) {
+			if (vetCpf[i] == vetCpf[i + 1])
+				f++;
+			if (f == 10)
+				return false;
+		}
+
+		// Validar 1o dígito
+		for (int i = 0, f = 10; i < 9; i++) {
+			sumDigitOne += (vetCpf[i] * f);
+			f--;
+		}
+		restDigitOne = ((sumDigitOne*10) % 11);
+		if (restDigitOne == 10)
+			restDigitOne = 0; // Se for igual a 10 considera 0
+
+		// Validar 2o dígito
+		for (int i = 0, f = 11; i < 10; i++) {
+			sumDigitTwo += (vetCpf[i] * f);
+			f--;
+		}
+		restDigitTwo = ((sumDigitTwo * 10) % 11);
+		if (restDigitTwo == 10)
+			restDigitTwo = 0; // Se for igual a 10 considera 0
+
+		// Validar dígitos
+		if ((restDigitOne == vetCpf[9]) && (restDigitTwo == vetCpf[10])) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 }
 
-void Pessoa::setSetor(const QString &value)
+bool Pessoa::analisaPessoa(QString cpf)
 {
-	setor = value;
-}
-
-QString Pessoa::getCelular() const
-{
-	return celular;
-}
-
-void Pessoa::setCelular(const QString &value)
-{
-	celular = value;
-}
-
-QString Pessoa::getEmail() const
-{
-	return email;
-}
-
-void Pessoa::setEmail(const QString &value)
-{
-	email = value;
+	PersistAluno Sqlite;
+	return Sqlite.analisaPessoa(cpf);
 }
