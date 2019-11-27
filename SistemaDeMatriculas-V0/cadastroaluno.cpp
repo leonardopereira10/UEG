@@ -221,7 +221,7 @@ void cadastroAluno::on_btnCadastrar_clicked()
 			}
 		}
 		else {
-			QMessageBox::warning(this, "Atenção", "Já existe um aluno cadastrado com este cpf");
+			QMessageBox::warning(this, "Atenção", "Já existe um cadastro para este cpf");
 		}
 	}
 	janelaCadastro->campoCpf->setFocus();
@@ -238,7 +238,7 @@ void cadastroAluno::on_campoCpf_textChanged()
 			janelaCadastro->labelValidFields->clear();
 		}
 		else {
-			QMessageBox::warning(this, "Atenção", "Já existe um aluno cadastrado com este cpf");
+			QMessageBox::warning(this, "Atenção", "Já existe um cadastro para este cpf");
 			janelaCadastro->campoCpf->setFocus();
 			janelaCadastro->campoCpf->selectAll();
 			limparCampos();

@@ -33,6 +33,7 @@ protected:
 
 	QString cpf;
 	QString nome;
+	QDate dtNascimento;
 	QString endereco;
 	QString setor;
 	int cidade;

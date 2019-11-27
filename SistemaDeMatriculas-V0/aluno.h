@@ -20,7 +20,6 @@ public:
 	int getCurso() const;
 	virtual QString getCpf() const;
 	virtual QString getNome() const;
-	virtual QDate getDtNascimento() const;
 	virtual QString getEndereco() const;
 	virtual QString getSetor() const;
 	virtual int getCidade() const;

@@ -42,7 +42,7 @@
        <bool>true</bool>
       </property>
       <property name="alternatingRowColors">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="sortingEnabled">
        <bool>false</bool>

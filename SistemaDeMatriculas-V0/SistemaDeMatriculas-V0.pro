@@ -32,6 +32,24 @@ SOURCES += main.cpp\
 	consultaaluno.cpp \
     removealuno.cpp \
 	listaalunos.cpp \
+	matricula.cpp \
+	persistmatriculas.cpp \
+	criamatricula.cpp \
+	consultamatricula.cpp \
+	excluirmatricula.cpp \
+	listartodasmatriculas.cpp \
+	curso.cpp \
+	persistcurso.cpp \
+	cadcurso.cpp \
+	consultarcurso.cpp \
+	removecurso.cpp \
+	listarcurso.cpp \
+	cadastro_professor.cpp \
+	consulta_professor.cpp \
+	listar_professor.cpp \
+	PersistProfessor.cpp \
+	professor.cpp \
+	remove_professor.cpp
 
 HEADERS  += mainwindow.h \
 	pessoa.h \
@@ -41,12 +59,42 @@ HEADERS  += mainwindow.h \
 	consultaaluno.h \
     removealuno.h \
 	listaalunos.h \
+	matricula.h \
+	persistmatriculas.h \
+	criamatricula.h \
+	consultamatricula.h \
+	excluirmatricula.h \
+	listartodasmatriculas.h \
+	curso.h \
+	consultarcurso.h \
+	cadcurso.h \
+	listarcurso.h \
+	persistcurso.h \
+	removecurso.h \
+	cadastro_professor.h \
+	consulta_professor.h \
+	listar_professor.h \
+	PersistProfessor.h \
+	professor.h \
+	remove_professor.h
 
 FORMS += mainwindow.ui \
 	cadastroaluno.ui \
 	consultaaluno.ui \
     removealuno.ui \
 	listaalunos.ui \
+	criamatricula.ui \
+	consultamatricula.ui \
+	excluirmatricula.ui \
+	listartodasmatriculas.ui \
+	cadcurso.ui \
+	consultarcurso.ui \
+	listarcurso.ui \
+	removecurso.ui \
+	cadastro_professor.ui \
+	consulta_professor.ui \
+	listar_professor.ui \
+	remove_professor.ui
 
 
 RESOURCES += \

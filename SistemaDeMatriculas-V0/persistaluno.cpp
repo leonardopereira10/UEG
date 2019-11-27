@@ -3,7 +3,7 @@
 PersistAluno::PersistAluno()
 {
 	db = QSqlDatabase::addDatabase("QSQLITE");
-	db.setDatabaseName("/home/lucas/UEG/SistemaDeMatriculas-V0/Projeto.db");
+	db.setDatabaseName("Projeto.db");
 }
 
 PersistAluno::~PersistAluno()
@@ -13,9 +13,9 @@ PersistAluno::~PersistAluno()
 
 QSqlQueryModel *PersistAluno::getEstados()
 {
+	db.open();
 	QSqlQueryModel *modelEstados = new QSqlQueryModel();
 	QSqlQuery query(db);
-	db.open();
 	query.prepare("SELECT sigla FROM estados ORDER BY Estados.sigla asc");
 	if(!query.exec())
 		qDebug() << "PersistAluno::getEstados()\n\tdb: " << db.lastError() << "\n\tquery: " << query.lastError();
@@ -26,9 +26,9 @@ QSqlQueryModel *PersistAluno::getEstados()
 
 QSqlQueryModel *PersistAluno::getCidades(int &codEstado)
 {
+	db.open();
 	QSqlQueryModel *modelCidades = new QSqlQueryModel();
 	QSqlQuery query(db);
-	db.open();
 	query.prepare("SELECT Cidades.Cidade "
 				   "FROM Cidades, Estados "
 				   "WHERE Cidades.FK_IDEstado=Estados.IDEstado "
@@ -43,9 +43,9 @@ QSqlQueryModel *PersistAluno::getCidades(int &codEstado)
 
 int PersistAluno::getCodCidades(QString &nome, int &estado)
 {
+	db.open();
 	int cod;
 	QSqlQuery query(db);
-	db.open();
 	query.prepare("SELECT Cidades.IDCidade "
 				   "FROM Cidades "
 				   "WHERE Cidades.Cidade=:nome "
@@ -62,9 +62,9 @@ int PersistAluno::getCodCidades(QString &nome, int &estado)
 
 QSqlQueryModel *PersistAluno::getCursos()
 {
+	db.open();
 	QSqlQueryModel *modelCursos = new QSqlQueryModel();
 	QSqlQuery query(db);
-	db.open();
 	query.prepare("SELECT Cursos.Curso FROM Cursos ORDER BY Cursos.Curso asc");
 	if(!query.exec())
 		qDebug() << "PersistAluno::getCursos()\n\tdb: " << db.lastError() << "\n\tquery: " << query.lastError();
@@ -75,9 +75,9 @@ QSqlQueryModel *PersistAluno::getCursos()
 
 int PersistAluno::getCodCurso(QString &nome)
 {
+	db.open();
 	int cod;
 	QSqlQuery query(db);
-	db.open();
 	query.prepare("SELECT Cursos.IDCurso "
 				   "FROM Cursos "
 				   "WHERE Cursos.Curso=:nome");
@@ -92,9 +92,9 @@ int PersistAluno::getCodCurso(QString &nome)
 
 bool PersistAluno::analisaPessoa(QString &cpf)
 {
+	db.open();
 	bool result = true;
 	QSqlQuery query(db);
-	db.open();
 	query.prepare("SELECT COUNT(Pessoas.CPF) "
 				   "FROM Pessoas "
 				   "WHERE Pessoas.CPF=:cpf");
@@ -110,9 +110,9 @@ bool PersistAluno::analisaPessoa(QString &cpf)
 
 bool PersistAluno::analisaAluno(int &matricula)
 {
+	db.open();
 	bool result = false;
 	QSqlQuery query(db);
-	db.open();
 	query.prepare("SELECT COUNT(Alunos.Matricula) "
 				  "FROM Alunos "
 				  "WHERE Alunos.Matricula=:matricula");
@@ -128,9 +128,9 @@ bool PersistAluno::analisaAluno(int &matricula)
 
 bool PersistAluno::cadastraAluno(Aluno &aluno)
 {
+	db.open();
 	bool result = true;
 	QSqlQuery query(db);
-	db.open();
 	query.prepare("INSERT INTO Pessoas(CPF, Nome, Endereco, Setor, FK_IDCidade, Telefone, Email) "
 				   "VALUES(:pCpf, :pNome, :pEndereco, :pSetor, :pCidade, :pTelefone, :pEmail); ");
 	query.bindValue(":pCpf", aluno.getCpf());
@@ -159,8 +159,8 @@ bool PersistAluno::cadastraAluno(Aluno &aluno)
 
 int PersistAluno::getMatricula_fromDB(QString &cpf)
 {
-	QSqlQuery query(db);
 	db.open();
+	QSqlQuery query(db);
 	query.prepare("SELECT Alunos.Matricula "
 					   "FROM Alunos "
 					   "WHERE Alunos.FK_CPF=:cpf");
@@ -174,9 +174,9 @@ int PersistAluno::getMatricula_fromDB(QString &cpf)
 
 QSqlQueryModel *PersistAluno::consultaAlunoCpf(Aluno &alunoCpf)
 {
+	db.open();
 	QSqlQueryModel *model = new QSqlQueryModel();
 	QSqlQuery query(db);
-	db.open();
 	query.prepare("SELECT Pessoas.CPF, Pessoas.Nome, Alunos.Matricula, Cursos.Curso, Alunos.Ano, Pessoas.Endereco, Pessoas.Setor, Cidades.Cidade, Estados.Estado, Pessoas.Telefone, Pessoas.Email "
 				  "FROM Pessoas, Alunos, Cursos, Estados, Cidades "
 				  "WHERE Pessoas.CPF=:cpf AND Alunos.FK_CPF=Pessoas.CPF AND Pessoas.FK_IDCidade=Cidades.IDCidade AND Alunos.FK_IDCurso=Cursos.IDCurso AND Cidades.FK_IDEstado=Estados.IDEstado "
@@ -191,9 +191,9 @@ QSqlQueryModel *PersistAluno::consultaAlunoCpf(Aluno &alunoCpf)
 
 QSqlQueryModel *PersistAluno::consultaAlunoNome(Aluno &alunoNome)
 {
+	db.open();
 	QSqlQueryModel *model = new QSqlQueryModel();
 	QSqlQuery query(db);
-	db.open();
 	query.prepare("SELECT Pessoas.CPF, Pessoas.Nome, Alunos.Matricula, Cursos.Curso, Alunos.Ano, Pessoas.Endereco, Pessoas.Setor, Cidades.Cidade, Estados.Estado, Pessoas.Telefone, Pessoas.Email "
 				  "FROM Pessoas, Alunos, Cursos, Estados, Cidades "
 				  "WHERE Alunos.FK_CPF=Pessoas.CPF AND Pessoas.Nome LIKE '"+alunoNome.getNome()+"%' AND Pessoas.FK_IDCidade=Cidades.IDCidade AND Alunos.FK_IDCurso=Cursos.IDCurso AND Cidades.FK_IDEstado=Estados.IDEstado "
@@ -207,9 +207,9 @@ QSqlQueryModel *PersistAluno::consultaAlunoNome(Aluno &alunoNome)
 
 QSqlQueryModel *PersistAluno::consultaAlunoMatricula(Aluno &alunoMatricula)
 {
+	db.open();
 	QSqlQueryModel *model = new QSqlQueryModel();
 	QSqlQuery query(db);
-	db.open();
 	query.prepare("SELECT Pessoas.CPF, Pessoas.Nome, Alunos.Matricula, Cursos.Curso, Alunos.Ano, Pessoas.Endereco, Pessoas.Setor, Cidades.Cidade, Estados.Estado, Pessoas.Telefone, Pessoas.Email "
 				  "FROM Pessoas, Alunos, Cursos, Estados, Cidades "
 				  "WHERE Alunos.FK_CPF=Pessoas.CPF AND Alunos.Matricula=:matricula AND Pessoas.FK_IDCidade=Cidades.IDCidade AND Alunos.FK_IDCurso=Cursos.IDCurso AND Cidades.FK_IDEstado=Estados.IDEstado "
@@ -224,9 +224,9 @@ QSqlQueryModel *PersistAluno::consultaAlunoMatricula(Aluno &alunoMatricula)
 
 bool PersistAluno::removeAluno(int &matricula)
 {
+	db.open();
 	bool result = true;
 	QSqlQuery query(db);
-	db.open();
 	db.exec("PRAGMA foreign_keys = ON;");
 	query.prepare("DELETE FROM Pessoas "
 				  "WHERE EXISTS( "
@@ -244,13 +244,13 @@ bool PersistAluno::removeAluno(int &matricula)
 
 QSqlQueryModel *PersistAluno::listaAlunos(QString &coluna, QString &ordem)
 {
+	db.open();
 	QSqlQueryModel *model = new QSqlQueryModel();
 	QSqlQuery query(db);
-	db.open();
 	query.prepare("SELECT Pessoas.CPF, Pessoas.Nome, Alunos.Matricula, Cursos.Curso, Alunos.Ano, Pessoas.Endereco, Pessoas.Setor, Cidades.Cidade, Estados.Estado, Pessoas.Telefone, Pessoas.Email "
 				  "FROM Pessoas, Alunos, Cursos, Estados, Cidades "
 				  "WHERE Alunos.FK_CPF=Pessoas.CPF AND Pessoas.FK_IDCidade=Cidades.IDCidade AND Alunos.FK_IDCurso=Cursos.IDCurso AND Cidades.FK_IDEstado=Estados.IDEstado "
-				  "ORDER BY "+coluna +" "+ordem+";");
+				  "ORDER BY "+coluna+" "+ordem+";");
 	if(!query.exec())
 		qDebug() << "PersistAluno::listaAlunos\n\tdb: " << db.lastError() << "\n\tquery: " << query.lastError();
 	model->setQuery(query);
