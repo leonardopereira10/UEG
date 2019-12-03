@@ -14,7 +14,7 @@
    <enum>Qt::StrongFocus</enum>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Consulta matricula</string>
   </property>
   <property name="windowIcon">
    <iconset resource="recursos.qrc">
@@ -39,7 +39,7 @@
     <number>250</number>
    </attribute>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>31</x>
