@@ -1,5 +1,7 @@
 #include "pessoa.h"
 #include "persistaluno.h"
+#include <QDebug>
+#include <iostream>
 
 Pessoa::Pessoa()
 {
@@ -63,10 +65,11 @@ bool Pessoa::validCpf(QString cpf)
 		}
 
 		// CPFs inválidos conhecidos (222.222.222-22)
-		for (int i = 0, f = 0; i < 11; i++) {
-			if (vetCpf[i] == vetCpf[i + 1])
-				f++;
-			if (f == 10)
+		for (int i = 0, x = 0; i < 11; i++) {
+			if(i == 11) break;
+			if (vetCpf[i] == vetCpf[i+1])
+				x++;
+			if (x == 10)
 				return false;
 		}
 

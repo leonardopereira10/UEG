@@ -4,7 +4,7 @@ PersistCurso::PersistCurso()
 {
     if(QSqlDatabase::isDriverAvailable("QSQLITE")) {
         db = QSqlDatabase::addDatabase("QSQLITE");
-		db.setDatabaseName("Projeto.db");
+		db.setDatabaseName("/opt/SCM/Projeto.db");
     }
     else {
            qDebug() <<"PersistCurso::PersistCurso(): " << db.lastError();

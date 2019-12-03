@@ -1,6 +1,6 @@
 #include "persistmatriculas.h"
 
-PersistMatriculas::PersistMatriculas() { db.setDatabaseName("Projeto.db"); }
+PersistMatriculas::PersistMatriculas() { db.setDatabaseName("/opt/SCM/Projeto.db"); }
 
 void PersistMatriculas::ExcluirMatricula(Matricula &dto) {
     db.open();

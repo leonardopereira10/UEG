@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Remover curso</string>
   </property>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
@@ -19,7 +19,7 @@
      <x>10</x>
      <y>10</y>
      <width>137</width>
-     <height>86</height>
+     <height>89</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">

@@ -3,7 +3,7 @@
 PersistAluno::PersistAluno()
 {
 	db = QSqlDatabase::addDatabase("QSQLITE");
-	db.setDatabaseName("Projeto.db");
+	db.setDatabaseName("/opt/SCM/Projeto.db");
 }
 
 PersistAluno::~PersistAluno()

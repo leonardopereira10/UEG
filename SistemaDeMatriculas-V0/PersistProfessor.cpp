@@ -5,7 +5,7 @@
 PersistProfessor::PersistProfessor()
 {    
     db = QSqlDatabase::addDatabase("QSQLITE");
-	db.setDatabaseName("Projeto.db");
+	db.setDatabaseName("/opt/SCM/Projeto.db");
 
 }
 
